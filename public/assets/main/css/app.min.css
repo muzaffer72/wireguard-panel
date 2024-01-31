@@ -368,6 +368,10 @@
     src: url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLBT5Z1xlFd2JQEk.woff2) format('woff2');
     unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
     display: flex;
     flex-direction: column;
@@ -796,6 +800,7 @@ a:hover {
 }
 
 @media (min-width: 1400px) {
+
     .ai-image:hover p,
     .ai-image:hover .btn {
         transform: translateZ(0);
@@ -874,13 +879,13 @@ a:hover {
 
 .btn.btn-light {
     color: #212529;
-    background: linear-gradient( 180deg, #fff, #f9fafb);
+    background: linear-gradient(180deg, #fff, #f9fafb);
     border-color: #c4cdd5;
     box-shadow: 0 1px 0 0 rgb(22 29 37 / 5%);
 }
 
 .btn.btn-light:hover {
-    background: linear-gradient( 180deg, #f9fafb, #f4f6f8);
+    background: linear-gradient(180deg, #f9fafb, #f4f6f8);
     border-color: #c4cdd5;
 }
 
@@ -1258,10 +1263,12 @@ a:hover {
         transition: 0.3s;
         z-index: 1030;
     }
+
     .nav-bar .nav-bar-menu.show {
         visibility: visible;
         opacity: 1;
     }
+
     .nav-bar .nav-bar-menu.show .nav-bar-links {
         right: 0;
     }
@@ -2244,6 +2251,7 @@ a:hover {
 }
 
 @media (max-width: 575.98px) {
+
     .user-menu .user-name,
     .user-menu i {
         display: none;
@@ -2577,6 +2585,7 @@ a:hover {
     0% {
         opacity: 0;
     }
+
     100% {
         opacity: 1;
     }
@@ -2804,6 +2813,7 @@ a:hover {
     0% {
         opacity: 0;
     }
+
     100% {
         opacity: 1;
     }
@@ -3938,7 +3948,7 @@ a:hover {
 }
 
 .generator-search.v2 .form-control {
-    border-radius: 10px!important;
+    border-radius: 10px !important;
     border: 1px solid #eee;
     padding-left: 20px;
     margin-bottom: 0;

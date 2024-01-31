@@ -1,4 +1,5 @@
 @import '../../global/css/fonts.css';
+
 body {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -496,6 +497,7 @@ a:hover {
 }
 
 @media (min-width: 1400px) {
+
     .ai-image:hover p,
     .ai-image:hover .btn {
         -webkit-transform: translateZ(0);
@@ -598,13 +600,13 @@ a:hover {
 
 .btn.btn-light {
     color: #212529;
-    background: linear-gradient( 180deg, #fff, #f9fafb);
+    background: linear-gradient(180deg, #fff, #f9fafb);
     border-color: #c4cdd5;
     box-shadow: 0 1px 0 0 rgb(22 29 37 / 5%);
 }
 
 .btn.btn-light:hover {
-    background: linear-gradient( 180deg, #f9fafb, #f4f6f8);
+    background: linear-gradient(180deg, #f9fafb, #f4f6f8);
     border-color: #c4cdd5;
 }
 
@@ -1024,10 +1026,12 @@ a:hover {
         transition: 0.3s;
         z-index: 1030;
     }
+
     .nav-bar .nav-bar-menu.show {
         visibility: visible;
         opacity: 1;
     }
+
     .nav-bar .nav-bar-menu.show .nav-bar-links {
         right: 0;
     }
@@ -2175,6 +2179,7 @@ a:hover {
 }
 
 @media (max-width: 575.98px) {
+
     .user-menu .user-name,
     .user-menu i {
         display: none;
@@ -2563,6 +2568,7 @@ a:hover {
     0% {
         opacity: 0;
     }
+
     100% {
         opacity: 1;
     }
@@ -2572,6 +2578,7 @@ a:hover {
     0% {
         opacity: 0;
     }
+
     100% {
         opacity: 1;
     }
@@ -2842,6 +2849,7 @@ a:hover {
     0% {
         opacity: 0;
     }
+
     100% {
         opacity: 1;
     }
@@ -2851,6 +2859,7 @@ a:hover {
     0% {
         opacity: 0;
     }
+
     100% {
         opacity: 1;
     }
@@ -4137,7 +4146,7 @@ a:hover {
 }
 
 .generator-search.v2 .form-control {
-    border-radius: 10px!important;
+    border-radius: 10px !important;
     border: 1px solid #eee;
     padding-left: 20px;
     margin-bottom: 0;
