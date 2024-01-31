@@ -19,9 +19,9 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 use Jenssegers\Date\Date;
 use Vinkla\Hashids\Facades\Hashids;
-use Vironeer\BrowserDetector;
-use Vironeer\IpInfo;
-use Vironeer\OSDetector;
+use Utils\BrowserDetector;
+use Utils\IpInfo;
+use Utils\OSDetector;
 
 function demoMode()
 {
@@ -836,7 +836,7 @@ function languages()
 
 function localizeOptions()
 {
-    if (@settings('actions')->language_type) {
+    if (settings('actions')->language_type) {
         return [
             'prefix' => LaravelLocalization::setLocale(),
             'middleware' => ['localize', 'localizationRedirect', 'localeSessionRedirect', 'UserStatusCheck', 'notInstalled'],

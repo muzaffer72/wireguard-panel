@@ -40,12 +40,12 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->app->bind('path.public', function () {
-                return base_path() . '/../';
+                return base_path() . '/public';
             });
 
             Paginator::useBootstrap();
 
-            if (@settings('actions')->language_type) {
+            if (settings('actions')->language_type) {
                 Config::set('laravellocalization.supportedLocales', getSupportedLocales());
             }
 
@@ -55,7 +55,7 @@ class AppServiceProvider extends ServiceProvider
 
             if (!isAdminPath()) {
 
-                if (@settings('actions')->force_ssl_status) {
+                if (settings('actions')->force_ssl_status) {
                     $this->app['request']->server->set('HTTPS', true);
                 }
 
