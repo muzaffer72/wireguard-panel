@@ -836,7 +836,7 @@ function languages()
 
 function localizeOptions()
 {
-    if (settings('actions')->language_type) {
+    if (@settings('actions')->language_type) {
         return [
             'prefix' => LaravelLocalization::setLocale(),
             'middleware' => ['localize', 'localizationRedirect', 'localeSessionRedirect', 'UserStatusCheck', 'notInstalled'],
