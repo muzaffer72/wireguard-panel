@@ -1,6 +1,6 @@
 <?php
 
-namespace Vironeer;
+namespace Utils;
 
 class BrowserDetector
 {

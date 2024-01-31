@@ -1,6 +1,6 @@
 <?php
 
-namespace Vironeer;
+namespace Utils;
 
 use Illuminate\Support\Facades\Cache;
 

@@ -11,6 +11,7 @@ return array(
     'WpOrg\\Requests\\' => array($vendorDir . '/rmccue/requests/src'),
     'Whoops\\' => array($vendorDir . '/filp/whoops/src/Whoops'),
     'Webmozart\\Assert\\' => array($vendorDir . '/webmozart/assert/src'),
+    'Vironeer\\' => array($baseDir . '/vironeer'),
     'Vinkla\\Hashids\\' => array($vendorDir . '/vinkla/hashids/src'),
     'Trustip\\Trustip\\' => array($vendorDir . '/trustip/trustip/src'),
     'TijsVerkoyen\\CssToInlineStyles\\' => array($vendorDir . '/tijsverkoyen/css-to-inline-styles/src'),

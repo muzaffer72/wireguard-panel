@@ -64,6 +64,7 @@ class ComposerStaticInitfb84c7e3a6d7a9d3807babcb3bc545df
         ),
         'V' => 
         array (
+            'Vironeer\\' => 9,
             'Vinkla\\Hashids\\' => 15,
         ),
         'T' => 
@@ -251,6 +252,10 @@ class ComposerStaticInitfb84c7e3a6d7a9d3807babcb3bc545df
         'Webmozart\\Assert\\' => 
         array (
             0 => __DIR__ . '/..' . '/webmozart/assert/src',
+        ),
+        'Vironeer\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/vironeer',
         ),
         'Vinkla\\Hashids\\' => 
         array (
@@ -8550,6 +8555,9 @@ class ComposerStaticInitfb84c7e3a6d7a9d3807babcb3bc545df
         'Vinkla\\Hashids\\HashidsFactory' => __DIR__ . '/..' . '/vinkla/hashids/src/HashidsFactory.php',
         'Vinkla\\Hashids\\HashidsManager' => __DIR__ . '/..' . '/vinkla/hashids/src/HashidsManager.php',
         'Vinkla\\Hashids\\HashidsServiceProvider' => __DIR__ . '/..' . '/vinkla/hashids/src/HashidsServiceProvider.php',
+        'Vironeer\\BrowserDetector' => __DIR__ . '/../..' . '/vironeer/BrowserDetector.php',
+        'Vironeer\\IpInfo' => __DIR__ . '/../..' . '/vironeer/IpInfo.php',
+        'Vironeer\\OSDetector' => __DIR__ . '/../..' . '/vironeer/OSDetector.php',
         'Webmozart\\Assert\\Assert' => __DIR__ . '/..' . '/webmozart/assert/src/Assert.php',
         'Webmozart\\Assert\\InvalidArgumentException' => __DIR__ . '/..' . '/webmozart/assert/src/InvalidArgumentException.php',
         'Webmozart\\Assert\\Mixin' => __DIR__ . '/..' . '/webmozart/assert/src/Mixin.php',
