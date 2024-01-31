@@ -64,11 +64,6 @@ class ComposerStaticInitfb84c7e3a6d7a9d3807babcb3bc545df
         ),
         'V' => 
         array (
-            'Vironeer\\Plugins\\App\\' => 21,
-            'Vironeer\\Plugins\\' => 17,
-            'Vironeer\\License\\App\\' => 21,
-            'Vironeer\\License\\' => 17,
-            'Vironeer\\' => 9,
             'Vinkla\\Hashids\\' => 15,
         ),
         'T' => 
@@ -257,26 +252,6 @@ class ComposerStaticInitfb84c7e3a6d7a9d3807babcb3bc545df
         array (
             0 => __DIR__ . '/..' . '/webmozart/assert/src',
         ),
-        'Vironeer\\Plugins\\App\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/plugins/app',
-        ),
-        'Vironeer\\Plugins\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/plugins',
-        ),
-        'Vironeer\\License\\App\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/vironeer/License/app',
-        ),
-        'Vironeer\\License\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/vironeer/License',
-        ),
-        'Vironeer\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/vironeer',
-        ),
         'Vinkla\\Hashids\\' => 
         array (
             0 => __DIR__ . '/..' . '/vinkla/hashids/src',
@@ -459,8 +434,8 @@ class ComposerStaticInitfb84c7e3a6d7a9d3807babcb3bc545df
         ),
         'Psr\\Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/http-message/src',
-            1 => __DIR__ . '/..' . '/psr/http-factory/src',
+            0 => __DIR__ . '/..' . '/psr/http-factory/src',
+            1 => __DIR__ . '/..' . '/psr/http-message/src',
         ),
         'Psr\\Http\\Client\\' => 
         array (
@@ -642,8 +617,8 @@ class ComposerStaticInitfb84c7e3a6d7a9d3807babcb3bc545df
         ),
         'Fruitcake\\Cors\\' => 
         array (
-            0 => __DIR__ . '/..' . '/fruitcake/php-cors/src',
-            1 => __DIR__ . '/..' . '/fruitcake/laravel-cors/src',
+            0 => __DIR__ . '/..' . '/fruitcake/laravel-cors/src',
+            1 => __DIR__ . '/..' . '/fruitcake/php-cors/src',
         ),
         'Faker\\' => 
         array (
@@ -8575,8 +8550,6 @@ class ComposerStaticInitfb84c7e3a6d7a9d3807babcb3bc545df
         'Vinkla\\Hashids\\HashidsFactory' => __DIR__ . '/..' . '/vinkla/hashids/src/HashidsFactory.php',
         'Vinkla\\Hashids\\HashidsManager' => __DIR__ . '/..' . '/vinkla/hashids/src/HashidsManager.php',
         'Vinkla\\Hashids\\HashidsServiceProvider' => __DIR__ . '/..' . '/vinkla/hashids/src/HashidsServiceProvider.php',
-        'Vironeer\\Plugins\\App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/plugins/app/Http/Controllers/Controller.php',
-        'Vironeer\\Plugins\\App\\Providers\\PluginsServiceProvider' => __DIR__ . '/../..' . '/plugins/app/Providers/PluginsServiceProvider.php',
         'Webmozart\\Assert\\Assert' => __DIR__ . '/..' . '/webmozart/assert/src/Assert.php',
         'Webmozart\\Assert\\InvalidArgumentException' => __DIR__ . '/..' . '/webmozart/assert/src/InvalidArgumentException.php',
         'Webmozart\\Assert\\Mixin' => __DIR__ . '/..' . '/webmozart/assert/src/Mixin.php',

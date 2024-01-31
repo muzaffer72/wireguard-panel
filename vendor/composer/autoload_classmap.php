@@ -7828,8 +7828,6 @@ return array(
     'Vinkla\\Hashids\\HashidsFactory' => $vendorDir . '/vinkla/hashids/src/HashidsFactory.php',
     'Vinkla\\Hashids\\HashidsManager' => $vendorDir . '/vinkla/hashids/src/HashidsManager.php',
     'Vinkla\\Hashids\\HashidsServiceProvider' => $vendorDir . '/vinkla/hashids/src/HashidsServiceProvider.php',
-    'Vironeer\\Plugins\\App\\Http\\Controllers\\Controller' => $baseDir . '/plugins/app/Http/Controllers/Controller.php',
-    'Vironeer\\Plugins\\App\\Providers\\PluginsServiceProvider' => $baseDir . '/plugins/app/Providers/PluginsServiceProvider.php',
     'Webmozart\\Assert\\Assert' => $vendorDir . '/webmozart/assert/src/Assert.php',
     'Webmozart\\Assert\\InvalidArgumentException' => $vendorDir . '/webmozart/assert/src/InvalidArgumentException.php',
     'Webmozart\\Assert\\Mixin' => $vendorDir . '/webmozart/assert/src/Mixin.php',
