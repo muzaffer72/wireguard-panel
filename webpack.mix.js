@@ -1,0 +1,1 @@
+Mix.manifest.refresh = _ => void 0
