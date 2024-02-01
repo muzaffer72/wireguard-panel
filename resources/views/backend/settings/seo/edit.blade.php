@@ -4,7 +4,7 @@
 @section('container', 'container-max-lg')
 @section('back', route('admin.settings.seo.index'))
 @section('content')
-    <form id="vironeer-submited-form" action="{{ route('admin.settings.seo.update', $configuration->id) }}" method="POST">
+    <form id="billiongroup-submited-form" action="{{ route('admin.settings.seo.update', $configuration->id) }}" method="POST">
         @csrf
         @method('PUT')
         <div class="card">

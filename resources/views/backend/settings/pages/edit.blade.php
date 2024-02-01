@@ -7,7 +7,7 @@
         <a class="btn btn-outline-secondary" href="{{ route('page', $page->slug) }}" target="_blank"><i
                 class="fa fa-eye me-2"></i>{{ admin_lang('Preview') }}</a>
     </div>
-    <form id="vironeer-submited-form" action="{{ route('admin.settings.pages.update', $page->id) }}" method="POST">
+    <form id="billiongroup-submited-form" action="{{ route('admin.settings.pages.update', $page->id) }}" method="POST">
         @csrf
         @method('PUT')
         <div class="row">
@@ -21,7 +21,7 @@
                         </div>
                         <div class="mb-3">
                             <label class="form-label">{{ admin_lang('Slug') }} : <span class="red">*</span></label>
-                            <div class="input-group vironeer-input-group">
+                            <div class="input-group billiongroup-input-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">{{ url('/') }}/</span>
                                 </div>

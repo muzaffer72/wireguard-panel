@@ -4,7 +4,7 @@
             <div class="avatar mb-3">
                 <img id="filePreview" src="{{ asset($user->avatar) }}" class="rounded-circle border" width="150"
                     height="150">
-                <input id="selectedFileInput" data-id="{{ $user->id }}" class="vironeer-user-avatar" type="file"
+                <input id="selectedFileInput" data-id="{{ $user->id }}" class="billiongroup-user-avatar" type="file"
                     name="avatar" accept="image/png, image/jpg, image/jpeg" hidden>
                 <span class="image-error-icon error-icon d-none"><i class="far fa-times-circle"></i></span>
             </div>
@@ -15,7 +15,7 @@
             <form class="d-inline" action="{{ route('admin.users.deleteAvatar', $user->id) }}" method="POST">
                 @csrf
                 @method('DELETE')
-                <button class="vironeer-able-to-delete btn btn-danger"><i
+                <button class="billiongroup-able-to-delete btn btn-danger"><i
                         class="fas fa-times me-2"></i>{{ admin_lang('Remove') }}</button>
             </form>
         </div>

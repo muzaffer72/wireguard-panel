@@ -3,7 +3,7 @@
 @section('title', admin_lang('Personal details'))
 @section('container', 'container-max-lg')
 @section('content')
-    <form id="vironeer-submited-form" action="{{ route('admin.account.details.update') }}" method="POST"
+    <form id="billiongroup-submited-form" action="{{ route('admin.account.details.update') }}" method="POST"
         enctype="multipart/form-data">
         @csrf
         <div class="card">

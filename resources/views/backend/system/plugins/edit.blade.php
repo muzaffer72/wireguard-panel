@@ -3,13 +3,13 @@
 @section('back', route('admin.system.plugins.index'))
 @section('container', 'container-max-lg')
 @section('content')
-    <form id="vironeer-submited-form" action="{{ route('admin.system.plugins.update', $plugin->id) }}" method="POST"
+    <form id="billiongroup-submited-form" action="{{ route('admin.system.plugins.update', $plugin->id) }}" method="POST"
         enctype="multipart/form-data">
         @csrf
         @method('PUT')
         <div class="card">
             <div class="card-body">
-                <div class="vironeer-file-preview-box bg-light mb-3 p-4 text-center">
+                <div class="billiongroup-file-preview-box bg-light mb-3 p-4 text-center">
                     <div class="file-preview-box mb-3">
                         <img src="{{ $plugin->logo }}" height="100">
                     </div>

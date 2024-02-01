@@ -82,13 +82,9 @@ Route::group(['prefix' => adminPath(), 'namespace' => 'Backend'], function () {
                 Route::post('update', 'SmtpController@update')->name('update');
                 Route::post('test', 'SmtpController@test')->name('test');
             });
-            Route::name('storage.')->prefix('storage')->group(function () {
-                Route::get('/', 'StorageController@index')->name('index');
-                Route::get('edit/{storageProvider}', 'StorageController@edit')->name('edit');
-                Route::post('edit/{storageProvider}', 'StorageController@update')->name('update');
-                Route::post('connect/{storageProvider}', 'StorageController@storageTest')->name('test');
-                Route::post('default/{storageProvider}', 'StorageController@setDefault')->name('default');
-            });
+            Route::get('/affiliate', ['AffController@affiliate'])->name('affiliate');
+            Route::post('/affiliate-save', ['AffController@affiliateSave'])->name('affiliateSave');
+           
             Route::name('extensions.')->prefix('extensions')->group(function () {
                 Route::get('/', 'ExtensionController@index')->name('index');
                 Route::get('{extension}/edit', 'ExtensionController@edit')->name('edit');
@@ -133,13 +129,6 @@ Route::group(['prefix' => adminPath(), 'namespace' => 'Backend'], function () {
                 Route::resource('faqs', 'FaqController');
             });
             Route::post('ckeditor/upload', 'CKEditorController@upload');
-            Route::name('system.')->namespace('System')->prefix('system')->group(function () {
-                Route::get('info', 'InfoController@index')->name('info.index');
-                Route::post('info/cache', 'InfoController@cache')->name('info.cache');
-                Route::resource('plugins', 'PluginController')->except(['create', 'show']);
-                Route::get('editor-files', 'EditorFileController@index')->name('editor-files.index');
-                Route::delete('editor-files/{editorFile}', 'EditorFileController@destroy')->name('editor-files.destroy');
-            });
             Route::namespace('Account')->prefix('account')->group(function () {
                 Route::get('details', 'SettingsController@detailsForm')->name('account.details');
                 Route::get('security', 'SettingsController@securityForm')->name('account.security');

@@ -1,8 +1,7 @@
 @extends('backend.layouts.auth')
 @section('title', admin_lang('Login'))
 @section('content')
-    <h1 class="mb-0 h3">{{ admin_lang('Login') }}</h1>
-    <p class="card-text text-muted">{{ admin_lang('Log in to your account to continue.') }}</p>
+   
     <form action="{{ route('admin.login.store') }}" method="POST">
         @csrf
         <div class="mb-3">

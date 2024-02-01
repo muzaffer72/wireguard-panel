@@ -108,6 +108,7 @@ class RegisterController extends Controller
             'email' => ['required', 'string', 'email', 'max:100', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'terms' => ['sometimes', 'required'],
+            'affiliate_code' => Str::upper(Str::random(19)),
         ] + ReCaptchaValidation::validate());
     }
 
@@ -129,6 +130,7 @@ class RegisterController extends Controller
         $this->guard()->login($user);
         return $this->registered($request, $user)
         ?: redirect($this->redirectPath());
+        
     }
 
     /**
@@ -146,7 +148,16 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'avatar' => 'images/avatars/default.png',
             'password' => Hash::make($data['password']),
+            'affiliate_id' => $affCode,
+            'affiliate_code' => Str::upper(Str::random(12)),
         ]);
+        $affCode = null;
+        if ($request->affiliate_code != null) {
+            $affUser = User::where('affiliate_code', $request->affiliate_code)->first();
+            if ($affUser != null) {
+                $affCode = $affUser->id;
+            }
+        }
         if ($user) {
             $this->createAdminNotify($user);
             $this->createLog($user);

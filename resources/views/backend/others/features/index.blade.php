@@ -22,8 +22,8 @@
                                     class="fas fa-language me-2"></i>{{ $feature->language->name }}</a>
                         </td>
                         <td>
-                            <div class="vironeer-content-box">
-                                <a class="vironeer-content-image" href="{{ route('admin.features.edit', $feature->id) }}">
+                            <div class="billiongroup-content-box">
+                                <a class="billiongroup-content-image" href="{{ route('admin.features.edit', $feature->id) }}">
                                     <img src="{{ asset($feature->image) }}">
                                 </a>
                                 <div>
@@ -51,7 +51,7 @@
                                     <li>
                                         <form action="{{ route('admin.features.destroy', $feature->id) }}" method="POST">
                                             @csrf @method('DELETE')
-                                            <button class="vironeer-able-to-delete dropdown-item text-danger"><i
+                                            <button class="billiongroup-able-to-delete dropdown-item text-danger"><i
                                                     class="far fa-trash-alt me-2"></i>{{ admin_lang('Delete') }}</button>
                                         </form>
                                     </li>

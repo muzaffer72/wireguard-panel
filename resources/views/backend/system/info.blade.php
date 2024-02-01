@@ -87,7 +87,7 @@
         <div class="card-body">
             <form action="{{ route('admin.system.info.cache') }}" method="POST">
                 @csrf
-                <button class="btn btn-danger btn-lg w-100 vironeer-form-confirm"><i
+                <button class="btn btn-danger btn-lg w-100 billiongroup-form-confirm"><i
                         class="far fa-trash-alt me-2"></i>{{ admin_lang('Clear System Cache') }}</button>
             </form>
         </div>

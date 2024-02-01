@@ -2,7 +2,7 @@
 @section('title', admin_lang('PopUp Notice'))
 @section('container', 'container-max-lg')
 @section('content')
-    <form id="vironeer-submited-form" action="{{ route('admin.extra.notice.update') }}" method="POST">
+    <form id="billiongroup-submited-form" action="{{ route('admin.extra.notice.update') }}" method="POST">
         @csrf
         <div class="card">
             <div class="card-body my-2">

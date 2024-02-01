@@ -4,7 +4,7 @@
 @section('container', 'container-max-lg')
 @section('back', route('admin.settings.admins.index'))
 @section('content')
-    <form id="vironeer-submited-form" action="{{ route('admin.settings.admins.update', $admin->id) }}" method="POST"
+    <form id="billiongroup-submited-form" action="{{ route('admin.settings.admins.update', $admin->id) }}" method="POST"
         enctype="multipart/form-data">
         @csrf
         @method('PUT')

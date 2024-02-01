@@ -153,7 +153,7 @@
                 <form action="{{ route('admin.transactions.update', $transaction->id) }}" method="POST">
                     @csrf
                     @method('PUT')
-                    <button class="btn btn-danger btn-lg w-100 vironeer-able-to-delete">
+                    <button class="btn btn-danger btn-lg w-100 billiongroup-able-to-delete">
                         <i class="far fa-times-circle"></i>
                         <span>{{ admin_lang('Cancel Transaction') }}</span>
                     </button>

@@ -4,7 +4,7 @@
 @section('back', route('admin.settings.taxes.index'))
 @section('container', 'container-max-lg')
 @section('content')
-    <form id="vironeer-submited-form" action="{{ route('admin.settings.taxes.update', $tax->id) }}" method="POST">
+    <form id="billiongroup-submited-form" action="{{ route('admin.settings.taxes.update', $tax->id) }}" method="POST">
         @csrf
         @method('PUT')
         <div class="card">

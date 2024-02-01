@@ -8,10 +8,10 @@
 
 <body>
     @include('backend.includes.sidebar')
-    <div class="vironeer-page-content">
+    <div class="billiongroup-page-content">
         @include('backend.includes.header')
         <div class="container @yield('container')">
-            <div class="vironeer-page-body px-1 px-sm-2 px-xxl-0">
+            <div class="billiongroup-page-body px-1 px-sm-2 px-xxl-0">
                 <div class="py-4 g-4">
                     <div class="row align-items-center">
                         <div class="col">
@@ -57,13 +57,13 @@
                                 </button>
                             @endif
                             @if (request()->routeIs('admin.notifications.index'))
-                                <a class="vironeer-link-confirm btn btn-outline-success ms-2"
+                                <a class="billiongroup-link-confirm btn btn-outline-success ms-2"
                                     href="{{ route('admin.notifications.readall') }}">{{ admin_lang('Make All as Read') }}</a>
                                 <form class="d-inline ms-2" action="{{ route('admin.notifications.deleteallread') }}"
                                     method="POST">
                                     @csrf
                                     @method('DELETE')
-                                    <button class="vironeer-able-to-delete btn btn-outline-danger">
+                                    <button class="billiongroup-able-to-delete btn btn-outline-danger">
                                         {{ admin_lang('Delete All Read') }}</button>
                                 </form>
                             @endif

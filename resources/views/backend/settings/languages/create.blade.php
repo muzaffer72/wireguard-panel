@@ -4,12 +4,12 @@
 @section('container', 'container-max-lg')
 @section('back', route('admin.settings.languages.index'))
 @section('content')
-    <form id="vironeer-submited-form" action="{{ route('admin.settings.languages.store') }}" method="POST"
+    <form id="billiongroup-submited-form" action="{{ route('admin.settings.languages.store') }}" method="POST"
         enctype="multipart/form-data">
         @csrf
         <div class="card">
             <div class="card-body">
-                <div class="vironeer-file-preview-box mb-3 bg-light p-4 text-center">
+                <div class="billiongroup-file-preview-box mb-3 bg-light p-4 text-center">
                     <div class="file-preview-box mb-3 d-none">
                         <img id="filePreview" src="#" class="rounded-3" width="100" height="100">
                     </div>

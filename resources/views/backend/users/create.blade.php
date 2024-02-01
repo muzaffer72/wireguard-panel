@@ -9,7 +9,7 @@
             {{ admin_lang('User details') }}
         </div>
         <div class="card-body">
-            <form id="vironeer-submited-form" action="{{ route('admin.users.store') }}" method="POST"
+            <form id="billiongroup-submited-form" action="{{ route('admin.users.store') }}" method="POST"
                 enctype="multipart/form-data">
                 @csrf
                 <div class="avatar text-center py-4">

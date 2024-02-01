@@ -4,7 +4,7 @@
 @section('back', route('admin.settings.taxes.index'))
 @section('container', 'container-max-lg')
 @section('content')
-    <form id="vironeer-submited-form" action="{{ route('admin.settings.taxes.store') }}" method="POST">
+    <form id="billiongroup-submited-form" action="{{ route('admin.settings.taxes.store') }}" method="POST">
         @csrf
         <div class="card">
             <div class="card-body">

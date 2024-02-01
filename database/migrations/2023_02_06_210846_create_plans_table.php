@@ -19,12 +19,8 @@ return new class extends Migration
             $table->string('short_description', 150);
             $table->tinyInteger('interval')->comment('1:Monthly 2:Yearly');
             $table->float('price', 10, 2)->default(0);
-            $table->bigInteger('images')->unsigned();
-            $table->integer('max_images')->unsigned()->comment('Form 1 to 10');
-            $table->text('sizes');
             $table->integer('expiration')->nullable();
             $table->boolean('advertisements')->default(false);
-            $table->boolean('watermark')->default(false);
             $table->longText('custom_features')->nullable();
             $table->boolean('is_free')->default(false)->comment('0:No 1:Yes');
             $table->boolean('login_require')->default(true)->comment('0:No 1:Yes');

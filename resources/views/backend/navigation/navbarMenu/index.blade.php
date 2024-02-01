@@ -8,7 +8,7 @@
 @endif
 @section('content')
     @if ($navbarMenuLinks->count() > 0)
-        <form id="vironeer-submited-form" action="{{ route('admin.navbarMenu.nestable') }}" method="POST">
+        <form id="billiongroup-submited-form" action="{{ route('admin.navbarMenu.nestable') }}" method="POST">
             @csrf
             <input name="ids" id="ids" hidden>
         </form>
@@ -28,7 +28,7 @@
                                         method="POST">
                                         @method('DELETE')
                                         @csrf
-                                        <button class="vironeer-able-to-delete btn btn-sm btn-danger"><i
+                                        <button class="billiongroup-able-to-delete btn btn-sm btn-danger"><i
                                                 class="far fa-trash-alt"></i></button>
                                     </form>
                                 </div>
@@ -48,7 +48,7 @@
                                                         method="POST">
                                                         @method('DELETE')
                                                         @csrf
-                                                        <button class="vironeer-able-to-delete btn btn-sm btn-danger"><i
+                                                        <button class="billiongroup-able-to-delete btn btn-sm btn-danger"><i
                                                                 class="far fa-trash-alt"></i></button>
                                                     </form>
                                                 </div>

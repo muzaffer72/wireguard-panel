@@ -21,8 +21,8 @@
                     <tr class="item">
                         <td>{{ $file->id }}</td>
                         <td>
-                            <div class="vironeer-content-box">
-                                <div class="vironeer-content-image">
+                            <div class="billiongroup-content-box">
+                                <div class="billiongroup-content-image">
                                     <img src="{{ asset($file->path) }}">
                                 </div>
                                 <div>
@@ -46,7 +46,7 @@
                                         <form action="{{ route('admin.system.editor-files.destroy', $file->id) }}"
                                             method="POST">
                                             @csrf @method('DELETE')
-                                            <button class="vironeer-able-to-delete dropdown-item text-danger"><i
+                                            <button class="billiongroup-able-to-delete dropdown-item text-danger"><i
                                                     class="far fa-trash-alt me-2"></i>{{ admin_lang('Delete') }}</button>
                                         </form>
                                     </li>

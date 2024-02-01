@@ -5,7 +5,7 @@
 @section('content')
     <div class="card custom-card mb-3">
         <div class="card-body">
-            <form id="vironeer-submited-form" action="{{ route('admin.footerMenu.store') }}" method="POST">
+            <form id="billiongroup-submited-form" action="{{ route('admin.footerMenu.store') }}" method="POST">
                 @csrf
                 <div class="mb-3">
                     <label class="form-label">{{ admin_lang('Language') }} :<span class="red">*</span></label>

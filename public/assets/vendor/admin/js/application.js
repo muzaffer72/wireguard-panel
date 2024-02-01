@@ -1,4 +1,4 @@
-(function($) {
+(function ($) {
 
     "use strict";
 
@@ -13,7 +13,7 @@
     if (dropdown !== null) {
         dropdown.forEach((el) => {
             let dropdownFunc = () => {
-                let sideBarLinksMenu = el.querySelector('.vironeer-sidebar-link-menu');
+                let sideBarLinksMenu = el.querySelector('.billiongroup-sidebar-link-menu');
                 if (el.classList.contains('active')) {
                     sideBarLinksMenu.style.height = sideBarLinksMenu.children.length * itemHeight + 'px';
                 } else {
@@ -21,7 +21,7 @@
                 }
             };
 
-            el.querySelector('.vironeer-sidebar-link-title').onclick = () => {
+            el.querySelector('.billiongroup-sidebar-link-title').onclick = () => {
                 el.classList.toggle('active');
                 dropdownFunc();
             };
@@ -30,11 +30,11 @@
     }
 
     if (dropdownv2 !== null) {
-        dropdownv2.forEach(function(el) {
-            window.addEventListener('click', function(e) {
+        dropdownv2.forEach(function (el) {
+            window.addEventListener('click', function (e) {
                 if (el.contains(e.target)) {
                     el.classList.toggle('active');
-                    setTimeout(function() {
+                    setTimeout(function () {
                         el.classList.toggle('animated');
                     }, 0);
                 } else {
@@ -61,9 +61,9 @@
     window.addEventListener('load', dashCountersOP);
     window.addEventListener('resize', dashCountersOP);
 
-    let sideBar = document.querySelector('.vironeer-sidebar'),
-        pageContent = document.querySelector('.vironeer-page-content'),
-        sideBarIcon = document.querySelector('.vironeer-sibebar-icon');
+    let sideBar = document.querySelector('.billiongroup-sidebar'),
+        pageContent = document.querySelector('.billiongroup-page-content'),
+        sideBarIcon = document.querySelector('.billiongroup-sibebar-icon');
     if (sideBar !== null) {
         sideBarIcon.onclick = () => {
             sideBar.classList.toggle('active');
@@ -83,7 +83,7 @@
         });
     }
 
-    let sidebarLinkCounter = document.querySelectorAll(".vironeer-sidebar-link-title .counter");
+    let sidebarLinkCounter = document.querySelectorAll(".billiongroup-sidebar-link-title .counter");
     if (sidebarLinkCounter) {
         sidebarLinkCounter.forEach((el) => {
             if (el.innerHTML == 0) {
@@ -92,7 +92,7 @@
         });
     }
 
-    let navbarLinkCounter = document.querySelectorAll(".vironeer-notifications-title .counter");
+    let navbarLinkCounter = document.querySelectorAll(".billiongroup-notifications-title .counter");
     if (navbarLinkCounter) {
         navbarLinkCounter.forEach((el) => {
             if (el.innerHTML == 0) {
@@ -114,7 +114,7 @@
                 info: "Showing page _PAGE_ of _PAGES_",
             },
             "dom": '<"top"f><"table-wrapper"rt><"bottom"ilp><"clear">',
-            drawCallback: function() {
+            drawCallback: function () {
                 document.querySelector('.dataTables_wrapper .pagination').classList.add('pagination-sm');
                 $('.dataTables_filter input').attr('type', 'text');
             }
@@ -163,18 +163,18 @@
         filePreviewBox = $('.file-preview-box'),
         filePreviewImg = $('#filePreview');
 
-    selectFileBtn.on('click', function() {
+    selectFileBtn.on('click', function () {
         selectedFileInput.trigger('click');
     });
 
-    selectedFileInput.on('change', function() {
+    selectedFileInput.on('change', function () {
         var file = true,
             readLogoURL;
         if (file) {
-            readLogoURL = function(input_file) {
+            readLogoURL = function (input_file) {
                 if (input_file.files && input_file.files[0]) {
                     var reader = new FileReader();
-                    reader.onload = function(e) {
+                    reader.onload = function (e) {
                         filePreviewBox.removeClass('d-none');
                         filePreviewImg.attr('src', e.target.result);
                     }
@@ -194,14 +194,14 @@
     let createSlug = $("#create_slug"),
         showSlug = $('#show_slug');
 
-    createSlug.on('input', function() {
+    createSlug.on('input', function () {
         $.ajax({
             type: 'GET',
             url: GET_SLUG_URL,
             data: {
                 content: $(this).val(),
             },
-            success: function(data) {
+            success: function (data) {
                 showSlug.val(data.slug);
             }
         });
@@ -210,17 +210,17 @@
     let articleLang = $('#articleLang'),
         articleCategory = $('#articleCategory');
 
-    articleLang.on('change', function() {
+    articleLang.on('change', function () {
         const langCode = $(this).val();
         if (langCode) {
             $.ajax({
                 url: BASE_URL + '/blog/articles/categories/' + langCode,
                 type: "GET",
                 dataType: "json",
-                success: function(data) {
+                success: function (data) {
                     if ($.isEmptyObject(data.info)) {
                         articleCategory.empty();
-                        $.each(data, function(key, value) {
+                        $.each(data, function (key, value) {
                             articleCategory.append('<option value="' + key + '">' + value + '</option>');
                         });
                     } else {
@@ -236,8 +236,8 @@
     });
 
 
-    let ableToDeleteBtn = $('.vironeer-able-to-delete');
-    ableToDeleteBtn.on('click', function(e) {
+    let ableToDeleteBtn = $('.billiongroup-able-to-delete');
+    ableToDeleteBtn.on('click', function (e) {
         e.preventDefault();
         Swal.fire({
             title: 'Are you sure?',
@@ -254,8 +254,8 @@
         })
     });
 
-    let confirmFormBtn = $('.vironeer-form-confirm');
-    confirmFormBtn.on('click', function(e) {
+    let confirmFormBtn = $('.billiongroup-form-confirm');
+    confirmFormBtn.on('click', function (e) {
         e.preventDefault();
         Swal.fire({
             title: 'Are you sure?',
@@ -272,8 +272,8 @@
         })
     });
 
-    let confirmActionLink = $('.vironeer-link-confirm');
-    confirmActionLink.on('click', function(e) {
+    let confirmActionLink = $('.billiongroup-link-confirm');
+    confirmActionLink.on('click', function (e) {
         e.preventDefault();
         Swal.fire({
             title: 'Are you sure?',
@@ -290,21 +290,21 @@
         })
     });
 
-    let SelectImagebButton = $('.vironeer-select-image-button');
-    SelectImagebButton.on('click', function() {
+    let SelectImagebButton = $('.billiongroup-select-image-button');
+    SelectImagebButton.on('click', function () {
         var dataId = $(this).data('id');
-        let targetedImageInput = $('#vironeer-image-targeted-input-' + dataId),
-            targetedImagePreview = $('#vironeer-preview-img-' + dataId);
+        let targetedImageInput = $('#billiongroup-image-targeted-input-' + dataId),
+            targetedImagePreview = $('#billiongroup-preview-img-' + dataId);
 
         targetedImageInput.trigger('click');
-        targetedImageInput.on('change', function() {
+        targetedImageInput.on('change', function () {
             var file = true,
                 readLogoURL;
             if (file) {
-                readLogoURL = function(input_file) {
+                readLogoURL = function (input_file) {
                     if (input_file.files && input_file.files[0]) {
                         var reader = new FileReader();
-                        reader.onload = function(e) {
+                        reader.onload = function (e) {
                             targetedImagePreview.attr('src', e.target.result);
                         }
                         reader.readAsDataURL(input_file.files[0]);
@@ -336,7 +336,7 @@
 
     window.removeSpaces = () => {
         let removeSpaces = $(".remove-spaces");
-        removeSpaces.on('input', function() {
+        removeSpaces.on('input', function () {
             $(this).val($(this).val().replace(/\s/g, ""));
         });
     }
@@ -371,10 +371,10 @@
         editor.setSize(null, 400);
     }
 
-    let logsBtn = $('.vironeer-getlog-btn'),
+    let logsBtn = $('.billiongroup-getlog-btn'),
         logModal = $('#logModal');
 
-    logsBtn.on('click', function(e) {
+    logsBtn.on('click', function (e) {
         e.preventDefault();
         const userID = $(this).data('user');
         const logID = $(this).data('log');
@@ -382,7 +382,7 @@
             url: BASE_URL + '/users/' + userID + '/edit/logs/get/' + logID,
             type: 'get',
             dataType: "JSON",
-            success: function(response) {
+            success: function (response) {
                 if ($.isEmptyObject(response.error)) {
                     $('#ip').attr('href', response.ip_link).html(response.ip);
                     $('#location').html(response.location);
@@ -399,11 +399,11 @@
         });
     });
 
-    let changeUserAvatarInput = $('.vironeer-user-avatar'),
+    let changeUserAvatarInput = $('.billiongroup-user-avatar'),
         changeUserAvatarForm = $('#changeUserAvatarForm'),
         changeUserAvatarError = $('.image-error-icon');
 
-    changeUserAvatarInput.on('change', function(e) {
+    changeUserAvatarInput.on('change', function (e) {
         e.preventDefault();
         const fileExtension = ['jpeg', 'jpg', 'png'];
         const userId = $(this).data('id');
@@ -418,7 +418,7 @@
                 contentType: false,
                 cache: false,
                 processData: false,
-                success: function(response) {
+                success: function (response) {
                     if ($.isEmptyObject(response.error)) {
                         changeUserAvatarError.addClass('d-none');
                         changeUserAvatarForm.trigger("reset");
@@ -434,7 +434,7 @@
     });
 
     let input2Fa = $('#2faCheckbox');
-    input2Fa.on('change', function() {
+    input2Fa.on('change', function () {
         if ($(this).is(':checked')) {
             Swal.fire({
                 icon: "info",
@@ -446,46 +446,46 @@
         }
     });
 
-    let vironeerTargetMenu = $('.vironeer-sort-menu'),
+    let billiongroupTargetMenu = $('.billiongroup-sort-menu'),
         nestable = $('.nestable'),
         idsInput = $('#ids');
 
-    if (vironeerTargetMenu.length) {
-        vironeerTargetMenu.sortable({
-            handle: '.vironeer-navigation-handle',
-            placeholder: 'vironeer-navigation-placeholder',
+    if (billiongroupTargetMenu.length) {
+        billiongroupTargetMenu.sortable({
+            handle: '.billiongroup-navigation-handle',
+            placeholder: 'billiongroup-navigation-placeholder',
             axis: "y",
-            update: function() {
-                const vironeerSortData = vironeerTargetMenu.sortable('toArray', {
+            update: function () {
+                const billiongroupSortData = billiongroupTargetMenu.sortable('toArray', {
                     attribute: 'data-id'
                 })
-                idsInput.attr('value', vironeerSortData.join(','));
+                idsInput.attr('value', billiongroupSortData.join(','));
             }
         });
     }
 
     if (nestable.length) {
         nestable.nestable({ maxDepth: 2 });
-        nestable.on('change', function() {
+        nestable.on('change', function () {
             var data = JSON.stringify(nestable.nestable('serialize'));
             idsInput.attr('value', data);
         });
     }
 
-    let commentView = $('.vironeer-view-comment'),
+    let commentView = $('.billiongroup-view-comment'),
         viewCommentModal = $('#viewComment'),
         deleteCommentForm = $('#deleteCommentForm'),
         publishCommentForm = $('#publishCommentForm'),
         publishCommentBtn = $('.publish-comment-btn'),
         commentInput = $('#comment');
-    commentView.on('click', function(e) {
+    commentView.on('click', function (e) {
         e.preventDefault();
         const id = $(this).data('id');
         $.ajax({
             url: BASE_URL + '/blog/comments/' + id + '/view',
             type: 'GET',
             dataType: 'JSON',
-            success: function(response) {
+            success: function (response) {
                 if ($.isEmptyObject(response.error)) {
                     commentInput.val(response.comment);
                     deleteCommentForm.attr('action', response.delete_link);
@@ -520,7 +520,7 @@
         planExpirationInput = $('.plan-expiration-input input'),
         planExpirationSpan = $('.plan-expiration-input span');
 
-    freePlanCheckbox.on('change', function() {
+    freePlanCheckbox.on('change', function () {
         if ($(this).prop('checked') == true) {
             planPriceInput.val('');
             planPriceInput.prop('disabled', true);
@@ -533,7 +533,7 @@
         }
     });
 
-    planExpiration.on('change', function() {
+    planExpiration.on('change', function () {
         if ($(this).prop('checked') == true) {
             planExpirationInput.val('');
             planExpirationInput.prop('disabled', true);
@@ -549,7 +549,7 @@
         customFeaturesCard = $('#customFeaturesCard');
 
     if (customFeatures.length) {
-        addCustomFeature.on('click', function() {
+        addCustomFeature.on('click', function () {
             customFeatureI++;
             if (customFeatureI == 0) {
                 customFeaturesCard.removeClass('d-none');
@@ -557,7 +557,7 @@
             customFeatures.append('<li id="customFeature' + customFeatureI + '" class="list-group-item"> <div class="row g-2 align-items-center"> <div class="col"> <input type="text" name="custom_features[' + customFeatureI + '][name]" placeholder="Feature name" class="form-control" required> </div> <div class="col-auto"> <button type="button" data-id="' + customFeatureI + '" class="removeFeature btn btn-danger"><i class="fa fa-trash-alt"></i></button> </div> </div> </li>');
         });
 
-        $(document).on('click', '.removeFeature', function() {
+        $(document).on('click', '.removeFeature', function () {
             const id = $(this).data('id');
             $('#customFeature' + id).remove();
             customFeatureI--;
@@ -571,7 +571,7 @@
     if (clipboardCopyBtn) {
         clipboardCopyBtn.forEach((el) => {
             let clipboardCopy = new ClipboardJS(clipboardCopyBtn);
-            clipboardCopy.on('success', function(e) {
+            clipboardCopy.on('success', function (e) {
                 toastr.success('Copied to clipboard');
             });
         });
@@ -592,10 +592,10 @@
             }
             return result;
         }
-        couponCodeInput.on('input', function(e) {
+        couponCodeInput.on('input', function (e) {
             this.value = this.value.replace(/[^a-zA-Z0-9 _]/g, '').toUpperCase();
         });
-        generateCouponBtn.on('click', function(e) {
+        generateCouponBtn.on('click', function (e) {
             e.preventDefault();
             couponCodeInput.val(generateCoupon(12));
         });
@@ -608,7 +608,7 @@
         multipleSelectCheckbox = $('.multiple-select-checkbox');
     if (multipleSelectCheckAll.length) {
         var multipleSelectDeleteIdsArr = [];
-        multipleSelectCheckAll.on('click', function() {
+        multipleSelectCheckAll.on('click', function () {
             if ($(this).is(':checked', true)) {
                 multipleSelectCheckbox.prop('checked', true);
                 multipleSelectPushDeleteIds();
@@ -621,7 +621,7 @@
                 multipleSelectDeleteForm.addClass('d-none');
             }
         });
-        multipleSelectCheckbox.on('click', function() {
+        multipleSelectCheckbox.on('click', function () {
             multipleSelectPushDeleteIds()
             if ($('.multiple-select-checkbox:checked').length == multipleSelectCheckbox.length) {
                 multipleSelectCheckAll.prop('checked', true);
@@ -640,7 +640,7 @@
         });
         let multipleSelectPushDeleteIds = () => {
             multipleSelectDeleteIdsArr = [];
-            $(".multiple-select-checkbox:checked").each(function() {
+            $(".multiple-select-checkbox:checked").each(function () {
                 multipleSelectDeleteIdsArr.push($(this).attr('data-id'));
             });
             multipleSelectDeleteIds.val(multipleSelectDeleteIdsArr);

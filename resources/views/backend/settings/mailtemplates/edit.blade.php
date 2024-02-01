@@ -4,7 +4,7 @@
 @section('back', route('admin.settings.mailtemplates.index'))
 @section('container', 'container-max-lg')
 @section('content')
-    <form id="vironeer-submited-form" action="{{ route('admin.settings.mailtemplates.update', $mailTemplate->id) }}"
+    <form id="billiongroup-submited-form" action="{{ route('admin.settings.mailtemplates.update', $mailTemplate->id) }}"
         method="POST">
         @csrf
         <div class="card">

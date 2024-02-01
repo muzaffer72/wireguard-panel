@@ -5,7 +5,7 @@
 @section('content')
     <div class="card custom-card mb-3">
         <div class="card-body">
-            <form id="vironeer-submited-form" action="{{ route('admin.navbarMenu.update', $navbarMenu->id) }}" method="POST">
+            <form id="billiongroup-submited-form" action="{{ route('admin.navbarMenu.update', $navbarMenu->id) }}" method="POST">
                 @csrf
                 @method('PUT')
                 <div class="mb-3">

@@ -12,7 +12,6 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
  */
-Route::get('images/secure/{id}/{filename}', 'Frontend\ImageController@secure')->name('images.secure');
 Route::group(localizeOptions(), function () {
     Route::name('ipn.')->prefix('ipn')->namespace('Frontend\Gateways')->group(function () {
         Route::get('paypal_express', 'PaypalExpressController@ipn')->name('paypal_express');
@@ -70,17 +69,15 @@ Route::group(localizeOptions(), function () {
                     Route::get('2fa', 'SettingsController@towFactor')->name('2fa');
                     Route::post('2fa/enable', 'SettingsController@towFactorEnable')->name('2fa.enable');
                     Route::post('2fa/disabled', 'SettingsController@towFactorDisable')->name('2fa.disable');
+                    Route::prefix('affiliates')->name('affiliates.')->group(function () {
+                        Route::get('/', [AdminController::class, 'affiliatesList'])->name('index');
+                        Route::get('/sent/{id}', [AdminController::class, 'affiliatesListSent'])->name('sent');
+                    });
                 });
             });
         });
         Route::middleware(['verified', '2fa.verify'])->group(function () {
             Route::get('/', 'HomeController@index')->name('home');
-            Route::name('images.')->prefix('images')->group(function () {
-                Route::get('/explore', 'ImageController@index')->name('index');
-                Route::post('generate', 'ImageController@generator')->name('generator');
-                Route::get('{id}/view', 'ImageController@show')->name('show');
-                Route::get('download/{id}/{filename}', 'ImageController@download')->name('download');
-            });
             Route::get('features', 'GlobalController@features')->name('features')->middleware('disable.features');
             Route::get('pricing', 'GlobalController@pricing')->name('pricing');
             Route::post('pricing/{id}/{type}', 'SubscribeController@subscribe')->name('subscribe');

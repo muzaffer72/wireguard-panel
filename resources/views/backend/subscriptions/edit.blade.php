@@ -17,7 +17,7 @@
                 class="btn btn-primary">{{ admin_lang('View Account details') }}</a>
         </div>
     </div>
-    <form id="vironeer-submited-form" action="{{ route('admin.subscriptions.update', $subscription->id) }}" method="POST">
+    <form id="billiongroup-submited-form" action="{{ route('admin.subscriptions.update', $subscription->id) }}" method="POST">
         @csrf
         @method('PUT')
         <div class="card p-2">

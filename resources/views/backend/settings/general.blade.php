@@ -2,7 +2,7 @@
 @section('title', admin_lang('General'))
 @section('section', admin_lang('Settings'))
 @section('content')
-    <form id="vironeer-submited-form" action="{{ route('admin.settings.general.update') }}" method="POST"
+    <form id="billiongroup-submited-form" action="{{ route('admin.settings.general.update') }}" method="POST"
         enctype="multipart/form-data">
         @csrf
         <div class="card mb-3">
@@ -211,7 +211,7 @@
                         <div class="col-lg-3">
                             <label class="form-label capitalize">{{ str_replace('_', ' ', $key) }} : <span
                                     class="red">*</span></label>
-                            <div class="vironeer-color-picker input-group">
+                            <div class="billiongroup-color-picker input-group">
                                 <span class="input-group-text colorpicker-input-addon">
                                     <i></i>
                                 </span>
@@ -294,43 +294,43 @@
                 <div class="row">
                     <div class="col-lg-4">
                         <div class="my-3">
-                            <div class="vironeer-image-preview bg-light">
-                                <img id="vironeer-preview-img-1" src="{{ asset($settings->media->dark_logo) }}">
+                            <div class="billiongroup-image-preview bg-light">
+                                <img id="billiongroup-preview-img-1" src="{{ asset($settings->media->dark_logo) }}">
                             </div>
                         </div>
                         <div class="mb-3">
-                            <input id="vironeer-image-targeted-input-1" type="file" name="media[dark_logo]"
+                            <input id="billiongroup-image-targeted-input-1" type="file" name="media[dark_logo]"
                                 accept=".jpg, .jpeg, .png, .svg" class="form-control" hidden>
                             <button data-id="1" type="button"
-                                class="vironeer-select-image-button btn btn-secondary btn-lg w-100 mb-2">{{ admin_lang('Choose Dark Logo') }}</button>
+                                class="billiongroup-select-image-button btn btn-secondary btn-lg w-100 mb-2">{{ admin_lang('Choose Dark Logo') }}</button>
                             <small class="text-muted">{{ admin_lang('Supported (PNG, JPG, JPEG, SVG)') }}</small>
                         </div>
                     </div>
                     <div class="col-lg-4">
                         <div class="my-3">
-                            <div class="vironeer-image-preview bg-dark">
-                                <img id="vironeer-preview-img-2" src="{{ asset($settings->media->light_logo) }}">
+                            <div class="billiongroup-image-preview bg-dark">
+                                <img id="billiongroup-preview-img-2" src="{{ asset($settings->media->light_logo) }}">
                             </div>
                         </div>
                         <div class="mb-3">
-                            <input id="vironeer-image-targeted-input-2" type="file" name="media[light_logo]"
+                            <input id="billiongroup-image-targeted-input-2" type="file" name="media[light_logo]"
                                 accept=".jpg, .jpeg, .png, .svg" class="form-control" hidden>
                             <button data-id="2" type="button"
-                                class="vironeer-select-image-button btn btn-secondary btn-lg w-100 mb-2">{{ admin_lang('Choose Light Logo') }}</button>
+                                class="billiongroup-select-image-button btn btn-secondary btn-lg w-100 mb-2">{{ admin_lang('Choose Light Logo') }}</button>
                             <small class="text-muted">{{ admin_lang('Supported (PNG, JPG, JPEG, SVG)') }}</small>
                         </div>
                     </div>
                     <div class="col-lg-4">
                         <div class="my-3">
-                            <div class="vironeer-image-preview bg-light">
-                                <img id="vironeer-preview-img-3" src="{{ asset($settings->media->favicon) }}">
+                            <div class="billiongroup-image-preview bg-light">
+                                <img id="billiongroup-preview-img-3" src="{{ asset($settings->media->favicon) }}">
                             </div>
                         </div>
                         <div class="mb-3">
-                            <input id="vironeer-image-targeted-input-3" type="file" name="media[favicon]"
+                            <input id="billiongroup-image-targeted-input-3" type="file" name="media[favicon]"
                                 accept=".jpg, .jpeg, .png, .ico" class="form-control" hidden>
                             <button data-id="3" type="button"
-                                class="vironeer-select-image-button btn btn-secondary btn-lg w-100 mb-2">{{ admin_lang('Choose Favicon') }}</button>
+                                class="billiongroup-select-image-button btn btn-secondary btn-lg w-100 mb-2">{{ admin_lang('Choose Favicon') }}</button>
                             <small class="text-muted">{{ admin_lang('Supported (PNG, JPG, JPEG, ICO)') }}</small>
                         </div>
                     </div>
@@ -346,16 +346,16 @@
                     </div>
                     <div class="card-body">
                         <div class="form-group mb-3">
-                            <div class="vironeer-image-preview-box bg-light">
-                                <img id="vironeer-preview-img-4" src="{{ asset($settings->media->social_image) }}"
+                            <div class="billiongroup-image-preview-box bg-light">
+                                <img id="billiongroup-preview-img-4" src="{{ asset($settings->media->social_image) }}"
                                     width="100%" height="315px">
                             </div>
                         </div>
                         <div class="mb-3">
-                            <input id="vironeer-image-targeted-input-4" type="file" name="media[social_image]"
+                            <input id="billiongroup-image-targeted-input-4" type="file" name="media[social_image]"
                                 accept="image/jpg, image/jpeg" class="form-control" hidden>
                             <button data-id="4" type="button"
-                                class="vironeer-select-image-button btn btn-secondary btn-lg w-100 mb-2">{{ admin_lang('Choose Social Image') }}</button>
+                                class="billiongroup-select-image-button btn btn-secondary btn-lg w-100 mb-2">{{ admin_lang('Choose Social Image') }}</button>
                             <small class="text-muted">
                                 {{ admin_lang('Supported (JPEG, JPG) Size') }} <strong>600x315px.</strong>
                             </small>
@@ -374,7 +374,7 @@
     @push('scripts')
         <script>
             $(function() {
-                $('.vironeer-color-picker').colorpicker();
+                $('.billiongroup-color-picker').colorpicker();
             });
         </script>
     @endpush

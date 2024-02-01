@@ -60,10 +60,10 @@
     <div class="row g-3 mb-4">
         <div class="col-12 col-lg-4 col-xxl-4">
             <div class="card vhp-460">
-                <div class="vironeer-box v2">
-                    <div class="vironeer-box-header mb-3">
-                        <p class="vironeer-box-header-title large mb-0">{{ admin_lang('Recently transactions') }}</p>
-                        <div class="vironeer-box-header-action ms-auto">
+                <div class="billiongroup-box v2">
+                    <div class="billiongroup-box-header mb-3">
+                        <p class="billiongroup-box-header-title large mb-0">{{ admin_lang('Recently transactions') }}</p>
+                        <div class="billiongroup-box-header-action ms-auto">
                             <button type="button" class="btn btn-sm rounded-3" data-bs-toggle="dropdown">
                                 <i class="fa fa-ellipsis-v"></i>
                             </button>
@@ -74,22 +74,22 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="vironeer-box-body">
-                        <div class="vironeer-random-lists">
+                    <div class="billiongroup-box-body">
+                        <div class="billiongroup-random-lists">
                             @forelse ($transactions as $transaction)
-                                <div class="vironeer-random-list">
-                                    <div class="vironeer-random-list-cont">
-                                        <div class="vironeer-random-list-info">
+                                <div class="billiongroup-random-list">
+                                    <div class="billiongroup-random-list-cont">
+                                        <div class="billiongroup-random-list-info">
                                             <div>
-                                                <a class="vironeer-random-list-title fs-exact-14"
+                                                <a class="billiongroup-random-list-title fs-exact-14"
                                                     href="{{ route('admin.transactions.edit', $transaction->id) }}">
                                                     #{{ $transaction->id }}
                                                 </a>
-                                                <p class="vironeer-random-list-text mb-0">
+                                                <p class="billiongroup-random-list-text mb-0">
                                                     {{ $transaction->created_at->diffforhumans() }}
                                                 </p>
                                             </div>
-                                            <div class="vironeer-random-list-action">
+                                            <div class="billiongroup-random-list-action">
                                                 <span class="text-success">+
                                                     <strong>{{ priceSymbol($transaction->total) }}</strong>
                                                 </span>
@@ -107,12 +107,12 @@
         </div>
         <div class="col-12 col-lg-8 col-xxl-8">
             <div class="card">
-                <div class="vironeer-box chart-bar">
-                    <div class="vironeer-box-header">
-                        <p class="vironeer-box-header-title large mb-0">
+                <div class="billiongroup-box chart-bar">
+                    <div class="billiongroup-box-header">
+                        <p class="billiongroup-box-header-title large mb-0">
                             {{ admin_lang('Earnings Statistics For This Week') }}
                         </p>
-                        <div class="vironeer-box-header-action ms-auto">
+                        <div class="billiongroup-box-header-action ms-auto">
                             <button type="button" class="btn btn-sm rounded-3" data-bs-toggle="dropdown">
                                 <i class="fa fa-ellipsis-v"></i>
                             </button>
@@ -123,9 +123,9 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="vironeer-box-body">
+                    <div class="billiongroup-box-body">
                         <div class="chart-bar">
-                            <canvas height="380" id="vironeer-earnings-charts"></canvas>
+                            <canvas height="380" id="billiongroup-earnings-charts"></canvas>
                         </div>
                     </div>
                 </div>
@@ -135,11 +135,11 @@
     <div class="row g-3 mb-4">
         <div class="col-12 col-lg-8 col-xxl-8">
             <div class="card">
-                <div class="vironeer-box chart-bar">
-                    <div class="vironeer-box-header">
-                        <p class="vironeer-box-header-title large mb-0">{{ admin_lang('Users Statistics For This Week') }}
+                <div class="billiongroup-box chart-bar">
+                    <div class="billiongroup-box-header">
+                        <p class="billiongroup-box-header-title large mb-0">{{ admin_lang('Users Statistics For This Week') }}
                         </p>
-                        <div class="vironeer-box-header-action ms-auto">
+                        <div class="billiongroup-box-header-action ms-auto">
                             <button type="button" class="btn btn-sm rounded-3" data-bs-toggle="dropdown">
                                 <i class="fa fa-ellipsis-v"></i>
                             </button>
@@ -150,9 +150,9 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="vironeer-box-body">
+                    <div class="billiongroup-box-body">
                         <div class="chart-bar">
-                            <canvas height="380" id="vironeer-users-charts"></canvas>
+                            <canvas height="380" id="billiongroup-users-charts"></canvas>
                         </div>
                     </div>
                 </div>
@@ -160,10 +160,10 @@
         </div>
         <div class="col-12 col-lg-4 col-xxl-4">
             <div class="card vhp-460">
-                <div class="vironeer-box v2">
-                    <div class="vironeer-box-header mb-3">
-                        <p class="vironeer-box-header-title large mb-0">{{ admin_lang('Recently registered') }}</p>
-                        <div class="vironeer-box-header-action ms-auto">
+                <div class="billiongroup-box v2">
+                    <div class="billiongroup-box-header mb-3">
+                        <p class="billiongroup-box-header-title large mb-0">{{ admin_lang('Recently registered') }}</p>
+                        <div class="billiongroup-box-header-action ms-auto">
                             <button type="button" class="btn btn-sm rounded-3" data-bs-toggle="dropdown">
                                 <i class="fa fa-ellipsis-v"></i>
                             </button>
@@ -174,25 +174,25 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="vironeer-box-body">
-                        <div class="vironeer-random-lists">
+                    <div class="billiongroup-box-body">
+                        <div class="billiongroup-random-lists">
                             @forelse ($users as $user)
-                                <div class="vironeer-random-list">
-                                    <div class="vironeer-random-list-cont">
-                                        <a class="vironeer-random-list-img" href="#">
+                                <div class="billiongroup-random-list">
+                                    <div class="billiongroup-random-list-cont">
+                                        <a class="billiongroup-random-list-img" href="#">
                                             <img src="{{ asset($user->avatar) }}" />
                                         </a>
-                                        <div class="vironeer-random-list-info">
+                                        <div class="billiongroup-random-list-info">
                                             <div>
-                                                <a class="vironeer-random-list-title fs-exact-14"
+                                                <a class="billiongroup-random-list-title fs-exact-14"
                                                     href="{{ route('admin.users.edit', $user->id) }}">
                                                     {{ $user->name }}
                                                 </a>
-                                                <p class="vironeer-random-list-text mb-0">
+                                                <p class="billiongroup-random-list-text mb-0">
                                                     {{ $user->created_at->diffforhumans() }}
                                                 </p>
                                             </div>
-                                            <div class="vironeer-random-list-action d-none d-lg-block">
+                                            <div class="billiongroup-random-list-action d-none d-lg-block">
                                                 <a href="{{ route('admin.users.edit', $user->id) }}"
                                                     class="btn btn-primary btn-sm"><i class="fas fa-eye"></i></a>
                                             </div>
@@ -211,16 +211,16 @@
     <div class="row g-3">
         <div class="col-lg-4">
             <div class="card">
-                <div class="vironeer-box chart-bar">
-                    <div class="vironeer-box-header">
-                        <p class="vironeer-box-header-title large mb-0">{{ admin_lang('Login Statistics - Browsers') }}
+                <div class="billiongroup-box chart-bar">
+                    <div class="billiongroup-box-header">
+                        <p class="billiongroup-box-header-title large mb-0">{{ admin_lang('Login Statistics - Browsers') }}
                         </p>
                         <small class="text-muted ms-auto">({{ carbon()->now()->format('F') }})</small>
                     </div>
                     @if ($countUsersLogs)
-                        <div class="vironeer-box-body">
+                        <div class="billiongroup-box-body">
                             <div class="chart-bar">
-                                <canvas id="vironeer-browsers-charts"></canvas>
+                                <canvas id="billiongroup-browsers-charts"></canvas>
                             </div>
                         </div>
                     @else
@@ -233,17 +233,17 @@
         </div>
         <div class="col-lg-4">
             <div class="card">
-                <div class="vironeer-box chart-bar">
-                    <div class="vironeer-box-header">
-                        <p class="vironeer-box-header-title large mb-0">
+                <div class="billiongroup-box chart-bar">
+                    <div class="billiongroup-box-header">
+                        <p class="billiongroup-box-header-title large mb-0">
                             {{ admin_lang('Login Statistics - Operating Systems') }}
                         </p>
                         <small class="text-muted ms-auto">({{ carbon()->now()->format('F') }})</small>
                     </div>
                     @if ($countUsersLogs)
-                        <div class="vironeer-box-body">
+                        <div class="billiongroup-box-body">
                             <div class="chart-bar">
-                                <canvas id="vironeer-os-charts"></canvas>
+                                <canvas id="billiongroup-os-charts"></canvas>
                             </div>
                         </div>
                     @else
@@ -256,16 +256,16 @@
         </div>
         <div class="col-lg-4">
             <div class="card">
-                <div class="vironeer-box chart-bar">
-                    <div class="vironeer-box-header">
-                        <p class="vironeer-box-header-title large mb-0">{{ admin_lang('Login Statistics - Countries') }}
+                <div class="billiongroup-box chart-bar">
+                    <div class="billiongroup-box-header">
+                        <p class="billiongroup-box-header-title large mb-0">{{ admin_lang('Login Statistics - Countries') }}
                         </p>
                         <small class="text-muted ms-auto">({{ carbon()->now()->format('F') }})</small>
                     </div>
                     @if ($countUsersLogs)
-                        <div class="vironeer-box-body">
+                        <div class="billiongroup-box-body">
                             <div class="chart-bar">
-                                <canvas id="vironeer-countries-charts"></canvas>
+                                <canvas id="billiongroup-countries-charts"></canvas>
                             </div>
                         </div>
                     @else

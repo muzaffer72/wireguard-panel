@@ -3,7 +3,7 @@
 @section('back', route('admin.coupons.index'))
 @section('container', 'container-max-lg')
 @section('content')
-    <form id="vironeer-submited-form" action="{{ route('admin.coupons.update', $coupon->id) }}" method="POST">
+    <form id="billiongroup-submited-form" action="{{ route('admin.coupons.update', $coupon->id) }}" method="POST">
         @csrf
         @method('PUT')
         @if ($coupon->isExpiry())

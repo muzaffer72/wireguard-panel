@@ -1,6 +1,4 @@
 {
-    "/assets/auth/js/app.min.js": "/assets/auth/js/app.min.js?id=9a695e9f67c703c267f5163a43ae01ca",
-    "/assets/main/js/app.min.js": "/assets/main/js/app.min.js?id=72c3c7f345d418aa1df42fa88c30c974",
-    "/assets/main/css/app.min.css": "/assets/main/css/app.min.css?id=a93ccf8bd7c952a8be8c8a295ca15620",
-    "/assets/auth/css/app.min.css": "/assets/auth/css/app.min.css?id=2a9de14f5c70e3575213be36ea271d7d"
+    "/assets/main/js/app.js": "/assets/main/js/app.js?id=0806daaa3d3d38e764b2861a2697867c",
+    "/assets/vendor/admin/css/soft-ui-dashboard-tailwind.css": "/assets/vendor/admin/css/soft-ui-dashboard-tailwind.css?id=5d0e7330ac938cc8fdba1119e65253f9"
 }

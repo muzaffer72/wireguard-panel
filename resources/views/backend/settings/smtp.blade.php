@@ -3,7 +3,7 @@
 @section('section', admin_lang('Settings'))
 @section('container', 'container-max-lg')
 @section('content')
-    <form id="vironeer-submited-form" action="{{ route('admin.settings.smtp.update') }}" method="POST">
+    <form id="billiongroup-submited-form" action="{{ route('admin.settings.smtp.update') }}" method="POST">
         @csrf
         <div class="card">
             <div class="card-header">
