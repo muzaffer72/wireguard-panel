@@ -4,7 +4,7 @@
 @section('content')
     <div class="row g-3 mb-4">
         <div class="col-12 col-lg-6 col-xxl-6">
-            <div class="counter-card v3 c-light-green">
+            <div class="counter-card v3 c-purple">
                 <div class="counter-card-icon">
                     <i class="fa fa-users"></i>
                 </div>
@@ -15,7 +15,7 @@
             </div>
         </div>
         <div class="col-12 col-lg-6 col-xxl-6">
-            <div class="counter-card v3 c-light-red">
+            <div class="counter-card v3 c-purple">
                 <div class="counter-card-icon">
                     <i class="fa fa-ban"></i>
                 </div>

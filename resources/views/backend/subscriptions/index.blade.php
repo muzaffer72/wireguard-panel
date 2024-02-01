@@ -4,7 +4,7 @@
 @section('content')
     <div class="row g-3 mb-3">
         <div class="col-12 col-lg-6 col-xxl">
-            <div class="counter-card v3 c-light-green">
+            <div class="counter-card v3 c-purple">
                 <div class="counter-card-icon">
                     <i class="far fa-check-circle"></i>
                 </div>
@@ -15,7 +15,7 @@
             </div>
         </div>
         <div class="col-12 col-lg-6 col-xxl">
-            <div class="counter-card v3 c-light-red">
+            <div class="counter-card v3 c-purple">
                 <div class="counter-card-icon">
                     <i class="far fa-clock"></i>
                 </div>
@@ -27,7 +27,7 @@
         </div>
         @if ($canceledSubscriptions->count() > 0)
             <div class="col-12 col-lg-6 col-xxl">
-                <div class="counter-card v3 c-red">
+                <div class="counter-card v3 c-purple">
                     <div class="counter-card-icon">
                         <i class="far fa-times-circle"></i>
                     </div>
