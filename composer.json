@@ -50,6 +50,7 @@
         },
         "files": [
             "app/Http/Helpers/Helper.php",
+            "app/Http/Helpers/ResponseHelper.php",
             "app/Http/Helpers/WidgetHelper.php",
             "app/Http/Helpers/AdsHelper.php"
         ]
