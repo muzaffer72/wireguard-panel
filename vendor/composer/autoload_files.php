@@ -42,6 +42,7 @@ return array(
     'fffda9594c8261d83990ae3b4f58c078' => $vendorDir . '/trustip/trustip/src/Helpers/ProxyCheckHelper.php',
     '101b35f72e0ccb1b5ef72aa86bba3ef9' => $vendorDir . '/yoeunes/toastr/src/helpers.php',
     '92c1b38d4675fce54491776e674b6d3a' => $baseDir . '/app/Http/Helpers/Helper.php',
+    'a38b0904ac69ede3f1b0117fb631f1f1' => $baseDir . '/app/Http/Helpers/ResponseHelper.php',
     'bbc6013d5409508ae67933645e32a597' => $baseDir . '/app/Http/Helpers/WidgetHelper.php',
     '2796d31bc5ae34919812474fe1686e21' => $baseDir . '/app/Http/Helpers/AdsHelper.php',
 );

@@ -471,12 +471,12 @@ h6 {
 /* End Custom scrollbar */
 
 .simplebar-content-wrapper {
-    box-sizing: content-box;
-    background: rgba(6, 7, 166, 0.26);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(6.8px);
-    -webkit-backdrop-filter: blur(6.8px);
-    border: 1px solid rgba(6, 7, 166, 0.54);
+    min-height: calc(100vh - 70px);
+    background: #191c24;
+    font-weight: normal;
+    padding: 0;
+    width: 244px;
+    z-index: 11;
 }
 
 .simplebar-scrollbar:before {
@@ -636,152 +636,6 @@ a:hover {
     }
 }
 
-.ai-image {
-    perspective: 200px;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 420px;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
-}
-
-.ai-image img {
-    visibility: hidden;
-    width: 100%;
-    height: 100%;
-    -o-object-fit: cover;
-    object-fit: fill;
-    transition: 0.3s;
-}
-
-.ai-image img.loaded {
-    visibility: visible;
-}
-
-.ai-image img.loaded+.spinner-border {
-    display: none;
-}
-
-.ai-image .spinner-border {
-    position: absolute;
-    color: #afafaf;
-}
-
-.ai-image .ai-image-hover {
-    perspective: 200px;
-    visibility: hidden;
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    inset: 0 0 0 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(24, 29, 32, 0.4);
-    padding: 20px;
-    opacity: 0;
-    transition: 0.3s;
-}
-
-.ai-image .ai-image-hover .visibility {
-    position: absolute;
-    top: 8px;
-    right: 8px;
-    color: #fff;
-    background-color: var(--primaryColor);
-    transition: 0.3s;
-    padding: 3px 8px;
-    border-radius: 7px;
-    font-size: 12px;
-    z-index: 999999;
-}
-
-.ai-image .ai-image-hover .visibility.public {
-    background-color: #14b44f;
-}
-
-.ai-image .ai-image-hover .visibility.private {
-    background-color: #ba120f;
-}
-
-.ai-image .ai-image-hover p {
-    color: #fff;
-    transition: 0.3s;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-}
-
-.ai-image .ai-image-hover .btn {
-    transition: 0.3s;
-}
-
-.ai-image:hover .ai-image-hover {
-    visibility: visible;
-    opacity: 1;
-}
-
-.ai-image-details {
-    font-size: 15px;
-}
-
-.ai-image-img {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-}
-
-.ai-image-img img {
-    visibility: hidden;
-    max-width: 100%;
-    max-height: 100%;
-}
-
-.ai-image-img img.loaded {
-    visibility: visible;
-}
-
-.ai-image-img img.loaded+.spinner-border {
-    display: none;
-}
-
-.ai-image-img .spinner-border {
-    position: absolute;
-    color: #afafaf;
-}
-
-.ai-image-details .ai-image-details-item {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-.ai-image-details .ai-image-details-item:not(:last-child) {
-    padding-bottom: 12px;
-    margin-bottom: 12px;
-    border-bottom: 1px solid #eee;
-}
-
-.ai-image-details .ai-image-details-title {
-    overflow: hidden;
-    flex-shrink: 0;
-    margin-bottom: 10px;
-    margin-right: 20px;
-    text-transform: uppercase;
-    font-weight: 500;
-}
-
-.ai-image-details .ai-image-details-text {
-    margin-bottom: 0;
-}
-
 @media (min-width: 1400px) {
     .ai-image .ai-image-hover p {
         transform: translateZ(-25px);
@@ -876,7 +730,6 @@ a:hover {
 
 .btn.btn-secondary {
     background-color: var(--secondaryColor);
-    border-color: var(--secondaryColor);
 }
 
 .btn.btn-light {

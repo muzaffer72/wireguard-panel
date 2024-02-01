@@ -1,7 +1,7 @@
 @extends('backend.layouts.application')
 @section('title', admin_lang('Dashboard'))
 @section('access', admin_lang('Quick Access'))
-@section('container', 'container-max-xxl')
+@section('container', 'container-fluid py-4')
 @section('content')
    
     @if (!$settings->smtp->status)
@@ -15,7 +15,7 @@
         <div class="col">
             <div class="counter-card v3 c-purple">
                 <div class="counter-card-icon">
-                    <i class="fas fa-dollar-sign"></i>
+                    <i class="fas fa-dollar-sign fa-sm"></i>
                 </div>
                 <div class="counter-card-info">
                     <p class="counter-card-number">{{ priceSymbol($widget['total_earnings']) }}</p>
@@ -26,7 +26,7 @@
         <div class="col">
             <div class="counter-card v3 c-purple">
                 <div class="counter-card-icon">
-                    <i class="fas fa-dollar-sign"></i>
+                    <i class="fas fa-dollar-sign fa-sm"></i>
                 </div>
                 <div class="counter-card-info">
                 <p class="counter-card-number">{{ priceSymbol($widget['current_month_earnings']) }}</p>
@@ -37,7 +37,7 @@
         <div class="col">
             <div class="counter-card v3 c-purple">
                 <div class="counter-card-icon">
-                    <i class="fa fa-users"></i>
+                    <i class="fa fa-users fa-sm"></i>
                 </div>
                 <div class="counter-card-info">
                     <p class="counter-card-number">{{ number_format($widget['total_users']) }}</p>
@@ -48,7 +48,7 @@
         <div class="col">
             <div class="counter-card v3 c-purple">
                 <div class="counter-card-icon">
-                    <i class="fas fa-users"></i>
+                    <i class="fas fa-users fa-sm"></i>
                 </div>
                 <div class="counter-card-info">
                 <p class="counter-card-number">{{ number_format($widget['current_month_users']) }}</p>

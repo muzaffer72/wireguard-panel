@@ -48,7 +48,7 @@
             const labels = response.earningsChartLabels;
             const data = response.earningsChartData;
             window.Chart && (new Chart(ctxEarnings, {
-                type: 'line',
+                type: 'bar',
                 data: {
                     labels: labels,
                     datasets: [{
@@ -59,6 +59,7 @@
                         borderColor: "#30b244",
                         borderWidth: 2,
                         lineTension: .10,
+
                     }]
                 },
                 options: {
@@ -100,8 +101,16 @@
                                     }
                                 }
                             },
+                            gridLines: {
+                                color: "rgba(204, 204, 204,0.1)"
+                            },
                             suggestedMax: max,
-                        }
+                        },
+                        x: [{
+                            gridLines: {
+                                color: "rgba(204, 204, 204,0.1)"
+                            }
+                        }]
                     },
                 }
             })).render();
@@ -122,14 +131,27 @@
                         borderColor: PRIMARY_COLOR,
                         borderWidth: 2,
                         lineTension: .10,
+                        pointStyle: 'circle',
+                        pointRadius: 10,
+                        pointHoverRadius: 15
                     }]
                 },
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
                     plugins: {
+                        filler: {
+                            propagate: true
+                        },
                         legend: {
-                            display: false,
+                            labels: {
+                                usePointStyle: true,
+                            },
+                        }
+                    },
+                    elements: {
+                        point: {
+                            radius: 0
                         }
                     },
                     scales: {
@@ -142,7 +164,7 @@
         },
         createBrowsersCharts: function (response) {
             window.Chart && (new Chart(ctxBrowsers, {
-                type: 'doughnut',
+                type: 'pie',
                 data: {
                     labels: response.keys,
                     datasets: [{
@@ -188,12 +210,16 @@
                             display: false,
                         }
                     },
+                    animation: {
+                        animateScale: true,
+                        animateRotate: true
+                    }
                 }
             })).render();
         },
         createOsCharts: function (response) {
             window.Chart && (new Chart(ctxOs, {
-                type: 'doughnut',
+                type: 'pie',
                 data: {
                     labels: response.keys,
                     datasets: [{
@@ -244,7 +270,7 @@
         },
         createOCountriesCharts: function (response) {
             window.Chart && (new Chart(ctxCountries, {
-                type: 'doughnut',
+                type: 'pie',
                 data: {
                     labels: response.keys,
                     datasets: [{
