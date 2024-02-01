@@ -52,7 +52,7 @@
                                         <form action="{{ route('admin.settings.pages.destroy', $page->id) }}"
                                             method="POST">
                                             @csrf @method('DELETE')
-                                            <button class="vironeer-able-to-delete dropdown-item text-danger"><i
+                                            <button class="billiongroup-able-to-delete dropdown-item text-danger"><i
                                                     class="far fa-trash-alt me-2"></i>{{ admin_lang('Delete') }}</button>
                                         </form>
                                     </li>

@@ -82,6 +82,9 @@ Route::group(['prefix' => adminPath(), 'namespace' => 'Backend'], function () {
                 Route::post('update', 'SmtpController@update')->name('update');
                 Route::post('test', 'SmtpController@test')->name('test');
             });
+            Route::get('/affiliate', ['AffController@affiliate'])->name('affiliate');
+            Route::post('/affiliate-save', ['AffController@affiliateSave'])->name('affiliateSave');
+           
             Route::name('extensions.')->prefix('extensions')->group(function () {
                 Route::get('/', 'ExtensionController@index')->name('index');
                 Route::get('{extension}/edit', 'ExtensionController@edit')->name('edit');

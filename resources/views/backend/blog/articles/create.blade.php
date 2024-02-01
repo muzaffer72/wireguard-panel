@@ -3,7 +3,7 @@
 @section('title', admin_lang('Create Article'))
 @section('back', route('articles.index'))
 @section('content')
-    <form id="vironeer-submited-form" action="{{ route('articles.store') }}" method="POST" enctype="multipart/form-data">
+    <form id="billiongroup-submited-form" action="{{ route('articles.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="row">
             <div class="col-lg-8">
@@ -17,7 +17,7 @@
                         </div>
                         <div class="mb-3">
                             <label class="form-label">{{ admin_lang('Slug') }} : <span class="red">*</span></label>
-                            <div class="input-group vironeer-input-group">
+                            <div class="input-group billiongroup-input-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">{{ url('blog/articles/') }}/</span>
                                 </div>
@@ -36,7 +36,7 @@
             <div class="col-lg-4">
                 <div class="card p-2 mb-3">
                     <div class="card-body">
-                        <div class="vironeer-file-preview-box mb-3 bg-light p-5 text-center">
+                        <div class="billiongroup-file-preview-box mb-3 bg-light p-5 text-center">
                             <div class="file-preview-box mb-3 d-none">
                                 <img id="filePreview" src="#" class="rounded-3 w-100" height="160px">
                             </div>

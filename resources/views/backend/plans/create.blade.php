@@ -3,7 +3,7 @@
 @section('container', 'container-max-lg')
 @section('back', route('admin.plans.index'))
 @section('content')
-    <form id="vironeer-submited-form" action="{{ route('admin.plans.store') }}" method="POST">
+    <form id="billiongroup-submited-form" action="{{ route('admin.plans.store') }}" method="POST">
         @csrf
         <div class="card custom-card mb-4">
             <div class="card-header bg-primary text-white">

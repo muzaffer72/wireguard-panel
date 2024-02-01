@@ -65,7 +65,7 @@
         <script>
             $(function() {
                 autosize($('textarea'));
-                $('.vironeer-color-picker').colorpicker();
+                $('.billiongroup-color-picker').colorpicker();
             });
         </script>
     @endpush

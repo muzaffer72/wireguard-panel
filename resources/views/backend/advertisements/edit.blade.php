@@ -7,7 +7,7 @@
 @section('back', route('admin.advertisements.index'))
 @section('container', 'container-max-lg')
 @section('content')
-    <form id="vironeer-submited-form" action="{{ route('admin.advertisements.update', $advertisement->id) }}" method="POST">
+    <form id="billiongroup-submited-form" action="{{ route('admin.advertisements.update', $advertisement->id) }}" method="POST">
         @csrf
         <div class="card">
             <div class="card-header d-flex justify-content-between align-items-center">

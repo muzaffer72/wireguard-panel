@@ -4,7 +4,7 @@
 @section('container', 'container-max-lg')
 @section('back', route('categories.index'))
 @section('content')
-    <form id="vironeer-submited-form" action="{{ route('categories.update', $category->id) }}" method="POST">
+    <form id="billiongroup-submited-form" action="{{ route('categories.update', $category->id) }}" method="POST">
         @csrf
         @method('PUT')
         <div class="card p-2 mb-3">
@@ -34,7 +34,7 @@
                 </div>
                 <div class="mb-3">
                     <label class="form-label">{{ admin_lang('Slug') }} : <span class="red">*</span></label>
-                    <div class="input-group vironeer-input-group">
+                    <div class="input-group billiongroup-input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text">{{ url('blog/categories/') }}/</span>
                         </div>

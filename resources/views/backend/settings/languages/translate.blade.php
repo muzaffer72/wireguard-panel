@@ -34,7 +34,7 @@
             </ul>
         </div>
         <div class="card-body my-1">
-            <form id="vironeer-submited-form"
+            <form id="billiongroup-submited-form"
                 action="{{ route('admin.settings.languages.translates.update', $language->id) }}" method="POST">
                 @csrf
                 <input type="hidden" name="group" value="{{ $active }}">
@@ -43,9 +43,9 @@
                         @if (is_array($value1))
                             <h2 class="header">{{ $key1 }}</h2>
                             @foreach ($value1 as $key2 => $value2)
-                                <div class="vironeer-translated-item d-block d-lg-flex bd-highlight align-items-center">
+                                <div class="billiongroup-translated-item d-block d-lg-flex bd-highlight align-items-center">
                                     <div class="flex-grow-1 bd-highlight">
-                                        <textarea id="autosizeInput" class="vironeer-translate-key translate-fields form-control" rows="1" readonly>{{ $defaultLanguage[$key1][$key2] }}</textarea>
+                                        <textarea id="autosizeInput" class="billiongroup-translate-key translate-fields form-control" rows="1" readonly>{{ $defaultLanguage[$key1][$key2] }}</textarea>
                                     </div>
                                     <div class="pe-3 ps-3 bd-highlight text-center text-success d-none d-lg-block"><i
                                             class="fas fa-chevron-right"></i></div>
@@ -56,9 +56,9 @@
                                 </div>
                             @endforeach
                         @else
-                            <div class="vironeer-translated-item d-block d-lg-flex bd-highlight align-items-center">
+                            <div class="billiongroup-translated-item d-block d-lg-flex bd-highlight align-items-center">
                                 <div class="flex-grow-1 bd-highlight">
-                                    <textarea id="autosizeInput" class="vironeer-translate-key translate-fields form-control" rows="1" readonly>{{ $defaultLanguage[$key1] }}</textarea>
+                                    <textarea id="autosizeInput" class="billiongroup-translate-key translate-fields form-control" rows="1" readonly>{{ $defaultLanguage[$key1] }}</textarea>
                                 </div>
                                 <div class="pe-3 ps-3 bd-highlight text-center text-success d-none d-lg-block"><i
                                         class="fas fa-chevron-right"></i></div>

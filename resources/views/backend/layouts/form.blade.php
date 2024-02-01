@@ -8,10 +8,10 @@
 
 <body>
     @include('backend.includes.sidebar')
-    <div class="vironeer-page-content">
+    <div class="billiongroup-page-content">
         @include('backend.includes.header')
         <div class="container @yield('container')">
-            <div class="vironeer-page-body px-1 px-sm-2 px-xxl-0">
+            <div class="billiongroup-page-body px-1 px-sm-2 px-xxl-0">
                 <div class="py-4 g-4">
                     <div class="row align-items-center">
                         <div class="col">
@@ -46,12 +46,12 @@
                                     @yield('modal')
                                 </button>
                             @endif
-                            <button form="vironeer-submited-form" class="btn btn-primary @yield('btn_action')"
+                            <button form="billiongroup-submited-form" class="btn btn-primary @yield('btn_action')"
                                 @yield('btn_action')>{{ admin_lang('Save') }}</button>
                         </div>
                     </div>
                 </div>
-                <div class="vironeer-form-page">
+                <div class="billiongroup-form-page">
                     @yield('content')
                 </div>
             </div>

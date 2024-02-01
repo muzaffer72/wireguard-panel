@@ -3,7 +3,7 @@
 @section('title', admin_lang('Change password'))
 @section('container', 'container-max-lg')
 @section('content')
-    <form id="vironeer-submited-form" action="{{ route('admin.account.security.update') }}" method="POST">
+    <form id="billiongroup-submited-form" action="{{ route('admin.account.security.update') }}" method="POST">
         @csrf
         <div class="card p-2">
             <div class="card-body">

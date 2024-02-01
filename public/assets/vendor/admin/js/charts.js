@@ -1,49 +1,49 @@
-(function($) {
+(function ($) {
     "use strict";
-    const ctxEarnings = $('#vironeer-earnings-charts'),
-        ctxUsers = $('#vironeer-users-charts'),
-        ctxBrowsers = $('#vironeer-browsers-charts'),
-        ctxOs = $('#vironeer-os-charts'),
-        ctxCountries = $('#vironeer-countries-charts');
+    const ctxEarnings = $('#billiongroup-earnings-charts'),
+        ctxUsers = $('#billiongroup-users-charts'),
+        ctxBrowsers = $('#billiongroup-browsers-charts'),
+        ctxOs = $('#billiongroup-os-charts'),
+        ctxCountries = $('#billiongroup-countries-charts');
     const charts = {
-        initEarnings: function() { this.earningsChartsData() },
-        initUsers: function() { this.usersChartsData() },
-        initLogs: function() { this.logsChartsData() },
-        earningsChartsData: function() {
+        initEarnings: function () { this.earningsChartsData() },
+        initUsers: function () { this.usersChartsData() },
+        initLogs: function () { this.logsChartsData() },
+        earningsChartsData: function () {
             const dataUrl = BASE_URL + '/dashboard/charts/earnings';
             const request = $.ajax({
                 method: 'GET',
                 url: dataUrl
             });
-            request.done(function(response) {
+            request.done(function (response) {
                 charts.createEarningsCharts(response);
             });
         },
-        usersChartsData: function() {
+        usersChartsData: function () {
             const dataUrl = BASE_URL + '/dashboard/charts/users';
             const request = $.ajax({
                 method: 'GET',
                 url: dataUrl
             });
-            request.done(function(response) {
+            request.done(function (response) {
                 charts.createUsersCharts(response);
             });
         },
-        logsChartsData: function() {
+        logsChartsData: function () {
             if (ctxBrowsers.length || ctxOs.length || ctxCountries.length) {
                 const dataUrl = BASE_URL + '/dashboard/charts/logs';
                 const request = $.ajax({
                     method: 'GET',
                     url: dataUrl
                 });
-                request.done(function(response) {
+                request.done(function (response) {
                     charts.createBrowsersCharts(response.browsers);
                     charts.createOsCharts(response.os);
                     charts.createOCountriesCharts(response.countries);
                 });
             }
         },
-        createEarningsCharts: function(response) {
+        createEarningsCharts: function (response) {
             const max = response.suggestedMax;
             const labels = response.earningsChartLabels;
             const data = response.earningsChartData;
@@ -70,7 +70,7 @@
                         },
                         tooltip: {
                             callbacks: {
-                                label: function(context) {
+                                label: function (context) {
                                     let label = context.dataset.label || '';
 
                                     if (label) {
@@ -92,7 +92,7 @@
                         y: {
                             ticks: {
                                 beginAtZero: true,
-                                callback: function(value, index, values) {
+                                callback: function (value, index, values) {
                                     if (CURRENCY_POSITION == 1) {
                                         return CURRENCY_CODE + ' ' + value;
                                     } else {
@@ -106,7 +106,7 @@
                 }
             })).render();
         },
-        createUsersCharts: function(response) {
+        createUsersCharts: function (response) {
             const max = response.suggestedMax;
             const labels = response.usersChartLabels;
             const data = response.usersChartData;
@@ -140,7 +140,7 @@
                 }
             })).render();
         },
-        createBrowsersCharts: function(response) {
+        createBrowsersCharts: function (response) {
             window.Chart && (new Chart(ctxBrowsers, {
                 type: 'doughnut',
                 data: {
@@ -191,7 +191,7 @@
                 }
             })).render();
         },
-        createOsCharts: function(response) {
+        createOsCharts: function (response) {
             window.Chart && (new Chart(ctxOs, {
                 type: 'doughnut',
                 data: {
@@ -242,7 +242,7 @@
                 }
             })).render();
         },
-        createOCountriesCharts: function(response) {
+        createOCountriesCharts: function (response) {
             window.Chart && (new Chart(ctxCountries, {
                 type: 'doughnut',
                 data: {

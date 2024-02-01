@@ -45,7 +45,7 @@
                                 </button>
                                 <ul class="dropdown-menu dropdown-menu-sm-end" data-popper-placement="bottom-end">
                                     <li>
-                                        <a class="vironeer-view-comment dropdown-item" data-id="{{ $comment->id }}"
+                                        <a class="billiongroup-view-comment dropdown-item" data-id="{{ $comment->id }}"
                                             href="#"><i class="fa fa-eye me-2"></i>{{ admin_lang('View') }}</a>
                                     </li>
                                     <li>
@@ -54,7 +54,7 @@
                                     <li>
                                         <form action="{{ route('comments.destroy', $comment->id) }}" method="POST">
                                             @csrf @method('DELETE')
-                                            <button class="vironeer-able-to-delete dropdown-item text-danger"><i
+                                            <button class="billiongroup-able-to-delete dropdown-item text-danger"><i
                                                     class="far fa-trash-alt me-2"></i>{{ admin_lang('Delete') }}</button>
                                         </form>
                                     </li>
@@ -79,12 +79,12 @@
                 <div class="modal-footer">
                     <form id="deleteCommentForm" class="d-inline" action="#" method="POST">
                         @csrf @method('DELETE')
-                        <button class="vironeer-form-confirm btn btn-danger"><i
+                        <button class="billiongroup-form-confirm btn btn-danger"><i
                                 class="far fa-trash-alt me-2"></i>{{ admin_lang('Delete') }}</button>
                     </form>
                     <form id="publishCommentForm" class="d-inline" action="#" method="POST">
                         @csrf
-                        <button class="vironeer-form-confirm publish-comment-btn btn btn-success"><i
+                        <button class="billiongroup-form-confirm publish-comment-btn btn btn-success"><i
                                 class="far fa-check-circle me-2"></i>{{ admin_lang('Publish') }}</button>
                     </form>
                 </div>

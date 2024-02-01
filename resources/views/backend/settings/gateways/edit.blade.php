@@ -3,14 +3,14 @@
 @section('section', admin_lang('Settings'))
 @section('back', route('admin.settings.gateways.index'))
 @section('content')
-    <form id="vironeer-submited-form" action="{{ route('admin.settings.gateways.update', $gateway->id) }}" method="POST"
+    <form id="billiongroup-submited-form" action="{{ route('admin.settings.gateways.update', $gateway->id) }}" method="POST"
         enctype="multipart/form-data">
         @csrf
         <div class="row g-3">
             <div class="col-lg-4">
                 <div class="card">
                     <div class="card-body">
-                        <div class="vironeer-file-preview-box bg-light mb-3 p-4 text-center">
+                        <div class="billiongroup-file-preview-box bg-light mb-3 p-4 text-center">
                             <div class="file-preview-box mb-3">
                                 <img id="filePreview" src="{{ asset($gateway->logo) }}" class="rounded-3" height="40">
                             </div>

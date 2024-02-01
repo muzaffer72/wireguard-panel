@@ -19,7 +19,7 @@
                             </span>
                             <span>
                                 <a href="#" data-user="{{ $log->user->id }}" data-log="{{ $log->id }}"
-                                    class="vironeer-getlog-btn btn btn-blue btn-sm"><i class="fas fa-desktop"></i></a>
+                                    class="billiongroup-getlog-btn btn btn-blue btn-sm"><i class="fas fa-desktop"></i></a>
                             </span>
                         </div>
                     </div>

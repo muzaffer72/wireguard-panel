@@ -3,7 +3,7 @@
 @section('container', 'container-max-lg')
 @section('back', route('admin.faqs.index'))
 @section('content')
-    <form id="vironeer-submited-form" action="{{ route('admin.faqs.update', $faq->id) }}" method="POST">
+    <form id="billiongroup-submited-form" action="{{ route('admin.faqs.update', $faq->id) }}" method="POST">
         @csrf
         @method('PUT')
         <div class="card p-2 mb-3">

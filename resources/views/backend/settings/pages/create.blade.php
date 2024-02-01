@@ -3,7 +3,7 @@
 @section('section', admin_lang('Settings'))
 @section('back', route('admin.settings.pages.index'))
 @section('content')
-    <form id="vironeer-submited-form" action="{{ route('admin.settings.pages.store') }}" method="POST">
+    <form id="billiongroup-submited-form" action="{{ route('admin.settings.pages.store') }}" method="POST">
         @csrf
         <div class="row">
             <div class="col-lg-8">
@@ -16,7 +16,7 @@
                         </div>
                         <div class="mb-3">
                             <label class="form-label">{{ admin_lang('Slug') }} : <span class="red">*</span></label>
-                            <div class="input-group vironeer-input-group">
+                            <div class="input-group billiongroup-input-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">{{ url('/') }}/</span>
                                 </div>

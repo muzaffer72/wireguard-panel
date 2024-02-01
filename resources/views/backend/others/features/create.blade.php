@@ -3,11 +3,11 @@
 @section('back', route('admin.features.index'))
 @section('container', 'container-max-lg')
 @section('content')
-    <form id="vironeer-submited-form" action="{{ route('admin.features.store') }}" method="POST" enctype="multipart/form-data">
+    <form id="billiongroup-submited-form" action="{{ route('admin.features.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="card p-2 mb-3">
             <div class="card-body">
-                <div class="vironeer-file-preview-box mb-3 bg-light p-5 text-center">
+                <div class="billiongroup-file-preview-box mb-3 bg-light p-5 text-center">
                     <div class="file-preview-box mb-3 d-none">
                         <img id="filePreview" src="#" class="rounded-3" width="150" height="150">
                     </div>

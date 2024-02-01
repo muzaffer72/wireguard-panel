@@ -20,8 +20,8 @@
                         <tr>
                             <td>{{ $admin->id }}</td>
                             <td>
-                                <div class="vironeer-user-box">
-                                    <a class="vironeer-user-avatar"
+                                <div class="billiongroup-user-box">
+                                    <a class="billiongroup-user-avatar"
                                         href="{{ route('admin.settings.admins.edit', $admin->id) }}">
                                         <img class="rounded-circle" src="{{ asset($admin->avatar) }}" />
                                     </a>
@@ -52,7 +52,7 @@
                                             <form action="{{ route('admin.settings.admins.destroy', $admin->id) }}"
                                                 method="POST">
                                                 @csrf @method('DELETE')
-                                                <button class="vironeer-able-to-delete dropdown-item text-danger"><i
+                                                <button class="billiongroup-able-to-delete dropdown-item text-danger"><i
                                                         class="far fa-trash-alt me-2"></i>{{ admin_lang('Delete') }}</button>
                                             </form>
                                         </li>

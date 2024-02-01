@@ -7,17 +7,17 @@
     @section('btn_action', 'disabled')
 @endif
 @section('content')
-    <form id="vironeer-submited-form" action="{{ route('admin.settings.languages.sort') }}" method="POST">
+    <form id="billiongroup-submited-form" action="{{ route('admin.settings.languages.sort') }}" method="POST">
         @csrf
         <input name="ids" id="ids" value="" hidden>
     </form>
     <div class="card">
-        <ul class="vironeer-sort-menu custom-list-group list-group list-group-flush">
+        <ul class="billiongroup-sort-menu custom-list-group list-group list-group-flush">
             @foreach ($languages as $language)
                 <li data-id="{{ $language->id }}"
                     class="list-group-item d-flex justify-content-between align-items-center language-list-group-item">
                     <div class="item-title">
-                        <span class="vironeer-navigation-handle me-2 text-muted"><i class="fas fa-arrows-alt"></i></span>
+                        <span class="billiongroup-navigation-handle me-2 text-muted"><i class="fas fa-arrows-alt"></i></span>
                         <img class="flag" src="{{ asset($language->flag) }}" alt="{{ $language->name }}" width="25"
                             height="25">
                         <span>{{ $language->name }}</span>
@@ -40,7 +40,7 @@
                                 method="POST">
                                 @method('DELETE')
                                 @csrf
-                                <button class="vironeer-able-to-delete btn btn-danger btn-sm">
+                                <button class="billiongroup-able-to-delete btn btn-danger btn-sm">
                                     <i class="far fa-trash-alt"></i>
                                     <span class="ms-2 d-none d-lg-inline">{{ admin_lang('Delete') }}</span>
                                 </button>

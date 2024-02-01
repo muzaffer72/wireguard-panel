@@ -88,8 +88,8 @@
                             <tr>
                                 <td>{{ $subscription->id }}</td>
                                 <td>
-                                    <div class="vironeer-user-box">
-                                        <a class="vironeer-user-avatar"
+                                    <div class="billiongroup-user-box">
+                                        <a class="billiongroup-user-avatar"
                                             href="{{ route('admin.users.edit', $subscription->user->id) }}">
                                             <img src="{{ asset($subscription->user->avatar) }}">
                                         </a>
@@ -147,7 +147,7 @@
                                                     action="{{ route('admin.subscriptions.destroy', $subscription->id) }}"
                                                     method="POST">
                                                     @csrf @method('DELETE')
-                                                    <button class="vironeer-able-to-delete dropdown-item text-danger"><i
+                                                    <button class="billiongroup-able-to-delete dropdown-item text-danger"><i
                                                             class="far fa-trash-alt me-2"></i>{{ admin_lang('Delete') }}</button>
                                                 </form>
                                             </li>
@@ -177,8 +177,8 @@
                             <tr>
                                 <td>{{ $subscription->id }}</td>
                                 <td>
-                                    <div class="vironeer-user-box">
-                                        <a class="vironeer-user-avatar"
+                                    <div class="billiongroup-user-box">
+                                        <a class="billiongroup-user-avatar"
                                             href="{{ route('admin.subscriptions.edit', $subscription->id) }}">
                                             <img src="{{ asset($subscription->user->avatar) }}">
                                         </a>
@@ -236,7 +236,7 @@
                                                     action="{{ route('admin.subscriptions.destroy', $subscription->id) }}"
                                                     method="POST">
                                                     @csrf @method('DELETE')
-                                                    <button class="vironeer-able-to-delete dropdown-item text-danger"><i
+                                                    <button class="billiongroup-able-to-delete dropdown-item text-danger"><i
                                                             class="far fa-trash-alt me-2"></i>{{ admin_lang('Delete') }}</button>
                                                 </form>
                                             </li>
@@ -267,8 +267,8 @@
                                 <tr>
                                     <td>{{ $subscription->id }}</td>
                                     <td>
-                                        <div class="vironeer-user-box">
-                                            <a class="vironeer-user-avatar"
+                                        <div class="billiongroup-user-box">
+                                            <a class="billiongroup-user-avatar"
                                                 href="{{ route('admin.users.edit', $subscription->user->id) }}">
                                                 <img src="{{ asset($subscription->user->avatar) }}">
                                             </a>
@@ -328,7 +328,7 @@
                                                         method="POST">
                                                         @csrf @method('DELETE')
                                                         <button
-                                                            class="vironeer-able-to-delete dropdown-item text-danger"><i
+                                                            class="billiongroup-able-to-delete dropdown-item text-danger"><i
                                                                 class="far fa-trash-alt me-2"></i>{{ admin_lang('Delete') }}</button>
                                                     </form>
                                                 </li>
@@ -355,7 +355,7 @@
                         @csrf
                         <div class="mb-3">
                             <label class="form-label">{{ admin_lang('User') }} : <span class="red">*</span></label>
-                            <select id="vironeer-select-user" name="user" class="form-select select2Modal" required>
+                            <select id="billiongroup-select-user" name="user" class="form-select select2Modal" required>
                                 <option></option>
                                 @foreach ($users as $user)
                                     @if (!$user->isSubscribed())

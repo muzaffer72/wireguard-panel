@@ -1,7 +1,7 @@
 @extends('backend.layouts.form')
 @section('title', admin_lang('Custom CSS'))
 @section('content')
-    <form id="vironeer-submited-form" action="{{ route('admin.extra.css.update') }}" method="POST">
+    <form id="billiongroup-submited-form" action="{{ route('admin.extra.css.update') }}" method="POST">
         @csrf
         <textarea name="cssContent" id="cssContent" class="form-control" rows="20">{{ $cssFile }}</textarea>
     </form>

@@ -4,13 +4,13 @@
 @section('container', 'container-max-lg')
 @section('back', route('admin.settings.languages.index'))
 @section('content')
-    <form id="vironeer-submited-form" action="{{ route('admin.settings.languages.update', $language->id) }}" method="POST"
+    <form id="billiongroup-submited-form" action="{{ route('admin.settings.languages.update', $language->id) }}" method="POST"
         enctype="multipart/form-data">
         @csrf
         @method('PUT')
         <div class="card">
             <div class="card-body">
-                <div class="vironeer-file-preview-box mb-3 bg-light p-4 text-center">
+                <div class="billiongroup-file-preview-box mb-3 bg-light p-4 text-center">
                     <div class="file-preview-box mb-3">
                         <img id="filePreview" src="{{ asset($language->flag) }}" class="rounded-3" alt="{{ $language->name }}"
                             width="100" height="100">

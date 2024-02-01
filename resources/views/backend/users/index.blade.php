@@ -29,7 +29,7 @@
     <div class="custom-card card">
         <div class="card-header p-3 border-bottom-small">
             <form action="{{ request()->url() }}" method="GET">
-                <div class="input-group vironeer-custom-input-group">
+                <div class="input-group billiongroup-custom-input-group">
                     <input type="text" name="search" class="form-control"
                         placeholder="{{ admin_lang('Search on users...') }}" value="{{ request()->input('search') ?? '' }}"
                         required>
@@ -50,7 +50,7 @@
         <div>
             @if ($users->count() > 0)
                 <div class="table-responsive">
-                    <table class="vironeer-normal-table table w-100">
+                    <table class="billiongroup-normal-table table w-100">
                         <thead>
                             <tr>
                                 <th class="tb-w-3x">#</th>
@@ -67,8 +67,8 @@
                                 <tr>
                                     <td>{{ $user->id }}</td>
                                     <td>
-                                        <div class="vironeer-user-box">
-                                            <a class="vironeer-user-avatar"
+                                        <div class="billiongroup-user-box">
+                                            <a class="billiongroup-user-avatar"
                                                 href="{{ route('admin.users.edit', $user->id) }}">
                                                 <img src="{{ asset($user->avatar) }}" alt="User" />
                                             </a>
@@ -134,7 +134,7 @@
                                                     <form action="{{ route('admin.users.destroy', $user->id) }}"
                                                         method="POST">
                                                         @csrf @method('DELETE')
-                                                        <button class="vironeer-able-to-delete dropdown-item text-danger"><i
+                                                        <button class="billiongroup-able-to-delete dropdown-item text-danger"><i
                                                                 class="far fa-trash-alt me-2"></i>{{ admin_lang('Delete') }}</button>
                                                     </form>
                                                 </li>

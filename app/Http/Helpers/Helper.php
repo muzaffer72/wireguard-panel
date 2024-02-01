@@ -843,7 +843,7 @@ function localizeOptions()
         ];
     } else {
         return [
-            'middleware' => ['vironeer.localize', 'UserStatusCheck'],
+            'middleware' => ['billiongroup.localize', 'UserStatusCheck'],
         ];
     }
 }

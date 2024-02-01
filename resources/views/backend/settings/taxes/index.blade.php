@@ -23,7 +23,7 @@
                                 method="POST">
                                 @method('DELETE')
                                 @csrf
-                                <button class="vironeer-able-to-delete btn btn-danger btn-sm"><i
+                                <button class="billiongroup-able-to-delete btn btn-danger btn-sm"><i
                                         class="far fa-trash-alt"></i></button>
                             </form>
                         </div>
