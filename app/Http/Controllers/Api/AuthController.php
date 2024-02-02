@@ -107,7 +107,7 @@ class AuthController extends Controller
             ]
         ));
         
-        $user = $usermodel->create($data);
+        $user = $this->usermodel->create($data);
                 
         // $user->update([
         //     'email_token'       => Str::random(150),
