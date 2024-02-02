@@ -100,15 +100,14 @@ class AuthController extends Controller
             'api_token' => hash('sha256', Str::random(60)),
             'firstname' => "",
             'lastname' => "",
-            'avatar' => "",
-            'client_id' => Str::random(10)
+            'avatar' => ""
         ], $request->only(
             [
                 'name', 'email'
             ]
         ));
         
-        $user = $this->usermodel->create($data);
+        $user = $usermodel->create($data);
                 
         // $user->update([
         //     'email_token'       => Str::random(150),
@@ -260,7 +259,6 @@ class AuthController extends Controller
     private function handleLogin(User $user, string $message)
     {
         $userdata = [
-            "client_id"=> $user->client_id,
             "name"=> $user->name,
             "email"=> $user->email,
             "token"=> $user->api_token

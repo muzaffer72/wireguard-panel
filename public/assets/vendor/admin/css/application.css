@@ -1,6 +1,6 @@
 body {
     font-family: 'Roboto', 'Almarai', sans-serif;
-    background-color: #07141d;
+    background-color: #000;
     overflow-x: hidden;
 }
 
@@ -387,7 +387,7 @@ input[type="color"] {
     font-size: .9375rem;
     line-height: 1.375rem;
     min-height: 2.25rem;
-    color: black;
+    color: gray;
 }
 
 .form-control:focus,
@@ -585,6 +585,7 @@ a.btn {
     min-height: calc(1.875rem + 0.875rem);
     font-size: 1.0625rem;
     line-height: 1.625rem;
+
 }
 
 .btn.btn-primary {
@@ -600,8 +601,7 @@ a.btn {
 
 .btn.btn-secondary {
     color: #f3f3f3;
-    background: linear-gradient(180deg, #011d74, #646464);
-    border-color: #0086fe;
+    background: linear-gradient(180deg, #191c24, #646464);
     box-shadow: 0 1px 0 0 rgb(22 29 37 / 5%);
 }
 
@@ -901,7 +901,7 @@ a.btn {
     width: 210px;
     left: 0;
     top: 0;
-    background-color: #212529;
+    background-color: #191c24;
     -webkit-transition: .3s;
     -o-transition: .3s;
     transition: .3s;
@@ -917,7 +917,7 @@ a.btn {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #f5f7facc;
+    background-color: #161616cc;
     -webkit-transition: .3s;
     -o-transition: .3s;
     transition: .3s;
@@ -963,11 +963,9 @@ a.btn {
     width: 100%;
     padding-right: 15px;
     padding-left: 15px;
-    background: rgba(6, 7, 166, 0.26);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    background: #191c24;
     backdrop-filter: blur(6.8px);
     -webkit-backdrop-filter: blur(6.8px);
-    border: 1px solid rgba(6, 7, 166, 0.54);
 }
 
 .billiongroup-sidebar .billiongroup-sidebar-header .billiongroup-sidebar-logo {
@@ -1097,6 +1095,7 @@ a.btn {
     transition: .3s width, .3s margin;
     padding-top: 52px;
     padding-bottom: 92px;
+    background: black;
 }
 
 .billiongroup-page-content.active {
@@ -1129,10 +1128,7 @@ a.btn {
     align-items: center;
     width: calc(100% - 210px);
     height: 52px;
-    background-color: #07141d;
-    -webkit-box-shadow: 0 2px 5px #0000001a, 0 0 3px #00000026;
-    box-shadow: 0 2px 5px #0000001a, 0 0 3px #00000026;
-    color: #212529;
+    background: #191c24;
     -webkit-transition: .3s;
     -o-transition: .3s;
     transition: .3s;
@@ -1472,7 +1468,7 @@ a.btn {
 
 .billiongroup-page-content .billiongroup-page-header .billiongroup-user-menu .billiongroup-user:hover,
 .billiongroup-page-content .billiongroup-page-header .billiongroup-user-menu .billiongroup-user.show {
-    background-color: #ebedf0;
+    background-color: #191c24;
 }
 
 .billiongroup-page-content .billiongroup-page-header .billiongroup-user-menu .billiongroup-user .billiongroup-user-avatar {
@@ -1509,6 +1505,7 @@ a.btn {
     left: auto !important;
     right: 10px !important;
     top: 5px !important;
+    background: #191c24;
 }
 
 .billiongroup-page-content .billiongroup-page-header .billiongroup-user-menu .dropdown-menu::before {
@@ -1572,7 +1569,8 @@ a.btn {
     border: 0 solid rgba(0, 0, 0, 0.125);
     font-size: .9375rem;
     height: 100%;
-    background: #011637;
+    background: #191c24;
+    border-radius: 15px;
 }
 
 .card-header {
@@ -1585,9 +1583,8 @@ a.btn {
 
 .custom-card {
     height: auto !important;
-    background-color: #011637;
-    border: 1px solid #3e3e3e;
-    border-radius: 3px;
+    background-color: #191c24;
+    border-radius: 15px;
 }
 
 .vhp-400 {
@@ -1601,9 +1598,8 @@ a.btn {
 .billiongroup-box {
     padding: 1.25rem;
     height: 100%;
-    background-color: #011637;
-    border: 1px solid #4e6394;
-    border-radius: 3px;
+    background-color: #191c24;
+    border-radius: 15px;
 }
 
 .billiongroup-box.v2 {
@@ -1652,7 +1648,7 @@ a.btn {
     margin-top: -.3125rem;
     margin-bottom: -.3125rem;
     border: none;
-    background-color: #1d0282;
+    background-color: #000;
     padding-right: 10px;
     padding-left: 10px;
 }
@@ -2253,7 +2249,7 @@ a.btn {
 }
 
 .billiongroup-random-lists .billiongroup-random-list .billiongroup-random-list-cont .billiongroup-random-list-img img {
-    border-radius: 3px;
+    border-radius: 500px;
     height: 40px;
 }
 
@@ -3109,12 +3105,11 @@ footer {
 }
 
 .counter-card.c-purple {
-    background: rgba(6, 7, 166, 0.26);
+    background: #191c24;
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(6.8px);
     -webkit-backdrop-filter: blur(6.8px);
-    border: 1px solid rgba(6, 7, 166, 0.54);
     color: #fff;
 }
 
@@ -3370,8 +3365,8 @@ footer {
 }
 
 .counter-card.v3 .counter-card-icon {
-    width: 90px;
-    height: 90px;
+    width: 50px;
+    height: 50px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;

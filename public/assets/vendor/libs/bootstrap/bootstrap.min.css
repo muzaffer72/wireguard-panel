@@ -2263,7 +2263,7 @@ progress {
     font-weight: 400;
     line-height: 1.5;
     color: #212529;
-    background-color: #fff;
+    background-color: #000;
     background-clip: padding-box;
     border: 1px solid #ced4da;
     -webkit-appearance: none;
@@ -2470,7 +2470,7 @@ textarea.form-control-lg {
     font-weight: 400;
     line-height: 1.5;
     color: #212529;
-    background-color: #fff;
+    background-color: #000;
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
     background-repeat: no-repeat;
     background-position: right .75rem center;
@@ -4197,7 +4197,7 @@ fieldset:disabled .btn {
     padding: .25rem 1rem;
     clear: both;
     font-weight: 400;
-    color: #212529;
+    color: #fbfbfb;
     text-align: inherit;
     text-decoration: none;
     white-space: nowrap;
@@ -5146,7 +5146,7 @@ fieldset:disabled .btn {
 }
 
 .card-header:first-child {
-    background-color: #011637;
+    background-color: #191c24;
     border-radius: calc(.25rem - 1px) calc(.25rem - 1px) 0 0
 }
 
@@ -6246,7 +6246,7 @@ fieldset:disabled .btn {
     flex-direction: column;
     width: 100%;
     pointer-events: auto;
-    background-color: #fff;
+    background-color: bottom;
     background-clip: padding-box;
     border: 1px solid rgba(0, 0, 0, .2);
     border-radius: .3rem;
@@ -6289,7 +6289,8 @@ fieldset:disabled .btn {
 
 .modal-title {
     margin-bottom: 0;
-    line-height: 1.5
+    line-height: 1.5;
+    color: aliceblue;
 }
 
 .modal-body {
@@ -8327,8 +8328,8 @@ fieldset:disabled .btn {
 }
 
 .py-4 {
-    padding-top: 1.5rem !important;
-    padding-bottom: 1.5rem !important
+    padding-top: 0.1rem !important;
+    padding-bottom: 0.1rem !important
 }
 
 .py-5 {
