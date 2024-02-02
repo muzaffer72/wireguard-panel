@@ -292,6 +292,7 @@ class AuthController extends Controller
     public function profile()
     {
         $user = auth('api')->user();
+        $user->subscription = $user->subscription->plan;
         return response200($user, __('Successfully retrieved user data'));
     }
 
