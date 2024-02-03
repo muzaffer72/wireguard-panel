@@ -70,10 +70,7 @@ Route::group(localizeOptions(), function () {
                     Route::get('2fa', 'SettingsController@towFactor')->name('2fa');
                     Route::post('2fa/enable', 'SettingsController@towFactorEnable')->name('2fa.enable');
                     Route::post('2fa/disabled', 'SettingsController@towFactorDisable')->name('2fa.disable');
-                    Route::prefix('affiliates')->name('affiliates.')->group(function () {
-                        Route::get('/', [AdminController::class, 'affiliatesList'])->name('index');
-                        Route::get('/sent/{id}', [AdminController::class, 'affiliatesListSent'])->name('sent');
-                    });
+                   
                 });
             });
         });

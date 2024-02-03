@@ -21,8 +21,6 @@ class SubscriptionManager
         if ($user->isSubscribed()) {
             $subscription['is_subscribed'] = $user->subscription->isActive() ? true : ($user->subscription->isFree() ? true : false);
             $subscription['plan'] = $user->subscription->plan;
-            $subscription['generated_images'] = $user->subscription->generated_images;
-            $subscription['remaining_images'] = ($user->subscription->plan->images - $user->subscription->generated_images);
         } else {
             return self::unsubscribed();
         }
@@ -32,7 +30,6 @@ class SubscriptionManager
     private static function unsubscribed()
     {
         $subscription['is_subscribed'] = false;
-        $subscription['generated_images'] = 0;
         $subscription['remaining_images'] = 0;
         return $subscription;
     }

@@ -16,6 +16,5 @@
 <script src="{{ asset('assets/vendor/libs/select2/select2.min.js') }}"></script>
 <script src="{{ asset('assets/vendor/libs/toastr/toastr.min.js') }}"></script>
 <script src="{{ asset('assets/vendor/admin/js/application.js') }}"></script>
-<script src="{{ asset('assets/vendor/admin/js/application.js') }}"></script>
 @toastr_render
 @stack('scripts')
