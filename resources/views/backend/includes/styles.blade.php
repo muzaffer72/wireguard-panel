@@ -11,4 +11,5 @@
  <link rel="stylesheet" href="{{ asset('assets/css/colors.css') }}">
  <link rel="stylesheet" href="{{ asset('assets/css/app.min.css') }}">
  <link rel="stylesheet" href="{{ asset('assets/css/application.css') }}">
+ 
  @stack('styles')

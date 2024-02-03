@@ -1,7 +1,7 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./resources/assets/global/js/shared.js":
+/***/ "./resources/js/shared.js":
 /*!**********************************************!*\
   !*** ./resources/assets/global/js/shared.js ***!
   \**********************************************/
@@ -48,8 +48,8 @@
   \*****************************************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-__webpack_require__(/*! ../../global/js/shared */ "./resources/assets/global/js/shared.js");
-__webpack_require__(/*! ./main */ "./resources/assets/main/js/main.js");
+__webpack_require__(/*! ../../global/js/shared */ "./resources/js/shared.js");
+__webpack_require__(/*! ./main */ "./resources/js/main.js");
 
 /***/ }),
 
