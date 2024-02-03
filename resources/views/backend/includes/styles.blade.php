@@ -8,7 +8,7 @@
  <link rel="stylesheet" href="{{ asset('assets/vendor/libs/toastr/toastr.min.css') }}">
  <link rel="stylesheet" href="{{ asset('assets/vendor/libs/select2/select2.min.css') }}">
  <link rel="stylesheet" href="{{ asset('assets/vendor/libs/select2/select2-bootstrap-5-theme.css') }}">
- <link rel="stylesheet" href="{{ asset('assets/extra/css/colors.css') }}">
- <link rel="stylesheet" href="{{ asset('assets/main/css/app.min.css') }}">
- <link rel="stylesheet" href="{{ asset('assets/vendor/admin/css/application.css') }}">
+ <link rel="stylesheet" href="{{ asset('assets/css/colors.css') }}">
+ <link rel="stylesheet" href="{{ asset('assets/css/app.min.css') }}">
+ <link rel="stylesheet" href="{{ asset('assets/css/application.css') }}">
  @stack('styles')

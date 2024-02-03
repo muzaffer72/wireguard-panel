@@ -3,7 +3,8 @@
 <link rel="stylesheet" href="{{ asset('assets/vendor/libs/toastr/toastr.min.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/vendor/libs/aos/aos.min.css') }}">
 @stack('styles_libs')
-<link rel="stylesheet" href="{{ asset('assets/extra/css/colors.css') }}">
-<link rel="stylesheet" href="{{ asset('assets/extra/css/extra.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/css/colors.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/css/extra.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/css/app.min.css') }}">
 @stack('styles')
-<link rel="stylesheet" href="{{ asset('assets/extra/css/custom.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/css/custom.css') }}">

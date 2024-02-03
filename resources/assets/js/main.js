@@ -1,4 +1,4 @@
-(function($) {
+(function ($) {
     "use strict";
 
     // AOS
@@ -13,7 +13,7 @@
     // Dropdown
     var dropdown = document.querySelectorAll('[data-dropdown]');
     if (dropdown != null) {
-        dropdown.forEach(function(el) {
+        dropdown.forEach(function (el) {
             let dropdownMenu = el.querySelector(".drop-down-menu");
 
             function dropdownOP() {
@@ -25,10 +25,10 @@
                     dropdownMenu.style.bottom = "auto";
                 }
             }
-            window.addEventListener("click", function(e) {
+            window.addEventListener("click", function (e) {
                 if (el.contains(e.target)) {
                     el.classList.toggle('active');
-                    setTimeout(function() {
+                    setTimeout(function () {
                         el.classList.toggle('animated');
                     }, 0);
                 } else {
@@ -102,7 +102,7 @@
         let lazy = $('.lazy');
         if (lazy.length) {
             lazy.Lazy({
-                afterLoad: function(element) {
+                afterLoad: function (element) {
                     element.addClass('loaded');
                 },
             });
@@ -114,14 +114,14 @@
     let avatarInput = $('#change_avatar'),
         targetedImagePreview = $('#avatar_preview');
     if (avatarInput.length) {
-        avatarInput.on('change', function() {
+        avatarInput.on('change', function () {
             var file = true,
                 readLogoURL;
             if (file) {
-                readLogoURL = function(input_file) {
+                readLogoURL = function (input_file) {
                     if (input_file.files && input_file.files[0]) {
                         var reader = new FileReader();
-                        reader.onload = function(e) {
+                        reader.onload = function (e) {
                             targetedImagePreview.attr('src', e.target.result);
                         }
                         reader.readAsDataURL(input_file.files[0]);
@@ -135,7 +135,7 @@
     let generatorOptionsBtn = $('#generator-options-btn'),
         generatorOptions = $('.generator-options');
 
-    generatorOptionsBtn.on('click', function() {
+    generatorOptionsBtn.on('click', function () {
         if (generatorOptions.hasClass('d-none')) {
             generatorOptions.removeClass('d-none');
         } else {
@@ -145,7 +145,7 @@
 
     let generatorForm = $('#generator');
 
-    generatorForm.on('submit', function(e) {
+    generatorForm.on('submit', function (e) {
 
         var reportValidity = generatorForm[0].reportValidity();
 
@@ -182,13 +182,13 @@
                     type: "POST",
                     data: formData,
                     dataType: 'json',
-                    beforeSend: function() {
+                    beforeSend: function () {
                         onAjaxStart();
                     },
-                    success: function(response) {
+                    success: function (response) {
                         onAjaxStop();
                         if ($.isEmptyObject(response.error)) {
-                            $.each(response.images, function(index, item) {
+                            $.each(response.images, function (index, item) {
                                 generatedImages.append('<div class="col"> <div class="ai-image"> <img class="lazy" data-src="' + item.src + '" alt="' + item.prompt + '" /> <div class="spinner-border"></div> <div class="ai-image-hover"> <p class="mb-0">' + item.prompt + '</p> <div class="row g-2 alig-items-center"> <div class="col"> <a href="' + item.link + '" target="_blank" class="btn btn-primary btn-md w-100">' + getConfig.translates.viewImage + '</a> </div> <div class="col-auto"> <a href="' + item.download_link + '" class="btn btn-light btn-md px-3"><i class="fas fa-download"></i></a> </div> </div> </div> </div> </div>');
                                 generatedImages.removeClass('d-none');
                                 lazyLoad();
@@ -201,7 +201,7 @@
                             toastr.error(response.error);
                         }
                     },
-                    error: function(jqXHR, textStatus, errorThrown) {
+                    error: function (jqXHR, textStatus, errorThrown) {
                         onAjaxStop();
                         generatedImages.addClass('d-none');
                         defaultImages.removeClass('d-none');
@@ -239,7 +239,7 @@
         editImageModalImg = $('#editImageModal img'),
         editModalVisibility = document.querySelector("#editImageModal select[name=visibility]");
 
-    editImage.on('click', function(e) {
+    editImage.on('click', function (e) {
         e.preventDefault();
         let details = $(this).data('details');
         editImageModalForm.attr('action', details.action);
