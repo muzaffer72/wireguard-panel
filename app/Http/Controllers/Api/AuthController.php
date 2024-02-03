@@ -117,7 +117,8 @@ class AuthController extends Controller
             'api_token' => hash('sha256', Str::random(60)),
             'firstname' => "",
             'lastname' => "",
-            'avatar' => ""
+            'avatar' => "",
+            'client_id' => Str::random(10)
         ], $request->only(
             [
                 'name', 'email'
