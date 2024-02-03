@@ -286,6 +286,6 @@
     @endpush
     @push('scripts_libs')
         <script src="{{ asset('assets/vendor/libs/chartjs/chart.min.js') }}"></script>
-        <script src="{{ asset('assets/vendor/admin/js/charts.js') }}"></script>
+        <script src="{{ asset('assets/js/charts.js') }}"></script>
     @endpush
 @endsection
