@@ -3,11 +3,12 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-// use App\Http\Requests\ForgotPasswordRequest;
+use App\Http\Requests\ForgotPasswordRequest;
 use App\Http\Requests\LoginRequest;
 // use App\Http\Requests\ProfileRequest;
 use App\Http\Requests\RegisterRequest;
-// use App\Http\Requests\ResetPasswordRequest;
+use App\Http\Requests\ResetPasswordRequest;
+use App\Http\Requests\LogRequest;
 use App\Models\User;
 // use App\Repositories\SettingRepository;
 // use App\Repositories\UserRepository;
@@ -135,7 +136,6 @@ class AuthController extends Controller
                 'verification_code' => rand(100000, 999999)
             ], $user->id);
             $this->emailService->forgotPassword($userNew, true);
-            logForgotPassword($user, $userNew);
             DB::commit();
             return response200($user, __('Successfully sent to ' . $request->email));
         } catch (Exception $e) {
@@ -171,7 +171,6 @@ class AuthController extends Controller
             'email_token'       => null,
             'verification_code' => null
         ], $user->id);
-        logExecute(__('Verifikasi Akun'), UPDATE, $user, $userNew);
         return $this->handleLogin($user, __('Successfully verified the account, please log in using your account'));
     }
 
@@ -210,10 +209,9 @@ class AuthController extends Controller
      */
     public function resetPassword(ResetPasswordRequest $request)
     {
-        if ($this->settingRepository->isForgotPasswordSendToEmail() === false) abort(404);
         DB::beginTransaction();
         try {
-            $user = $this->userRepository->findByEmail($request->email);
+            $user = auth('api')->user();
             if ($user->verification_code !== $request->verification_code) {
                 return response422([
                     'verification_code' => [__('The verification code entered is incorrect.')]
@@ -223,12 +221,11 @@ class AuthController extends Controller
                     'email_token' => [__('Incorrect verification token entered.')]
                 ]);
             }
-            $userNew = $this->userRepository->update([
+            $userNew = $this->usermodel->update([
                 'password'          => bcrypt($request->new_password),
                 'email_token'       => null,
                 'verification_code' => null
             ], $user->id);
-            logExecute(__('Reset Kata Sandi'), UPDATE, $user->password, $userNew->password);
             DB::commit();
             return response200(true, __('Password updated successfully'));
         } catch (Exception $e) {
@@ -244,7 +241,6 @@ class AuthController extends Controller
     public function logout()
     {
         $user = auth('api')->user();
-        logLogout($user);
         // auth('api')->logout();
         return response200(null, __('Successfully exited the system'));
     }
@@ -311,7 +307,6 @@ class AuthController extends Controller
             $data['avatar'] = $this->fileService->uploadAvatar($request->file('avatar'));
         }
         $newUser = $this->userRepository->updateProfile($data);
-        logUpdate('User Profile', $user, $newUser);
         return response200($user, __('Successfully updated profile'));
     }
 
@@ -328,7 +323,6 @@ class AuthController extends Controller
             'password'             => $newPassword = bcrypt($request->new_password),
             'last_password_change' => now(),
         ]);
-        logUpdate('Password', $oldPassword, $newPassword);
         return response200(true, __('Successfully updated password'));
     }
 
@@ -352,5 +346,19 @@ class AuthController extends Controller
     {
         $data = $this->settingRepository->all();
         return response200($data, __('Successfully got the settings'));
+    }
+
+    /**
+     * post log
+     * 
+     * @return JsonResponse
+     */
+    public function log(LogRequest $request)
+    {
+        $title        = $request->title;
+        $activityType = $request->activity_type;
+        $requestData  = $request->request_data;
+        logExecute($title, $activityType, $requestData);
+        return response200(true, __('Successfully insert log'));
     }
 }
