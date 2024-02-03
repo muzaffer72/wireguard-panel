@@ -17,6 +17,7 @@
         "guzzlehttp/guzzle": "^7.2",
         "guzzlehttp/psr7": "^2.4",
         "intervention/image": "^3.3",
+        "jenssegers/agent": "^2.6",
         "jenssegers/date": "^4.0",
         "laravel/framework": "^9.19",
         "laravel/sanctum": "^2.14.1",
@@ -53,7 +54,8 @@
             "app/Http/Helpers/Helper.php",
             "app/Http/Helpers/ResponseHelper.php",
             "app/Http/Helpers/WidgetHelper.php",
-            "app/Http/Helpers/AdsHelper.php"
+            "app/Http/Helpers/AdsHelper.php",
+            "app/Http/Helpers/LogHelper.php"
         ]
     },
     "autoload-dev": {

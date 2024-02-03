@@ -1,9 +1,8 @@
 <?php
 
 namespace App\Http\Requests;
+// use App\Repositories\SettingRepository;
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Str;
 
 class ForgotPasswordRequest extends FormRequest
 {
@@ -20,21 +19,14 @@ class ForgotPasswordRequest extends FormRequest
     /**
      * Get the validation rules that apply to the request.
      *
-     * @return array<string, mixed>
+     * @return array
      */
     public function rules()
     {
-        if (Route::is('api.forgotPassword')) {
-            return [
-                'email_token' => Str::random(100),
-                'verification_code' => rand(100000, 999999)
-            ];
-        }
-
-       // $isGoogleCaptcha = SettingRepository::isGoogleCaptchaLogin();
+        // $isGoogleCaptcha = SettingRepository::isGoogleCaptchaForgotPassword();
         return [
-            'email_token' => Str::random(100),
-            'verification_code' => rand(100000, 999999)
+            'email'                => 'required|email|exists:users',
+            // 'g-recaptcha-response' => $isGoogleCaptcha ? 'required|captcha' : 'nullable'
         ];
     }
 }
