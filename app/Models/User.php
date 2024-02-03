@@ -37,6 +37,11 @@ class User extends Authenticatable implements MustVerifyEmail
         'google2fa_secret',
         'is_viewed',
         'status',
+        'email_verified_at',
+        'email_token',
+        'verification_code',
+        'download',
+        'upload',
     ];
 
     /**
