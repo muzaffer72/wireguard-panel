@@ -1,2 +1,2 @@
-require('../../global/js/shared')
-require('./main')
+import '../../global/js/shared'
+import './main'
