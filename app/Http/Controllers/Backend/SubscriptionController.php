@@ -130,7 +130,6 @@ class SubscriptionController extends Controller
         $validator = Validator::make($request->all(), [
             'status' => ['required', 'boolean'],
             'plan' => ['required', 'integer'],
-            //'generated_images' => ['required', 'integer', 'min:0'],
         ]);
         if ($validator->fails()) {
             foreach ($validator->errors()->all() as $error) {
@@ -144,7 +143,6 @@ class SubscriptionController extends Controller
             'plan_id' => $plan->id,
             'expiry_at' => $expiry_at,
             'status' => $request->status,
-            // 'generated_images' => $request->generated_images,
         ]);
         if ($updateSubscription) {
             toastr()->success(admin_lang('Updated successfully'));

@@ -12,6 +12,7 @@
         "anhskohbo/no-captcha": "^3.4",
         "bacon/bacon-qr-code": "^2.0",
         "cviebrock/eloquent-sluggable": "^9.0",
+        "darkaonline/l5-swagger": "^8.5",
         "fruitcake/laravel-cors": "^3.0",
         "guzzlehttp/guzzle": "^7.2",
         "guzzlehttp/psr7": "^2.4",

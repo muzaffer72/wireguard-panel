@@ -185,7 +185,6 @@ class CheckoutController extends Controller
                 }
             }
             $subscription->expiry_at = $expiry_at;
-            $subscription->generated_images = 0;
             $subscription->about_to_expire_reminder = false;
             $subscription->expired_reminder = false;
             $subscription->update();
@@ -195,7 +194,6 @@ class CheckoutController extends Controller
             $expiry_at = ($transaction->plan->interval == 1) ? Carbon::now()->addMonth() : Carbon::now()->addYear();
             $subscription->plan_id = $transaction->plan_id;
             $subscription->expiry_at = $expiry_at;
-            $subscription->generated_images = 0;
             $subscription->about_to_expire_reminder = false;
             $subscription->expired_reminder = false;
             $subscription->update();

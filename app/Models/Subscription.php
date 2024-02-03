@@ -100,7 +100,6 @@ class Subscription extends Model
     protected $fillable = [
         'user_id',
         'plan_id',
-        'generated_images',
         'status',
         'expiry_at',
         'about_to_expire_reminder',
@@ -115,7 +114,6 @@ class Subscription extends Model
      */
     protected $casts = [
         'expiry_at' => 'datetime',
-        'generated_images' => 'int',
     ];
 
     /**

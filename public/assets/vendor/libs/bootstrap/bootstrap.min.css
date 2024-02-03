@@ -2288,7 +2288,7 @@ progress {
 }
 
 .form-control:focus {
-    color: #212529;
+    color: grey;
     background-color: #fff;
     border-color: #86b7fe;
     outline: 0;
@@ -4226,7 +4226,8 @@ fieldset:disabled .btn {
 }
 
 .dropdown-menu.show {
-    display: block
+    display: block;
+    background: black;
 }
 
 .dropdown-header {
@@ -4241,7 +4242,7 @@ fieldset:disabled .btn {
 .dropdown-item-text {
     display: block;
     padding: .25rem 1rem;
-    color: #212529
+    color: #c4c4c4
 }
 
 .dropdown-menu-dark {
@@ -6214,7 +6215,9 @@ fieldset:disabled .btn {
 }
 
 .modal.show .modal-dialog {
-    transform: none
+    transform: none;
+    background: midnightblue;
+    border-radius: 20px;
 }
 
 .modal.modal-static .modal-dialog {

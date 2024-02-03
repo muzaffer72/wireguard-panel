@@ -72,6 +72,22 @@ class AuthController extends Controller
      * @param LoginRequest $request
      * @return Response
      */
+    /**
+        
+    *    @OA\Post(
+    *       path="/auth/login",
+    *       tags={"login"},
+    *       operationId="login",
+    *       summary="login",
+    *       description="login",
+    *       @OA\Response(
+    *           response="200",
+    *           description="Ok",
+    *           @OA\JsonContent
+    *           (example={"data":{"name":"cakra budiman","email":"user@email.com","token":null},"message":"Successfully entered the system"}),
+    *      ),
+    *  )
+    */
     public function login(LoginRequest $request)
     {
         $user = $this->usermodel->where('email', $request->email)->first();
