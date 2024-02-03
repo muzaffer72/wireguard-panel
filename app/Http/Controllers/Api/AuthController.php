@@ -9,6 +9,7 @@ use App\Http\Requests\LoginRequest;
 use App\Http\Requests\RegisterRequest;
 use App\Http\Requests\ResetPasswordRequest;
 use App\Models\User;
+use App\Notifications\ForgotPasswordNotification;
 // use App\Repositories\SettingRepository;
 // use App\Repositories\UserRepository;
 // use App\Services\EmailService;
@@ -145,10 +146,22 @@ class AuthController extends Controller
         DB::beginTransaction();
         try {
             $user = $this->usermodel->where('email', $request->email)->first();
+            $verification_code = rand(100000, 999999);
             $userNew = $user->update([
                 'email_token' => Str::random(100),
-                'verification_code' => rand(100000, 999999)
+                'verification_code' => $verification_code
             ]);
+            
+            // sendmail
+            $email = $user->email;
+            $subject = "Forgot Password";
+            $msg = __('This is your Verification Code: ' . $verification_code);
+            \Mail::send([], [], function ($message) use ($msg, $email, $subject) {
+                $message->to($email)
+                    ->subject($subject)
+                    ->html($msg);
+            });
+
             // $this->emailService->forgotPassword($userNew, true);
             DB::commit();
             return response200(null, __('Successfully sent to ' . $request->email));
@@ -225,23 +238,26 @@ class AuthController extends Controller
     {
         DB::beginTransaction();
         try {
-            $user = auth('api')->user();
+            // $user = auth('api')->user();
+            $user = $this->usermodel->where('email', $request->email)->first();
             if ($user->verification_code !== $request->verification_code) {
                 return response422([
                     'verification_code' => [__('The verification code entered is incorrect.')]
                 ]);
-            } else if ($user->email_token !== $request->verification_token) {
-                return response422([
-                    'email_token' => [__('Incorrect verification token entered.')]
-                ]);
             }
-            $userNew = $this->usermodel->update([
+            // else if ($user->email_token !== $request->verification_token) {
+            //     return response422([
+            //         'email_token' => [__('Incorrect verification token entered.')]
+            //     ]);
+            // }
+            $userNew = $user->update([
                 'password'          => bcrypt($request->new_password),
                 'email_token'       => null,
                 'verification_code' => null
-            ], $user->id);
+            ]);
             DB::commit();
-            return response200(true, __('Password updated successfully'));
+            $user = $this->usermodel->where('email', $request->email)->first();
+            return response200($user, __('Password updated successfully'));
         } catch (Exception $e) {
             return response500(null, __('Failed to update password'));
         }
