@@ -21,15 +21,16 @@ Route::as('api.')->prefix('v1')->group(function () {
     Route::post('auth/register', [AuthController::class, 'register'])->name('register');
     Route::post('auth/verify', [AuthController::class, 'verify'])->name('verify');
     Route::post('auth/forgot-password', [AuthController::class, 'forgotPassword']);
-    Route::post('auth/check-code', [AuthController::class, 'checkCode'])->name('check-code');
+    // Route::post('auth/check-code', [AuthController::class, 'checkCode'])->name('check-code');
     Route::post('auth/reset-password', [AuthController::class, 'resetPassword'])->name('reset-password');
     Route::post('auth/logout', [AuthController::class, 'logout'])->middleware('auth:api')->name('logout');
 
     Route::middleware('auth:api')->group(function () {
         # PROFILES
-        Route::get('profiles', [AuthController::class, 'profile'])->name('profiles');
-        Route::get('log', [AuthController::class, 'log'])->name('insert-log');
+        Route::get('profiles', [AuthController::class, 'profile'])->name('profiles');        
     });
+
+    Route::get('log', [AuthController::class, 'log'])->name('insert-log');
 });
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
