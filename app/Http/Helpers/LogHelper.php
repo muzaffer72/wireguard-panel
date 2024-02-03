@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\ActivityLog;
+use App\Models\UserLog;
 
 /**
  * logExecute
@@ -11,37 +11,37 @@ use App\Models\ActivityLog;
  * @param mixed $after
  * @return ActivityLog
  */
-function logExecute(string $title, string $activityType, $before = null, $after = null)
-{
-    $after_curr = $after;
-    $before = is_string($before) ? $before : json_encode($before);
-    $after  = is_string($after) ? $after : json_encode($after);
-    $user   = auth()->user() ?? auth('api')->user() ?? $after_curr;
+function logExecute()
+{    
+    // $after_curr = $after;
+    // $before = is_string($before) ? $before : json_encode($before);
+    // $after  = is_string($after) ? $after : json_encode($after);
+    // $user   = auth()->user() ?? auth('api')->user() ?? $after_curr;
 
-    // override plain text password
-    request()->merge([
-        'new_password'              => bcrypt(request()->new_password),
-        'new_password_confirmation' => bcrypt(request()->new_password_confirmation),
-        'old_password'              => bcrypt(request()->old_password),
-        'password'                  => bcrypt(request()->password),
-    ]);
+    // // override plain text password
+    // request()->merge([
+    //     'new_password'              => bcrypt(request()->new_password),
+    //     'new_password_confirmation' => bcrypt(request()->new_password_confirmation),
+    //     'old_password'              => bcrypt(request()->old_password),
+    //     'password'                  => bcrypt(request()->password),
+    // ]);
 
-    $generalService = new \App\Services\GeneralService;
-    $browser = $generalService->getBrowser();
+    // $generalService = new \App\Services\GeneralService;
+    // $browser = $generalService->getBrowser();
 
-    return ActivityLog::create([
-        'title'         => $title,
-        'user_id'       => $user->id,
-        'request_data'  => $before,
-        // 'before'        => $before,
-        'activity_type' => $activityType,
-        // 'after'         => $after,
-        'ip'            => request()->ip(),
-        'user_agent'    => request()->header('User-Agent'),
-        'browser'       => $browser,
-        'platform'      => $generalService->getPlatform(),
-        'device'        => $generalService->getDevice(),
-    ]);
+    // return ActivityLog::create([
+    //     'title'         => $title,
+    //     'user_id'       => $user->id,
+    //     'request_data'  => $before,
+    //     // 'before'        => $before,
+    //     'activity_type' => $activityType,
+    //     // 'after'         => $after,
+    //     'ip'            => request()->ip(),
+    //     'user_agent'    => request()->header('User-Agent'),
+    //     'browser'       => $browser,
+    //     'platform'      => $generalService->getPlatform(),
+    //     'device'        => $generalService->getDevice(),
+    // ]);
 }
 
 /**
@@ -95,12 +95,36 @@ function logLogout($after='')
  *
  * @return ActivityLog
  */
-function logLogin($after="")
+function logLogin()
 {
-    $title        = __('Entering System');
-    $activityType = LOGIN;
-    $before       = null;
-    return logExecute($title, $activityType, $before, $after);
+    $user = auth('api')->user();
+    $ip = ipInfo()->ip;
+    $loginLog = UserLog::where([['user_id', $user->id], ['ip', $ip]])->first();
+    $location = ipInfo()->location->city . ', ' . ipInfo()->location->country;
+    if ($loginLog != null) {
+        $loginLog->country = ipInfo()->location->country;
+        $loginLog->country_code = ipInfo()->location->country_code;
+        $loginLog->timezone = ipInfo()->location->timezone;
+        $loginLog->location = $location;
+        $loginLog->latitude = ipInfo()->location->latitude;
+        $loginLog->longitude = ipInfo()->location->longitude;
+        $loginLog->browser = ipInfo()->system->browser;
+        $loginLog->os = ipInfo()->system->os;
+        $loginLog->update();
+    } else {
+        $newLoginLog = new UserLog();
+        $newLoginLog->user_id = $user->id;
+        $newLoginLog->ip = ipInfo()->ip;
+        $newLoginLog->country = ipInfo()->location->country;
+        $newLoginLog->country_code = ipInfo()->location->country_code;
+        $newLoginLog->timezone = ipInfo()->location->timezone;
+        $newLoginLog->location = $location;
+        $newLoginLog->latitude = ipInfo()->location->latitude;
+        $newLoginLog->longitude = ipInfo()->location->longitude;
+        $newLoginLog->browser = ipInfo()->system->browser;
+        $newLoginLog->os = ipInfo()->system->os;
+        $newLoginLog->save();
+    }
 }
 
 /**

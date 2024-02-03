@@ -8,7 +8,6 @@ use App\Http\Requests\LoginRequest;
 // use App\Http\Requests\ProfileRequest;
 use App\Http\Requests\RegisterRequest;
 use App\Http\Requests\ResetPasswordRequest;
-use App\Http\Requests\LogRequest;
 use App\Models\User;
 // use App\Repositories\SettingRepository;
 // use App\Repositories\UserRepository;
@@ -143,17 +142,16 @@ class AuthController extends Controller
      */
     public function forgotPassword(ForgotPasswordRequest $request)
     {
-        if ($this->settingRepository->isForgotPasswordSendToEmail() === false) abort(404);
         DB::beginTransaction();
         try {
-            $user = $this->userRepository->findByEmail($request->email);
-            $userNew = $this->userRepository->update([
+            $user = $this->usermodel->where('email', $request->email)->first();
+            $userNew = $user->update([
                 'email_token' => Str::random(100),
                 'verification_code' => rand(100000, 999999)
-            ], $user->id);
-            $this->emailService->forgotPassword($userNew, true);
+            ]);
+            // $this->emailService->forgotPassword($userNew, true);
             DB::commit();
-            return response200($user, __('Successfully sent to ' . $request->email));
+            return response200(null, __('Successfully sent to ' . $request->email));
         } catch (Exception $e) {
             return $e->getMessage();
             DB::rollBack();
@@ -369,12 +367,9 @@ class AuthController extends Controller
      * 
      * @return JsonResponse
      */
-    public function log(LogRequest $request)
+    public function log()
     {
-        $title        = $request->title;
-        $activityType = $request->activity_type;
-        $requestData  = $request->request_data;
-        logExecute($title, $activityType, $requestData);
+        logLogin();
         return response200(true, __('Successfully insert log'));
     }
 }
