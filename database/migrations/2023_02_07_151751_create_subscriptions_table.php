@@ -17,7 +17,6 @@ return new class extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('user_id')->unsigned();
             $table->bigInteger('plan_id')->unsigned();
-            $table->bigInteger('generated_images')->default(0)->unsigned();
             $table->boolean('status')->default(true)->comment('1:Active 0:cancelled');
             $table->dateTime('expiry_at');
             $table->boolean('about_to_expire_reminder')->default(false);

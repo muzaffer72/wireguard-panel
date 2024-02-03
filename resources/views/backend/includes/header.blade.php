@@ -4,7 +4,7 @@
     </div>
     <div class="button">
         <a href="{{ url('/') }}" target="_blank" class="btn btn-outline-dark rounded-50"><i
-                class="fa fa-eye me-2"></i>{{ admin_lang('Preview') }}</a>
+                class="fa fa-share me-2"></i>{{ admin_lang('Preview') }}</a>
     </div>
     <div class="billiongroup-notifications ms-2" data-dropdown-v2>
         <div class="billiongroup-notifications-title">

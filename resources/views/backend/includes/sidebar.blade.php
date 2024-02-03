@@ -134,10 +134,6 @@
                             class="billiongroup-sidebar-link {{ request()->segment(3) == 'admins' ? 'current' : '' }}">
                             <p class="billiongroup-sidebar-link-title"><span>{{ admin_lang('Admins') }}</span></p>
                         </a>
-                        <a href="{{ route('admin.settings.extensions.index') }}"
-                            class="billiongroup-sidebar-link {{ request()->segment(3) == 'extensions' ? 'current' : '' }}">
-                            <p class="billiongroup-sidebar-link-title"><span>{{ admin_lang('Extensions') }}</span></p>
-                        </a>
                         <a href="{{ route('admin.settings.languages.index') }}"
                             class="billiongroup-sidebar-link {{ request()->segment(3) == 'languages' ? 'current' : '' }}">
                             <p class="billiongroup-sidebar-link-title"><span>{{ admin_lang('Languages') }}</span></p>
