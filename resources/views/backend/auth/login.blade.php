@@ -6,11 +6,11 @@
         @csrf
         <div class="mb-3">
             <label class="form-label">{{ admin_lang('Email Address') }} : <span class="red">*</span></label>
-            <input type="email" name="email" class="form-control form-control-lg" value="{{ old('email') }}" required />
+            <input type="email" name="email" class="bg-dark block w-full p-2 text-white border border-gray-800 rounded-lg bg-gray-500 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ old('email') }}" required />
         </div>
         <div class="mb-3">
             <label class="form-label">{{ admin_lang('Password') }} : <span class="red">*</span></label>
-            <input type="password" name="password" class="form-control form-control-lg" required />
+            <input type="password" name="password" class="bg-dark block w-full p-2 text-white border border-gray-800 rounded-lg bg-gray-500 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
         </div>
         <div class="row mb-3">
             <div class="col-auto">

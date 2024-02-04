@@ -102,7 +102,7 @@
                         <div class="mb-3">
                             <label class="form-label">{{ admin_lang('Language File (ZIP)') }} : <span
                                     class="red">*</span></label>
-                            <input type="file" name="language_file" class="form-control">
+                            <input type="file" name="language_file" class="bg-dark block w-full p-2 text-white border border-gray-800 rounded-lg bg-gray-500 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                         </div>
                         <button class="btn btn-primary">{{ admin_lang('Import') }}</button>
                     </form>

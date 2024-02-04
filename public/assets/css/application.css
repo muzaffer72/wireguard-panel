@@ -452,6 +452,7 @@ input[type="color"] {
     padding-right: 0;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
+    color: aliceblue;
 }
 
 .billiongroup-input-group .form-control {

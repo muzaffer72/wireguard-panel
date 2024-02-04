@@ -21,7 +21,7 @@
                             <label>{{ admin_lang('Featured plan') }}</label>
                         </div>
                         <div class="col col-lg-4">
-                            <input type="text" name="name" class="form-control" required value="{{ old('name') }}"
+                            <input type="text" name="name" class="bg-dark block w-full p-2 text-white border border-gray-800 rounded-lg bg-gray-500 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required value="{{ old('name') }}"
                                 placeholder="{{ admin_lang('Enter plan name') }}" autofocus>
                         </div>
                     </div>
@@ -33,7 +33,7 @@
                                         class="red">*</span></strong></label>
                         </div>
                         <div class="col-12 col-lg-4">
-                            <textarea name="short_description" class="form-control" required placeholder="{{ admin_lang('Max 150 character') }}">{{ old('short_description') }}</textarea>
+                            <textarea name="short_description" class="bg-dark block w-full p-2 text-white border border-gray-800 rounded-lg bg-gray-500 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required placeholder="{{ admin_lang('Max 150 character') }}">{{ old('short_description') }}</textarea>
                         </div>
                     </div>
                 </li>

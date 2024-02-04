@@ -12,29 +12,29 @@
             <div class="card-body">
                 <div class="row g-3 mb-3">
                     <div class="col-lg-6">
-                        <label class="form-label">{{ admin_lang('Site Name') }} : <span class="red">*</span></label>
-                        <input type="text" name="general[site_name]" class="form-control"
-                            value="{{ $settings->general->site_name }}" required>
+                        <label for="small-input" class="block mb-2 text-sm font-medium text-white dark:text-white">{{ admin_lang('Site Name') }} : <span class="red">*</span></label>
+    <input type="text" name="general[site_name]" value="{{ $settings->general->site_name }}" id="small-input" class="bg-dark block w-full p-2 text-white border border-gray-800 rounded-lg bg-gray-500 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
+                        
                     </div>
                     <div class="col-lg-6">
-                        <label class="form-label">{{ admin_lang('Site URL') }} : <span class="red">*</span></label>
-                        <input type="text" name="general[site_url]" class="form-control"
+                        <label for="small-input" class="block mb-2 text-sm font-medium text-white dark:text-white">{{ admin_lang('Site URL') }} : <span class="red">*</span></label>
+                        <input type="text" name="general[site_url]" id="small-input" class="bg-dark block w-full p-2 text-white border border-gray-800 rounded-lg bg-gray-500 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             value="{{ $settings->general->site_url }}" required>
                     </div>
                     <div class="col-lg-6">
-                        <label class="form-label">{{ admin_lang('Contact email') }} : <span class="red">*</span></label>
-                        <input type="text" name="general[contact_email]" class="form-control"
+                        <label for="small-input" class="block mb-2 text-sm font-medium text-white dark:text-white">{{ admin_lang('Contact email') }} : <span class="red">*</span></label>
+                        <input type="text" name="general[contact_email]" id="small-input" class="bg-dark block w-full p-2 text-white border border-gray-800 rounded-lg bg-gray-500 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             value="{{ $settings->general->contact_email }}" required>
                     </div>
                     <div class="col-lg-6">
-                        <label class="form-label">{{ admin_lang('Terms of service') }} : <small
+                        <label for="small-input" class="block mb-2 text-sm font-medium text-white dark:text-white">{{ admin_lang('Terms of service') }} : <small
                                 class="text-muted">({{ admin_lang('Used on registration & cookies') }})</small></label>
-                        <input type="text" name="general[terms_of_service_link]" class="form-control"
+                        <input type="text" name="general[terms_of_service_link]" id="small-input" class="bg-dark block w-full p-2 text-white border border-gray-800 rounded-lg bg-gray-500 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             value="{{ $settings->general->terms_of_service_link }}">
                     </div>
                     <div class="col-lg-6">
                         <label class="form-label">{{ admin_lang('Date format') }} : <span class="red">*</span></label>
-                        <select name="general[date_format]" class="form-select">
+                        <select name="general[date_format]"class="bg-dark block w-full p-2 text-white border border-gray-800 rounded-lg bg-gray-500 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             @foreach (dateFormatsArray() as $formatKey => $formatValue)
                                 <option value="{{ $formatKey }}"
                                     {{ $formatKey == $settings->general->date_format ? 'selected' : '' }}>
@@ -45,7 +45,7 @@
                     </div>
                     <div class="col-lg-6">
                         <label class="form-label">{{ admin_lang('Timezone') }} : <span class="red">*</span></label>
-                        <select name="general[timezone]" class="form-select">
+                        <select name="general[timezone]" class="bg-dark block w-full p-2 text-white border border-gray-800 rounded-lg bg-gray-500 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             @foreach (timezonesArray() as $timezoneKey => $timezoneValue)
                                 <option value="{{ $timezoneKey }}"
                                     {{ $timezoneKey == $settings->general->timezone ? 'selected' : '' }}>
@@ -64,8 +64,8 @@
             <div class="card-body">
                 <div class="row g-3">
                     <div class="col-lg-6">
-                        <label class="form-label">{{ admin_lang('Default Mode') }} : <span class="red">*</span></label>
-                        <select name="theme[mode_default]" class="form-select">
+                        <label for="small-input" class="block mb-2 text-sm font-medium text-white dark:text-white">{{ admin_lang('Default Mode') }} : <span class="red">*</span></label>
+                        <select name="theme[mode_default]" id="small-input" class="bg-dark block w-full p-2 text-white border border-gray-800 rounded-lg bg-gray-500 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             <option value="auto" {{ $settings->theme->mode_default == 'auto' ? 'selected' : '' }}>
                                 {{ admin_lang('Auto') }}</option>
                             <option value="light" {{ $settings->theme->mode_default == 'light' ? 'selected' : '' }}>
@@ -75,7 +75,7 @@
                         </select>
                     </div>
                     <div class="col-lg-6">
-                        <label class="form-label">{{ admin_lang('Mode Switcher Button') }} : </label>
+                        <label  for="small-input" class="block mb-2 text-sm font-medium text-white dark:text-white">{{ admin_lang('Mode Switcher Button') }} : </label>
                         <input type="checkbox" name="theme[mode_switcher]" data-toggle="toggle"
                             {{ $settings->theme->mode_switcher ? 'checked' : '' }}>
                     </div>
@@ -91,16 +91,16 @@
                     <div class="card-body">
                         <div class="row g-3 mb-2">
                             <div class="col-lg-12">
-                                <label class="form-label">{{ admin_lang('Currency Code') }} : <span
+                                <label for="small-input" class="block mb-2 text-sm font-medium text-white dark:text-white">{{ admin_lang('Currency Code') }} : <span
                                         class="red">*</span></label>
-                                <input type="text" name="currency[code]" class="form-control"
+                                <input type="text" name="currency[code]" id="small-input" class="bg-dark block w-full p-2 text-white border border-gray-800 rounded-lg bg-gray-500 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                     value="{{ $settings->currency->code }}" placeholder="{{ admin_lang('USD') }}"
                                     required>
                             </div>
                             <div class="col-lg-12">
                                 <label class="form-label">{{ admin_lang('Currency Symbol') }} : <span
                                         class="red">*</span></label>
-                                <input type="text" name="currency[symbol]" class="form-control"
+                                <input type="text" name="currency[symbol]" id="small-input" class="bg-dark block w-full p-2 text-white border border-gray-800 rounded-lg bg-gray-500 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                     value="{{ $settings->currency->symbol }}" placeholder="{{ admin_lang('$') }}"
                                     required>
                             </div>
@@ -130,7 +130,7 @@
                             <div class="col-lg-12">
                                 <label class="form-label">{{ admin_lang('Subscription About to expire reminder') }} :
                                     <span class="red">*</span></label>
-                                <select name="subscription[about_to_expire_reminder]" class="form-select">
+                                <select name="subscription[about_to_expire_reminder]" class="bg-dark block w-full p-2 text-white border border-gray-800 rounded-lg bg-gray-500 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                     <option value="1"
                                         {{ $settings->subscription->about_to_expire_reminder == 1 ? 'selected' : '' }}>
                                         {{ admin_lang('Before One day') }}</option>
@@ -151,7 +151,7 @@
                             <div class="col-lg-12">
                                 <label class="form-label">{{ admin_lang('Subscription Expired reminder') }} : <span
                                         class="red">*</span></label>
-                                <select name="subscription[expired_reminder]" class="form-select">
+                                <select name="subscription[expired_reminder]" class="bg-dark block w-full p-2 text-white border border-gray-800 rounded-lg bg-gray-500 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                     <option value="1"
                                         {{ $settings->subscription->expired_reminder == 1 ? 'selected' : '' }}>
                                         {{ admin_lang('After One day') }}</option>
@@ -172,7 +172,7 @@
                             <div class="col-lg-12">
                                 <label class="form-label">{{ admin_lang('Delete Expired subscriptions') }} : <span
                                         class="red">*</span></label>
-                                <select name="subscription[delete_expired]" class="form-select">
+                                <select name="subscription[delete_expired]" class="bg-dark block w-full p-2 text-white border border-gray-800 rounded-lg bg-gray-500 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                     <option value="3"
                                         {{ $settings->subscription->delete_expired == 3 ? 'selected' : '' }}>
                                         {{ admin_lang('After 3 days') }}</option>
@@ -215,7 +215,7 @@
                                 <span class="input-group-text colorpicker-input-addon">
                                     <i></i>
                                 </span>
-                                <input type="text" name="colors[{{ $key }}]" class="form-control"
+                                <input type="text" name="colors[{{ $key }}]" class="bg-dark block w-full p-2 text-white border border-gray-800 rounded-lg bg-gray-500 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                     value="{{ $value }}" required>
                             </div>
                         </div>
@@ -300,7 +300,7 @@
                         </div>
                         <div class="mb-3">
                             <input id="billiongroup-image-targeted-input-1" type="file" name="media[dark_logo]"
-                                accept=".jpg, .jpeg, .png, .svg" class="form-control" hidden>
+                                accept=".jpg, .jpeg, .png, .svg" class="bg-dark block w-full p-2 text-white border border-gray-800 rounded-lg bg-gray-500 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" hidden>
                             <button data-id="1" type="button"
                                 class="billiongroup-select-image-button btn btn-secondary btn-lg w-100 mb-2">{{ admin_lang('Choose Dark Logo') }}</button>
                             <small class="text-muted">{{ admin_lang('Supported (PNG, JPG, JPEG, SVG)') }}</small>
@@ -314,7 +314,7 @@
                         </div>
                         <div class="mb-3">
                             <input id="billiongroup-image-targeted-input-2" type="file" name="media[light_logo]"
-                                accept=".jpg, .jpeg, .png, .svg" class="form-control" hidden>
+                                accept=".jpg, .jpeg, .png, .svg" class="bg-dark block w-full p-2 text-white border border-gray-800 rounded-lg bg-gray-500 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" hidden>
                             <button data-id="2" type="button"
                                 class="billiongroup-select-image-button btn btn-secondary btn-lg w-100 mb-2">{{ admin_lang('Choose Light Logo') }}</button>
                             <small class="text-muted">{{ admin_lang('Supported (PNG, JPG, JPEG, SVG)') }}</small>
@@ -328,7 +328,7 @@
                         </div>
                         <div class="mb-3">
                             <input id="billiongroup-image-targeted-input-3" type="file" name="media[favicon]"
-                                accept=".jpg, .jpeg, .png, .ico" class="form-control" hidden>
+                                accept=".jpg, .jpeg, .png, .ico" class="bg-dark block w-full p-2 text-white border border-gray-800 rounded-lg bg-gray-500 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" hidden>
                             <button data-id="3" type="button"
                                 class="billiongroup-select-image-button btn btn-secondary btn-lg w-100 mb-2">{{ admin_lang('Choose Favicon') }}</button>
                             <small class="text-muted">{{ admin_lang('Supported (PNG, JPG, JPEG, ICO)') }}</small>
@@ -353,7 +353,7 @@
                         </div>
                         <div class="mb-3">
                             <input id="billiongroup-image-targeted-input-4" type="file" name="media[social_image]"
-                                accept="image/jpg, image/jpeg" class="form-control" hidden>
+                                accept="image/jpg, image/jpeg" class="bg-dark block w-full p-2 text-white border border-gray-800 rounded-lg bg-gray-500 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" hidden>
                             <button data-id="4" type="button"
                                 class="billiongroup-select-image-button btn btn-secondary btn-lg w-100 mb-2">{{ admin_lang('Choose Social Image') }}</button>
                             <small class="text-muted">

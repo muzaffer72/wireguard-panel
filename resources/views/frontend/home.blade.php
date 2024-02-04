@@ -19,7 +19,7 @@
                                             @if ($apiProvider)
                                                 <div class="row g-3">
                                                     <div class="col-lg-8">
-                                                        <input type="text" name="prompt" class="form-control"
+                                                        <input type="text" name="prompt" class="bg-dark block w-full p-2 text-white border border-gray-800 rounded-lg bg-gray-500 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                                             placeholder="{{ lang('What do you want to generate?', 'home page') }}"
                                                             value="{{ request('prompt') ?? '' }}" required />
                                                     </div>
@@ -40,7 +40,7 @@
                                                                 <label
                                                                     class="form-label">{{ lang('Negative Prompt', 'home page') }}</label>
                                                                 <input type="text" name="negative_prompt"
-                                                                    class="form-control"
+                                                                    class="bg-dark block w-full p-2 text-white border border-gray-800 rounded-lg bg-gray-500 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                                                     placeholder="{{ lang('What you want to avoid generating?', 'home page') }}" />
                                                             </div>
                                                         @endif

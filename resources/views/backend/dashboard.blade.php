@@ -252,9 +252,10 @@
     </div>
     <div class="row g-3">
         <div class="col-lg-4">
-            @if ($countUsersLogs)
+            
                 <div class="w-full bg-dark rounded-lg shadow dark:bg-gray-800 p-4 md:p-6">
                     <div class="flex justify-between items-start w-full">
+                    @if ($countUsersLogs)
                         <div class="flex-col items-center">
                             <div class="flex items-center mb-1">
                                 <h5 class="text-xl font-bold leading-none text-white dark:text-white me-1">
@@ -264,20 +265,22 @@
                         <div class="flex justify-end items-center">
                             <small class="text-muted ms-auto">({{ carbon()->now()->format('F') }})</small>
                         </div>
+                        @else
+                <div class="card-body">
+                    @include('backend.includes.emptysmall')
+                </div>
+            @endif
                     </div>
                     <div class="py-6" id="pie-browsers"></div>
                 </div>
-            @else
-                <div class="card-body">
-                    @include('backend.includes.emptysmall')
-                </div>
-            @endif
+            
         </div>
 
         <div class="col-lg-4">
-            @if ($countUsersLogs)
+            
                 <div class="w-full bg-dark rounded-lg shadow dark:bg-gray-800 p-4 md:p-6">
                     <div class="flex justify-between items-start w-full">
+                    @if ($countUsersLogs)
                         <div class="flex-col items-center">
                             <div class="flex items-center mb-1">
                                 <h5 class="text-xl font-bold leading-none text-white dark:text-white me-1">
@@ -287,20 +290,22 @@
                         <div class="flex justify-end items-center">
                             <small class="text-muted ms-auto">({{ carbon()->now()->format('F') }})</small>
                         </div>
-                    </div>
-                    <div class="py-6" id="pie-os"></div>
-                </div>
-            @else
+                        @else
                 <div class="card-body">
                     @include('backend.includes.emptysmall')
                 </div>
             @endif
+                    </div>
+                    <div class="py-6" id="pie-os"></div>
+                </div>
+           
         </div>
 
         <div class="col-lg-4">
-        @if ($countUsersLogs)
+        
                 <div class="w-full bg-dark rounded-lg shadow dark:bg-gray-800 p-4 md:p-6">
                     <div class="flex justify-between items-start w-full">
+                    @if ($countUsersLogs)
                         <div class="flex-col items-center">
                             <div class="flex items-center mb-1">
                                 <h5 class="text-xl font-bold leading-none text-white dark:text-white me-1">
@@ -310,14 +315,15 @@
                         <div class="flex justify-end items-center">
                             <small class="text-muted ms-auto">({{ carbon()->now()->format('F') }})</small>
                         </div>
-                    </div>
-                    <div class="py-6" id="pie-os"></div>
-                </div>
-            @else
+                        @else
                 <div class="card-body">
                     @include('backend.includes.emptysmall')
                 </div>
             @endif
+                    </div>
+                    <div class="py-6" id="pie-country"></div>
+                </div>
+            
     </div>
     @push('top_scripts')
         <script type="text/javascript">
