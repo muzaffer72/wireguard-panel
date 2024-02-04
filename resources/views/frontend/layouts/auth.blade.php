@@ -4,7 +4,7 @@
 <head>
     @include('frontend.global.head')
     @push('styles')
-        <link rel="stylesheet" href="{{ asset('assets/auth/css/app.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/app.min.css') }}">
     @endpush
     @include('frontend.global.styles')
     {!! head_code() !!}
@@ -105,7 +105,7 @@
         </footer>
     </div>
     @push('scripts')
-        <script src="{{ asset('assets/auth/js/app.min.js') }}"></script>
+        <script src="{{ asset('assets/js/app.min.js') }}"></script>
     @endpush
     @include('frontend.configurations.config')
     @include('frontend.configurations.widgets')

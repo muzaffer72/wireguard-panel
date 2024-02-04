@@ -116,7 +116,7 @@ class GeneralController extends Controller
         setEnv('APP_URL', $requestData['general']['site_url']);
         setEnv('APP_TIMEZONE', "'{$requestData['general']['timezone']}'");
 
-        $colorsFile = 'assets/extra/css/colors.css';
+        $colorsFile = 'assets/css/colors.css';
         if (!file_exists($colorsFile)) {
             fopen($colorsFile, "w");
         }

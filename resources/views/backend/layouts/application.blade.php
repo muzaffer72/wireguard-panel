@@ -4,6 +4,7 @@
 <head>
     @include('backend.includes.head')
     @include('backend.includes.styles')
+    @vite('resources/css/app.css')
 </head>
 
 <body>

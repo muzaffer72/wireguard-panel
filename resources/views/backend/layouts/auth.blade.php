@@ -5,8 +5,8 @@
     @include('backend.includes.head')
     <link rel="stylesheet" href="{{ asset('assets/vendor/libs/bootstrap/bootstrap.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('vendor/libs/fontawesome/fontawesome.min.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/extra/css/colors.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/vendor/admin/css/application.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/css/colors.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/application.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/vendor/libs/toastr/toastr.min.css') }}">
     <!--Stylesheet-->
     <style media="screen">
@@ -144,7 +144,7 @@ button{
     <script src="{{ asset('assets/vendor/libs/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('assets/vendor/libs/bootstrap/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('assets/vendor/libs/toastr/toastr.min.js') }}"></script>
-    <script src="{{ asset('assets/vendor/admin/js/application.js') }}"></script>
+    <script src="{{ asset('assets/js/application.js') }}"></script>
     {!! google_captcha() !!}
     @toastr_render
     @if ($errors->any())

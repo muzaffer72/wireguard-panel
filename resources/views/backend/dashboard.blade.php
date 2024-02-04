@@ -3,7 +3,7 @@
 @section('access', admin_lang('Quick Access'))
 @section('container', 'container-fluid py-4')
 @section('content')
-   
+
     @if (!$settings->smtp->status)
         <div class="alert alert-danger">
             <i class="fas fa-exclamation-triangle me-2"></i>
@@ -29,7 +29,7 @@
                     <i class="fas fa-dollar-sign fa-sm"></i>
                 </div>
                 <div class="counter-card-info">
-                <p class="counter-card-number">{{ priceSymbol($widget['current_month_earnings']) }}</p>
+                    <p class="counter-card-number">{{ priceSymbol($widget['current_month_earnings']) }}</p>
                     <p class="counter-card-title">{{ admin_lang('Current Month Earnings') }}</p>
                 </div>
             </div>
@@ -51,7 +51,7 @@
                     <i class="fas fa-users fa-sm"></i>
                 </div>
                 <div class="counter-card-info">
-                <p class="counter-card-number">{{ number_format($widget['current_month_users']) }}</p>
+                    <p class="counter-card-number">{{ number_format($widget['current_month_users']) }}</p>
                     <p class="counter-card-title">{{ admin_lang('Current Month Users') }}</p>
                 </div>
             </div>
@@ -106,57 +106,99 @@
             </div>
         </div>
         <div class="col-12 col-lg-8 col-xxl-8">
-            <div class="card">
-                <div class="billiongroup-box chart-bar">
-                    <div class="billiongroup-box-header">
-                        <p class="billiongroup-box-header-title large mb-0">
-                            {{ admin_lang('Earnings Statistics For This Week') }}
-                        </p>
-                        <div class="billiongroup-box-header-action ms-auto">
-                            <button type="button" class="btn btn-sm rounded-3" data-bs-toggle="dropdown">
-                                <i class="fa fa-ellipsis-v"></i>
-                            </button>
-                            <ul class="dropdown-menu dropdown-menu-sm-end">
-                                <li><a class="dropdown-item"
-                                        href="{{ route('admin.transactions.index') }}">{{ admin_lang('View Transactions') }}</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="billiongroup-box-body">
-                        <div class="chart-bar">
-                            <canvas height="380" id="billiongroup-earnings-charts"></canvas>
-                        </div>
-                    </div>
+
+            <div class="w-full h-full bg-dark rounded-lg shadow dark:bg-gray-800 p-4 md:p-6">
+                <div class="grid grid-cols-2">
+                    <dl class="flex items-center">
+                        <dt class="text-white dark:text-gray-400 text-sm font-normal me-1">
+                            <h5 class="leading-none text-1xl font-bold text-white dark:text-white pb-2">
+                                {{ admin_lang('Users Statistics For This Week') }}</h5>
+                        </dt>
+                    </dl>
+                    <dl class="flex items-center justify-end">
+                        <button type="button" class="btn btn-sm rounded-3" data-bs-toggle="dropdown">
+                            <i class="fa fa-ellipsis-v"></i>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-sm-end">
+                            <li><a class="dropdown-item"
+                                    href="{{ route('admin.transactions.index') }}">{{ admin_lang('View Transactions') }}</a>
+                            </li>
+                        </ul>
+                    </dl>
                 </div>
+
+                <div id="column-chart"></div>
+
             </div>
+
+            <!-- <div class="card">
+                            <div class="billiongroup-box chart-bar">
+                                <div class="billiongroup-box-header">
+                                    <p class="billiongroup-box-header-title large mb-0">
+                                        {{ admin_lang('Earnings Statistics For This Week') }}
+                                    </p>
+                                    <div class="billiongroup-box-header-action ms-auto">
+                                        <button type="button" class="btn btn-sm rounded-3" data-bs-toggle="dropdown">
+                                            <i class="fa fa-ellipsis-v"></i>
+                                        </button>
+                                        <ul class="dropdown-menu dropdown-menu-sm-end">
+                                            <li><a class="dropdown-item"
+                                                    href="{{ route('admin.transactions.index') }}">{{ admin_lang('View Transactions') }}</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="billiongroup-box-body">
+                                    <div class="chart-bar">
+                                        <canvas height="380" id="billiongroup-earnings-charts"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
         </div>
     </div>
     <div class="row g-3 mb-4">
         <div class="col-12 col-lg-8 col-xxl-8">
-            <div class="card">
-                <div class="billiongroup-box chart-bar">
-                    <div class="billiongroup-box-header">
-                        <p class="billiongroup-box-header-title large mb-0">{{ admin_lang('Users Statistics For This Week') }}
-                        </p>
-                        <div class="billiongroup-box-header-action ms-auto">
-                            <button type="button" class="btn btn-sm rounded-3" data-bs-toggle="dropdown">
-                                <i class="fa fa-ellipsis-v"></i>
-                            </button>
-                            <ul class="dropdown-menu dropdown-menu-sm-end">
-                                <li><a class="dropdown-item"
-                                        href="{{ route('admin.users.index') }}">{{ admin_lang('View All') }}</a>
-                                </li>
-                            </ul>
-                        </div>
+
+            <div class="max-w-full min-h-full bg-dark rounded-lg shadow dark:bg-gray-800 p-4 md:p-6">
+                <div class="flex justify-between">
+                    <div>
+                        <h5 class="leading-none text-1xl font-bold text-white dark:text-white pb-2">
+                            {{ admin_lang('Users Statistics For This Week') }}</h5>
                     </div>
-                    <div class="billiongroup-box-body">
-                        <div class="chart-bar">
-                            <canvas height="380" id="billiongroup-users-charts"></canvas>
-                        </div>
-                    </div>
+
+                </div>
+                <div id="area-chart"></div>
+                <div class="grid grid-cols-1 items-center border-gray-200 border-t dark:border-gray-700 justify-between">
+
                 </div>
             </div>
+
+
+
+            <!-- <div class="card">
+                            <div class="billiongroup-box chart-bar">
+                                <div class="billiongroup-box-header">
+                                    <p class="billiongroup-box-header-title large mb-0">{{ admin_lang('Users Statistics For This Week') }}
+                                    </p>
+                                    <div class="billiongroup-box-header-action ms-auto">
+                                        <button type="button" class="btn btn-sm rounded-3" data-bs-toggle="dropdown">
+                                            <i class="fa fa-ellipsis-v"></i>
+                                        </button>
+                                        <ul class="dropdown-menu dropdown-menu-sm-end">
+                                            <li><a class="dropdown-item"
+                                                    href="{{ route('admin.users.index') }}">{{ admin_lang('View All') }}</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="billiongroup-box-body">
+                                    <div class="chart-bar">
+                                        <canvas height="380" id="billiongroup-users-charts"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
         </div>
         <div class="col-12 col-lg-4 col-xxl-4">
             <div class="card vhp-460">
@@ -210,72 +252,72 @@
     </div>
     <div class="row g-3">
         <div class="col-lg-4">
-            <div class="card">
-                <div class="billiongroup-box chart-bar">
-                    <div class="billiongroup-box-header">
-                        <p class="billiongroup-box-header-title large mb-0">{{ admin_lang('Login Statistics - Browsers') }}
-                        </p>
-                        <small class="text-muted ms-auto">({{ carbon()->now()->format('F') }})</small>
-                    </div>
-                    @if ($countUsersLogs)
-                        <div class="billiongroup-box-body">
-                            <div class="chart-bar">
-                                <canvas id="billiongroup-browsers-charts"></canvas>
+            @if ($countUsersLogs)
+                <div class="w-full bg-dark rounded-lg shadow dark:bg-gray-800 p-4 md:p-6">
+                    <div class="flex justify-between items-start w-full">
+                        <div class="flex-col items-center">
+                            <div class="flex items-center mb-1">
+                                <h5 class="text-xl font-bold leading-none text-white dark:text-white me-1">
+                                    {{ admin_lang('Login Statistics - Browsers') }}</h5>
                             </div>
                         </div>
-                    @else
-                        <div class="card-body">
-                            @include('backend.includes.emptysmall')
+                        <div class="flex justify-end items-center">
+                            <small class="text-muted ms-auto">({{ carbon()->now()->format('F') }})</small>
                         </div>
-                    @endif
+                    </div>
+                    <div class="py-6" id="pie-browsers"></div>
                 </div>
-            </div>
+            @else
+                <div class="card-body">
+                    @include('backend.includes.emptysmall')
+                </div>
+            @endif
         </div>
+
         <div class="col-lg-4">
-            <div class="card">
-                <div class="billiongroup-box chart-bar">
-                    <div class="billiongroup-box-header">
-                        <p class="billiongroup-box-header-title large mb-0">
-                            {{ admin_lang('Login Statistics - Operating Systems') }}
-                        </p>
-                        <small class="text-muted ms-auto">({{ carbon()->now()->format('F') }})</small>
-                    </div>
-                    @if ($countUsersLogs)
-                        <div class="billiongroup-box-body">
-                            <div class="chart-bar">
-                                <canvas id="billiongroup-os-charts"></canvas>
+            @if ($countUsersLogs)
+                <div class="w-full bg-dark rounded-lg shadow dark:bg-gray-800 p-4 md:p-6">
+                    <div class="flex justify-between items-start w-full">
+                        <div class="flex-col items-center">
+                            <div class="flex items-center mb-1">
+                                <h5 class="text-xl font-bold leading-none text-white dark:text-white me-1">
+                                    {{ admin_lang('Login Statistics - Browsers') }}</h5>
                             </div>
                         </div>
-                    @else
-                        <div class="card-body">
-                            @include('backend.includes.emptysmall')
+                        <div class="flex justify-end items-center">
+                            <small class="text-muted ms-auto">({{ carbon()->now()->format('F') }})</small>
                         </div>
-                    @endif
+                    </div>
+                    <div class="py-6" id="pie-os"></div>
                 </div>
-            </div>
+            @else
+                <div class="card-body">
+                    @include('backend.includes.emptysmall')
+                </div>
+            @endif
         </div>
+
         <div class="col-lg-4">
-            <div class="card">
-                <div class="billiongroup-box chart-bar">
-                    <div class="billiongroup-box-header">
-                        <p class="billiongroup-box-header-title large mb-0">{{ admin_lang('Login Statistics - Countries') }}
-                        </p>
-                        <small class="text-muted ms-auto">({{ carbon()->now()->format('F') }})</small>
-                    </div>
-                    @if ($countUsersLogs)
-                        <div class="billiongroup-box-body">
-                            <div class="chart-bar">
-                                <canvas id="billiongroup-countries-charts"></canvas>
+        @if ($countUsersLogs)
+                <div class="w-full bg-dark rounded-lg shadow dark:bg-gray-800 p-4 md:p-6">
+                    <div class="flex justify-between items-start w-full">
+                        <div class="flex-col items-center">
+                            <div class="flex items-center mb-1">
+                                <h5 class="text-xl font-bold leading-none text-white dark:text-white me-1">
+                                    {{ admin_lang('Login Statistics - Browsers') }}</h5>
                             </div>
                         </div>
-                    @else
-                        <div class="card-body">
-                            @include('backend.includes.emptysmall')
+                        <div class="flex justify-end items-center">
+                            <small class="text-muted ms-auto">({{ carbon()->now()->format('F') }})</small>
                         </div>
-                    @endif
+                    </div>
+                    <div class="py-6" id="pie-os"></div>
                 </div>
-            </div>
-        </div>
+            @else
+                <div class="card-body">
+                    @include('backend.includes.emptysmall')
+                </div>
+            @endif
     </div>
     @push('top_scripts')
         <script type="text/javascript">

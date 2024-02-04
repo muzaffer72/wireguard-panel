@@ -118,10 +118,7 @@ class RegisterController extends Controller
      */
     public function register(Request $request)
     {
-        if (extension('trustip')->status && isIpProxy(ipInfo()->ip)) {
-            toastr()->error(lang('Your IP type is not allowed', 'auth'));
-            return back();
-        }
+       
         $data = $request->all();
         $this->validator($data)->validate();
         $user = $this->create($data);

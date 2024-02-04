@@ -1,1 +1,1 @@
-import '/js/shared'
+require('../../js/shared')

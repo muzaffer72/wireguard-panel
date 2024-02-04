@@ -11,5 +11,5 @@
  <link rel="stylesheet" href="{{ asset('assets/css/colors.css') }}">
  <link rel="stylesheet" href="{{ asset('assets/css/app.min.css') }}">
  <link rel="stylesheet" href="{{ asset('assets/css/application.css') }}">
- 
+ <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.css" rel="stylesheet" />
  @stack('styles')
