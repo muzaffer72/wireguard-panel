@@ -47,9 +47,6 @@
                                     @yield('modal')
                                 </button>
                             @endif
-                            @hasSection('link')
-                                <a href="@yield('link')" class="btn btn-primary ms-2"><i class="fa fa-plus"></i></a>
-                            @endif
                             @hasSection('add_modal')
                                 <button type="button" class="btn btn-primary ms-2" data-bs-toggle="modal"
                                     data-bs-target="#addModal">

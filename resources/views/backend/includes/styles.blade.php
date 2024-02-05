@@ -1,7 +1,6 @@
  <link rel="stylesheet" href="{{ asset('assets/vendor/libs/bootstrap/bootstrap.min.css') }}">
  <link rel="stylesheet" href="{{ asset('assets/vendor/libs/fontawesome/fontawesome.min.css') }}">
  <link rel="stylesheet" href="{{ asset('assets/vendor/libs/simplebar/simplebar.min.css') }}">
- <link rel="stylesheet" href="{{ asset('assets/vendor/libs/datatable/datatables.min.css') }}">
  <link rel="stylesheet" href="{{ asset('assets/vendor/libs/sweetalert/sweetalert2.min.css') }}">
  @stack('styles_libs')
  <link rel="stylesheet" href="{{ asset('assets/vendor/libs/toggle-master/bootstrap-toggle.min.css') }}">

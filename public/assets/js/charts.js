@@ -48,62 +48,96 @@
             const labels = response.earningsChartLabels;
             const data = response.earningsChartData;
             const options = {
-                colors: [PRIMARY_COLOR, "#FDBA8C"],
-                series: [
-                    {
-                        name: labels,
-                        color: PRIMARY_COLOR,
-                        data: data,
-                    },
-                ],
                 chart: {
-                    type: "bar",
-                    height: "320px",
-                    fontFamily: "Inter, sans-serif",
+                    height: 420,
+                    type: 'area',
+                    fontFamily: 'Inter, sans-serif',
+                    foreColor: '#6B7280',
                     toolbar: {
-                        show: false,
-                    },
+                        show: false
+                    }
                 },
-                plotOptions: {
-                    bar: {
-                        horizontal: false,
-                        columnWidth: "70%",
-                        borderRadiusApplication: "end",
-                        borderRadius: 8,
-                    },
-                },
-
-                states: {
-                    hover: {
-                        filter: {
-                            type: "darken",
-                            value: 1,
-                        },
-                    },
-                },
-                grid: {
-                    show: true,
-                    strokeDashArray: 4,
-                    padding: {
-                        left: 2,
-                        right: 2,
-                        top: -14
-                    },
+                fill: {
+                    type: 'solid',
+                    opacity: 0.3,
                 },
                 dataLabels: {
-                    enabled: true,
+                    enabled: false
                 },
-                legend: {
+                tooltip: {
+                    callbacks: {
+                        label: function (context) {
+                            let label = context.dataset.label || '';
+
+                            if (label) {
+                                label += ': ';
+                            }
+                            if (context.parsed.y !== null) {
+                                if (CURRENCY_POSITION == 1) {
+                                    label += CURRENCY_CODE + context.parsed.y;
+                                } else {
+                                    label += context.parsed.y + CURRENCY_CODE;
+                                }
+                            }
+                            return label;
+                        }
+                    }
+                },
+                grid: {
                     show: false,
                 },
-
-                fill: {
-                    opacity: 1,
+                series: [
+                    {
+                        name: 'Revenue',
+                        data: data,
+                        color: '#0694a2'
+                    },
+                ],
+                xaxis: {
+                    categories: labels,
+                    labels: {
+                        style: {
+                            colors: ['#6B7280'],
+                            fontSize: '14px',
+                            fontWeight: 500,
+                        },
+                    },
+                    axisBorder: {
+                        color: '#F3F4F6',
+                    },
+                    axisTicks: {
+                        color: '#F3F4F6',
+                    }
                 },
-            }
+                yaxis: {
+                    labels: {
+                        style: {
+                            colors: ['#6B7280'],
+                            fontSize: '14px',
+                            fontWeight: 500,
+                        },
+                        formatter: function (value) {
+                            return '$' + value;
+                        }
+                    },
+                },
+                responsive: [
+                    {
+                        breakpoint: 1024,
+                        options: {
+                            xaxis: {
+                                labels: {
+                                    show: false
+                                }
+                            }
+                        }
+                    }
+                ]
+            };
 
-            if (document.getElementById("column-chart") && typeof ApexCharts !== 'undefined') {
-                const chart = new ApexCharts(document.getElementById("column-chart"), options);
+
+            if (document.getElementById("revenue-chart") && typeof ApexCharts !== 'undefined') {
+                const chart = new ApexCharts(document.getElementById("revenue-chart"), options);
                 chart.render();
             }
             // window.Chart && (new Chart(ctxEarnings, {
