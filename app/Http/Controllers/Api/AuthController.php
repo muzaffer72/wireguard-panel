@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ForgotPasswordRequest;
 use App\Http\Requests\LoginRequest;
-// use App\Http\Requests\ProfileRequest;
+use App\Http\Requests\ProfileRequest;
 use App\Http\Requests\RegisterRequest;
 use App\Http\Requests\ResetPasswordRequest;
 use App\Models\User;
@@ -348,15 +348,15 @@ class AuthController extends Controller
      */
     public function updateProfile(ProfileRequest $request)
     {
-        $data = $request->only([
-            'name',
-            'email'
-        ]);
+        $data = array_merge([
+            'last_password_change' => now(),
+        ], $request->only(
+            [
+                'name', 'firstname', 'lastname', 'dns'
+            ]
+        ));
         $user = auth('api')->user();
-        if ($request->hasFile('avatar')) {
-            $data['avatar'] = $this->fileService->uploadAvatar($request->file('avatar'));
-        }
-        $newUser = $this->userRepository->updateProfile($data);
+        $user->update($data);
         return response200($user, __('Successfully updated profile'));
     }
 
@@ -368,9 +368,9 @@ class AuthController extends Controller
      */
     public function updatePassword(ProfileRequest $request)
     {
-        $oldPassword = auth('api')->user()->password;
-        $this->userRepository->updateProfile([
-            'password'             => $newPassword = bcrypt($request->new_password),
+        $user = auth('api')->user();
+        $user->update([
+            'password'             => bcrypt($request->new_password),
             'last_password_change' => now(),
         ]);
         return response200(true, __('Successfully updated password'));
