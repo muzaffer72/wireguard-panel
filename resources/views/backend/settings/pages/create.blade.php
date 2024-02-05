@@ -11,7 +11,7 @@
                     <div class="card-body">
                         <div class="mb-3">
                             <label class="form-label">{{ admin_lang('Page title') }} : <span class="red">*</span></label>
-                            <input type="text" name="title" id="create_slug" class="form-control"
+                            <input type="text" name="title" id="create_slug" class="bg-dark block w-full p-2 text-white border border-gray-800 rounded-lg bg-gray-500 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                 value="{{ old('title') }}" required autofocus />
                         </div>
                         <div class="mb-3">
@@ -20,7 +20,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">{{ url('/') }}/</span>
                                 </div>
-                                <input type="text" name="slug" id="show_slug" class="form-control"
+                                <input type="text" name="slug" id="show_slug" class="bg-dark block w-full p-2 text-white border border-gray-800 rounded-lg bg-gray-500 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                     value="{{ old('slug') }}" required />
                             </div>
                         </div>
@@ -49,7 +49,7 @@
                         <div class="mb-3">
                             <label class="form-label">{{ admin_lang('Short description') }} : <span
                                     class="red">*</span></label>
-                            <textarea name="short_description" rows="6" class="form-control"
+                            <textarea name="short_description" rows="6" class="bg-dark block w-full p-2 text-white border border-gray-800 rounded-lg bg-gray-500 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                 placeholder="{{ admin_lang('50 to 200 character at most') }}" required>{{ old('short_description') }}</textarea>
                         </div>
                     </div>

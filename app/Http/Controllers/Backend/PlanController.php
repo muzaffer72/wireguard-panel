@@ -88,22 +88,12 @@ class PlanController extends Controller
         $request->is_featured = ($request->has('is_featured')) ? 1 : 0;
         $request->expiration = ($request->has('no_expiration')) ? null : $request->expiration;
         $request->advertisements = ($request->has('advertisements')) ? 1 : 0;
-        if ($request->has('watermark')) {
-            if (!settings('watermark')->status) {
-                toastr()->error(admin_lang('Watermark is not enabled from settings'));
-                return back()->withInput();
-            }
-            $request->watermark = 1;
-        } else {
-            $request->watermark = 0;
-        }
         $plan = Plan::create([
             'name' => $request->name,
             'short_description' => $request->short_description,
             'interval' => $request->interval,
             'price' => $request->price,
             'advertisements' => $request->advertisements,
-            'watermark' => $request->watermark,
             'custom_features' => $request->custom_features,
             'login_require' => $request->login_require,
             'is_free' => $request->is_free,
@@ -186,15 +176,7 @@ class PlanController extends Controller
         $request->is_featured = ($request->has('is_featured')) ? 1 : 0;
         $request->expiration = ($request->has('no_expiration')) ? null : $request->expiration;
         $request->advertisements = ($request->has('advertisements')) ? 1 : 0;
-        if ($request->has('watermark')) {
-            if (!settings('watermark')->status) {
-                toastr()->error(admin_lang('Watermark is not enabled from settings'));
-                return back();
-            }
-            $request->watermark = 1;
-        } else {
-            $request->watermark = 0;
-        }
+        
         $update = $plan->update([
             'name' => $request->name,
             'short_description' => $request->short_description,

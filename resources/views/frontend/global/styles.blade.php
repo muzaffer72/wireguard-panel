@@ -8,3 +8,4 @@
 <link rel="stylesheet" href="{{ asset('assets/css/app.min.css') }}">
 @stack('styles')
 <link rel="stylesheet" href="{{ asset('assets/css/custom.css') }}">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.css" rel="stylesheet" />

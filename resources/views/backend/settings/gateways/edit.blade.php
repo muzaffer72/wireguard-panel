@@ -24,14 +24,14 @@
                         <div class="row g-3 mb-2">
                             <div class="col-lg-12">
                                 <label class="form-label">{{ admin_lang('Name') }} :<span class="red">*</span></label>
-                                <input type="text" name="name" class="form-control" value="{{ $gateway->name }}"
+                                <input type="text" name="name" class="bg-dark block w-full p-2 text-white border border-gray-800 rounded-lg bg-gray-500 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ $gateway->name }}"
                                     required>
                             </div>
                             <div class="col-lg-12">
                                 <label class="form-label">{{ admin_lang('Gateway fees') }} : <span
                                         class="red">*</span></label>
                                 <div class="input-group">
-                                    <input type="number" name="gateway_fees" class="form-control" placeholder="0"
+                                    <input type="number" name="gateway_fees" class="bg-dark block w-full p-2 text-white border border-gray-800 rounded-lg bg-gray-500 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="0"
                                         value="{{ $gateway->fees }}">
                                     <span class="input-group-text"><i class="fas fa-percent"></i></span>
                                 </div>
@@ -65,7 +65,7 @@
                                     <label class="form-label capitalize">{{ $gateway->name }}
                                         {{ str_replace('_', ' ', $key) }} :</label>
                                     <input type="text" name="credentials[{{ $key }}]"
-                                        value="{{ demoMode() ? '' : $value }}" class="form-control">
+                                        value="{{ demoMode() ? '' : $value }}" class="bg-dark block w-full p-2 text-white border border-gray-800 rounded-lg bg-gray-500 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                 </div>
                             @endforeach
                         </div>

@@ -4,7 +4,8 @@
 <head>
     @include('frontend.global.head')
     @push('styles')
-        <link rel="stylesheet" href="{{ asset('assets/main/css/app.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/app.min.css') }}">
+        
     @endpush
     @include('frontend.global.styles')
     {!! head_code() !!}
@@ -15,7 +16,7 @@
     @yield('content')
     @include('frontend.includes.footer')
     @push('scripts')
-        <script src="{{ asset('assets/main/js/app.min.js') }}"></script>
+        <script src="{{ asset('assets/js/app.min.js') }}"></script>
     @endpush
     @include('frontend.configurations.config')
     @include('frontend.configurations.widgets')

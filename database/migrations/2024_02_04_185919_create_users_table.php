@@ -21,7 +21,9 @@ class CreateUsersTable extends Migration
             $table->string('email', 100)->unique();
             $table->text('address')->nullable();
             $table->string('avatar');
+            $table->string('client_id', 80);
             $table->string('password');
+            $table->string('api_token', 80);
             $table->timestamp('email_verified_at')->nullable();
             $table->boolean('google2fa_status')->default(false)->comment('0: Disabled, 1: Active');;
             $table->text('google2fa_secret')->nullable();

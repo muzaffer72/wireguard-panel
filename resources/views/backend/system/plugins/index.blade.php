@@ -76,13 +76,13 @@
                         <div class="mb-3">
                             <label class="form-label">{{ admin_lang('Plugin Purchase Code') }} : <span
                                     class="red">*</span></label>
-                            <input type="text" name="purchase_code" class="form-control"
+                            <input type="text" name="purchase_code" class="bg-dark block w-full p-2 text-white border border-gray-800 rounded-lg bg-gray-500 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                 placeholder="{{ admin_lang('Purchase code') }}" required>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">{{ admin_lang('Plugin Files (Zip)') }} : <span
                                     class="red">*</span></label>
-                            <input type="file" name="plugin_files" class="form-control" accept=".zip" required>
+                            <input type="file" name="plugin_files" class="bg-dark block w-full p-2 text-white border border-gray-800 rounded-lg bg-gray-500 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" accept=".zip" required>
                         </div>
                     </form>
                 </div>

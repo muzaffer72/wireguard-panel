@@ -105,7 +105,7 @@
         </footer>
     </div>
     @push('scripts')
-        <script src="{{ asset('assets/auth/js/app.min.js') }}"></script>
+        <script src="{{ asset('assets/js/app.min.js') }}"></script>
     @endpush
     @include('frontend.configurations.config')
     @include('frontend.configurations.widgets')

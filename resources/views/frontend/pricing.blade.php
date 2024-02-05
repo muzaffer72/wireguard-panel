@@ -35,55 +35,6 @@
                                         <span>/{{ formatInterval($plan->interval) }}</span>
                                     @endif
                                 </div>
-                                <div class="plan-features">
-                                    <div class="plan-feature">
-                                        <i class="fa fa-check"></i>
-                                        <span>{!! str_replace(
-                                            '{total_images}',
-                                            '<strong>' . number_format($plan->images) . '</strong>',
-                                            lang('Generate {total_images} Images', 'plans'),
-                                        ) !!}</span>
-                                    </div>
-                                    <div class="plan-feature">
-                                        <i class="fa fa-check"></i>
-                                        <span>{!! str_replace(
-                                            '{max_images}',
-                                            '<strong>' . number_format($plan->max_images) . '</strong>',
-                                            lang('{max_images} Images per request', 'plans'),
-                                        ) !!}</span>
-                                    </div>
-                                    <div class="plan-feature">
-                                        <i class="fa fa-check"></i>
-                                        @if ($plan->expiration == 1)
-                                            <span>{{ str_replace('{day}', number_format($plan->expiration), lang('Images Available For {day} day', 'plans')) }}</span>
-                                        @elseif($plan->expiration > 1)
-                                            <span>{{ str_replace('{days}', number_format($plan->expiration), lang('Images Available For {days} days', 'plans')) }}</span>
-                                        @else
-                                            <span>{{ lang('Images Available For Unlimited Time', 'plans') }}</span>
-                                        @endif
-                                    </div>
-                                    
-                                    @if (!$plan->advertisements)
-                                        <div class="plan-feature">
-                                            <i class="fa fa-check"></i>
-                                            <span>{{ lang('No Advertisements', 'plans') }}</span>
-                                        </div>
-                                    @endif
-                                    @if (!$plan->watermark)
-                                        <div class="plan-feature">
-                                            <i class="fa fa-check"></i>
-                                            <span>{{ lang('No Watermark', 'plans') }}</span>
-                                        </div>
-                                    @endif
-                                    @if ($plan->custom_features)
-                                        @foreach ($plan->custom_features as $customFeature)
-                                            <div class="plan-feature">
-                                                <i class="fa fa-check"></i>
-                                                <span>{{ $customFeature->name }}</span>
-                                            </div>
-                                        @endforeach
-                                    @endif
-                                </div>
                             </div>
                             <div class="plan-footer">
                                 {!! planButton($plan) !!}
@@ -111,55 +62,6 @@
                                         @else
                                             <p class="mb-0">{{ priceSymbol($plan->price) }}</p>
                                             <span>/{{ formatInterval($plan->interval) }}</span>
-                                        @endif
-                                    </div>
-                                    <div class="plan-features">
-                                        <div class="plan-feature">
-                                            <i class="fa fa-check"></i>
-                                            <span>{!! str_replace(
-                                                '{total_images}',
-                                                '<strong>' . number_format($plan->images) . '</strong>',
-                                                lang('Generate {total_images} Images', 'plans'),
-                                            ) !!}</span>
-                                        </div>
-                                        <div class="plan-feature">
-                                            <i class="fa fa-check"></i>
-                                            <span>{!! str_replace(
-                                                '{max_images}',
-                                                '<strong>' . number_format($plan->max_images) . '</strong>',
-                                                lang('{max_images} Images per request', 'plans'),
-                                            ) !!}</span>
-                                        </div>
-                                        <div class="plan-feature">
-                                            <i class="fa fa-check"></i>
-                                            @if ($plan->expiration == 1)
-                                                <span>{{ str_replace('{day}', number_format($plan->expiration), lang('Images Available For {day} day', 'plans')) }}</span>
-                                            @elseif($plan->expiration > 1)
-                                                <span>{{ str_replace('{days}', number_format($plan->expiration), lang('Images Available For {days} days', 'plans')) }}</span>
-                                            @else
-                                                <span>{{ lang('Images Available For Unlimited Time', 'plans') }}</span>
-                                            @endif
-                                        </div>
-                                        
-                                        @if (!$plan->advertisements)
-                                            <div class="plan-feature">
-                                                <i class="fa fa-check"></i>
-                                                <span>{{ lang('No Advertisements', 'plans') }}</span>
-                                            </div>
-                                        @endif
-                                        @if (!$plan->watermark)
-                                            <div class="plan-feature">
-                                                <i class="fa fa-check"></i>
-                                                <span>{{ lang('No Watermark', 'plans') }}</span>
-                                            </div>
-                                        @endif
-                                        @if ($plan->custom_features)
-                                            @foreach ($plan->custom_features as $customFeature)
-                                                <div class="plan-feature">
-                                                    <i class="fa fa-check"></i>
-                                                    <span>{{ $customFeature->name }}</span>
-                                                </div>
-                                            @endforeach
                                         @endif
                                     </div>
                                 </div>

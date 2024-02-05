@@ -16,5 +16,7 @@
 <script src="{{ asset('assets/vendor/libs/select2/select2.min.js') }}"></script>
 <script src="{{ asset('assets/vendor/libs/toastr/toastr.min.js') }}"></script>
 <script src="{{ asset('assets/js/application.js') }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 @toastr_render
 @stack('scripts')

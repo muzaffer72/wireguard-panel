@@ -12,10 +12,7 @@ use App\Models\User;
 use App\Models\Subscription;
 use App\Models\Plan;
 use App\Notifications\ForgotPasswordNotification;
-// use App\Repositories\SettingRepository;
-// use App\Repositories\UserRepository;
-// use App\Services\EmailService;
-// use App\Services\FileService;
+use App\Models\UserLog;
 use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -91,15 +88,33 @@ class AuthController extends Controller
     *      ),
     *  )
     */
+    public function createAdminNotify($user)
+    {
+        $title = $user->name . ' ' . admin_lang('has registered');
+        $image = asset($user->avatar);
+        $link = route('admin.users.edit', $user->id);
+        return adminNotify($title, $image, $link);
+    }
+    public function createLog($user)
+    {
+        $newLoginLog = new UserLog();
+        $newLoginLog->user_id = $user->id;
+        $newLoginLog->ip = ipInfo()->ip;
+        $newLoginLog->country = ipInfo()->location->country;
+        $newLoginLog->country_code = ipInfo()->location->country_code;
+        $newLoginLog->timezone = ipInfo()->location->timezone;
+        $newLoginLog->location = ipInfo()->location->city . ', ' . ipInfo()->location->country;
+        $newLoginLog->latitude = ipInfo()->location->latitude;
+        $newLoginLog->longitude = ipInfo()->location->longitude;
+        $newLoginLog->browser = ipInfo()->system->browser;
+        $newLoginLog->os = ipInfo()->system->os;
+        $newLoginLog->save();
+    }
     public function login(LoginRequest $request)
     {
         $user = $this->usermodel->where('email', $request->email)->first();
         if (Hash::check($request->password, $user->password)) {
-            // if ($user->email_verified_at === null) {
-            //     return response422([
-            //         'email' => [__('Email has not been verified.')]
-            //     ]);
-            // }
+            $this->createLog($user);
             return $this->handleLogin($user, __('Successfully entered the system'));
         }        
         return response422([
@@ -147,12 +162,8 @@ class AuthController extends Controller
             'is_viewed' => 1,
         ]);
                 
-        // $user->update([
-        //     'email_token'       => Str::random(150),
-        //     'verification_code' => rand(100000, 999999)
-        // ]);
-        // $this->emailService->verifyAccount($user, true);
-        // return response200($user, __('Check your email inbox to verify your account first'));
+        $this->createAdminNotify($user);
+        $this->createLog($user);
         return $this->handleLogin($user, __('Successfully registered and entered the system'));
     }
 

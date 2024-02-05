@@ -27,7 +27,7 @@
                         <div class="mb-3">
                             <label class="form-label">{{ admin_lang('Category name') }} : <span
                                     class="red">*</span></label>
-                            <input type="text" name="name" id="create_slug" class="form-control"
+                            <input type="text" name="name" id="create_slug" class="bg-dark block w-full p-2 text-white border border-gray-800 rounded-lg bg-gray-500 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                 value="{{ old('name') }}" required autofocus />
                         </div>
                     </div>
@@ -38,7 +38,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text">{{ url('blog/categories/') }}/</span>
                         </div>
-                        <input type="text" name="slug" id="show_slug" class="form-control" value="{{ old('slug') }}"
+                        <input type="text" name="slug" id="show_slug" class="bg-dark block w-full p-2 text-white border border-gray-800 rounded-lg bg-gray-500 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ old('slug') }}"
                             required />
                     </div>
                 </div>

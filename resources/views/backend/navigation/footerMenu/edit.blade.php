@@ -20,11 +20,11 @@
                 </div>
                 <div class="mb-3">
                     <label class="form-label">{{ admin_lang('Name') }} : <span class="red">*</span></label>
-                    <input type="text" name="name" class="form-control" value="{{ $footerMenu->name }}" required>
+                    <input type="text" name="name" class="bg-dark block w-full p-2 text-white border border-gray-800 rounded-lg bg-gray-500 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ $footerMenu->name }}" required>
                 </div>
                 <div class="mb-2">
                     <label class="form-label">{{ admin_lang('Link') }} : <span class="red">*</span></label>
-                    <input type="link" name="link" class="form-control" placeholder="/"
+                    <input type="link" name="link" class="bg-dark block w-full p-2 text-white border border-gray-800 rounded-lg bg-gray-500 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="/"
                         value="{{ $footerMenu->link }}" required>
                 </div>
             </form>
