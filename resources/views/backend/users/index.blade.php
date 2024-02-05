@@ -92,7 +92,9 @@
                     </form>
                 </div>
                 <div class="flex items-center space-x-2 sm:space-x-3 ml-auto">
-                <a href="@yield('link')">Add user</i></a>
+                @hasSection('link')
+                                <a href="@yield('link')" class="relative px-3 py-1.5 transition-all ease-in duration-75 bg-dark dark:bg-gray-900 rounded-md group-hover:bg-opacity-0"><i class="fa fa-plus"> Add User</i></a>
+                            @endif
 
                 </div>
             </div>

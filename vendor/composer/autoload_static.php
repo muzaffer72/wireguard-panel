@@ -883,6 +883,7 @@ class ComposerStaticInit452a31a2a75fa1c7718684560340b7e5
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Http\\Requests\\ForgotPasswordRequest' => __DIR__ . '/../..' . '/app/Http/Requests/ForgotPasswordRequest.php',
         'App\\Http\\Requests\\LoginRequest' => __DIR__ . '/../..' . '/app/Http/Requests/LoginRequest.php',
+        'App\\Http\\Requests\\ProfileRequest' => __DIR__ . '/../..' . '/app/Http/Requests/ProfileRequest.php',
         'App\\Http\\Requests\\RegisterRequest' => __DIR__ . '/../..' . '/app/Http/Requests/RegisterRequest.php',
         'App\\Http\\Requests\\ResetPasswordRequest' => __DIR__ . '/../..' . '/app/Http/Requests/ResetPasswordRequest.php',
         'App\\Listeners\\CreateFreeSubscription' => __DIR__ . '/../..' . '/app/Listeners/CreateFreeSubscription.php',

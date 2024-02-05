@@ -132,6 +132,7 @@ return array(
     'App\\Http\\Middleware\\VerifyCsrfToken' => $baseDir . '/app/Http/Middleware/VerifyCsrfToken.php',
     'App\\Http\\Requests\\ForgotPasswordRequest' => $baseDir . '/app/Http/Requests/ForgotPasswordRequest.php',
     'App\\Http\\Requests\\LoginRequest' => $baseDir . '/app/Http/Requests/LoginRequest.php',
+    'App\\Http\\Requests\\ProfileRequest' => $baseDir . '/app/Http/Requests/ProfileRequest.php',
     'App\\Http\\Requests\\RegisterRequest' => $baseDir . '/app/Http/Requests/RegisterRequest.php',
     'App\\Http\\Requests\\ResetPasswordRequest' => $baseDir . '/app/Http/Requests/ResetPasswordRequest.php',
     'App\\Listeners\\CreateFreeSubscription' => $baseDir . '/app/Listeners/CreateFreeSubscription.php',

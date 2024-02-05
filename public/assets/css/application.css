@@ -3006,7 +3006,8 @@ footer {
 
 .custom-tabs .nav-link {
     color: #bfbcbc;
-    border: 1px solid #faf9f9;
+    border: 1px solid #6e6e6e;
+    border-radius: 10px;
 }
 
 .custom-tabs .nav-pills .nav-link.active,
