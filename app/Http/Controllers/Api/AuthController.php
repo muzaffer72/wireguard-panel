@@ -9,6 +9,8 @@ use App\Http\Requests\LoginRequest;
 use App\Http\Requests\RegisterRequest;
 use App\Http\Requests\ResetPasswordRequest;
 use App\Models\User;
+use App\Models\Subscription;
+use App\Models\Plan;
 use App\Notifications\ForgotPasswordNotification;
 // use App\Repositories\SettingRepository;
 // use App\Repositories\UserRepository;
@@ -21,6 +23,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
+use Carbon\Carbon;
 
 class AuthController extends Controller
 {
@@ -117,7 +120,7 @@ class AuthController extends Controller
             'api_token' => hash('sha256', Str::random(60)),
             'firstname' => "",
             'lastname' => "",
-            'avatar' => "",
+            'avatar' => "images/avatars/default.png",
             'client_id' => Str::random(10)
         ], $request->only(
             [
@@ -126,6 +129,23 @@ class AuthController extends Controller
         ));
         
         $user = $this->usermodel->create($data);
+
+        // auto subs ke free plan
+        $plan = Plan::find(13);// id plan harus 13
+        if (is_null($plan)) {
+            return response422(['plan' => [__(admin_lang('Plan not exists'))]]);
+        }
+        if ($plan->interval == 1) {
+            $expiry_at = Carbon::now()->addMonth();
+        } else {
+            $expiry_at = Carbon::now()->addYear();
+        }
+        $createSubscription = Subscription::create([
+            'user_id' => $user->id,
+            'plan_id' => $plan->id,
+            'expiry_at' => $expiry_at,
+            'is_viewed' => 1,
+        ]);
                 
         // $user->update([
         //     'email_token'       => Str::random(150),
@@ -317,7 +337,6 @@ class AuthController extends Controller
     public function profile()
     {
         $user = auth('api')->user();
-        $user->subscription = $user->subscription->plan;
         return response200($user, __('Successfully retrieved user data'));
     }
 
@@ -377,6 +396,19 @@ class AuthController extends Controller
     {
         $data = $this->settingRepository->all();
         return response200($data, __('Successfully got the settings'));
+    }
+
+    /**
+     * get subscription user
+     *
+     * @return JsonResponse
+     */
+    public function subscription()
+    {
+        $user = auth('api')->user();
+        $subs = $user->subscription;
+        $subs->plan = $user->subscription->plan;
+        return response200($subs, __('Successfully retrieved subscription data'));
     }
 
     /**
