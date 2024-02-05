@@ -27,10 +27,11 @@ Route::as('api.')->prefix('v1')->group(function () {
 
     Route::middleware('auth:api')->group(function () {
         # PROFILES
-        Route::get('profiles', [AuthController::class, 'profile'])->name('profiles');        
-    });
+        Route::get('profiles', [AuthController::class, 'profile'])->name('profiles');
+        Route::get('subscription', [AuthController::class, 'subscription'])->name('subscription');
 
-    Route::get('log', [AuthController::class, 'log'])->name('insert-log');
+        Route::get('log', [AuthController::class, 'log'])->name('insert-log');
+    });
 });
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
