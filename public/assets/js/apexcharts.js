@@ -241,7 +241,7 @@
                     },
                 },
                 dataLabels: {
-                    enabled: true,
+                    enabled: false,
                 },
                 markers: {
                     size: 0,
@@ -259,9 +259,9 @@
                 },
                 series: [
                     {
-                        name: labels,
+                        name: "Statistics",
                         data: data,
-                        color: "#1A56DB",
+                        color: '#0694a2',
                     },
                 ],
                 xaxis: {

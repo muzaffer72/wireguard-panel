@@ -38,8 +38,8 @@
 
                     </dl>
                 </div>
-                @forelse ($transactions as $transaction)
-                    <table class="w-full divide-y divide-gray-50">
+                
+                    <table class="w-full divide-y divide-white-50">
                         <thead class="bg-dark-50">
                             <tr>
                                 <th scope="col"
@@ -56,6 +56,7 @@
                                 </th>
                             </tr>
                         </thead>
+                        @forelse ($transactions as $transaction)
                         <tbody class="bg-dark">
                             <tr>
                                 <td class="p-4 whitespace-nowrap text-sm font-normal text-white-900 ">
@@ -71,11 +72,10 @@
                                 </td>
                             </tr>
                         </tbody>
-                    </table>
-                @empty
+                        @empty
                     @include('backend.includes.emptysmall')
                 @endforelse
-
+                    </table>
             </div>
         </div>
         <div class="col-12 col-lg-8 col-xxl-8">
@@ -169,21 +169,22 @@
             </div>
         </div>
         <div class="col-12 col-lg-4 col-xxl-4">
-            <div class="card vhp-460">
-                <div class="billiongroup-box v2">
-                    <div class="billiongroup-box-header mb-3">
-                        <p class="billiongroup-box-header-title large mb-0">{{ admin_lang('Recently registered') }}</p>
-                        <div class="billiongroup-box-header-action ms-auto">
-                            <button type="button" class="btn btn-sm rounded-3" data-bs-toggle="dropdown">
-                                <i class="fa fa-ellipsis-v"></i>
-                            </button>
-                            <ul class="dropdown-menu dropdown-menu-sm-end">
-                                <li><a class="dropdown-item"
-                                        href="{{ route('admin.users.index') }}">{{ admin_lang('View All') }}</a>
-                                </li>
-                            </ul>
+            <div class="w-full h-full bg-dark rounded-lg shadow dark:bg-gray-800 p-4 md:p-6">
+                    <div class="grid grid-cols-2">
+                    <dl class="flex items-center">
+                        <dt class="text-white dark:text-gray-400 text-sm font-normal me-1">
+                            <h5 class="leading-none text-1xl font-bold text-white dark:text-white pb-2">
+                                {{ admin_lang('Recently registered') }}</h5>
+                        </dt>
+                    </dl>
+                    <dl class="flex items-center justify-end">
+                        <div class="flex-shrink-0">
+                            <a href="{{ route('admin.transactions.index') }}"
+                                class="text-sm font-medium text-white hover:bg-cyan-600 rounded-lg p-2">{{ admin_lang('View All') }}</a>
                         </div>
-                    </div>
+
+                    </dl>
+                </div>
                     <div class="billiongroup-box-body">
                         <div class="billiongroup-random-lists">
                             @forelse ($users as $user)
@@ -215,7 +216,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+           
         </div>
     </div>
     <div class="row g-3">
@@ -301,6 +302,6 @@
         @endpush
         @push('scripts_libs')
             <script src="{{ asset('assets/vendor/libs/chartjs/chart.min.js') }}"></script>
-            <script src="{{ asset('assets/js/charts.js') }}"></script>
+            <script src="{{ asset('assets/js/apexcharts.js') }}"></script>
         @endpush
     @endsection
