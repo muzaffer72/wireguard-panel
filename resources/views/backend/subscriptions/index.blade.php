@@ -2,43 +2,9 @@
 @section('title', admin_lang('Subscriptions'))
 @section('add_modal', admin_lang('Add New'))
 @section('content')
-    <div class="row g-3 mb-3">
-        <div class="col-12 col-lg-6 col-xxl">
-            <div class="counter-card v3 c-purple">
-                <div class="counter-card-icon">
-                    <i class="far fa-check-circle"></i>
-                </div>
-                <div class="counter-card-info">
-                    <p class="counter-card-number">{{ $activeSubscriptions->count() }}</p>
-                    <p class="counter-card-title">{{ admin_lang('Active Subscriptions') }}</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-12 col-lg-6 col-xxl">
-            <div class="counter-card v3 c-purple">
-                <div class="counter-card-icon">
-                    <i class="far fa-clock"></i>
-                </div>
-                <div class="counter-card-info">
-                    <p class="counter-card-number">{{ $expiredSubscriptions->count() }}</p>
-                    <p class="counter-card-title">{{ admin_lang('Expired Subscriptions') }}</p>
-                </div>
-            </div>
-        </div>
-        @if ($canceledSubscriptions->count() > 0)
-            <div class="col-12 col-lg-6 col-xxl">
-                <div class="counter-card v3 c-purple">
-                    <div class="counter-card-icon">
-                        <i class="far fa-times-circle"></i>
-                    </div>
-                    <div class="counter-card-info">
-                        <p class="counter-card-number">{{ $canceledSubscriptions->count() }}</p>
-                        <p class="counter-card-title">{{ admin_lang('Canceled Subscriptions') }}</p>
-                    </div>
-                </div>
-            </div>
-        @endif
-    </div>
+    
+    
+    <div class="card custom-card">
     <div class="card custom-card custom-tabs mb-3">
         <div class="card-body">
             <ul class="nav nav-pills" role="tablist">
@@ -66,9 +32,18 @@
                     </li>
                 @endif
             </ul>
+            @hasSection('link')
+            <li role="presentation">
+                        <button class="nav-link" id="canceled-tab" data-bs-toggle="tab" data-bs-target="#canceled"
+                            type="button" role="tab" aria-controls="canceled" aria-selected="false"><i
+                                class="far fa-times-circle me-2"></i> <a href="@yield('link')" class="btn btn-primary ms-2"><i class="fa fa-plus"></i></a>
+                        </button>
+                    </li>
+                               
+                            @endif
+            
         </div>
     </div>
-    <div class="card custom-card">
         <div class="tab-content">
             <div class="tab-pane fade show active" id="active" role="tabpanel" aria-labelledby="active-tab">
                 <table class="datatable50 table w-100">

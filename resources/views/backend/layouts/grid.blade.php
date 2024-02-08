@@ -47,6 +47,9 @@
                                     @yield('modal')
                                 </button>
                             @endif
+                            @hasSection('link')
+                                <a href="@yield('link')" class="btn btn-primary ms-2"><i class="fa fa-plus"></i></a>
+                            @endif
                             @hasSection('add_modal')
                                 <button type="button" class="btn btn-primary ms-2" data-bs-toggle="modal"
                                     data-bs-target="#addModal">
@@ -54,13 +57,13 @@
                                 </button>
                             @endif
                             @if (request()->routeIs('admin.notifications.index'))
-                                <a class="billiongroup-link-confirm btn btn-outline-success ms-2"
+                                <a class="vironeer-link-confirm btn btn-outline-success ms-2"
                                     href="{{ route('admin.notifications.readall') }}">{{ admin_lang('Make All as Read') }}</a>
                                 <form class="d-inline ms-2" action="{{ route('admin.notifications.deleteallread') }}"
                                     method="POST">
                                     @csrf
                                     @method('DELETE')
-                                    <button class="billiongroup-able-to-delete btn btn-outline-danger">
+                                    <button class="vironeer-able-to-delete btn btn-outline-danger">
                                         {{ admin_lang('Delete All Read') }}</button>
                                 </form>
                             @endif

@@ -3,13 +3,12 @@
         <i class="fa fa-bars fa-lg"></i>
     </div>
     <div class="button">
-        <a href="{{ url('/') }}" target="_blank" class="text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"><i
-                class="fa fa-share me-2"></i>{{ admin_lang('Preview') }}</a>
+        <a href="{{ url('/') }}" target="_blank" class="fa fa-share me-2"></i></a>
     </div>
     <div class="billiongroup-notifications ms-2" data-dropdown-v2>
         <div class="billiongroup-notifications-title">
         <span style="font-size: 1em; color: white;">
-        <i class="far fa-bell"></i>
+        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z"></path></svg>
   </span>
             
             <div class="counter">{{ $unreadAdminNotifications }}</div>
@@ -83,10 +82,7 @@
             <div class="billiongroup-user-avatar">
                 <img src="{{ asset(adminAuthInfo()->avatar) }}" alt="{{ adminAuthInfo()->name }}" />
             </div>
-            <div class="billiongroup-user-info d-none d-md-block">
-                <p class="billiongroup-user-title mb-0">{{ adminAuthInfo()->name }}</p>
-                <p class="billiongroup-user-text mb-0">{{ adminAuthInfo()->email }}</p>
-            </div>
+            
         </div>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
             <li><a class="dropdown-item" href="{{ route('admin.account.details') }}"><i
