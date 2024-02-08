@@ -90,7 +90,7 @@ class AuthController extends Controller
     */
     public function createAdminNotify($user)
     {
-        $title = $user->name . ' ' . admin_lang('has registered');
+        $title = $user->name . ' ' . admin_lang('has registered and verified');
         $image = asset($user->avatar);
         $link = route('admin.users.edit', $user->id);
         return adminNotify($title, $image, $link);
@@ -113,12 +113,16 @@ class AuthController extends Controller
     public function login(LoginRequest $request)
     {
         $user = $this->usermodel->where('email', $request->email)->first();
-        if (Hash::check($request->password, $user->password)) {
+        if ($user->email_verified_at === null) {
+            return response422([
+                'email' => [__('Account is not verified, please verify first')]
+            ]);
+        } else if (Hash::check($request->password, $user->password)) {
             $this->createLog($user);
             return $this->handleLogin($user, __('Successfully entered the system'));
         }        
         return response422([
-            'email' => [__('The email or password entered is incorrect.')]
+            'email' => [__('The email or password entered is incorrect')]
         ]);
     }
 
@@ -130,41 +134,60 @@ class AuthController extends Controller
      */
     public function register(RegisterRequest $request)
     {
+        $verification_code = rand(100000, 999999);
         $data = array_merge([
-            'password' => bcrypt($request->password),
-            'api_token' => hash('sha256', Str::random(60)),
+            'password' => bcrypt($request->password),            
             'firstname' => "",
             'lastname' => "",
             'avatar' => "images/avatars/default.png",
-            'client_id' => Str::random(10)
+            'client_id' => Str::random(10),
+            'verification_code' => $verification_code
         ], $request->only(
             [
                 'name', 'email'
             ]
         ));
-        
-        $user = $this->usermodel->create($data);
 
-        // auto subs ke free plan
-        $plan = Plan::find(13);// id plan harus 13
-        if (is_null($plan)) {
-            return response422(['plan' => [__(admin_lang('Plan not exists'))]]);
+        DB::beginTransaction();
+        try {
+            $user = $this->usermodel->create($data);
+
+            // auto subs ke free plan
+            $plan = Plan::find(13);// id plan harus 13
+            if (is_null($plan)) {
+                return response422(['plan' => [__(admin_lang('Plan not exists'))]]);
+            }
+            if ($plan->interval == 1) {
+                $expiry_at = Carbon::now()->addMonth();
+            } else {
+                $expiry_at = Carbon::now()->addYear();
+            }
+            $createSubscription = Subscription::create([
+                'user_id' => $user->id,
+                'plan_id' => $plan->id,
+                'expiry_at' => $expiry_at,
+                'is_viewed' => 1,
+            ]);                                        
+            
+            // sendmail
+            $email = $user->email;
+            $subject = "Verify Account";
+            $msg = __('Please input this code on your apps to activate your account immediately.<br/>Verification Code: ' . $verification_code);
+            \Mail::send([], [], function ($message) use ($msg, $email, $subject) {
+                $message->to($email)
+                    ->subject($subject)
+                    ->html($msg);
+            });
+
+            DB::commit();
+            return response200($user, __('Successfully registered and code sent to ' . $request->email));
+
+        } catch (Exception $e) {
+            DB::rollBack();
+            return response500(null, __($e->getMessage()));
         }
-        if ($plan->interval == 1) {
-            $expiry_at = Carbon::now()->addMonth();
-        } else {
-            $expiry_at = Carbon::now()->addYear();
-        }
-        $createSubscription = Subscription::create([
-            'user_id' => $user->id,
-            'plan_id' => $plan->id,
-            'expiry_at' => $expiry_at,
-            'is_viewed' => 1,
-        ]);
-                
-        $this->createAdminNotify($user);
-        $this->createLog($user);
-        return $this->handleLogin($user, __('Successfully registered and entered the system'));
+
+        // return $this->handleLogin($user, __('Successfully registered and entered the system'));
     }
 
     /**
@@ -210,27 +233,32 @@ class AuthController extends Controller
      * @param Request $request
      * @return Response
      */
-    public function verify(Request $request)
+    public function verify(ForgotPasswordRequest $request)
     {
-        $request->validate([
-            'email'             => 'required|email|exists:users,email',
-            'verification_code' => 'required|min:6|max:6|exists:users,verification_code'
-        ]);
-        if ($this->settingRepository->loginMustVerified() === false) abort(404);
-        $user = $this->userRepository->findByEmail($request->email);
-        if ($user === null) {
-            abort(404);
-        } else if ($user->verification_code !== $request->verification_code) {
-            return response422([
-                'verification_code' => [__('The verification code entered is incorrect.')]
+        DB::beginTransaction();
+        try {
+            $user = $this->usermodel->where('email', $request->email)->first();
+            if ($user->verification_code !== $request->verification_code) {
+                return response422([
+                    'verification_code' => [__('The verification code entered is incorrect.')]
+                ]);
+            }
+            $user->update([
+                'email_verified_at' => now(),
+                'api_token' => hash('sha256', Str::random(60)),
+                'email_token'       => null,
+                'verification_code' => null
             ]);
+
+            $this->createAdminNotify($user);
+            $this->createLog($user);
+
+            DB::commit();
+            $user = $this->usermodel->where('email', $request->email)->first();
+            return response200($user, __('Successfully verified the account, please log in using your account'));
+        } catch (Exception $e) {
+            return response500(null, __('Failed to verify account'));
         }
-        $userNew = $this->userRepository->update([
-            'email_verified_at' => now(),
-            'email_token'       => null,
-            'verification_code' => null
-        ], $user->id);
-        return $this->handleLogin($user, __('Successfully verified the account, please log in using your account'));
     }
 
     /**
