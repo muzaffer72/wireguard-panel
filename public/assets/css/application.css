@@ -1181,7 +1181,8 @@ a.btn {
 }
 
 .billiongroup-page-content .billiongroup-page-header .billiongroup-notifications.active .billiongroup-notifications-title {
-    background-color: #ebedf0;
+    background-color: #008ca1;
+    border-radius: 20px;
 }
 
 .billiongroup-page-content .billiongroup-page-header .billiongroup-notifications.active .billiongroup-notifications-menu {
@@ -1234,7 +1235,7 @@ a.btn {
     top: 50px;
     right: 0;
     width: 360px;
-    background-color: #ffffff;
+    background-color: #0f1c29;
     border-radius: .125rem;
     -webkit-box-shadow: 0 1px 15px #19264026, 0 1px 3px #1926401f, inset 0 -1px #19264008;
     box-shadow: 0 1px 15px #19264026, 0 1px 3px #1926401f, inset 0 -1px #19264008;
@@ -1277,6 +1278,7 @@ a.btn {
 .billiongroup-page-content .billiongroup-page-header .billiongroup-notifications .billiongroup-notifications-menu .billiongroup-notifications-header .billiongroup-notifications-header-title {
     font-size: .875rem;
     font-weight: 500;
+    color: aliceblue;
 }
 
 .billiongroup-page-content .billiongroup-page-header .billiongroup-notifications .billiongroup-notifications-menu .billiongroup-notifications-header a {
@@ -1417,7 +1419,7 @@ a.btn {
 .billiongroup-page-content .billiongroup-page-header .billiongroup-notifications .billiongroup-notifications-menu .billiongroup-notifications-body .billiongroup-notification .billiongroup-notification-info .billiongroup-notification-title {
     font-size: .875rem;
     font-weight: 500;
-    color: #212529;
+    color: #f8f8f8;
 }
 
 .billiongroup-page-content .billiongroup-page-header .billiongroup-notifications .billiongroup-notifications-menu .billiongroup-notifications-body .billiongroup-notification .billiongroup-notification-info .billiongroup-notification-text {
@@ -1442,7 +1444,7 @@ a.btn {
 }
 
 .billiongroup-page-content .billiongroup-page-header .billiongroup-notifications .billiongroup-notifications-menu .billiongroup-notifications-footer:hover {
-    background-color: #f0f2f5;
+    background-color: #353535;
 }
 
 .billiongroup-page-content .billiongroup-page-header .billiongroup-user-menu {

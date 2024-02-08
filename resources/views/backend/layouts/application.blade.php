@@ -7,7 +7,7 @@
     @vite('resources/css/app.css')
 </head>
 
-<body>
+<body=->
     @include('backend.includes.sidebar')
     <div class="billiongroup-page-content">
         @include('backend.includes.header')
