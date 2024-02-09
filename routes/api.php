@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\SubscriptionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,9 +32,18 @@ Route::as('api.')->prefix('v1')->group(function () {
         # PROFILES
         Route::get('profiles', [AuthController::class, 'profile'])->name('profiles');
         Route::post('profiles', [AuthController::class, 'updateProfile'])->name('update-profile');
-        Route::get('subscription', [AuthController::class, 'subscription'])->name('subscription');
 
+        # SUBSCRIPTION
+        Route::as('subscription.')->prefix('subscription')->group(function () {
+            Route::post('', [SubscriptionController::class, 'update'])->name('update-subscription');
+        });
+        
         Route::get('log', [AuthController::class, 'log'])->name('insert-log');
+    });
+
+    # SUBSCRIPTION
+    Route::as('subscription.')->prefix('subscription')->group(function () {
+        Route::get('plans', [SubscriptionController::class, 'plans'])->name('plans');
     });
 });
 
