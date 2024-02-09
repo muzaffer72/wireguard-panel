@@ -19,7 +19,7 @@ Route::as('api.')->prefix('v1')->group(function () {
     # AUTH MODULES
     Route::post('auth/login', [AuthController::class, 'login'])->name('login');
     Route::post('auth/register', [AuthController::class, 'register'])->name('register');
-    // Route::post('auth/verify', [AuthController::class, 'verify'])->name('verify');
+    Route::post('auth/verify', [AuthController::class, 'verify'])->name('verify');
     Route::post('auth/forgot-password', [AuthController::class, 'forgotPassword']);
     // Route::post('auth/check-code', [AuthController::class, 'checkCode'])->name('check-code');
     Route::post('auth/reset-password', [AuthController::class, 'resetPassword'])->name('reset-password');
