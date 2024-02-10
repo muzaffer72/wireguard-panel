@@ -255,7 +255,7 @@ class AuthController extends Controller
 
             DB::commit();
             $user = $this->usermodel->where('email', $request->email)->first();
-            return response200($user, __('Successfully verified the account, please log in using your account'));
+            return response200($user, __('Successfully verified the account'));
         } catch (Exception $e) {
             return response500(null, __('Failed to verify account'));
         }
