@@ -49,6 +49,10 @@ class ServerController extends Controller
     {
         $user = auth('api')->user();
 
+        // update server_id
+        $user->server_id = $server->id;
+        $user->save();
+        
         // create client wg
         $wg_id = "wg" . $user->id;
         $url = "http://$server->ip_address:51821/api/wireguard/client";

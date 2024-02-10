@@ -44,6 +44,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'dns',
         'download',
         'upload',
+        'server_id',
     ];
 
     /**
@@ -117,6 +118,11 @@ class User extends Authenticatable implements MustVerifyEmail
     public function subscription()
     {
         return $this->hasOne(Subscription::class);
+    }
+
+    public function servers()
+    {
+        return $this->belongsTo(Server::class, 'server_id');
     }
 
    

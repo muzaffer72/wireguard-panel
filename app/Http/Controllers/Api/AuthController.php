@@ -377,6 +377,7 @@ class AuthController extends Controller
         $user = auth('api')->user();
         $user->subscription;
         $user->subscription->plan;
+        $user->servers;
         return response200($user, __('Successfully retrieved user data'));
     }
 
