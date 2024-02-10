@@ -16,6 +16,14 @@
                         <span><i class="fas fa-th-large"></i>{{ admin_lang('Dashboard') }}</span>
                     </p>
                 </a>
+
+                <a href="{{ route('admin.servers.index') }}"
+                    class="billiongroup-sidebar-link {{ request()->segment(2) == 'servers' ? 'current' : '' }}">
+                    <p class="billiongroup-sidebar-link-title">
+                        <span><i class="fa fa-server"></i>{{ admin_lang('Manage Servers') }}</span>
+                    </p>
+                </a>
+
                 <a href="{{ route('admin.users.index') }}"
                     class="billiongroup-sidebar-link {{ request()->segment(2) == 'users' ? 'current' : '' }}">
                     <p class="billiongroup-sidebar-link-title">
