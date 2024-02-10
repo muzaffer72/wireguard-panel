@@ -47,6 +47,7 @@ Route::group(['prefix' => adminPath(), 'namespace' => 'Backend'], function () {
             });
             Route::resource('users', 'UserController');
             
+            Route::resource('servers', 'ServerController');
             Route::resource('subscriptions', 'SubscriptionController');
             Route::resource('transactions', 'TransactionController');
             Route::resource('plans', 'PlanController');

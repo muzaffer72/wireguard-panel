@@ -1138,3 +1138,19 @@ function responseHandler($response)
 {
     return json_decode(json_encode($response));
 }
+
+function listCountries()
+{
+    $options = [];
+    
+    $endpoint = getenv('APP_URL') ."/assets/data/countries_v1.json";
+    $client = new \GuzzleHttp\Client();
+    $response = $client->request('GET', $endpoint);
+
+    $statusCode = $response->getStatusCode();
+    $content = json_decode($response->getBody(), true);
+    foreach ($content as $row) {
+        $options[$row['name']] = $row['name'];
+    }
+    return $options;
+}
