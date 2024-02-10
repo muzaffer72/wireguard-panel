@@ -38,6 +38,13 @@ Route::as('api.')->prefix('v1')->group(function () {
         Route::as('subscription.')->prefix('subscription')->group(function () {
             Route::post('', [SubscriptionController::class, 'update'])->name('update-subscription');
         });
+
+        # SERVER
+        Route::as('server.')->prefix('server')->group(function () {
+            Route::get('', [ServerController::class, 'index'])->name('servers');
+            Route::get('random', [ServerController::class, 'random'])->name('server-random');
+            Route::get('connect/{server}', [ServerController::class, 'connect'])->name('server-connect');
+        });
         
         Route::get('log', [AuthController::class, 'log'])->name('insert-log');
     });
@@ -46,12 +53,7 @@ Route::as('api.')->prefix('v1')->group(function () {
     Route::as('subscription.')->prefix('subscription')->group(function () {
         Route::get('plans', [SubscriptionController::class, 'plans'])->name('plans');
     });
-
-    # SERVER
-    Route::as('server.')->prefix('server')->group(function () {
-        Route::get('', [ServerController::class, 'index'])->name('servers');
-        Route::get('random', [ServerController::class, 'random'])->name('server-random');
-    });
+    
 });
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
