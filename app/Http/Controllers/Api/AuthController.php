@@ -136,11 +136,10 @@ class AuthController extends Controller
     {
         $verification_code = rand(100000, 999999);
         $data = array_merge([
-            'password' => bcrypt($request->password),            
+            'password' => bcrypt($request->password),
             'firstname' => "",
             'lastname' => "",
             'avatar' => "images/avatars/default.png",
-            'client_id' => Str::random(10),
             'verification_code' => $verification_code
         ], $request->only(
             [
