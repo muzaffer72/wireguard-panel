@@ -15,7 +15,7 @@ class CreateAdminNotificationsTable extends Migration
     {
         Schema::create('admin_notifications', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
+            // $table->string('name');
             $table->string('title', 255);
             $table->string('link', 255)->nullable();
             $table->string('image', 255);

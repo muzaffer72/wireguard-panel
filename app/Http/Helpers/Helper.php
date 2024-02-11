@@ -65,7 +65,12 @@ function isAdminPath()
 function settings($key = null)
 {
     if (!empty($key)) {
-        return Settings::selectSettings($key);
+        try {
+            return Settings::selectSettings($key);
+        } catch (Exception $e) {
+            $settings = (object) json_decode(file_get_contents(database_path('seeders/default/settings.json')), true);
+            return (object) $settings->$key;
+        }
     }
     $settings = Settings::pluck('value', 'key')->all();
     return array_to_object($settings);

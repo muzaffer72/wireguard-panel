@@ -13,11 +13,11 @@ class CreateStorageProvidersTable extends Migration
      */
     public function up()
     {
-        Schema::create('storage_providers', function (Blueprint $table) {
+        Schema::create('extensions', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('alias');
-            $table->string('handler', 255);
+            // $table->string('handler', 255);
             $table->string('logo');
             $table->longText('credentials');
             $table->text('instructions')->nullable();
