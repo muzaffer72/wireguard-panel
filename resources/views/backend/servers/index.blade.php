@@ -63,6 +63,11 @@
                                             data-popper-placement="bottom-end">
                                             <li>
                                                 <a class="dropdown-item"
+                                                    href="{{ route('admin.servers.show', $row->id) }}"><i
+                                                        class="fa fa-eye me-2"></i>{{ admin_lang('Detail') }}</a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item"
                                                     href="{{ route('admin.servers.edit', $row->id) }}"><i
                                                         class="fa fa-edit me-2"></i>{{ admin_lang('Edit') }}</a>
                                             </li>
@@ -122,9 +127,14 @@
                                             data-popper-placement="bottom-end">
                                             <li>
                                                 <a class="dropdown-item"
+                                                    href="{{ route('admin.servers.show', $row->id) }}"><i
+                                                        class="fa fa-eye me-2"></i>{{ admin_lang('Detail') }}</a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item"
                                                     href="{{ route('admin.servers.edit', $row->id) }}"><i
                                                         class="fa fa-edit me-2"></i>{{ admin_lang('Edit') }}</a>
-                                            </li>                                            
+                                            </li>
                                             <li>
                                                 <hr class="dropdown-divider" />
                                             </li>
