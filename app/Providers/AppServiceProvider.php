@@ -45,7 +45,7 @@ class AppServiceProvider extends ServiceProvider
 
             Paginator::useBootstrap();
 
-            if (settings('actions')->language_type) {
+            if (@settings('actions')->language_type) {
                 Config::set('laravellocalization.supportedLocales', getSupportedLocales());
             }
 
@@ -55,7 +55,7 @@ class AppServiceProvider extends ServiceProvider
 
             if (!isAdminPath()) {
 
-                if (settings('actions')->force_ssl_status) {
+                if (@settings('actions')->force_ssl_status) {
                     $this->app['request']->server->set('HTTPS', true);
                 }
 

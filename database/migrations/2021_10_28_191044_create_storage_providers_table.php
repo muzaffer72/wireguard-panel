@@ -33,6 +33,6 @@ class CreateStorageProvidersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('storage_providers');
+        Schema::dropIfExists('extensions');
     }
 }
