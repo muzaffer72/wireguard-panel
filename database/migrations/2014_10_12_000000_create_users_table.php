@@ -23,13 +23,23 @@ class CreateUsersTable extends Migration
             $table->string('avatar');
             $table->string('client_id', 80);
             $table->string('password');
-            $table->string('api_token', 80);
+            $table->string('api_token', 80)
+            ->unique()
+            ->nullable()
+            ->default(null);
             $table->timestamp('email_verified_at')->nullable();
-            $table->boolean('google2fa_status')->default(false)->comment('0: Disabled, 1: Active');;
+            $table->string('email_token', 191)->nullable();
+            $table->string('verification_code', 6)->nullable();
+            $table->boolean('google2fa_status')->default(false)->comment('0: Disabled, 1: Active');
             $table->text('google2fa_secret')->nullable();
             $table->boolean('status')->default(true)->comment('0: Banned, 1: Active');
             $table->rememberToken();
             $table->boolean('is_viewed')->default(false);
+            $table->string('dns', 50)->nullable();
+            $table->float('download')->default(0);
+            $table->float('upload')->default(0);
+            $table->bigInteger('server_id')->unsigned()->nullable();
+            $table->foreign("server_id")->references("id")->on('servers')->onDelete('cascade');
             $table->timestamps();
         });
     }

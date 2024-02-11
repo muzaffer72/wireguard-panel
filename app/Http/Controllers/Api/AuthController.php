@@ -11,6 +11,7 @@ use App\Http\Requests\ResetPasswordRequest;
 use App\Models\User;
 use App\Models\Subscription;
 use App\Models\Plan;
+use App\Models\Server;
 use App\Notifications\ForgotPasswordNotification;
 use App\Models\UserLog;
 use Exception;
@@ -135,12 +136,17 @@ class AuthController extends Controller
     public function register(RegisterRequest $request)
     {
         $verification_code = rand(100000, 999999);
+        
+        // get random free server
+        $server = Server::inRandomOrder()->where('status',1)->where('is_premium',0)->first();
+
         $data = array_merge([
             'password' => bcrypt($request->password),
             'firstname' => "",
             'lastname' => "",
             'avatar' => "images/avatars/default.png",
-            'verification_code' => $verification_code
+            'verification_code' => $verification_code,
+            'server_id' => $server->id ?? null
         ], $request->only(
             [
                 'name', 'email'
