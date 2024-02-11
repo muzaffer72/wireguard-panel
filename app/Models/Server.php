@@ -43,7 +43,6 @@ class Server extends Model
 		'state',
 		'status',
 		'ip_address',
-		'port',
 		'recommended',
 		'is_premium',
     ];
