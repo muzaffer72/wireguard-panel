@@ -16,7 +16,7 @@ class ServerController extends Controller
      *
      * @return JsonResponse
      */
-    public function index()
+    public function index(Request $request)
     {
         $user = auth('api')->user();
         $free = $user->subscription->plan->is_free;
@@ -25,6 +25,14 @@ class ServerController extends Controller
         if ($user->subscription->isExpired() || $free == 1) {
             $servers->where('is_premium', 0);
         }
+
+        // filter premium
+        if ($request['is_premium'] == "0") {
+            $servers->where('is_premium', 0);
+        } elseif ($request['is_premium'] == "1") {
+            $servers->where('is_premium', 1);
+        }
+
         $servers = $servers->get();
         return response200($servers, __('Successfully retrieved servers data'));
     }
