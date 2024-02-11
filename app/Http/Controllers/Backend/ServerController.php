@@ -7,6 +7,7 @@ use App\Models\Server;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Validator;
+use GuzzleHttp\Client;
 
 class ServerController extends Controller
 {
@@ -79,12 +80,27 @@ class ServerController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Subscription  $subscription
+     * @param  \App\Models\Server  $server
      * @return \Illuminate\Http\Response
      */
-    public function show(Subscription $subscription)
+    public function show(Server $server)
     {
-        return abort(404);
+        $logs = [];
+        // get client config
+        $url = "http://$server->ip_address:51821/api/wireguard/client";
+        $headers = [
+            'Content-Type' => 'application/json',
+            'Accept'       => 'application/json',
+        ];
+        $client = new Client();
+        $response = $client->get($url, [
+            'headers' => $headers,
+        ]);
+        $statusCode = $response->getStatusCode();
+        if ($statusCode == 200) {
+            $logs = json_decode($response->getBody());
+        }
+        return view('backend.servers.show', ['server' => $server, 'logs' => $logs]);
     }
 
     /**
