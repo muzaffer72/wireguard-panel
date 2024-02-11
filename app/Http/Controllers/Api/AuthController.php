@@ -395,13 +395,7 @@ class AuthController extends Controller
      */
     public function updateProfile(ProfileRequest $request)
     {
-        $data = array_merge([
-            'last_password_change' => now(),
-        ], $request->only(
-            [
-                'name', 'firstname', 'lastname', 'dns'
-            ]
-        ));
+        $data = $request->all();
         $user = auth('api')->user();
         $user->update($data);
         return response200($user, __('Successfully updated profile'));
