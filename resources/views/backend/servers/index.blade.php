@@ -191,10 +191,6 @@
                             <input type="text" name="ip_address" class="form-control" required/>
                         </div>
                         <div class="mb-4">
-                            <label class="form-label">{{ admin_lang('Port') }} : <span class="red">*</span></label>
-                            <input type="text" name="port" class="form-control" required/>
-                        </div>
-                        <div class="mb-4">
                             <label class="form-label">{{ admin_lang('Recommended') }} : <span class="red">*</span></label>
                             <select name="recommended" id="recommended" class="form-select" required>
                                 <option value="" selected disabled>{{ admin_lang('Choose') }}</option>

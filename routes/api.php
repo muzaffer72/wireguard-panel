@@ -41,7 +41,7 @@ Route::as('api.')->prefix('v1')->group(function () {
 
         # SERVER
         Route::as('server.')->prefix('server')->group(function () {
-            Route::get('', [ServerController::class, 'index'])->name('servers');
+            Route::post('', [ServerController::class, 'index'])->name('servers');
             Route::get('random', [ServerController::class, 'random'])->name('server-random');
             Route::get('connect/{server}', [ServerController::class, 'connect'])->name('server-connect');
         });

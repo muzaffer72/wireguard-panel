@@ -52,7 +52,6 @@ class ServerController extends Controller
             'state' => ['required'],
             'status' => ['required'],
             'ip_address' => ['required'],
-            'port' => ['required'],
             'recommended' => ['required'],
             'is_premium' => ['required'],
         ]);
@@ -68,7 +67,6 @@ class ServerController extends Controller
             'state' => $request->state,
             'status' => $request->status,
             'ip_address' => $request->ip_address,
-            'port' => $request->port,
             'recommended' => $request->recommended,
             'is_premium' => $request->is_premium,
         ]);
@@ -120,7 +118,6 @@ class ServerController extends Controller
             'state' => ['required'],
             'status' => ['required'],
             'ip_address' => ['required'],
-            'port' => ['required'],
             'recommended' => ['required'],
             'is_premium' => ['required'],
         ]);
@@ -135,7 +132,6 @@ class ServerController extends Controller
             'state' => $request->state,
             'status' => $request->status,
             'ip_address' => $request->ip_address,
-            'port' => $request->port,
             'recommended' => $request->recommended,
             'is_premium' => $request->is_premium,
         ]);
