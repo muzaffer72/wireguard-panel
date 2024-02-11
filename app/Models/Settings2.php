@@ -5,19 +5,20 @@ namespace App\Models;
 use App\Http\Methods\UnicodeModel;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Settings extends UnicodeModel
+class Settings2 extends UnicodeModel
 {
     use HasFactory;
 
     public $timestamps = false;
 
+    protected $table = 'settings';
     protected $casts = [
-        // 'value' => 'object',
+        'value' => 'object',
     ];
-
+    
     public static function selectSettings($key)
     {
-        $setting = Settings::where('key', $key)->first();
+        $setting = Settings2::where('key', $key)->first();
         if ($setting) {
             return $setting->value;
         }
@@ -26,7 +27,7 @@ class Settings extends UnicodeModel
 
     public static function updateSettings($key, $value)
     {
-        $setting = Settings::where('key', $key)->first();
+        $setting = Settings2::where('key', $key)->first();
         if ($setting) {
             if (empty(array_diff_key_objects($value, $setting->value))) {
                 $setting->value = $value;

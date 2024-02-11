@@ -11,6 +11,7 @@ use App\Models\Language;
 use App\Models\MailTemplate;
 use App\Models\PaymentGateway;
 use App\Models\Settings;
+use App\Models\Settings2;
 use App\Models\Tax;
 use App\Models\User;
 use Carbon\Carbon;
@@ -66,13 +67,13 @@ function settings($key = null)
 {
     if (!empty($key)) {
         try {
-            return Settings::selectSettings($key);
+            return Settings2::selectSettings($key);
         } catch (Exception $e) {
             $settings = (object) json_decode(file_get_contents(database_path('seeders/default/settings.json')), true);
             return (object) $settings->$key;
         }
     }
-    $settings = Settings::pluck('value', 'key')->all();
+    $settings = Settings2::pluck('value', 'key')->all();
     return array_to_object($settings);
 }
 
@@ -841,7 +842,7 @@ function languages()
 
 function localizeOptions()
 {
-    if (settings('actions')->language_type) {
+    if (@settings('actions')->language_type) {
         return [
             'prefix' => LaravelLocalization::setLocale(),
             'middleware' => ['localize', 'localizationRedirect', 'localeSessionRedirect', 'UserStatusCheck', 'notInstalled'],
