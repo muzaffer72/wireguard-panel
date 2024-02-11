@@ -19,7 +19,7 @@ class CreateServerTable extends Migration
 			$table->string('state', 191);
 			$table->tinyInteger('status');
 			$table->string('ip_address', 191);
-			$table->unsignedInteger('port');
+			$table->unsignedInteger('port')->nullable();;
 			$table->tinyInteger('recommended');
 			$table->tinyInteger('is_premium')->default(0);
 			$table->timestamps();
