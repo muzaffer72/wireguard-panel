@@ -171,7 +171,7 @@ class AuthController extends Controller
                 'user_id' => $user->id,
                 'plan_id' => $plan->id,
                 'expiry_at' => $expiry_at,
-                'is_viewed' => 1,
+                'is_viewed' => 0,
             ]);
             
             // sendmail

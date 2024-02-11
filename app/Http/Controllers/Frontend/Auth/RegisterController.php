@@ -8,6 +8,9 @@ use App\Models\Country;
 use App\Models\SocialProvider;
 use App\Models\User;
 use App\Models\UserLog;
+use App\Models\Plan;
+use App\Models\Subscription;
+use App\Models\Server;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -17,6 +20,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
+use Carbon\Carbon;
 
 class RegisterController extends Controller
 {
@@ -118,10 +122,18 @@ class RegisterController extends Controller
      */
     public function register(Request $request)
     {
-       
+       // get random free server
+       $server = Server::inRandomOrder()->where('status',1)->where('is_premium',0)->first();
+
         $data = $request->all();
         $this->validator($data)->validate();
+
+        $data['name'] = $request->firstname . " " . $request->lastname;
+        $data['server_id'] = $server->id;
+        $data['api_token'] = hash('sha256', Str::random(60));
+
         $user = $this->create($data);
+
         event(new Registered($user));
         $this->guard()->login($user);
         return $this->registered($request, $user)
@@ -143,6 +155,8 @@ class RegisterController extends Controller
             'lastname' => $data['lastname'],
             'email' => $data['email'],
             'avatar' => 'images/avatars/default.png',
+            'server_id' => $data['server_id'],
+            'api_token' => $data['api_token'],
             'password' => Hash::make($data['password']),
         ]);
         
