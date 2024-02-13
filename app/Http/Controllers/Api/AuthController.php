@@ -114,11 +114,12 @@ class AuthController extends Controller
     public function login(LoginRequest $request)
     {
         $user = $this->usermodel->where('email', $request->email)->first();
-        if ($user->email_verified_at === null) {
-            return response422([
-                'email' => [__('Account is not verified, please verify first')]
-            ]);
-        } else if (Hash::check($request->password, $user->password)) {
+        // if ($user->email_verified_at === null) {
+        //     return response422([
+        //         'email' => [__('Account is not verified, please verify first')]
+        //     ]);
+        // } else 
+        if (Hash::check($request->password, $user->password)) {
             $this->createLog($user);
             return $this->handleLogin($user, __('Successfully entered the system'));
         }        
@@ -145,6 +146,7 @@ class AuthController extends Controller
             'firstname' => "",
             'lastname' => "",
             'avatar' => "images/avatars/default.png",
+            'api_token' => hash('sha256', Str::random(60)),
             'verification_code' => $verification_code,
             'server_id' => $server->id ?? null
         ], $request->only(
@@ -193,6 +195,31 @@ class AuthController extends Controller
         }
 
         // return $this->handleLogin($user, __('Successfully registered and entered the system'));
+    }
+
+    /**
+     * process resend code
+     *
+     * @param ForgotPasswordRequest $request
+     * @return Response
+     */
+    public function forgotPassword(ForgotPasswordRequest $request)
+    {
+        $user = $this->usermodel->where('email', $request->email)->first();
+        $verification_code = rand(100000, 999999);
+        $userNew = $user->update([
+            'email_token' => Str::random(100),
+            'verification_code' => $verification_code
+        ]);
+        // sendmail
+        $email = $user->email;
+        $subject = "Verify Account";
+        $msg = __('Please input this code on your apps to activate your account immediately.<br/>Verification Code: ' . $verification_code);
+        \Mail::send([], [], function ($message) use ($msg, $email, $subject) {
+            $message->to($email)
+                ->subject($subject)
+                ->html($msg);
+        });
     }
 
     /**
@@ -249,8 +276,7 @@ class AuthController extends Controller
                 ]);
             }
             $user->update([
-                'email_verified_at' => now(),
-                'api_token' => hash('sha256', Str::random(60)),
+                'email_verified_at' => now(),                
                 'email_token'       => null,
                 'verification_code' => null
             ]);
@@ -260,7 +286,7 @@ class AuthController extends Controller
 
             DB::commit();
             $user = $this->usermodel->where('email', $request->email)->first();
-            return response200($user, __('Successfully verified the account, please log in using your account'));
+            return response200($user, __('Successfully verified the account'));
         } catch (Exception $e) {
             return response500(null, __('Failed to verify account'));
         }
