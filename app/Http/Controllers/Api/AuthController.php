@@ -114,11 +114,12 @@ class AuthController extends Controller
     public function login(LoginRequest $request)
     {
         $user = $this->usermodel->where('email', $request->email)->first();
-        if ($user->email_verified_at === null) {
-            return response422([
-                'email' => [__('Account is not verified, please verify first')]
-            ]);
-        } else if (Hash::check($request->password, $user->password)) {
+        // if ($user->email_verified_at === null) {
+        //     return response422([
+        //         'email' => [__('Account is not verified, please verify first')]
+        //     ]);
+        // } else 
+        if (Hash::check($request->password, $user->password)) {
             $this->createLog($user);
             return $this->handleLogin($user, __('Successfully entered the system'));
         }        
