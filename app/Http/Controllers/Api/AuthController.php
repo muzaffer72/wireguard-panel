@@ -198,6 +198,31 @@ class AuthController extends Controller
     }
 
     /**
+     * process resend code
+     *
+     * @param ForgotPasswordRequest $request
+     * @return Response
+     */
+    public function forgotPassword(ForgotPasswordRequest $request)
+    {
+        $user = $this->usermodel->where('email', $request->email)->first();
+        $verification_code = rand(100000, 999999);
+        $userNew = $user->update([
+            'email_token' => Str::random(100),
+            'verification_code' => $verification_code
+        ]);
+        // sendmail
+        $email = $user->email;
+        $subject = "Verify Account";
+        $msg = __('Please input this code on your apps to activate your account immediately.<br/>Verification Code: ' . $verification_code);
+        \Mail::send([], [], function ($message) use ($msg, $email, $subject) {
+            $message->to($email)
+                ->subject($subject)
+                ->html($msg);
+        });
+    }
+
+    /**
      * process forgot password
      *
      * @param ForgotPasswordRequest $request
