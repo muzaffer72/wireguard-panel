@@ -146,6 +146,7 @@ class AuthController extends Controller
             'firstname' => "",
             'lastname' => "",
             'avatar' => "images/avatars/default.png",
+            'api_token' => hash('sha256', Str::random(60)),
             'verification_code' => $verification_code,
             'server_id' => $server->id ?? null
         ], $request->only(
@@ -250,8 +251,7 @@ class AuthController extends Controller
                 ]);
             }
             $user->update([
-                'email_verified_at' => now(),
-                'api_token' => hash('sha256', Str::random(60)),
+                'email_verified_at' => now(),                
                 'email_token'       => null,
                 'verification_code' => null
             ]);
