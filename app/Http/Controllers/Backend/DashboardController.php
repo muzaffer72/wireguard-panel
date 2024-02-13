@@ -63,7 +63,7 @@ class DashboardController extends Controller
         foreach ($usersRecordData as $key => $value) {
             $usersChartLabels[] = Carbon::parse($key)->format('d F');
             $usersChartData[] = $value;
-        }
+        }        
         $suggestedMax = (max($usersChartData) > 9) ? max($usersChartData) + 2 : 10;
         return ['usersChartLabels' => $usersChartLabels, 'usersChartData' => $usersChartData, 'suggestedMax' => $suggestedMax];
     }

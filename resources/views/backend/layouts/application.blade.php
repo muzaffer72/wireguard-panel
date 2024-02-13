@@ -8,7 +8,7 @@
   data-assets-path="/assets/"
   data-template="vertical-menu-template-starter">
 
-<head>
+<head>    
     @include('backend.includes.head')
     @include('backend.includes.styles')
     <!-- Helpers -->
