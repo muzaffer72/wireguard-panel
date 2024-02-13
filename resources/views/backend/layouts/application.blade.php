@@ -1,29 +1,65 @@
-<!DOCTYPE html>
-<html lang="{{ getLang() }}">
+<!doctype html>
+
+<html
+  lang="{{ asset('getLang()') }}"
+  class="light-style layout-wide customizer-hide"
+  dir="ltr"
+  data-theme="theme-default"
+  data-assets-path="/assets/"
+  data-template="vertical-menu-template-starter">
 
 <head>
     @include('backend.includes.head')
     @include('backend.includes.styles')
-    @vite('resources/css/app.css')
+    <!-- Helpers -->
+    <script src="{{ asset('assets/vendor/js/helpers.js') }}"></script>
+    <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
+    <!--? Template customizer: To hide customizer set displayCustomizer value false in config.js.  -->
+    <script src="{{ asset('assets/vendor/js/template-customizer.js') }}"></script>
+    <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
+    <script src="{{ asset('assets/js/config.js') }}"></script>
 </head>
 
 <body>
-    @include('backend.includes.sidebar')
-    <div class="billiongroup-page-content">
+  <!-- Layout wrapper -->
+  <div class="layout-wrapper layout-content-navbar">
+    <div class="layout-container">
+      <!-- Menu -->
+      @include('backend.includes.sidebar')
+      <!-- / Menu -->
+
+      <!-- Layout container -->
+      <div class="layout-page">
+        <!-- Navbar -->
         @include('backend.includes.header')
-        <div class="container @yield('container')">
-            <div class="billiongroup-page-body">
-                <div class="py-4 g-4">
-                    <div class="row align-items-center">
-                       
-                    </div>
-                </div>
-                @yield('content')
-            </div>
+        <!-- / Navbar -->
+
+        <!-- Content wrapper -->
+        <div class="content-wrapper">
+          <!-- Content -->
+
+          <div class="@yield('container')">
+            @yield('content')
+          </div>
+          <!-- / Content -->
+
+          @include('backend.includes.footer')
+
+          <div class="content-backdrop fade"></div>
         </div>
-        @include('backend.includes.footer')
+        <!-- Content wrapper -->
+      </div>
+      <!-- / Layout page -->
     </div>
-    @include('backend.includes.scripts')
+
+    <!-- Overlay -->
+    <div class="layout-overlay layout-menu-toggle"></div>
+
+    <!-- Drag Target Area To SlideIn Menu On Small Screens -->
+    <div class="drag-target"></div>
+  </div>
+  <!-- / Layout wrapper -->
+  @include('backend.includes.scripts')
 </body>
 
 </html>

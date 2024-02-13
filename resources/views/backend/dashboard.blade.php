@@ -1,9 +1,8 @@
 @extends('backend.layouts.application')
 @section('title', admin_lang('Dashboard'))
 @section('access', admin_lang('Quick Access'))
-@section('container', 'container-fluid py-4')
+@section('container', 'container-xxl flex-grow-1 container-p-y')
 @section('content')
-
     @if (!$settings->smtp->status)
         <div class="flex items-center p-4 mb-4 text-sm text-red-800 border border-red-300 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400 dark:border-red-800"
             role="alert">

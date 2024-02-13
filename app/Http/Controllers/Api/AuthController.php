@@ -203,7 +203,7 @@ class AuthController extends Controller
      * @param ForgotPasswordRequest $request
      * @return Response
      */
-    public function forgotPassword(ForgotPasswordRequest $request)
+    public function resendCode(ForgotPasswordRequest $request)
     {
         $user = $this->usermodel->where('email', $request->email)->first();
         $verification_code = rand(100000, 999999);
