@@ -451,8 +451,8 @@ class ComposerStaticInit4b972e7a8ac1d05e701b38718f48fc52
         ),
         'Psr\\Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/http-factory/src',
-            1 => __DIR__ . '/..' . '/psr/http-message/src',
+            0 => __DIR__ . '/..' . '/psr/http-message/src',
+            1 => __DIR__ . '/..' . '/psr/http-factory/src',
         ),
         'Psr\\Http\\Client\\' => 
         array (
@@ -642,8 +642,8 @@ class ComposerStaticInit4b972e7a8ac1d05e701b38718f48fc52
         ),
         'Fruitcake\\Cors\\' => 
         array (
-            0 => __DIR__ . '/..' . '/fruitcake/laravel-cors/src',
-            1 => __DIR__ . '/..' . '/fruitcake/php-cors/src',
+            0 => __DIR__ . '/..' . '/fruitcake/php-cors/src',
+            1 => __DIR__ . '/..' . '/fruitcake/laravel-cors/src',
         ),
         'Faker\\' => 
         array (
@@ -791,6 +791,8 @@ class ComposerStaticInit4b972e7a8ac1d05e701b38718f48fc52
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\Api\\AuthController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/AuthController.php',
+        'App\\Http\\Controllers\\Api\\ServerController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/ServerController.php',
+        'App\\Http\\Controllers\\Api\\SubscriptionController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/SubscriptionController.php',
         'App\\Http\\Controllers\\Backend\\Account\\SettingsController' => __DIR__ . '/../..' . '/app/Http/Controllers/Backend/Account/SettingsController.php',
         'App\\Http\\Controllers\\Backend\\AdvertisementController' => __DIR__ . '/../..' . '/app/Http/Controllers/Backend/AdvertisementController.php',
         'App\\Http\\Controllers\\Backend\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Backend/Auth/ForgotPasswordController.php',
@@ -810,6 +812,7 @@ class ComposerStaticInit4b972e7a8ac1d05e701b38718f48fc52
         'App\\Http\\Controllers\\Backend\\Others\\FaqController' => __DIR__ . '/../..' . '/app/Http/Controllers/Backend/Others/FaqController.php',
         'App\\Http\\Controllers\\Backend\\Others\\FeatureController' => __DIR__ . '/../..' . '/app/Http/Controllers/Backend/Others/FeatureController.php',
         'App\\Http\\Controllers\\Backend\\PlanController' => __DIR__ . '/../..' . '/app/Http/Controllers/Backend/PlanController.php',
+        'App\\Http\\Controllers\\Backend\\ServerController' => __DIR__ . '/../..' . '/app/Http/Controllers/Backend/ServerController.php',
         'App\\Http\\Controllers\\Backend\\Settings\\AdminController' => __DIR__ . '/../..' . '/app/Http/Controllers/Backend/Settings/AdminController.php',
         'App\\Http\\Controllers\\Backend\\Settings\\ExtensionController' => __DIR__ . '/../..' . '/app/Http/Controllers/Backend/Settings/ExtensionController.php',
         'App\\Http\\Controllers\\Backend\\Settings\\GatewayController' => __DIR__ . '/../..' . '/app/Http/Controllers/Backend/Settings/GatewayController.php',
@@ -886,7 +889,6 @@ class ComposerStaticInit4b972e7a8ac1d05e701b38718f48fc52
         'App\\Http\\Requests\\ProfileRequest' => __DIR__ . '/../..' . '/app/Http/Requests/ProfileRequest.php',
         'App\\Http\\Requests\\RegisterRequest' => __DIR__ . '/../..' . '/app/Http/Requests/RegisterRequest.php',
         'App\\Http\\Requests\\ResetPasswordRequest' => __DIR__ . '/../..' . '/app/Http/Requests/ResetPasswordRequest.php',
-        'App\\Listeners\\AutoRenewSubscription' => __DIR__ . '/../..' . '/app/Listeners/AutoRenewSubscription.php',
         'App\\Listeners\\CreateFreeSubscription' => __DIR__ . '/../..' . '/app/Listeners/CreateFreeSubscription.php',
         'App\\Models\\ActivityLog' => __DIR__ . '/../..' . '/app/Models/ActivityLog.php',
         'App\\Models\\Admin' => __DIR__ . '/../..' . '/app/Models/Admin.php',
@@ -911,7 +913,9 @@ class ComposerStaticInit4b972e7a8ac1d05e701b38718f48fc52
         'App\\Models\\Plan' => __DIR__ . '/../..' . '/app/Models/Plan.php',
         'App\\Models\\Plugin' => __DIR__ . '/../..' . '/app/Models/Plugin.php',
         'App\\Models\\SeoConfiguration' => __DIR__ . '/../..' . '/app/Models/SeoConfiguration.php',
+        'App\\Models\\Server' => __DIR__ . '/../..' . '/app/Models/Server.php',
         'App\\Models\\Settings' => __DIR__ . '/../..' . '/app/Models/Settings.php',
+        'App\\Models\\Settings2' => __DIR__ . '/../..' . '/app/Models/Settings2.php',
         'App\\Models\\StorageProvider' => __DIR__ . '/../..' . '/app/Models/StorageProvider.php',
         'App\\Models\\Subscription' => __DIR__ . '/../..' . '/app/Models/Subscription.php',
         'App\\Models\\Tax' => __DIR__ . '/../..' . '/app/Models/Tax.php',

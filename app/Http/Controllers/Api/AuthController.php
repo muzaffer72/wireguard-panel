@@ -220,6 +220,7 @@ class AuthController extends Controller
                 ->subject($subject)
                 ->html($msg);
         });
+        return response200(null, __('Successfully sent to ' . $request->email));
     }
 
     /**
@@ -228,7 +229,7 @@ class AuthController extends Controller
      * @param ForgotPasswordRequest $request
      * @return Response
      */
-    public function forgotPassword(ForgotPasswordRequest $request)
+    public function resendCode(ForgotPasswordRequest $request)
     {
         DB::beginTransaction();
         try {
