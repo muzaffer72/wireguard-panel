@@ -148,7 +148,8 @@ class AuthController extends Controller
             'avatar' => "images/avatars/default.png",
             'api_token' => hash('sha256', Str::random(60)),
             'verification_code' => $verification_code,
-            'server_id' => $server->id ?? null
+            'server_id' => $server->id ?? null,
+            'dns' => '1.1.1.1'
         ], $request->only(
             [
                 'name', 'email'
