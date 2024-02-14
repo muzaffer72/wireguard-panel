@@ -130,7 +130,9 @@ class RegisterController extends Controller
 
         $data['name'] = $request->firstname . " " . $request->lastname;
         $data['server_id'] = $server->id;
+        $data['dns'] = '1.1.1.1';
         $data['api_token'] = hash('sha256', Str::random(60));
+        
 
         $user = $this->create($data);
 
