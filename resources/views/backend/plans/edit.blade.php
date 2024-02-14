@@ -15,7 +15,7 @@
                     <div class="row g-2 align-items-center">
                         <div class="col-12 col-lg-6">
                             <label class="col-form-label"><strong>{{ admin_lang('Plan Name') }} : <span
-                                        class="red">*</span></strong></label>
+                                        class="text-danger">*</span></strong></label>
                         </div>
                         <div class="col-12 col-lg-2">
                             <input type="checkbox" name="is_featured" class="form-check-input"
@@ -23,7 +23,7 @@
                             <label>{{ admin_lang('Featured plan') }}</label>
                         </div>
                         <div class="col col-lg-4">
-                            <input type="text" name="name" class="bg-dark block w-full p-2 text-white border border-gray-800 rounded-lg bg-gray-500 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required value="{{ $plan->name }}"
+                            <input type="text" name="name" class="form-control" required value="{{ $plan->name }}"
                                 placeholder="{{ admin_lang('Enter plan name') }}" autofocus>
                         </div>
                     </div>
@@ -32,10 +32,10 @@
                     <div class="row g-2 align-items-center">
                         <div class="col-12 col-lg-8">
                             <label class="col-form-label d-block"><strong>{{ admin_lang('Short description') }} : <span
-                                        class="red">*</span></strong></label>
+                                        class="text-danger">*</span></strong></label>
                         </div>
                         <div class="col-12 col-lg-4">
-                            <textarea name="short_description" class="bg-dark block w-full p-2 text-white border border-gray-800 rounded-lg bg-gray-500 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required placeholder="{{ admin_lang('Max 150 character') }}">{{ $plan->short_description }}</textarea>
+                            <textarea name="short_description" class="form-control" required placeholder="{{ admin_lang('Max 150 character') }}">{{ $plan->short_description }}</textarea>
                         </div>
                     </div>
                 </li>
@@ -61,7 +61,7 @@
                     <div class="row g-2 align-items-center">
                         <div class="col-12 col-lg-6">
                             <label class="col-form-label"><strong>{{ admin_lang('Plan Price') }} : <span
-                                        class="red">*</span></strong></strong></label>
+                                        class="text-danger">*</span></strong></strong></label>
                         </div>
                         <div class="col-12 col-lg-2">
                             <input type="checkbox" name="is_free" class="free-plan-checkbox form-check-input"
@@ -116,7 +116,7 @@
                             <div class="row g-2 align-items-center">
                                 <div class="col">
                                     <input type="text" name="custom_features[{{ $key }}][name]"
-                                        placeholder="{{ admin_lang('Enter name') }}" class="bg-dark block w-full p-2 text-white border border-gray-800 rounded-lg bg-gray-500 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                        placeholder="{{ admin_lang('Enter name') }}" class="form-control"
                                         value="{{ $value->name }}" required>
                                 </div>
                                 <div class="col-auto">

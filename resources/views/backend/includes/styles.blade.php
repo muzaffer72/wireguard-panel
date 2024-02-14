@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="{{ asset('assets/css/demo.css') }}">
 
 <!-- Vendors CSS -->
+<link rel="stylesheet" href="{{ asset('assets/vendor/libs/toastr/toastr.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/vendor/libs/node-waves/node-waves.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css') }}">
 @stack('style_vendor')

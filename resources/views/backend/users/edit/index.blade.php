@@ -43,25 +43,25 @@
                             <div class="col-lg-6">
                                 <div class="mb-3">
                                     <label class="form-label">{{ admin_lang('Firstname') }} :<span
-                                            class="red">*</span></label>
-                                    <input type="firstname" name="firstname" class="bg-dark block w-full p-2 text-white border border-gray-800 rounded-lg bg-gray-500 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                            class="text-danger">*</span></label>
+                                    <input type="firstname" name="firstname" class="form-control"
                                         value="{{ $user->firstname }}" required>
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="mb-3">
                                     <label class="form-label">{{ admin_lang('Lastname') }} :<span
-                                            class="red">*</span></label>
-                                    <input type="lastname" name="lastname" class="bg-dark block w-full p-2 text-white border border-gray-800 rounded-lg bg-gray-500 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                            class="text-danger">*</span></label>
+                                    <input type="lastname" name="lastname" class="form-control"
                                         value="{{ $user->lastname }}" required>
                                 </div>
                             </div>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">{{ admin_lang('E-mail Address') }} :<span
-                                    class="red">*</span></label>
+                                    class="text-danger">*</span></label>
                             <div class="input-group mb-3">
-                                <input type="email" name="email" class="bg-dark block w-full p-2 text-white border border-gray-800 rounded-lg bg-gray-500 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                <input type="email" name="email" class="form-control"
                                     value="{{ $user->email }}" required>
                                 <button class="btn btn-primary" type="button" data-bs-toggle="modal"
                                     data-bs-target="#sendMailModal"><i
@@ -70,12 +70,12 @@
                         </div>
                         <div class="mb-3">
                             <label class="form-label">{{ admin_lang('Address line 1') }} :</label>
-                            <input type="text" name="address_1" class="bg-dark block w-full p-2 text-white border border-gray-800 rounded-lg bg-gray-500 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            <input type="text" name="address_1" class="form-control"
                                 value="{{ @$user->address->address_1 }}">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">{{ admin_lang('Address line 2') }} :</label>
-                            <input type="text" name="address_2" class="bg-dark block w-full p-2 text-white border border-gray-800 rounded-lg bg-gray-500 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            <input type="text" name="address_2" class="form-control"
                                 placeholder="{{ admin_lang('Apartment, suite, etc. (optional)') }}"
                                 value="{{ @$user->address->address_2 }}">
                         </div>
@@ -83,28 +83,28 @@
                             <div class="col-lg-4">
                                 <div class="mb-3">
                                     <label class="form-label">{{ admin_lang('City') }} :</label>
-                                    <input type="text" name="city" class="bg-dark block w-full p-2 text-white border border-gray-800 rounded-lg bg-gray-500 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                    <input type="text" name="city" class="form-control"
                                         value="{{ @$user->address->city }}">
                                 </div>
                             </div>
                             <div class="col-lg-4">
                                 <div class="mb-3">
                                     <label class="form-label">{{ admin_lang('State') }} :</label>
-                                    <input type="text" name="state" class="bg-dark block w-full p-2 text-white border border-gray-800 rounded-lg bg-gray-500 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                    <input type="text" name="state" class="form-control"
                                         value="{{ @$user->address->state }}">
                                 </div>
                             </div>
                             <div class="col-lg-4">
                                 <div class="mb-3">
                                     <label class="form-label">{{ admin_lang('Postal code') }} :</label>
-                                    <input type="text" name="zip" class="bg-dark block w-full p-2 text-white border border-gray-800 rounded-lg bg-gray-500 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                    <input type="text" name="zip" class="form-control"
                                         value="{{ @$user->address->zip }}">
                                 </div>
                             </div>
                         </div>
                         <div class="mb-2">
                             <label class="form-label">{{ admin_lang('Country') }} :</label>
-                            <select name="country" class="bg-dark block w-full p-2 text-white border border-gray-800 rounded-lg bg-gray-500 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <select name="country" class="form-control">
                                 <option value="" selected disabled>{{ admin_lang('Choose') }}</option>
                                 @foreach (countries() as $country)
                                     <option value="{{ $country->id }}" @if ($country->name == @$user->address->country) selected @endif>
@@ -133,15 +133,15 @@
                             <div class="col-lg-6">
                                 <div class="mb-3">
                                     <label class="form-label">{{ admin_lang('Subject') }} : <span
-                                            class="red">*</span></label>
-                                    <input type="subject" name="subject" class="bg-dark block w-full p-2 text-white border border-gray-800 rounded-lg bg-gray-500 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
+                                            class="text-danger">*</span></label>
+                                    <input type="subject" name="subject" class="form-control" required>
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="mb-3">
                                     <label class="form-label">{{ admin_lang('Reply to') }} : <span
-                                            class="red">*</span></label>
-                                    <input type="email" name="reply_to" class="bg-dark block w-full p-2 text-white border border-gray-800 rounded-lg bg-gray-500 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                            class="text-danger">*</span></label>
+                                    <input type="email" name="reply_to" class="form-control"
                                         value="{{ adminAuthInfo()->email }}" required>
                                 </div>
                             </div>

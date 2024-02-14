@@ -127,3 +127,197 @@
   text-align: center;
   margin-top: 1rem;
 }
+
+/*
+* additional
+*/
+.capitalize {
+  text-transform: capitalize;
+}
+.bg-primary {
+  background: var(--primaryColor) !important;
+}
+
+.bg-vironeer {
+  background: var(--secondaryColor) !important;
+}
+
+.bg-amazon {
+  background: #f56600 !important;
+}
+
+.bg-wasabi {
+  background: #00ce3e !important;
+}
+
+.bg-digitalocean {
+  background: #0069ff !important;
+}
+
+.bg-girl {
+  background: rgb(2, 0, 36);
+  background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(0, 84, 190, 1) 0%, rgba(144, 5, 181, 1) 100%);
+}
+
+.bg-fire {
+  background: #c50303 !important;
+}
+
+.bg-grass {
+  background: #8ac249 !important;
+}
+
+.bg-yellow {
+  background-color: #ffd81d !important;
+}
+
+.bg-orange {
+  background-color: #FF9800 !important;
+}
+
+.bg-pink {
+  background-color: #E91E63 !important;
+}
+
+.bg-lg-1 {
+  background: rgb(2, 0, 36);
+  background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(0, 190, 175, 1) 0%, rgba(5, 144, 181, 1) 100%);
+}
+
+.bg-lg-2 {
+  background: #7b4397 !important;
+  background: -webkit-linear-gradient(to right, #dc2430, #7b4397) !important;
+  background: linear-gradient(to right, #dc2430, #7b4397) !important;
+}
+
+.bg-lg-3 {
+  background: #0F2027 !important;
+  background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027) !important;
+  background: linear-gradient(to right, #2C5364, #203A43, #0F2027) !important;
+}
+
+.bg-lg-4 {
+  background: #8E2DE2 !important;
+  background: -webkit-linear-gradient(to right, #4A00E0, #8E2DE2) !important;
+  background: linear-gradient(to right, #4A00E0, #8E2DE2) !important;
+}
+
+.bg-lg-5 {
+  background: #485563 !important;
+  background: -webkit-linear-gradient(to right, #29323c, #485563) !important;
+  background: linear-gradient(to right, #29323c, #485563) !important;
+}
+
+.bg-lg-6 {
+  background: #000428 !important;
+  background: -webkit-linear-gradient(to right, #004e92, #000428) !important;
+  background: linear-gradient(to right, #004e92, #000428) !important;
+}
+
+.bg-lg-7 {
+  background: #8E0E00 !important;
+  background: -webkit-linear-gradient(to right, #8E0E00, #1F1C18) !important;
+  background: linear-gradient(to right, #8E0E00, #1F1C18) !important;
+}
+
+.bg-lg-8 {
+  background: #5caf2e !important;
+  background: -webkit-linear-gradient(to right, #5caf2e, #5bb42b) !important;
+  background: linear-gradient(to right, #5caf2e, #5bb42b) !important
+}
+
+.bg-lg-9 {
+  background: #005C97 !important;
+  background: -webkit-linear-gradient(to right, #363795, #005C97) !important;
+  background: linear-gradient(to right, #363795, #005C97) !important;
+}
+
+.bg-lg-10 {
+  background: #e53935 !important;
+  background: -webkit-linear-gradient(to right, #e35d5b, #e53935) !important;
+  background: linear-gradient(to right, #e35d5b, #e53935) !important;
+}
+
+.bg-lg-11 {
+  background: #11998e !important;
+  background: -webkit-linear-gradient(to left, #38ef7d, #11998e) !important;
+  background: linear-gradient(to left, #38ef7d, #11998e) !important;
+}
+
+.bg-lg-12 {
+  background: #06beb6 !important;
+  background: -webkit-linear-gradient(to left, #48b1bf, #06beb6) !important;
+  background: linear-gradient(to left, #48b1bf, #06beb6) !important;
+}
+
+.bg-lg-13 {
+  background: #159957 !important;
+  background: -webkit-linear-gradient(to left, #155799, #159957) !important;
+  background: linear-gradient(to left, #155799, #159957) !important;
+}
+
+.bg-lg-14 {
+  background: #41295a !important;
+  background: -webkit-linear-gradient(to left, #2F0743, #41295a) !important;
+  background: linear-gradient(to left, #2F0743, #41295a) !important;
+}
+
+.bg-lg-15 {
+  background: #f85032 !important;
+  background: -webkit-linear-gradient(to bottom, #e73827, #f85032) !important;
+  background: linear-gradient(to bottom, #e73827, #f85032) !important;
+}
+
+.bg-lg-16 {
+  background: #76b852 !important;
+  background: -webkit-linear-gradient(to top, #8DC26F, #76b852) !important;
+  background: linear-gradient(to top, #8DC26F, #76b852) !important;
+}
+
+.bg-c-1 {
+  background: #3f0b74 !important;
+}
+
+.bg-c-2 {
+  background: #0b4f74 !important;
+}
+
+.bg-c-3 {
+  background: #0b7469 !important;
+}
+
+.bg-c-4 {
+  background: #2ac76f !important;
+}
+
+.bg-c-5 {
+  background: #cd8200 !important;
+}
+
+.bg-c-6 {
+  background: #d65c0c !important;
+}
+
+.bg-c-7 {
+  background: #eb5454 !important;
+}
+
+.bg-c-8 {
+  background: #3624a4 !important;
+}
+
+.bg-c-9 {
+  background: #a61559 !important;
+}
+
+.bg-c-10 {
+  background: #0f2253 !important;
+}
+
+.bg-c-11 {
+  background: #0045AD !important;
+}
+
+.bg-c-12 {
+  background: #afa501 !important;
+}

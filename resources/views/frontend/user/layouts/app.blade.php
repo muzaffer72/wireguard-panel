@@ -23,7 +23,7 @@
                 @hasSection('back')
                     <div class="col">
                         <a href="@yield('back')" class="btn btn-light btn-md px-3"><i
-                                class="fas fa-arrow-left me-2"></i>{{ lang('back', 'account') }}</a>
+                                class="ti ti-arrow-left me-2"></i>{{ lang('back', 'account') }}</a>
                     </div>
                 @endif
                

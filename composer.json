@@ -16,7 +16,7 @@
         "fruitcake/laravel-cors": "^3.0",
         "guzzlehttp/guzzle": "^7.2",
         "guzzlehttp/psr7": "^2.4",
-        "intervention/image": "^2",
+        "intervention/image": "^3.3",
         "jenssegers/date": "^4.0",
         "laravel/framework": "^9.19",
         "laravel/sanctum": "^2.14.1",

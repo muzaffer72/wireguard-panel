@@ -21,6 +21,7 @@
 <!-- Vendors JS -->
 <script src="{{ asset('assets/vendor/libs/toastr/toastr.js') }}"></script>
 @stack('scripts_libs')
+<script src="{{ asset('assets/js/application.js') }}"></script>
 <!-- Main JS -->
 <script src="{{ asset('assets/js/main.js') }}"></script>
 

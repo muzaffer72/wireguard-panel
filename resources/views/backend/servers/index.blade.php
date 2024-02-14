@@ -168,7 +168,7 @@
                     <form action="{{ route('admin.servers.store') }}" method="POST">
                         @csrf
                         <div class="mb-4">
-                            <label class="form-label">{{ admin_lang('Country') }} : <span class="red">*</span></label>
+                            <label class="form-label">{{ admin_lang('Country') }} : <span class="text-danger">*</span></label>
                             <select name="country" id="country" class="form-select" required>
                                 <option value="" selected disabled>{{ admin_lang('Choose') }}</option>
                                 @foreach ($countries as $key => $country)
@@ -180,13 +180,13 @@
                             </select>
                         </div>
                         <div class="mb-4">
-                            <label class="form-label">{{ admin_lang('State') }} : <span class="red">*</span></label>
+                            <label class="form-label">{{ admin_lang('State') }} : <span class="text-danger">*</span></label>
                             <select name="state" id="state" class="form-select" required>
                                 <option value="" selected disabled>{{ admin_lang('Choose') }}</option>
                             </select>
                         </div>
                         <div class="mb-4">
-                            <label class="form-label">{{ admin_lang('Status') }} : <span class="red">*</span></label>
+                            <label class="form-label">{{ admin_lang('Status') }} : <span class="text-danger">*</span></label>
                             <select name="status" id="status" class="form-select" required>
                                 <option value="" selected disabled>{{ admin_lang('Choose') }}</option>
                                 @foreach ($statusOptions as $key => $row)
@@ -197,11 +197,11 @@
                             </select>
                         </div>
                         <div class="mb-4">
-                            <label class="form-label">{{ admin_lang('IP Address') }} : <span class="red">*</span></label>
+                            <label class="form-label">{{ admin_lang('IP Address') }} : <span class="text-danger">*</span></label>
                             <input type="text" name="ip_address" class="form-control" required/>
                         </div>
                         <div class="mb-4">
-                            <label class="form-label">{{ admin_lang('Recommended') }} : <span class="red">*</span></label>
+                            <label class="form-label">{{ admin_lang('Recommended') }} : <span class="text-danger">*</span></label>
                             <select name="recommended" id="recommended" class="form-select" required>
                                 <option value="" selected disabled>{{ admin_lang('Choose') }}</option>
                                 @foreach ($recommendOptions as $key => $row)
@@ -212,7 +212,7 @@
                             </select>
                         </div>
                         <div class="mb-4">
-                            <label class="form-label">{{ admin_lang('Server Type') }} : <span class="red">*</span></label>
+                            <label class="form-label">{{ admin_lang('Server Type') }} : <span class="text-danger">*</span></label>
                             <select name="is_premium" id="is_premium" class="form-select" required>
                                 <option value="" selected disabled>{{ admin_lang('Choose') }}</option>
                                 @foreach ($serverOptions as $key => $row)

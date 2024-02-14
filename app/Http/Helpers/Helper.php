@@ -24,6 +24,8 @@ use Utils\BrowserDetector;
 use Utils\IpInfo;
 use Utils\OSDetector;
 
+use Intervention\Image\Drivers\Gd\Driver;
+
 function demoMode()
 {
     if (env('DEMO_MODE')) {
@@ -556,7 +558,8 @@ function imageUpload($file, $location, $size = null, $specificName = null, $old 
     } else {
         $filename = Str::random(15) . '_' . time() . '.' . $file->getClientOriginalExtension();
     }
-    $image = Image::make($file);
+    $manager = new Image(Driver::class);
+    $image = $manager->read($file);
     $width = $image->width();
     $height = $image->height();
     if (!empty($size)) {

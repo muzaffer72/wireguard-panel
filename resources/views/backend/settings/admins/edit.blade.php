@@ -21,26 +21,26 @@
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="mb-3">
-                            <label class="form-label">{{ admin_lang('First Name') }} : <span class="red">*</span></label>
-                            <input type="firstname" class="bg-dark block w-full p-2 text-white border border-gray-800 rounded-lg bg-gray-500 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" name="firstname" value="{{ $admin->firstname }}"
+                            <label class="form-label">{{ admin_lang('First Name') }} : <span class="text-danger">*</span></label>
+                            <input type="firstname" class="form-control" name="firstname" value="{{ $admin->firstname }}"
                                 required>
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="mb-3">
-                            <label class="form-label">{{ admin_lang('Last Name') }} : <span class="red">*</span></label>
-                            <input type="lastname" class="bg-dark block w-full p-2 text-white border border-gray-800 rounded-lg bg-gray-500 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" name="lastname" value="{{ $admin->lastname }}"
+                            <label class="form-label">{{ admin_lang('Last Name') }} : <span class="text-danger">*</span></label>
+                            <input type="lastname" class="form-control" name="lastname" value="{{ $admin->lastname }}"
                                 required>
                         </div>
                     </div>
                 </div>
                 <div class="mb-3">
-                    <label class="form-label">{{ admin_lang('Email Address') }} : <span class="red">*</span></label>
-                    <input type="email" class="bg-dark block w-full p-2 text-white border border-gray-800 rounded-lg bg-gray-500 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" name="email" value="{{ $admin->email }}" required>
+                    <label class="form-label">{{ admin_lang('Email Address') }} : <span class="text-danger">*</span></label>
+                    <input type="email" class="form-control" name="email" value="{{ $admin->email }}" required>
                 </div>
                 <div class="mb-3">
                     <label class="form-label">{{ admin_lang('New Password') }} : </label>
-                    <input type="text" class="bg-dark block w-full p-2 text-white border border-gray-800 rounded-lg bg-gray-500 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" name="password">
+                    <input type="text" class="form-control" name="password">
                     <small
                         class="text-muted">{{ admin_lang("Leave it empty if you don't want to change password") }}</small>
                 </div>

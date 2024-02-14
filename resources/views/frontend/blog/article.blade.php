@@ -91,7 +91,7 @@
                                 <form action="{{ route('blog.article', $blogArticle->slug) }}" method="POST">
                                     @csrf
                                     <div class="mb-3">
-                                        <textarea name="comment" class="bg-dark block w-full p-2 text-white border border-gray-800 rounded-lg bg-gray-500 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" rows="6" placeholder="{{ lang('Your comment', 'blog') }}" required></textarea>
+                                        <textarea name="comment" class="form-control" rows="6" placeholder="{{ lang('Your comment', 'blog') }}" required></textarea>
                                     </div>
                                     {!! display_captcha() !!}
                                     <button class="btn btn-primary btn-md">{{ lang('Publish', 'blog') }}</button>

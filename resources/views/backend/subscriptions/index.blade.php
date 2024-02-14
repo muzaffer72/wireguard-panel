@@ -329,7 +329,7 @@
                     <form action="{{ route('admin.subscriptions.store') }}" method="POST">
                         @csrf
                         <div class="mb-3">
-                            <label class="form-label">{{ admin_lang('User') }} : <span class="red">*</span></label>
+                            <label class="form-label">{{ admin_lang('User') }} : <span class="text-danger">*</span></label>
                             <select id="billiongroup-select-user" name="user" class="form-select select2Modal" required>
                                 <option></option>
                                 @foreach ($users as $user)
@@ -343,7 +343,7 @@
                             </select>
                         </div>
                         <div class="mb-4">
-                            <label class="form-label">{{ admin_lang('Plan') }} : <span class="red">*</span></label>
+                            <label class="form-label">{{ admin_lang('Plan') }} : <span class="text-danger">*</span></label>
                             <select name="plan" class="form-select" required>
                                 <option value="" selected disabled>{{ admin_lang('Choose') }}</option>
                                 @foreach ($plans as $plan)

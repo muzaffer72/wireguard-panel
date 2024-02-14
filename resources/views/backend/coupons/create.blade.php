@@ -14,7 +14,7 @@
                 <div class="input-group mb-2">
                     <button class="btn btn-secondary copy-btn" type="button" data-clipboard-target="#couponCodeInput"><i
                             class="far fa-clone"></i></button>
-                    <input id="couponCodeInput" type="text" name="code" class="bg-dark block w-full p-2 text-white border border-gray-800 rounded-lg bg-gray-500 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    <input id="couponCodeInput" type="text" name="code" class="form-control"
                         placeholder="{{ admin_lang('Coupon code') }}" maxlength="20" required>
 
                     <button id="generateCouponBtn" class="btn btn-primary" type="button"><i
@@ -31,9 +31,9 @@
                 <div class="row g-3 mb-2">
                     <div class="col-lg-6">
                         <label class="form-label">{{ admin_lang('Discount percentage') }} : <span
-                                class="red">*</span></label>
+                                class="text-danger">*</span></label>
                         <div class="custom-input-group input-group">
-                            <input type="number" name="percentage" class="bg-dark block w-full p-2 text-white border border-gray-800 rounded-lg bg-gray-500 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" min="1"
+                            <input type="number" name="percentage" class="form-control" min="1"
                                 max="100" placeholder="0" value="{{ old('percentage') }}" required>
                             <span class="input-group-text bg-secondary-gradient pe-4 ps-4"><i
                                     class="fas fa-percent"></i></span>
@@ -41,8 +41,8 @@
                     </div>
                     <div class="col-lg-6">
                         <label class="form-label">{{ admin_lang('Limit for each user') }} : <span
-                                class="red">*</span></label>
-                        <input type="number" name="limit" class="bg-dark block w-full p-2 text-white border border-gray-800 rounded-lg bg-gray-500 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" min="1"
+                                class="text-danger">*</span></label>
+                        <input type="number" name="limit" class="form-control" min="1"
                             placeholder="0" value="{{ old('limit') }}" required>
                     </div>
                 </div>
@@ -56,8 +56,8 @@
                 </p>
                 <div class="row g-3 mb-2">
                     <div class="col-lg-6">
-                        <label class="form-label">{{ admin_lang('Plan') }} : <span class="red">*</span></label>
-                        <select name="plan" class="bg-dark block w-full p-2 text-white border border-gray-800 rounded-lg bg-gray-500 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
+                        <label class="form-label">{{ admin_lang('Plan') }} : <span class="text-danger">*</span></label>
+                        <select name="plan" class="form-control" required>
                             <option value="" disabled selected>{{ admin_lang('Choose') }}</option>
                             <option value="0">{{ admin_lang('All plans') }}</option>
                             @foreach ($plans as $plan)
@@ -69,8 +69,8 @@
                         </select>
                     </div>
                     <div class="col-lg-6">
-                        <label class="form-label">{{ admin_lang('Action type') }} : <span class="red">*</span></label>
-                        <select name="action_type" class="bg-dark block w-full p-2 text-white border border-gray-800 rounded-lg bg-gray-500 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
+                        <label class="form-label">{{ admin_lang('Action type') }} : <span class="text-danger">*</span></label>
+                        <select name="action_type" class="form-control" required>
                             <option value="" disabled selected>{{ admin_lang('Choose') }}</option>
                             <option value="0">{{ admin_lang('All actions') }}
                             </option>
@@ -83,8 +83,8 @@
                         </select>
                     </div>
                     <div class="col-lg-12">
-                        <label class="form-label">{{ admin_lang('Expiry at') }} : <span class="red">*</span></label>
-                        <input type="datetime-local" name="expiry_at" class="bg-dark block w-full p-2 text-white border border-gray-800 rounded-lg bg-gray-500 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        <label class="form-label">{{ admin_lang('Expiry at') }} : <span class="text-danger">*</span></label>
+                        <input type="datetime-local" name="expiry_at" class="form-control"
                             value="{{ old('expiry_at') }}" required>
                     </div>
                 </div>
