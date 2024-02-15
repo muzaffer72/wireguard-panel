@@ -1,6 +1,6 @@
 @extends('backend.layouts.form')
 @section('title', $active . ' ' . admin_lang('Footer Menu'))
-@section('container', 'container-max-lg')
+@section('container', 'container-xxl flex-grow-1 container-p-y')
 @section('link', route('admin.footerMenu.create'))
 @section('language', true)
 @if ($footerMenuLinks->count() == 0)
@@ -22,14 +22,14 @@
                                 <span class="dd-title">{{ $footerMenuLink->name }}</span>
                                 <div class="dd-nodrag ms-auto">
                                     <a href="{{ route('admin.footerMenu.edit', $footerMenuLink->id) }}"
-                                        class="btn btn-sm btn-blue me-2"><i class="fa fa-edit"></i></a>
+                                        class="btn btn-sm btn-blue me-2"><i class="ti ti-edit"></i></a>
                                     <form class="d-inline"
                                         action="{{ route('admin.footerMenu.destroy', $footerMenuLink->id) }}"
                                         method="POST">
                                         @method('DELETE')
                                         @csrf
                                         <button class="billiongroup-able-to-delete btn btn-sm btn-danger"><i
-                                                class="far fa-trash-alt"></i></button>
+                                                class="ti ti-trash"></i></button>
                                     </form>
                                 </div>
                             </div>
@@ -42,14 +42,14 @@
                                                 <span class="dd-title">{{ $child->name }}</span>
                                                 <div class="dd-nodrag ms-auto">
                                                     <a href="{{ route('admin.footerMenu.edit', $child->id) }}"
-                                                        class="btn btn-sm btn-blue me-2"><i class="fa fa-edit"></i></a>
+                                                        class="btn btn-sm btn-blue me-2"><i class="ti ti-edit"></i></a>
                                                     <form class="d-inline"
                                                         action="{{ route('admin.footerMenu.destroy', $child->id) }}"
                                                         method="POST">
                                                         @method('DELETE')
                                                         @csrf
                                                         <button class="billiongroup-able-to-delete btn btn-sm btn-danger"><i
-                                                                class="far fa-trash-alt"></i></button>
+                                                                class="ti ti-trash"></i></button>
                                                     </form>
                                                 </div>
                                             </div>

@@ -1,7 +1,7 @@
 @extends('backend.layouts.form')
 @section('title', $feature->title)
 @section('back', route('admin.features.index'))
-@section('container', 'container-max-lg')
+@section('container', 'container-xxl flex-grow-1 container-p-y')
 @section('content')
     <form id="billiongroup-submited-form" action="{{ route('admin.features.update', $feature->id) }}" method="POST"
         enctype="multipart/form-data">

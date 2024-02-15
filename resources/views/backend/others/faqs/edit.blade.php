@@ -1,6 +1,6 @@
 @extends('backend.layouts.form')
 @section('title', $faq->title)
-@section('container', 'container-max-lg')
+@section('container', 'container-xxl flex-grow-1 container-p-y')
 @section('back', route('admin.faqs.index'))
 @section('content')
     <form id="billiongroup-submited-form" action="{{ route('admin.faqs.update', $faq->id) }}" method="POST">

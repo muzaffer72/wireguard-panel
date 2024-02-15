@@ -1,7 +1,7 @@
 @extends('backend.layouts.form')
 @section('section', admin_lang('Blog'))
 @section('title', $category->name)
-@section('container', 'container-max-lg')
+@section('container', 'container-xxl flex-grow-1 container-p-y')
 @section('back', route('categories.index'))
 @section('content')
     <form id="billiongroup-submited-form" action="{{ route('categories.update', $category->id) }}" method="POST">

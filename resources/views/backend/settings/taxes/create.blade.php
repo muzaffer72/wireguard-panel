@@ -2,7 +2,7 @@
 @section('title', admin_lang('Create new tax'))
 @section('section', admin_lang('Settings'))
 @section('back', route('admin.settings.taxes.index'))
-@section('container', 'container-max-lg')
+@section('container', 'container-xxl flex-grow-1 container-p-y')
 @section('content')
     <form id="billiongroup-submited-form" action="{{ route('admin.settings.taxes.store') }}" method="POST">
         @csrf

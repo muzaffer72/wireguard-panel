@@ -11,6 +11,7 @@
 <head>    
   @include('backend.includes.head')
   @include('backend.includes.styles')
+  <meta name="csrf-token" content="{{ csrf_token() }}">
   <!-- Helpers -->
   <script src="{{ asset('assets/vendor/js/helpers.js') }}"></script>
   <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
@@ -50,7 +51,7 @@
                   <div class="dropdown d-inline me-2">
                     <button class="btn btn-secondary dropdown-toggle" type="button"
                       id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                      <i class="fa fa-globe me-2"></i>{{ $active }}
+                      <i class="ti ti-globe me-2"></i>{{ $active }}
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                       @foreach ($adminLanguages as $adminLanguage)
@@ -66,6 +67,9 @@
                     data-bs-target="#viewModal">
                     @yield('modal')
                   </button>
+                @endif
+                @hasSection('link')
+                  <a href="@yield('link')" class="btn btn-primary ms-2"><i class="ti ti-plus"></i></a>
                 @endif
                 <button form="billiongroup-submited-form" class="btn btn-primary @yield('btn_action')"
                     @yield('btn_action')>{{ admin_lang('Save') }}</button>

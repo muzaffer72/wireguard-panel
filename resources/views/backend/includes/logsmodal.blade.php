@@ -16,7 +16,7 @@
                         <span id="location"></span>
                     </li>
                     <li class="list-group-item d-flex justify-content-between">
-                        <strong><i class="far fa-clock me-2"></i>{{ admin_lang('Timezone') }} :</strong>
+                        <strong><i class="ti ti-clock me-2"></i>{{ admin_lang('Timezone') }} :</strong>
                         <span id="timezone"></span>
                     </li>
                     <li class="list-group-item d-flex justify-content-between">
@@ -32,7 +32,7 @@
                         <span id="browser"></span>
                     </li>
                     <li class="list-group-item d-flex justify-content-between">
-                        <strong><i class="fas fa-desktop me-2"></i>{{ admin_lang('OS') }} :</strong>
+                        <strong><i class="ti ti-device-desktop me-2"></i>{{ admin_lang('OS') }} :</strong>
                         <span id="os"></span>
                     </li>
                 </ul>

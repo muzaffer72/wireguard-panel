@@ -28,7 +28,7 @@
     </div>
         <div class="tab-content">
             <div class="tab-pane fade show active" id="free" role="tabpanel" aria-labelledby="free-tab">
-                <table class="datatable50 table w-100">
+                <table class="dtable table w-100">
                     <thead>
                         <tr>
                             <th class="tb-w-2x">{{ admin_lang('#') }}</th>
@@ -57,19 +57,19 @@
                                     <div class="text-end">
                                         <button type="button" class="btn btn-sm rounded-3" data-bs-toggle="dropdown"
                                             aria-expanded="true">
-                                            <i class="fa fa-ellipsis-v fa-sm text-muted"></i>
+                                            <i class="ti ti-dots-vertical fa-sm text-muted"></i>
                                         </button>
                                         <ul class="dropdown-menu dropdown-menu-sm-end dropdown-menu-lg"
                                             data-popper-placement="bottom-end">
                                             <li>
                                                 <a class="dropdown-item"
                                                     href="{{ route('admin.servers.show', $row->id) }}"><i
-                                                        class="fa fa-eye me-2"></i>{{ admin_lang('Detail') }}</a>
+                                                        class="ti ti-eye me-2"></i>{{ admin_lang('Detail') }}</a>
                                             </li>
                                             <li>
                                                 <a class="dropdown-item"
                                                     href="{{ route('admin.servers.edit', $row->id) }}"><i
-                                                        class="fa fa-edit me-2"></i>{{ admin_lang('Edit') }}</a>
+                                                        class="ti ti-edit me-2"></i>{{ admin_lang('Edit') }}</a>
                                             </li>
                                             <li>
                                                 <hr class="dropdown-divider" />
@@ -80,7 +80,7 @@
                                                     method="POST">
                                                     @csrf @method('DELETE')
                                                     <button class="billiongroup-able-to-delete dropdown-item text-danger"><i
-                                                            class="far fa-trash-alt me-2"></i>{{ admin_lang('Delete') }}</button>
+                                                            class="ti ti-trash me-2"></i>{{ admin_lang('Delete') }}</button>
                                                 </form>
                                             </li>
                                         </ul>
@@ -92,7 +92,7 @@
                 </table>
             </div>
             <div class="tab-pane fade" id="premium" role="tabpanel" aria-labelledby="premium-tab">
-                <table class="datatable50 table w-100">
+                <table class="dtable table w-100">
                     <thead>
                         <tr>
                             <th class="tb-w-2x">{{ admin_lang('#') }}</th>
@@ -121,19 +121,19 @@
                                     <div class="text-end">
                                         <button type="button" class="btn btn-sm rounded-3" data-bs-toggle="dropdown"
                                             aria-expanded="true">
-                                            <i class="fa fa-ellipsis-v fa-sm text-muted"></i>
+                                            <i class="ti ti-dots-vertical fa-sm text-muted"></i>
                                         </button>
                                         <ul class="dropdown-menu dropdown-menu-sm-end dropdown-menu-lg"
                                             data-popper-placement="bottom-end">
                                             <li>
                                                 <a class="dropdown-item"
                                                     href="{{ route('admin.servers.show', $row->id) }}"><i
-                                                        class="fa fa-eye me-2"></i>{{ admin_lang('Detail') }}</a>
+                                                        class="ti ti-eye me-2"></i>{{ admin_lang('Detail') }}</a>
                                             </li>
                                             <li>
                                                 <a class="dropdown-item"
                                                     href="{{ route('admin.servers.edit', $row->id) }}"><i
-                                                        class="fa fa-edit me-2"></i>{{ admin_lang('Edit') }}</a>
+                                                        class="ti ti-edit me-2"></i>{{ admin_lang('Edit') }}</a>
                                             </li>
                                             <li>
                                                 <hr class="dropdown-divider" />
@@ -144,7 +144,7 @@
                                                     method="POST">
                                                     @csrf @method('DELETE')
                                                     <button class="billiongroup-able-to-delete dropdown-item text-danger"><i
-                                                            class="far fa-trash-alt me-2"></i>{{ admin_lang('Delete') }}</button>
+                                                            class="ti ti-trash me-2"></i>{{ admin_lang('Delete') }}</button>
                                                 </form>
                                             </li>
                                         </ul>

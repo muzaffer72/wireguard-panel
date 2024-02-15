@@ -1,7 +1,7 @@
 @extends('backend.layouts.form')
 @section('title', admin_lang('Edit coupon') . ' | ' . $coupon->code)
 @section('back', route('admin.coupons.index'))
-@section('container', 'container-max-lg')
+@section('container', 'container-xxl flex-grow-1 container-p-y')
 @section('content')
     <form id="billiongroup-submited-form" action="{{ route('admin.coupons.update', $coupon->id) }}" method="POST">
         @csrf
@@ -19,7 +19,7 @@
                 </p>
                 <div class="input-group mb-2">
                     <button class="btn btn-secondary copy-btn" type="button" data-clipboard-target="#coupon-code"><i
-                            class="far fa-clone"></i></button>
+                            class="ti ti-copy"></i></button>
                     <input id="coupon-code" type="text" name="code" class="form-control"
                         placeholder="{{ admin_lang('Coupon code') }}" maxlength="20" value="{{ $coupon->code }}" readonly>
 

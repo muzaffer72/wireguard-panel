@@ -27,6 +27,10 @@
   height: 24px;
 }
 
+.app-brand-logo img {
+  width: 32px !important;
+}
+
 .app-brand-text.demo {
   font-size: 1.375rem;
 }
@@ -320,4 +324,117 @@
 
 .bg-c-12 {
   background: #afa501 !important;
+}
+
+.btn-amazon {
+  background-color: #f56600;
+  border-color: #f56600;
+  color: #fff;
+}
+
+.btn-amazon:hover {
+  background-color: #f56600;
+  border-color: #f56600;
+  color: #fff;
+  opacity: .8;
+}
+
+.btn-wasabi {
+  background-color: #00ce3e;
+  border-color: #00ce3e;
+  color: #fff;
+}
+
+.btn-wasabi:hover {
+  background-color: #00ce3e;
+  border-color: #00ce3e;
+  color: #fff;
+  opacity: .8;
+}
+
+.btn-digitalocean {
+  background-color: #0069ff;
+  border-color: #0069ff;
+  color: #fff;
+}
+
+.btn-digitalocean:hover {
+  background-color: #0069ff;
+  border-color: #0069ff;
+  color: #fff;
+  opacity: .8;
+}
+
+.btn-green {
+  color: #fff !important;
+  background-color: #06ad22 !important;
+  border-color: #06ad22 !important;
+}
+
+.btn-green:hover {
+  color: #fff !important;
+  background-color: #049c1e !important;
+  border-color: #049c1e !important;
+}
+
+.btn-red {
+  color: #fff !important;
+  background-color: #ce1628 !important;
+  border-color: #ce1628 !important;
+}
+
+.btn-red:hover {
+  color: #fff !important;
+  background-color: #b91626 !important;
+  border-color: #b91626 !important;
+}
+
+.btn.btn-blue {
+  color: #fff;
+  background-color: #313ed4;
+  border-color: #323fd4;
+}
+
+.btn.btn-blue:hover {
+  color: #fff;
+  background-color: #2935c1;
+  border-color: #2935c1;
+}
+
+.ck-editor__editable {
+  height: 500px !important;
+  overflow: scroll;
+}
+
+.ckeditor-lg .ck-editor__editable {
+  height: 700px !important;
+  overflow: scroll;
+}
+
+.ck-focused {
+  border-color: #868686 !important;
+  box-shadow: none !important;
+}
+
+.billiongroup-image-preview {
+  padding: 3rem;
+  text-align: center;
+  border: 1px solid #cad1d9;
+  border-radius: 2px;
+}
+
+.billiongroup-image-preview img {
+  height: 35px;
+}
+
+.billiongroup-sort-menu .billiongroup-navigation-placeholder {
+  background: rgba(52, 108, 176, .12);
+  border: 1px dashed #346cb0;
+  min-height: 50px;
+  list-style-type: none;
+}
+
+.billiongroup-sort-menu .billiongroup-navigation-handle {
+  margin-right: 1rem;
+  cursor: move;
 }

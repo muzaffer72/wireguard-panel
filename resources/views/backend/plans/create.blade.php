@@ -1,6 +1,6 @@
 @extends('backend.layouts.form')
 @section('title', admin_lang('Create a new plan'))
-@section('container', 'container-max-lg')
+@section('container', 'container-xxl flex-grow-1 container-p-y')
 @section('back', route('admin.plans.index'))
 @section('content')
     <form id="billiongroup-submited-form" action="{{ route('admin.plans.store') }}" method="POST">

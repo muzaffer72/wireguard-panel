@@ -1,6 +1,6 @@
 @extends('backend.layouts.form')
 @section('title', $footerMenu->name)
-@section('container', 'container-max-lg')
+@section('container', 'container-xxl flex-grow-1 container-p-y')
 @section('back', route('admin.footerMenu.index'))
 @section('content')
     <div class="card custom-card mb-3">

@@ -1,7 +1,7 @@
 @extends('backend.layouts.grid')
 @section('title', admin_lang('Taxes'))
 @section('section', admin_lang('Settings'))
-@section('container', 'container-max-lg')
+@section('container', 'container-xxl flex-grow-1 container-p-y')
 @section('link', route('admin.settings.taxes.create'))
 @section('content')
     @if (count($taxes) > 0)
@@ -13,18 +13,18 @@
                             <h5 class="m-0 d-inline">
                                 {{ !$tax->country_id ? admin_lang('All countries') : $tax->country->name }}
                             </h5>
-                            <i class="fas fa-chevron-right me-1 ms-1"></i>
+                            <i class="ti ti-chevron-right me-1 ms-1"></i>
                             <span class="text-muted">({{ $tax->percentage }}%)</span>
                         </div>
                         <div class="buttons">
                             <a href="{{ route('admin.settings.taxes.edit', $tax->id) }}" class="btn btn-dark btn-sm me-2"><i
-                                    class="fa fa-edit"></i></a>
+                                    class="ti ti-edit"></i></a>
                             <form class="d-inline" action="{{ route('admin.settings.taxes.destroy', $tax->id) }}"
                                 method="POST">
                                 @method('DELETE')
                                 @csrf
                                 <button class="billiongroup-able-to-delete btn btn-danger btn-sm"><i
-                                        class="far fa-trash-alt"></i></button>
+                                        class="ti ti-trash"></i></button>
                             </form>
                         </div>
                     </li>

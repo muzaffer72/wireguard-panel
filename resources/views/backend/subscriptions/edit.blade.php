@@ -1,7 +1,7 @@
 @extends('backend.layouts.form')
 @section('title', admin_lang('Edit Subscription for ' . $subscription->user->name))
 @section('back', route('admin.subscriptions.index'))
-@section('container', 'container-max-lg')
+@section('container', 'container-xxl flex-grow-1 container-p-y')
 @section('content')
     @if ($subscription->isCancelled())
         <div class="alert bg-danger text-white">

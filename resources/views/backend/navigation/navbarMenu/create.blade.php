@@ -1,6 +1,6 @@
 @extends('backend.layouts.form')
 @section('title', admin_lang('Create new navbar link'))
-@section('container', 'container-max-lg')
+@section('container', 'container-xxl flex-grow-1 container-p-y')
 @section('back', route('admin.navbarMenu.index'))
 @section('content')
     <div class="card custom-card mb-3">
@@ -28,30 +28,34 @@
             </form>
         </div>
     </div>
-    <div class="note note-warning">
-        <h5>{{ admin_lang('Ready pages') }}</h5>
-        @if ($settings->actions->features_page)
-            <li class="mb-1"><strong>{{ admin_lang('Features') }}</strong> : <a href="{{ route('features') }}"
-                    target="_blank">{{ route('features') }}</a>
+    <div class="card shadow-none bg-transparent border border-warning mb-3">
+        <div class="card-body">
+            <h5>{{ admin_lang('Ready pages') }}</h5>
+            <ul>
+            @if ($settings->actions->features_page)
+                <li class="mb-1"><strong>{{ admin_lang('Features') }}</strong> : <a href="{{ route('features') }}"
+                        target="_blank">{{ route('features') }}</a>
+                </li>
+            @endif
+            <li class="mb-1"><strong>{{ admin_lang('Pricing') }}</strong> : <a href="{{ route('pricing') }}"
+                    target="_blank">{{ route('pricing') }}</a>
             </li>
-        @endif
-        <li class="mb-1"><strong>{{ admin_lang('Pricing') }}</strong> : <a href="{{ route('pricing') }}"
-                target="_blank">{{ route('pricing') }}</a>
-        </li>
-        @if ($settings->actions->faqs_status)
-            <li class="mb-1"><strong>{{ admin_lang('FAQs') }}</strong> : <a href="{{ route('faqs') }}"
-                    target="_blank">{{ route('faqs') }}</a>
-            </li>
-        @endif
-        @if ($settings->actions->blog_status)
-            <li class="mb-1"><strong>{{ admin_lang('Blog') }}</strong> : <a href="{{ route('blog.index') }}"
-                    target="_blank">{{ route('blog.index') }}</a>
-            </li>
-        @endif
-        @if ($settings->actions->contact_page)
-            <li><strong>{{ admin_lang('Contact') }}</strong> : <a href="{{ route('contact') }}"
-                    target="_blank">{{ route('contact') }}</a>
-            </li>
-        @endif
+            @if ($settings->actions->faqs_status)
+                <li class="mb-1"><strong>{{ admin_lang('FAQs') }}</strong> : <a href="{{ route('faqs') }}"
+                        target="_blank">{{ route('faqs') }}</a>
+                </li>
+            @endif
+            @if ($settings->actions->blog_status)
+                <li class="mb-1"><strong>{{ admin_lang('Blog') }}</strong> : <a href="{{ route('blog.index') }}"
+                        target="_blank">{{ route('blog.index') }}</a>
+                </li>
+            @endif
+            @if ($settings->actions->contact_page)
+                <li><strong>{{ admin_lang('Contact') }}</strong> : <a href="{{ route('contact') }}"
+                        target="_blank">{{ route('contact') }}</a>
+                </li>
+            @endif
+            </ul>
+        </div>
     </div>
 @endsection

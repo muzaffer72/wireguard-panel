@@ -5,7 +5,7 @@
     : admin_lang('Edit
     Advertisement | ') . $advertisement->position)
 @section('back', route('admin.advertisements.index'))
-@section('container', 'container-max-lg')
+@section('container', 'container-xxl flex-grow-1 container-p-y')
 @section('content')
     <form id="billiongroup-submited-form" action="{{ route('admin.advertisements.update', $advertisement->id) }}" method="POST">
         @csrf

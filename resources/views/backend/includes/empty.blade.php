@@ -1,4 +1,4 @@
-<div class="empty">
+<div class="d-flex justify-content-center align-items-center flex-column text-center">
     <svg xmlns="http://www.w3.org/2000/svg" class="h-auto max-w-lg mx-auto" data-name="Layer 1" width="180" height="180"
         viewBox="0 0 647.63626 632.17383" xmlns:xlink="http://www.w3.org/1999/xlink">
         <path

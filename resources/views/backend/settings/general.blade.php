@@ -12,22 +12,22 @@
             <div class="card-body">
                 <div class="row g-3 mb-3">
                     <div class="col-lg-6">
-                        <label for="small-input" class="block mb-2 text-sm font-medium text-white dark:text-white">{{ admin_lang('Site Name') }} : <span class="text-danger">*</span></label>
+                        <label for="small-input" class="block mb-2 text-sm font-medium">{{ admin_lang('Site Name') }} : <span class="text-danger">*</span></label>
     <input type="text" name="general[site_name]" value="{{ $settings->general->site_name }}" id="small-input" class="form-control" required>
                         
                     </div>
                     <div class="col-lg-6">
-                        <label for="small-input" class="block mb-2 text-sm font-medium text-white dark:text-white">{{ admin_lang('Site URL') }} : <span class="text-danger">*</span></label>
+                        <label for="small-input" class="block mb-2 text-sm font-medium">{{ admin_lang('Site URL') }} : <span class="text-danger">*</span></label>
                         <input type="text" name="general[site_url]" id="small-input" class="form-control"
                             value="{{ $settings->general->site_url }}" required>
                     </div>
                     <div class="col-lg-6">
-                        <label for="small-input" class="block mb-2 text-sm font-medium text-white dark:text-white">{{ admin_lang('Contact email') }} : <span class="text-danger">*</span></label>
+                        <label for="small-input" class="block mb-2 text-sm font-medium">{{ admin_lang('Contact email') }} : <span class="text-danger">*</span></label>
                         <input type="text" name="general[contact_email]" id="small-input" class="form-control"
                             value="{{ $settings->general->contact_email }}" required>
                     </div>
                     <div class="col-lg-6">
-                        <label for="small-input" class="block mb-2 text-sm font-medium text-white dark:text-white">{{ admin_lang('Terms of service') }} : <small
+                        <label for="small-input" class="block mb-2 text-sm font-medium">{{ admin_lang('Terms of service') }} : <small
                                 class="text-muted">({{ admin_lang('Used on registration & cookies') }})</small></label>
                         <input type="text" name="general[terms_of_service_link]" id="small-input" class="form-control"
                             value="{{ $settings->general->terms_of_service_link }}">
@@ -64,7 +64,7 @@
             <div class="card-body">
                 <div class="row g-3">
                     <div class="col-lg-6">
-                        <label for="small-input" class="block mb-2 text-sm font-medium text-white dark:text-white">{{ admin_lang('Default Mode') }} : <span class="text-danger">*</span></label>
+                        <label for="small-input" class="block mb-2 text-sm font-medium">{{ admin_lang('Default Mode') }} : <span class="text-danger">*</span></label>
                         <select name="theme[mode_default]" id="small-input" class="form-control">
                             <option value="auto" {{ $settings->theme->mode_default == 'auto' ? 'selected' : '' }}>
                                 {{ admin_lang('Auto') }}</option>
@@ -75,7 +75,7 @@
                         </select>
                     </div>
                     <div class="col-lg-6">
-                        <label  for="small-input" class="block mb-2 text-sm font-medium text-white dark:text-white">{{ admin_lang('Mode Switcher Button') }} : </label>
+                        <label  for="small-input" class="block mb-2 text-sm font-medium">{{ admin_lang('Mode Switcher Button') }} : </label>
                         <input type="checkbox" name="theme[mode_switcher]" data-toggle="toggle"
                             {{ $settings->theme->mode_switcher ? 'checked' : '' }}>
                     </div>
@@ -91,7 +91,7 @@
                     <div class="card-body">
                         <div class="row g-3 mb-2">
                             <div class="col-lg-12">
-                                <label for="small-input" class="block mb-2 text-sm font-medium text-white dark:text-white">{{ admin_lang('Currency Code') }} : <span
+                                <label for="small-input" class="block mb-2 text-sm font-medium">{{ admin_lang('Currency Code') }} : <span
                                         class="text-danger">*</span></label>
                                 <input type="text" name="currency[code]" id="small-input" class="form-control"
                                     value="{{ $settings->currency->code }}" placeholder="{{ admin_lang('USD') }}"

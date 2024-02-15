@@ -2,7 +2,7 @@
 @section('title', admin_lang('Mail Templates') . ' | ' . $mailTemplate->name)
 @section('section', admin_lang('Settings'))
 @section('back', route('admin.settings.mailtemplates.index'))
-@section('container', 'container-max-lg')
+@section('container', 'container-xxl flex-grow-1 container-p-y')
 @section('content')
     <form id="billiongroup-submited-form" action="{{ route('admin.settings.mailtemplates.update', $mailTemplate->id) }}"
         method="POST">

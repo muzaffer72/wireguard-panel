@@ -1,7 +1,7 @@
 @extends('backend.layouts.form')
 @section('title', admin_lang('Edit Language | ') . $language->name)
 @section('section', admin_lang('Settings'))
-@section('container', 'container-max-lg')
+@section('container', 'container-xxl flex-grow-1 container-p-y')
 @section('back', route('admin.settings.languages.index'))
 @section('content')
     <form id="billiongroup-submited-form" action="{{ route('admin.settings.languages.update', $language->id) }}" method="POST"

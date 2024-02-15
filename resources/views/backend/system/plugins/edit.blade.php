@@ -1,7 +1,7 @@
 @extends('backend.layouts.form')
 @section('title', admin_lang('Plugins') . ' | ' . $plugin->name)
 @section('back', route('admin.system.plugins.index'))
-@section('container', 'container-max-lg')
+@section('container', 'container-xxl flex-grow-1 container-p-y')
 @section('content')
     <form id="billiongroup-submited-form" action="{{ route('admin.system.plugins.update', $plugin->id) }}" method="POST"
         enctype="multipart/form-data">

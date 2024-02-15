@@ -3,7 +3,7 @@
 @section('add_modal', admin_lang('Install New Plugin'))
 @section('content')
     <div class="custom-card card">
-        <table id="datatable" class="table w-100">
+        <table id="datatable" class="dtable table w-100">
             <thead>
                 <tr>
                     <th class="tb-w-1x">#</th>
@@ -37,13 +37,13 @@
                             <div class="text-end">
                                 <button type="button" class="btn btn-sm rounded-3" data-bs-toggle="dropdown"
                                     aria-expanded="true">
-                                    <i class="fa fa-ellipsis-v fa-sm text-muted"></i>
+                                    <i class="ti ti-dots-vertical fa-sm text-muted"></i>
                                 </button>
                                 <ul class="dropdown-menu dropdown-menu-sm-end" data-popper-placement="bottom-end">
                                     <li>
                                         <a class="dropdown-item"
                                             href="{{ route('admin.system.plugins.edit', $plugin->id) }}"><i
-                                                class="fa fa-edit me-2"></i>{{ admin_lang('Edit') }}</a>
+                                                class="ti ti-edit me-2"></i>{{ admin_lang('Edit') }}</a>
                                     </li>
                                     @if ($plugin->action_text)
                                         <li>

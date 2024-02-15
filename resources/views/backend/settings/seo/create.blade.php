@@ -1,7 +1,7 @@
 @extends('backend.layouts.form')
 @section('title', admin_lang('Create New SEO Configuration'))
 @section('section', admin_lang('Settings'))
-@section('container', 'container-max-lg')
+@section('container', 'container-xxl flex-grow-1 container-p-y')
 @section('back', route('admin.settings.seo.index'))
 @section('content')
     <form id="billiongroup-submited-form" action="{{ route('admin.settings.seo.store') }}" method="POST">

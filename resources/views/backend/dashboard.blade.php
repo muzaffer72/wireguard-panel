@@ -248,7 +248,7 @@
       </div>
     </div>
   </div>
-  @push('style_vendor')
+  @push('styles_libs')
     <link rel="stylesheet" href="{{ asset('assets/vendor/libs/apex-charts/apex-charts.css') }}" />
   @endpush
   @push('top_scripts')

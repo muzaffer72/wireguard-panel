@@ -101,47 +101,7 @@
                 el.classList.add("flashit");
             }
         });
-    }
-
-    let datatable = $('#datatable'),
-        askDatatable = $('.ask-datatable'),
-        datatable50 = $('.datatable50'),
-        datatableConfig = {
-            "language": {
-                searchPlaceholder: "Start typing to search...",
-                search: "",
-                sLengthMenu: "Rows per page _MENU_",
-                info: "Showing page _PAGE_ of _PAGES_",
-            },
-            "dom": '<"top"f><"table-wrapper"rt><"bottom"ilp><"clear">',
-            drawCallback: function () {
-                document.querySelector('.dataTables_wrapper .pagination').classList.add('pagination-sm');
-                $('.dataTables_filter input').attr('type', 'text');
-            }
-        }
-    if (datatable.length) {
-        datatable.DataTable($.extend({}, datatableConfig, {
-            order: [
-                [0, "desc"]
-            ],
-        }));
-    }
-
-    if (askDatatable.length) {
-        askDatatable.DataTable($.extend({}, datatableConfig, {
-            "pageLength": 50,
-        }));
-    }
-
-    if (datatable50.length) {
-        datatable50.DataTable($.extend({}, datatableConfig, {
-            "pageLength": 50,
-            order: [
-                [0, "desc"]
-            ],
-        }));
-    }
-
+    }    
 
     let ckeditor = document.querySelector('.ckeditor');
     if (ckeditor) {
@@ -319,7 +279,7 @@
     let select2 = $(".select2");
     if (select2.length) {
         select2.select2({
-            theme: "bootstrap-5",
+            // theme: "bootstrap-5",
             placeholder: "Choose",
         });
     }
@@ -329,7 +289,7 @@
     if (select2Modal.length) {
         select2Modal.select2({
             dropdownParent: addModal,
-            theme: "bootstrap-5",
+            // theme: "bootstrap-5",
             placeholder: "Choose",
         });
     }
@@ -435,6 +395,7 @@
 
     let input2Fa = $('#2faCheckbox');
     input2Fa.on('change', function () {
+        alert('aw')
         if ($(this).is(':checked')) {
             Swal.fire({
                 icon: "info",
@@ -554,7 +515,7 @@
             if (customFeatureI == 0) {
                 customFeaturesCard.removeClass('d-none');
             }
-            customFeatures.append('<li id="customFeature' + customFeatureI + '" class="list-group-item"> <div class="row g-2 align-items-center"> <div class="col"> <input type="text" name="custom_features[' + customFeatureI + '][name]" placeholder="Feature name" class="form-control" required> </div> <div class="col-auto"> <button type="button" data-id="' + customFeatureI + '" class="removeFeature btn btn-danger"><i class="fa fa-trash-alt"></i></button> </div> </div> </li>');
+            customFeatures.append('<li id="customFeature' + customFeatureI + '" class="list-group-item"> <div class="row g-2 align-items-center"> <div class="col"> <input type="text" name="custom_features[' + customFeatureI + '][name]" placeholder="Feature name" class="form-control" required> </div> <div class="col-auto"> <button type="button" data-id="' + customFeatureI + '" class="removeFeature btn btn-danger"><i class="ti ti-trash"></i></button> </div> </div> </li>');
         });
 
         $(document).on('click', '.removeFeature', function () {

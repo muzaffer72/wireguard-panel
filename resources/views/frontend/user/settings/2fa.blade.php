@@ -25,7 +25,7 @@
                                             <input id="input-link" type="text" class="form-control form-control-md"
                                                 value="{{ $user->google2fa_secret }}" readonly>
                                             <button class="btn btn-light btn-copy" data-clipboard-target="#input-link"><i
-                                                    class="far fa-clone"></i></button>
+                                                    class="ti ti-copy"></i></button>
                                         </div>
                                         <a href="#" class="btn btn-primary btn-md w-100" data-bs-toggle="modal"
                                             data-bs-target="#towfactorModal">{{ lang('Enable 2FA Authentication', 'account') }}</a>

@@ -11,6 +11,8 @@
 <head>    
   @include('backend.includes.head')
   @include('backend.includes.styles')
+  <link rel="stylesheet" href="{{ asset('assets/vendor/libs/datatables-bs5/datatables.bootstrap5.css') }}" />
+  <link rel="stylesheet" href="{{ asset('assets/vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.css') }}" />
   <!-- Helpers -->
   <script src="{{ asset('assets/vendor/js/helpers.js') }}"></script>
   <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
@@ -54,7 +56,7 @@
                   <div class="dropdown d-inline ms-2">
                     <button class="btn btn-secondary dropdown-toggle" type="button"
                       id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                      <i class="fa fa-globe me-2"></i>{{ $active }}
+                      <i class="ti ti-globe me-2"></i>{{ $active }}
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                       @foreach ($adminLanguages as $adminLanguage)

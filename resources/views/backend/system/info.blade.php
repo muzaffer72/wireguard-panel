@@ -1,6 +1,6 @@
 @extends('backend.layouts.application')
 @section('title', admin_lang('System Information'))
-@section('container', 'container-max-lg')
+@section('container', 'container-xxl flex-grow-1 container-p-y')
 @section('content')
     <div class="card mb-4 custom-card">
         <div class="card-header bg-lg-1 text-white border-bottom-0"><i
@@ -59,27 +59,27 @@
                 class="fas fa-database me-2"></i>{{ admin_lang('System Cache') }}</div>
         <ul class="custom-list-group system list-group list-group-flush">
             <li class="list-group-item">
-                <i class="far fa-check-circle me-2 text-success"></i>
+                <i class="ti ti-circle-check me-2 text-success"></i>
                 <span>{{ admin_lang('Compiled views will be cleared') }}</span>
             </li>
             <li class="list-group-item">
-                <i class="far fa-check-circle me-2 text-success"></i>
+                <i class="ti ti-circle-check me-2 text-success"></i>
                 <span>{{ admin_lang('Application cache will be cleared') }}</span>
             </li>
             <li class="list-group-item">
-                <i class="far fa-check-circle me-2 text-success"></i>
+                <i class="ti ti-circle-check me-2 text-success"></i>
                 <span>{{ admin_lang('Route cache will be cleared') }}</span>
             </li>
             <li class="list-group-item">
-                <i class="far fa-check-circle me-2 text-success"></i>
+                <i class="ti ti-circle-check me-2 text-success"></i>
                 <span>{{ admin_lang('Configuration cache will be cleared') }}</span>
             </li>
             <li class="list-group-item">
-                <i class="far fa-check-circle me-2 text-success"></i>
+                <i class="ti ti-circle-check me-2 text-success"></i>
                 <span>{{ admin_lang('All Other Caches will be cleared') }}</span>
             </li>
             <li class="list-group-item">
-                <i class="far fa-check-circle me-2 text-success"></i>
+                <i class="ti ti-circle-check me-2 text-success"></i>
                 <span>{{ admin_lang('Error logs file will be cleared') }}</span>
             </li>
             <li class="list-group-item p-0"></li>
@@ -88,7 +88,7 @@
             <form action="{{ route('admin.system.info.cache') }}" method="POST">
                 @csrf
                 <button class="btn btn-danger btn-lg w-100 billiongroup-form-confirm"><i
-                        class="far fa-trash-alt me-2"></i>{{ admin_lang('Clear System Cache') }}</button>
+                        class="ti ti-trash me-2"></i>{{ admin_lang('Clear System Cache') }}</button>
             </form>
         </div>
     </div>

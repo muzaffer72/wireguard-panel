@@ -1,7 +1,7 @@
 @extends('backend.layouts.form')
 @section('title', admin_lang('Edit SEO Configuration for ' . $configuration->lang . ' language'))
 @section('section', admin_lang('Settings'))
-@section('container', 'container-max-lg')
+@section('container', 'container-xxl flex-grow-1 container-p-y')
 @section('back', route('admin.settings.seo.index'))
 @section('content')
     <form id="billiongroup-submited-form" action="{{ route('admin.settings.seo.update', $configuration->id) }}" method="POST">

@@ -1,6 +1,6 @@
 @extends('backend.layouts.form')
 @section('title', admin_lang('Edit Plan') . ' | ' . $plan->name)
-@section('container', 'container-max-lg')
+@section('container', 'container-xxl flex-grow-1 container-p-y')
 @section('back', route('admin.plans.index'))
 @section('content')
     <form id="billiongroup-submited-form" action="{{ route('admin.plans.update', $plan->id) }}" method="POST">
@@ -121,7 +121,7 @@
                                 </div>
                                 <div class="col-auto">
                                     <button type="button" data-id="{{ $key }}"
-                                        class="removeFeature btn btn-danger"><i class="fa fa-trash-alt"></i></button>
+                                        class="removeFeature btn btn-danger"><i class="ti ti-trash"></i></button>
                                 </div>
                             </div>
                         </li>

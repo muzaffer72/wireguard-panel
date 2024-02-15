@@ -1,7 +1,7 @@
 @extends('backend.layouts.form')
 @section('section', admin_lang('Account'))
 @section('title', admin_lang('Personal details'))
-@section('container', 'container-max-lg')
+@section('container', 'container-xxl flex-grow-1 container-p-y')
 @section('content')
     <form id="billiongroup-submited-form" action="{{ route('admin.account.details.update') }}" method="POST"
         enctype="multipart/form-data">

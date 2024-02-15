@@ -7,7 +7,7 @@
             {{ admin_lang('Here you can manage the files that have been uploaded using the editor all over the website.') }}</span>
     </div>
     <div class="card">
-        <table id="datatable" class="table w-100">
+        <table id="datatable" class="dtable table w-100">
             <thead>
                 <tr>
                     <th class="tb-w-2x">{{ admin_lang('#') }}</th>
@@ -39,7 +39,7 @@
                             <div class="text-end">
                                 <button type="button" class="btn btn-sm rounded-3" data-bs-toggle="dropdown"
                                     aria-expanded="true">
-                                    <i class="fa fa-ellipsis-v fa-sm text-muted"></i>
+                                    <i class="ti ti-dots-vertical fa-sm text-muted"></i>
                                 </button>
                                 <ul class="dropdown-menu dropdown-menu-sm-end" data-popper-placement="bottom-end">
                                     <li>
@@ -47,7 +47,7 @@
                                             method="POST">
                                             @csrf @method('DELETE')
                                             <button class="billiongroup-able-to-delete dropdown-item text-danger"><i
-                                                    class="far fa-trash-alt me-2"></i>{{ admin_lang('Delete') }}</button>
+                                                    class="ti ti-trash me-2"></i>{{ admin_lang('Delete') }}</button>
                                         </form>
                                     </li>
                                 </ul>

@@ -1,7 +1,7 @@
 @extends('backend.layouts.form')
 @section('section', admin_lang('Account'))
 @section('title', admin_lang('Change password'))
-@section('container', 'container-max-lg')
+@section('container', 'container-xxl flex-grow-1 container-p-y')
 @section('content')
     <form id="billiongroup-submited-form" action="{{ route('admin.account.security.update') }}" method="POST">
         @csrf

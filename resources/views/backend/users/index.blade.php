@@ -112,7 +112,7 @@
                     <li>
                       <a class="dropdown-item"
                         href="{{ route('admin.subscriptions.edit', $user->subscription->id) }}"><i
-                          class="far fa-gem me-2"></i>{{ admin_lang('Subscription') }}</a>
+                          class="ti ti-diamond me-2"></i>{{ admin_lang('Subscription') }}</a>
                     </li>
                   @endif
                   <li>
@@ -124,7 +124,7 @@
                       @csrf @method('DELETE')
                       <button
                         class="billiongroup-able-to-delete dropdown-item text-danger"><i
-                          class="far fa-trash-alt me-2"></i>{{ admin_lang('Delete') }}</button>
+                          class="ti ti-trash me-2"></i>{{ admin_lang('Delete') }}</button>
                     </form>
                   </li>
                 </ul>
@@ -137,25 +137,10 @@
     </div>
   </div>
 
-    {{ $users->links() }}
-
-    @push('style_vendor')
-      <link rel="stylesheet" href="{{ asset('assets/vendor/libs/datatables-bs5/datatables.bootstrap5.css') }}" />
-      <link rel="stylesheet" href="{{ asset('assets/vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.css') }}" />
-    @endpush
-    @push('scripts_libs')
-      <script src="{{ asset('assets/vendor/libs/datatables-bs5/datatables-bootstrap5.js') }}"></script>
-    @endpush
-    @push('scripts')
-      <script>
-        $(".dtable").DataTable();
-        $('.table-responsive').on('show.bs.dropdown', function () {
-          $('.table-responsive').css( "overflow", "inherit" );
-        });
-
-        $('.table-responsive').on('hide.bs.dropdown', function () {
-          $('.table-responsive').css( "overflow", "auto" );
-        })
-      </script>
-    @endpush
+  {{ $users->links() }}
+  @push('scripts')
+    <script>
+      dtable.order([[5, 'desc']]).draw();
+    </script>
+  @endpush
 @endsection
