@@ -1,7 +1,7 @@
 @extends('backend.layouts.form')
 @section('title', admin_lang('Edit coupon') . ' | ' . $coupon->code)
 @section('back', route('admin.coupons.index'))
-@section('container', 'container-max-lg')
+@section('container', 'container-xxl flex-grow-1 container-p-y')
 @section('content')
     <form id="billiongroup-submited-form" action="{{ route('admin.coupons.update', $coupon->id) }}" method="POST">
         @csrf
@@ -19,8 +19,8 @@
                 </p>
                 <div class="input-group mb-2">
                     <button class="btn btn-secondary copy-btn" type="button" data-clipboard-target="#coupon-code"><i
-                            class="far fa-clone"></i></button>
-                    <input id="coupon-code" type="text" name="code" class="bg-dark block w-full p-2 text-white border border-gray-800 rounded-lg bg-gray-500 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            class="ti ti-copy"></i></button>
+                    <input id="coupon-code" type="text" name="code" class="form-control"
                         placeholder="{{ admin_lang('Coupon code') }}" maxlength="20" value="{{ $coupon->code }}" readonly>
 
                     <button class="btn btn-primary" type="button" disabled><i
@@ -37,9 +37,9 @@
                 <div class="row g-3 mb-2">
                     <div class="col-lg-6">
                         <label class="form-label">{{ admin_lang('Discount percentage') }} : <span
-                                class="red">*</span></label>
+                                class="text-danger">*</span></label>
                         <div class="custom-input-group input-group">
-                            <input type="number" class="bg-dark block w-full p-2 text-white border border-gray-800 rounded-lg bg-gray-500 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" min="1" max="100"
+                            <input type="number" class="form-control" min="1" max="100"
                                 placeholder="0" value="{{ $coupon->percentage }}" disabled>
                             <span class="input-group-text bg-secondary-gradient pe-4 ps-4 disabled"><i
                                     class="fas fa-percent"></i></span>
@@ -47,8 +47,8 @@
                     </div>
                     <div class="col-lg-6">
                         <label class="form-label">{{ admin_lang('Limit for each user') }} : <span
-                                class="red">*</span></label>
-                        <input type="number" name="limit" class="bg-dark block w-full p-2 text-white border border-gray-800 rounded-lg bg-gray-500 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" min="1"
+                                class="text-danger">*</span></label>
+                        <input type="number" name="limit" class="form-control" min="1"
                             placeholder="0" value="{{ $coupon->limit }}" required>
                     </div>
                 </div>
@@ -62,8 +62,8 @@
                 </p>
                 <div class="row g-3 mb-2">
                     <div class="col-lg-6">
-                        <label class="form-label">{{ admin_lang('Plan') }} : <span class="red">*</span></label>
-                        <select class="bg-dark block w-full p-2 text-white border border-gray-800 rounded-lg bg-gray-500 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" disabled>
+                        <label class="form-label">{{ admin_lang('Plan') }} : <span class="text-danger">*</span></label>
+                        <select class="form-control" disabled>
                             <option value="0">{{ admin_lang('All plans') }}</option>
                             @foreach ($plans as $plan)
                                 <option value="{{ $plan->id }}" {{ $coupon->plan_id == $plan->id ? 'selected' : '' }}>
@@ -74,8 +74,8 @@
                         </select>
                     </div>
                     <div class="col-lg-6">
-                        <label class="form-label">{{ admin_lang('Action type') }} : <span class="red">*</span></label>
-                        <select class="bg-dark block w-full p-2 text-white border border-gray-800 rounded-lg bg-gray-500 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" disabled>
+                        <label class="form-label">{{ admin_lang('Action type') }} : <span class="text-danger">*</span></label>
+                        <select class="form-control" disabled>
                             <option value="0" {{ $coupon->action_type == 0 ? 'selected' : '' }}>
                                 {{ admin_lang('All actions') }}
                             </option>
@@ -91,8 +91,8 @@
                         </select>
                     </div>
                     <div class="col-lg-12">
-                        <label class="form-label">{{ admin_lang('Expiry at') }} : <span class="red">*</span></label>
-                        <input type="datetime-local" name="expiry_at" class="bg-dark block w-full p-2 text-white border border-gray-800 rounded-lg bg-gray-500 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        <label class="form-label">{{ admin_lang('Expiry at') }} : <span class="text-danger">*</span></label>
+                        <input type="datetime-local" name="expiry_at" class="form-control"
                             value="{{ \Carbon\Carbon::parse($coupon->expiry_at)->format('Y-m-d\TH:i') }}" required>
                     </div>
                 </div>

@@ -1,307 +1,268 @@
 @extends('backend.layouts.application')
 @section('title', admin_lang('Dashboard'))
 @section('access', admin_lang('Quick Access'))
-@section('container', 'container-fluid py-4')
+@section('container', 'container-xxl flex-grow-1 container-p-y')
 @section('content')
-
-    @if (!$settings->smtp->status)
-        <div class="flex items-center p-4 mb-4 text-sm text-red-800 border border-red-300 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400 dark:border-red-800"
-            role="alert">
-            <svg class="flex-shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor" viewBox="0 0 20 20">
-                <path
-                    d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
-            </svg>
-            <span class="sr-only">Info</span>
-            <div>
-                <span class="font-medium">
-                    {{ admin_lang('SMTP is not enabled, set it now to be able to recover the password and use all the features that needs to send an email.') }}</span>
-                <a href="{{ route('admin.settings.smtp.index') }}">{{ admin_lang('Take Action') }}</a>
-            </div>
-        </div>
-    @endif
-    <div class="row g-3 mb-4">
-        <div class="col-12 col-lg-4 col-xxl-4">
-            <div class="w-full h-full bg-dark rounded-lg shadow dark:bg-gray-800 p-4 md:p-6">
-                <div class="grid grid-cols-2">
-                    <dl class="flex items-center">
-                        <dt class="text-white dark:text-gray-400 text-sm font-normal me-1">
-                            <h5 class="leading-none text-1xl font-bold text-white dark:text-white pb-2">
-                                {{ admin_lang('Recently transactions') }}</h5>
-                        </dt>
-                    </dl>
-                    <dl class="flex items-center justify-end">
-                        <div class="flex-shrink-0">
-                            <a href="{{ route('admin.transactions.index') }}"
-                                class="text-sm font-medium text-white hover:bg-cyan-600 rounded-lg p-2">{{ admin_lang('View All') }}</a>
-                        </div>
-
-                    </dl>
-                </div>
-                
-                    <table class="w-full divide-y divide-white-50">
-                        <thead class="bg-dark-50">
-                            <tr>
-                                <th scope="col"
-                                    class="p-4 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
-                                    Transaction
-                                </th>
-                                <th scope="col"
-                                    class="p-4 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
-                                    Date & Time
-                                </th>
-                                <th scope="col"
-                                    class="p-4 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
-                                    Amount
-                                </th>
-                            </tr>
-                        </thead>
-                        @forelse ($transactions as $transaction)
-                        <tbody class="bg-dark">
-                            <tr>
-                                <td class="p-4 whitespace-nowrap text-sm font-normal text-white-900 ">
-                                    <a href="{{ route('admin.transactions.edit', $transaction->id) }}">
-                                        {{ $transaction->user->name }}
-                                    </a>
-                                </td>
-                                <td class="p-4 whitespace-nowrap text-sm font-normal text-white-500">
-                                    {{ $transaction->created_at->diffforhumans() }}
-                                </td>
-                                <td class="p-4 whitespace-nowrap text-sm font-semibold text-green-500">
-                                    <strong>{{ priceSymbol($transaction->total) }}</strong>
-                                </td>
-                            </tr>
-                        </tbody>
-                        @empty
-                    @include('backend.includes.emptysmall')
-                @endforelse
-                    </table>
-            </div>
-        </div>
-        <div class="col-12 col-lg-8 col-xxl-8">
-
-            <div class="w-full h-full bg-dark rounded-lg shadow dark:bg-gray-800 p-4 md:p-6">
-                <div class="grid grid-cols-2">
-                    <dl class="flex items-center">
-                        <dt class="text-white dark:text-gray-400 text-sm font-normal me-1">
-                            <h5 class="leading-none text-1xl font-bold text-white dark:text-white pb-2">
-                                {{ admin_lang('Recently transactions') }}</h5>
-                        </dt>
-                    </dl>
-                    <dl class="flex items-center justify-end">
-                        <div class="flex-shrink-0">
-                            <a href="{{ route('admin.transactions.index') }}"
-                                class="text-sm font-medium text-white hover:bg-cyan-600 rounded-lg p-2">{{ admin_lang('View All') }}</a>
-                        </div>
-
-                    </dl>
-                
-                </div>
-
-                <div id="revenue-chart"></div>
-
-            </div>
-
-    
-        </div>
+  @if (!$settings->smtp->status)
+    <div class="alert alert-danger d-flex align-items-center alert-dismissible" role="alert">
+      <span class="alert-icon text-danger me-2">
+        <i class="ti ti-info-circle ti-xs"></i>
+      </span>
+      {{ admin_lang('SMTP is not enabled, set it now to be able to recover the password and use all the features that needs to send an email. ') }}
+      <a href="{{ route('admin.settings.smtp.index') }}">{{ admin_lang('Take Action') }}</a>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
-    <div class="row row-cols-1 row-cols-md-1 row-cols-xl-1 row-cols-xxl-4 g-4 mb-4">
-        <div class="col">
-            <div class="counter-card v3 c-purple">
-                <div class="counter-card-icon">
-                    <i class="fas fa-dollar-sign fa-sm"></i>
-                </div>
-                <div class="counter-card-info">
-                    <p class="counter-card-number">{{ priceSymbol($widget['total_earnings']) }}</p>
-                    <p class="counter-card-title">{{ admin_lang('Total Earnings') }}</p>
-                </div>
-            </div>
+  @endif
+  <div class="row mb-4">
+    <div class="col-md-6 col-lg-4"> 
+      <div class="card mb-4 h-100">
+        <div class="card-header d-flex justify-content-between">
+          <div class="card-title mb-0">
+            <h5 class="mb-0">{{ admin_lang('Recently transactions') }}</h5>
+          </div>
+          <div class="dropdown">
+            <a class="" href="{{ route('admin.transactions.index') }}">{{ admin_lang('View All') }}</a>
+          </div>
         </div>
-        <div class="col">
-            <div class="counter-card v3 c-purple">
-                <div class="counter-card-icon">
-                    <i class="fas fa-dollar-sign fa-sm"></i>
-                </div>
-                <div class="counter-card-info">
-                    <p class="counter-card-number">{{ priceSymbol($widget['current_month_earnings']) }}</p>
-                    <p class="counter-card-title">{{ admin_lang('Current Month Earnings') }}</p>
-                </div>
-            </div>
+        <div class="card-body">
+          <div class="table-responsive text-nowrap">
+            @if (count($transactions) > 0)
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th>{{ admin_lang('Transaction') }}</th>
+                    <th>{{ admin_lang('Date & Time') }}</th>
+                    <th>{{ admin_lang('Amount') }}</th>
+                  </tr>
+                </thead>
+                <tbody class="table-border-bottom-0">
+                  @forelse ($transactions as $transaction)
+                    <tr>
+                      <td>
+                        <a href="{{ route('admin.transactions.edit', $transaction->id) }}">
+                          {{ $transaction->user->name }}
+                        </a>
+                      </td>
+                      <td>{{ $transaction->created_at->diffforhumans() }}</td>
+                      <td><strong>{{ priceSymbol($transaction->total) }}</strong></td>
+                    </tr>
+                  @empty
+                  @endforelse
+                </tbody>
+              </table>
+            @else
+              @include('backend.includes.emptysmall')
+            @endif
+          </div>
         </div>
-        <div class="col">
-            <div class="counter-card v3 c-purple">
-                <div class="counter-card-icon">
-                    <i class="fa fa-users fa-sm"></i>
-                </div>
-                <div class="counter-card-info">
-                    <p class="counter-card-number">{{ number_format($widget['total_users']) }}</p>
-                    <p class="counter-card-title">{{ admin_lang('Total Users') }}</p>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="counter-card v3 c-purple">
-                <div class="counter-card-icon">
-                    <i class="fas fa-users fa-sm"></i>
-                </div>
-                <div class="counter-card-info">
-                    <p class="counter-card-number">{{ number_format($widget['current_month_users']) }}</p>
-                    <p class="counter-card-title">{{ admin_lang('Current Month Users') }}</p>
-                </div>
-            </div>
-        </div>
+      </div>
     </div>
-    <div class="row g-3 mb-4">
-        <div class="col-12 col-lg-8 col-xxl-8">
-
-            <div class="max-w-full min-h-full bg-dark rounded-lg shadow dark:bg-gray-800 p-4 md:p-6">
-                <div class="flex justify-between">
-                    <div>
-                        <h5 class="leading-none text-1xl font-bold text-white dark:text-white pb-2">
-                            {{ admin_lang('Users Statistics For This Week') }}</h5>
+    <div class="col-md-6 col-lg-8">
+      <div class="card">
+      <div class="card-header d-flex justify-content-between">
+          <div class="card-title mb-0">
+            <h5 class="mb-0">{{ admin_lang('Recently transactions') }}</h5>
+          </div>
+          <div class="dropdown">
+            <a class="" href="{{ route('admin.transactions.index') }}">{{ admin_lang('View All') }}</a>
+          </div>
+        </div>
+        <div class="card-body">
+          <div id="revenue-chart"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row mb-4">
+    <div class="col-lg-3 col-sm-6 mb-4">
+      <div class="card h-100">
+        <div class="card-body d-flex justify-content-between align-items-center">
+          <div class="card-icon">
+            <span class="badge bg-label-primary rounded-pill p-2">
+              <i class="ti ti-report-money ti-sm"></i>
+            </span>
+          </div>
+          <div class="card-title mb-0">
+            <h5 class="mb-0 me-2">{{ priceSymbol($widget['total_earnings']) }}</h5>
+            <small>{{ admin_lang('Total Earnings') }}</small>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3 col-sm-6 mb-4">
+      <div class="card h-100">
+        <div class="card-body d-flex justify-content-between align-items-center">
+          <div class="card-icon">
+            <span class="badge bg-label-primary rounded-pill p-2">
+              <i class="ti ti-report-money ti-sm"></i>
+            </span>
+          </div>
+          <div class="card-title mb-0">
+            <h5 class="mb-0 me-2">{{ priceSymbol($widget['current_month_earnings']) }}</h5>
+            <small>{{ admin_lang('Current Month Earnings') }}</small>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3 col-sm-6 mb-4">
+      <div class="card h-100">
+        <div class="card-body d-flex justify-content-between align-items-center">
+          <div class="card-icon">
+            <span class="badge bg-label-primary rounded-pill p-2">
+              <i class="ti ti-users ti-sm"></i>
+            </span>
+          </div>
+          <div class="card-title mb-0">
+            <h5 class="mb-0 me-2">{{ number_format($widget['total_users']) }}</h5>
+            <small>{{ admin_lang('Total Users') }}</small>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3 col-sm-6 mb-4">
+      <div class="card h-100">
+        <div class="card-body d-flex justify-content-between align-items-center">
+          <div class="card-icon">
+            <span class="badge bg-label-primary rounded-pill p-2">
+              <i class="ti ti-users ti-sm"></i>
+            </span>
+          </div>
+          <div class="card-title mb-0">
+            <h5 class="mb-0 me-2">{{ number_format($widget['current_month_users']) }}</h5>
+            <small>{{ admin_lang('Current Month Users') }}</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row mb-4">
+    <div class="col-md-6 col-lg-8">
+      <div class="card mb-4 h-100">
+      <div class="card-header">
+          <div class="card-title mb-0">
+            <h5 class="mb-0">{{ admin_lang('Users Statistics For This Week') }}</h5>
+          </div>
+        </div>
+        <div class="card-body">
+          <div id="area-chart"></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 col-lg-4"> 
+      <div class="card mb-4 h-100">
+        <div class="card-header d-flex justify-content-between">
+          <div class="card-title mb-0">
+            <h5 class="mb-0">{{ admin_lang('Recently registered') }}</h5>
+          </div>
+          <div class="dropdown">
+            <a class="" href="{{ route('admin.users.index') }}">{{ admin_lang('View All') }}</a>
+          </div>
+        </div>
+        <div class="card-body">
+          <ul class="p-0 m-0">
+            @forelse ($users as $user)
+              <li class="d-flex align-items-center mb-4">
+                <div class="avatar flex-shrink-0 me-3">
+                  <img src="{{ asset($user->avatar) }}" />
+                </div>
+                <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                  <div class="me-2">
+                    <div class="d-flex align-items-center">
+                      <h6 class="mb-0 me-1">
+                        <a class=""
+                          href="{{ route('admin.users.edit', $user->id) }}">{{ $user->name }}</a>
+                      </h6>
                     </div>
-
+                    <small class="text-muted">{{ $user->created_at->diffforhumans() }}</small>
+                  </div>
+                  <div class="user-progress">
+                    <a href="{{ route('admin.users.edit', $user->id) }}"
+                      class="btn btn-primary btn-sm"><i class="ti ti-eye ti-xs"></i></a>
+                  </div>
                 </div>
-                <div id="area-chart"></div>
-                <div class="grid grid-cols-1 items-center border-gray-200 border-t dark:border-gray-700 justify-between">
-
-                </div>
-            </div>
+              </li>
+            @empty
+              <li>{{ admin_lang('No data found') }}</li>
+            @endforelse
+          </ul>
         </div>
-        <div class="col-12 col-lg-4 col-xxl-4">
-            <div class="w-full h-full bg-dark rounded-lg shadow dark:bg-gray-800 p-4 md:p-6">
-                    <div class="grid grid-cols-2">
-                    <dl class="flex items-center">
-                        <dt class="text-white dark:text-gray-400 text-sm font-normal me-1">
-                            <h5 class="leading-none text-1xl font-bold text-white dark:text-white pb-2">
-                                {{ admin_lang('Recently registered') }}</h5>
-                        </dt>
-                    </dl>
-                    <dl class="flex items-center justify-end">
-                        <div class="flex-shrink-0">
-                            <a href="{{ route('admin.transactions.index') }}"
-                                class="text-sm font-medium text-white hover:bg-cyan-600 rounded-lg p-2">{{ admin_lang('View All') }}</a>
-                        </div>
-
-                    </dl>
-                </div>
-                    <div class="billiongroup-box-body">
-                        <div class="billiongroup-random-lists">
-                            @forelse ($users as $user)
-                                <div class="billiongroup-random-list">
-                                    <div class="billiongroup-random-list-cont">
-                                        <a class="billiongroup-random-list-img" href="#">
-                                            <img src="{{ asset($user->avatar) }}" />
-                                        </a>
-                                        <div class="billiongroup-random-list-info">
-                                            <div>
-                                                <a class="billiongroup-random-list-title fs-exact-14"
-                                                    href="{{ route('admin.users.edit', $user->id) }}">
-                                                    {{ $user->name }}
-                                                </a>
-                                                <p class="billiongroup-random-list-text mb-0">
-                                                    {{ $user->created_at->diffforhumans() }}
-                                                </p>
-                                            </div>
-                                            <div class="billiongroup-random-list-action d-none d-lg-block">
-                                                <a href="{{ route('admin.users.edit', $user->id) }}"
-                                                    class="btn btn-primary btn-sm"><i class="fas fa-eye"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            @empty
-                                @include('backend.includes.emptysmall')
-                            @endforelse
-                        </div>
-                    </div>
-                </div>
-           
-        </div>
+      </div>
     </div>
-    <div class="row g-3">
-        <div class="col-lg-4">
-
-            <div class="w-full bg-dark rounded-lg shadow dark:bg-gray-800 p-4 md:p-6">
-                <div class="flex justify-between items-start w-full">
-                    @if ($countUsersLogs)
-                        <div class="flex-col items-center">
-                            <div class="flex items-center mb-1">
-                                <h5 class="text-xl font-bold leading-none text-white dark:text-white me-1">
-                                    {{ admin_lang('Login Statistics - Browsers') }}</h5>
-                            </div>
-                        </div>
-                        <div class="flex justify-end items-center">
-                            <small class="text-muted ms-auto">({{ carbon()->now()->format('F') }})</small>
-                        </div>
-                    @else
-                        <div class="card-body">
-                            @include('backend.includes.emptysmall')
-                        </div>
-                    @endif
-                </div>
-                <div class="py-6" id="pie-browsers"></div>
-            </div>
-
+  </div>
+  <div class="row">
+    <div class="col-md-6 col-lg-4">
+      <div class="card mb-4 h-100">
+        <div class="card-header d-flex justify-content-between">
+          <div class="card-title mb-0">
+            <h5 class="mb-0">{{ admin_lang('Login Statistics - Browsers') }}</h5>
+          </div>
+          <div>
+            <small class="text-muted ms-auto">({{ carbon()->now()->format('F') }})</small>
+          </div>
         </div>
-
-        <div class="col-lg-4">
-
-            <div class="w-full bg-dark rounded-lg shadow dark:bg-gray-800 p-4 md:p-6">
-                <div class="flex justify-between items-start w-full">
-                    @if ($countUsersLogs)
-                        <div class="flex-col items-center">
-                            <div class="flex items-center mb-1">
-                                <h5 class="text-xl font-bold leading-none text-white dark:text-white me-1">
-                                    {{ admin_lang('Login Statistics - Browsers') }}</h5>
-                            </div>
-                        </div>
-                        <div class="flex justify-end items-center">
-                            <small class="text-muted ms-auto">({{ carbon()->now()->format('F') }})</small>
-                        </div>
-                    @else
-                        <div class="card-body">
-                            @include('backend.includes.emptysmall')
-                        </div>
-                    @endif
-                </div>
-                <div class="py-6" id="pie-os"></div>
-            </div>
-
+        <div class="card-body">
+          @if ($countUsersLogs)
+            <div class="py-6" id="pie-browsers"></div>
+          @else
+            @include('backend.includes.emptysmall')
+          @endif
         </div>
-
-        <div class="col-lg-4">
-            <div class="w-full bg-dark rounded-lg shadow dark:bg-gray-800 p-4 md:p-6">
-                <div class="flex justify-between items-start w-full">
-                    @if ($countUsersLogs)
-                        <div class="flex-col items-center">
-                            <div class="flex items-center mb-1">
-                                <h5 class="text-xl font-bold leading-none text-white dark:text-white me-1">
-                                    {{ admin_lang('Login Statistics - Browsers') }}</h5>
-                            </div>
-                        </div>
-                        <div class="flex justify-end items-center">
-                            <small class="text-muted ms-auto">({{ carbon()->now()->format('F') }})</small>
-                        </div>
-                    @else
-                        <div class="card-body">
-                            @include('backend.includes.emptysmall')
-                        </div>
-                    @endif
-                </div>
-                <div class="py-6" id="pie-country"></div>
-            </div>
-
+      </div>
+    </div>
+    <div class="col-md-6 col-lg-4">
+      <div class="card mb-4 h-100">
+        <div class="card-header d-flex justify-content-between">
+          <div class="card-title mb-0">
+            <h5 class="mb-0">{{ admin_lang('Login Statistics - Country') }}</h5>
+          </div>
+          <div>
+            <small class="text-muted ms-auto">({{ carbon()->now()->format('F') }})</small>
+          </div>
         </div>
-        @push('top_scripts')
-            <script type="text/javascript">
-                "use strict";
-                const CURRENCY_CODE = "{{ $settings->currency->symbol }}";
-                const CURRENCY_POSITION = "{{ $settings->currency->position }}";
-            </script>
-        @endpush
-        @push('scripts_libs')
-            <script src="{{ asset('assets/vendor/libs/chartjs/chart.min.js') }}"></script>
-            <script src="{{ asset('assets/js/apexcharts.js') }}"></script>
-        @endpush
-    @endsection
+        <div class="card-body">
+          @if ($countUsersLogs)
+            <div class="py-6" id="pie-country"></div>
+          @else
+            @include('backend.includes.emptysmall')
+          @endif
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 col-lg-4">
+      <div class="card mb-4 h-100">
+        <div class="card-header d-flex justify-content-between">
+          <div class="card-title mb-0">
+            <h5 class="mb-0">{{ admin_lang('Login Statistics - OS') }}</h5>
+          </div>
+          <div>
+            <small class="text-muted ms-auto">({{ carbon()->now()->format('F') }})</small>
+          </div>
+        </div>
+        <div class="card-body">
+          @if ($countUsersLogs)
+            <div class="py-6" id="pie-os"></div>
+          @else
+            @include('backend.includes.emptysmall')
+          @endif
+        </div>
+      </div>
+    </div>
+  </div>
+  @push('styles_libs')
+    <link rel="stylesheet" href="{{ asset('assets/vendor/libs/apex-charts/apex-charts.css') }}" />
+  @endpush
+  @push('top_scripts')
+    <script type="text/javascript">
+      "use strict";
+      const CURRENCY_CODE = "{{ $settings->currency->symbol }}";
+      const CURRENCY_POSITION = "{{ $settings->currency->position }}";
+    </script>
+  @endpush
+  @push('scripts_libs')
+    <script src="{{ asset('assets/vendor/libs/chartjs/chartjs.js') }}"></script>
+    <script src="{{ asset('assets/vendor/libs/apex-charts/apexcharts.js') }}"></script>
+  @endpush
+  @push('scripts')
+    <script src="{{ asset('assets/js/apexcharts.js') }}"></script>
+  @endpush
+@endsection

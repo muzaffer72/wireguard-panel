@@ -1,10 +1,39 @@
 (function ($) {
     "use strict";
     const ctxEarnings = $('#billiongroup-earnings-charts'),
-        ctxUsers = $('#billiongroup-users-charts'),
-        ctxBrowsers = $('#billiongroup-browsers-charts'),
-        ctxOs = $('#billiongroup-os-charts'),
-        ctxCountries = $('#billiongroup-countries-charts');
+    ctxUsers = $('#billiongroup-users-charts'),
+    ctxBrowsers = $('#billiongroup-browsers-charts'),
+    ctxOs = $('#billiongroup-os-charts'),
+    ctxCountries = $('#billiongroup-countries-charts');
+
+    const colors = [
+        "#263bd8",
+        "#91628d",
+        "#d4aaf1",
+        "#aab045",
+        "#71cccd",
+        "#de388a",
+        "#a7935b",
+        "#5fb2fb",
+        "#fabb01",
+        "#51ab1c",
+        "#728251",
+        "#709e14",
+        "#2e4007",
+        "#a57837",
+        "#8f1672",
+        "#a76bd1",
+        "#5b6d38",
+        "#7cb7aa",
+        "#a140b7",
+        "#17855c",
+        "#4bb7ce",
+        "#a688b0",
+        "#5351b7",
+        "#569cfa",
+        "#8ca2d1",
+    ];
+
     const charts = {
         initEarnings: function () { this.earningsChartsData() },
         initUsers: function () { this.usersChartsData() },
@@ -29,19 +58,19 @@
                 charts.createUsersCharts(response);
             });
         },
-        logsChartsData: function () {
-            if (ctxBrowsers.length || ctxOs.length || ctxCountries.length) {
-                const dataUrl = BASE_URL + '/dashboard/charts/logs';
-                const request = $.ajax({
-                    method: 'GET',
-                    url: dataUrl
-                });
-                request.done(function (response) {
-                    charts.createBrowsersCharts(response.browsers);
-                    charts.createOsCharts(response.os);
-                    charts.createOCountriesCharts(response.countries);
-                });
-            }
+        logsChartsData: function () {            
+            // if (ctxBrowsers.length || ctxOs.length || ctxCountries.length) {
+            const dataUrl = BASE_URL + '/dashboard/charts/logs';
+            const request = $.ajax({
+                method: 'GET',
+                url: dataUrl
+            });
+            request.done(function (response) {
+                charts.createBrowsersCharts(response.browsers);
+                charts.createOsCharts(response.os);
+                charts.createOCountriesCharts(response.countries);
+            });
+            // }
         },
         createEarningsCharts: function (response) {
             const max = response.suggestedMax;
@@ -223,32 +252,7 @@
             const getChartOptions = () => {
                 return {
                     series: response.values,
-                    colors: [
-                        "#263bd8",
-                        "#91628d",
-                        "#d4aaf1",
-                        "#aab045",
-                        "#71cccd",
-                        "#de388a",
-                        "#a7935b",
-                        "#5fb2fb",
-                        "#fabb01",
-                        "#51ab1c",
-                        "#728251",
-                        "#709e14",
-                        "#2e4007",
-                        "#a57837",
-                        "#8f1672",
-                        "#a76bd1",
-                        "#5b6d38",
-                        "#7cb7aa",
-                        "#a140b7",
-                        "#17855c",
-                        "#4bb7ce",
-                        "#a688b0",
-                        "#5351b7",
-                        "#569cfa",
-                        "#8ca2d1",],
+                    colors,
                     chart: {
                         height: 420,
                         width: "100%",
@@ -309,21 +313,10 @@
             }
         },
         createOsCharts: function (response) {
-            function getRandomColor() {
-                var letters = '0123456789ABCDEF';
-                var color = '#';
-                for (var i = 0; i < 6; i++) {
-                    color += letters[Math.floor(Math.random() * 16)];
-                }
-                return color;
-            }
-
-            // Example usage:
-            var randomColor = getRandomColor();
             const getChartOptions = () => {
                 return {
                     series: response.values,
-                    colors: randomColor,
+                    colors,
                     chart: {
                         height: 420,
                         width: "100%",
@@ -384,21 +377,10 @@
             }
         },
         createOCountriesCharts: function (response) {
-            function getRandomColor() {
-                var letters = '0123456789ABCDEF';
-                var color = '#';
-                for (var i = 0; i < 6; i++) {
-                    color += letters[Math.floor(Math.random() * 16)];
-                }
-                return color;
-            }
-
-            // Example usage:
-            var randomColor = getRandomColor();
             const getChartOptions = () => {
                 return {
                     series: response.values,
-                    colors: randomColor,
+                    colors,
                     chart: {
                         height: 420,
                         width: "100%",
@@ -462,7 +444,7 @@
     }
     charts.initEarnings();
     charts.initUsers();
-    if (ctxOs.length || ctxBrowsers.length || ctxCountries.length) {
-        charts.initLogs();
-    }
+    // if (ctxOs.length || ctxBrowsers.length || ctxCountries.length) {
+    charts.initLogs();    
+    // }
 })(jQuery);

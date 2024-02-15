@@ -1,7 +1,7 @@
 @extends('backend.layouts.form')
 @section('section', admin_lang('Account'))
 @section('title', admin_lang('Personal details'))
-@section('container', 'container-max-lg')
+@section('container', 'container-xxl flex-grow-1 container-p-y')
 @section('content')
     <form id="billiongroup-submited-form" action="{{ route('admin.account.details.update') }}" method="POST"
         enctype="multipart/form-data">
@@ -19,22 +19,22 @@
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="mb-3">
-                            <label class="form-label">{{ admin_lang('First Name') }} : <span class="red">*</span></label>
-                            <input type="firstname" class="bg-dark block w-full p-2 text-white border border-gray-800 rounded-lg bg-gray-500 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" name="firstname"
+                            <label class="form-label">{{ admin_lang('First Name') }} : <span class="text-danger">*</span></label>
+                            <input type="firstname" class="form-control" name="firstname"
                                 value="{{ adminAuthInfo()->firstname }}" required>
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="mb-3">
-                            <label class="form-label">{{ admin_lang('Last Name') }} : <span class="red">*</span></label>
-                            <input type="lastname" class="bg-dark block w-full p-2 text-white border border-gray-800 rounded-lg bg-gray-500 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" name="lastname"
+                            <label class="form-label">{{ admin_lang('Last Name') }} : <span class="text-danger">*</span></label>
+                            <input type="lastname" class="form-control" name="lastname"
                                 value="{{ adminAuthInfo()->lastname }}" required>
                         </div>
                     </div>
                 </div>
                 <div class="mb-3">
-                    <label class="form-label">{{ admin_lang('Email Address') }} : <span class="red">*</span></label>
-                    <input type="email" class="bg-dark block w-full p-2 text-white border border-gray-800 rounded-lg bg-gray-500 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" name="email"
+                    <label class="form-label">{{ admin_lang('Email Address') }} : <span class="text-danger">*</span></label>
+                    <input type="email" class="form-control" name="email"
                         value="{{ adminAuthInfo()->email }}" required>
                 </div>
             </div>

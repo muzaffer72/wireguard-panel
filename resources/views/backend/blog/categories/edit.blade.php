@@ -1,7 +1,7 @@
 @extends('backend.layouts.form')
 @section('section', admin_lang('Blog'))
 @section('title', $category->name)
-@section('container', 'container-max-lg')
+@section('container', 'container-xxl flex-grow-1 container-p-y')
 @section('back', route('categories.index'))
 @section('content')
     <form id="billiongroup-submited-form" action="{{ route('categories.update', $category->id) }}" method="POST">
@@ -12,7 +12,7 @@
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="mb-3">
-                            <label class="form-label">{{ admin_lang('Language') }} :<span class="red">*</span></label>
+                            <label class="form-label">{{ admin_lang('Language') }} :<span class="text-danger">*</span></label>
                             <select name="lang" class="form-select select2" required>
                                 <option></option>
                                 @foreach ($adminLanguages as $adminLanguage)
@@ -26,19 +26,19 @@
                     <div class="col-lg-6">
                         <div class="mb-3">
                             <label class="form-label">{{ admin_lang('Category name') }} : <span
-                                    class="red">*</span></label>
-                            <input type="text" name="name" class="bg-dark block w-full p-2 text-white border border-gray-800 rounded-lg bg-gray-500 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ $category->name }}"
+                                    class="text-danger">*</span></label>
+                            <input type="text" name="name" class="form-control" value="{{ $category->name }}"
                                 required />
                         </div>
                     </div>
                 </div>
                 <div class="mb-3">
-                    <label class="form-label">{{ admin_lang('Slug') }} : <span class="red">*</span></label>
+                    <label class="form-label">{{ admin_lang('Slug') }} : <span class="text-danger">*</span></label>
                     <div class="input-group billiongroup-input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text">{{ url('blog/categories/') }}/</span>
                         </div>
-                        <input type="text" name="slug" class="bg-dark block w-full p-2 text-white border border-gray-800 rounded-lg bg-gray-500 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ $category->slug }}" required />
+                        <input type="text" name="slug" class="form-control" value="{{ $category->slug }}" required />
                     </div>
                 </div>
             </div>

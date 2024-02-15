@@ -2,7 +2,7 @@
 @section('title', admin_lang('Mail Templates') . ' | ' . $mailTemplate->name)
 @section('section', admin_lang('Settings'))
 @section('back', route('admin.settings.mailtemplates.index'))
-@section('container', 'container-max-lg')
+@section('container', 'container-xxl flex-grow-1 container-p-y')
 @section('content')
     <form id="billiongroup-submited-form" action="{{ route('admin.settings.mailtemplates.update', $mailTemplate->id) }}"
         method="POST">
@@ -12,8 +12,8 @@
             <div class="card-body">
                 <div class="row g-3 mb-4">
                     <div class="{{ $mailTemplate->undisable() ? 'col-lg-12' : 'col-lg-8' }}">
-                        <label class="form-label">{{ admin_lang('Subject') }} : <span class="red">*</span></label>
-                        <input type="text" name="subject" class="bg-dark block w-full p-2 text-white border border-gray-800 rounded-lg bg-gray-500 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ $mailTemplate->subject }}"
+                        <label class="form-label">{{ admin_lang('Subject') }} : <span class="text-danger">*</span></label>
+                        <input type="text" name="subject" class="form-control" value="{{ $mailTemplate->subject }}"
                             required>
                     </div>
                     @if (!$mailTemplate->undisable())
@@ -25,7 +25,7 @@
                     @endif
                 </div>
                 <div class="mb-3">
-                    <label class="form-label">{{ admin_lang('Body') }} : <span class="red">*</span></label>
+                    <label class="form-label">{{ admin_lang('Body') }} : <span class="text-danger">*</span></label>
                     <textarea name="body" class="ckeditor">{{ $mailTemplate->body }}</textarea>
                 </div>
                 <div class="alert alert-secondary mb-0">

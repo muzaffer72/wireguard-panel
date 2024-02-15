@@ -28,7 +28,7 @@
                     <li class="list-group-item d-flex justify-content-between align-items-center p-3">
                         <span><strong>{{ admin_lang('Plan Name') }}</strong></span>
                         <span><a href="{{ route('admin.plans.edit', $transaction->plan->id) }}"><i
-                                    class="far fa-gem me-2"></i>
+                                    class="ti ti-diamond me-2"></i>
                                 {{ $transaction->plan->name }}
                             </a></span>
                     </li>

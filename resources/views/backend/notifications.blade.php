@@ -1,6 +1,6 @@
 @extends('backend.layouts.grid')
 @section('title', admin_lang('Notifications (' . $unreadNotificationsCount . ')'))
-@section('container', 'container-max-lg')
+@section('container', 'container-xxl flex-grow-1 container-p-y')
 @section('content')
     <div class="notifications">
         @forelse ($notifications as $notification)

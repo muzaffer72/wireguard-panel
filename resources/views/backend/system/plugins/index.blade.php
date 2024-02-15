@@ -3,7 +3,7 @@
 @section('add_modal', admin_lang('Install New Plugin'))
 @section('content')
     <div class="custom-card card">
-        <table id="datatable" class="table w-100">
+        <table id="datatable" class="dtable table w-100">
             <thead>
                 <tr>
                     <th class="tb-w-1x">#</th>
@@ -37,13 +37,13 @@
                             <div class="text-end">
                                 <button type="button" class="btn btn-sm rounded-3" data-bs-toggle="dropdown"
                                     aria-expanded="true">
-                                    <i class="fa fa-ellipsis-v fa-sm text-muted"></i>
+                                    <i class="ti ti-dots-vertical fa-sm text-muted"></i>
                                 </button>
                                 <ul class="dropdown-menu dropdown-menu-sm-end" data-popper-placement="bottom-end">
                                     <li>
                                         <a class="dropdown-item"
                                             href="{{ route('admin.system.plugins.edit', $plugin->id) }}"><i
-                                                class="fa fa-edit me-2"></i>{{ admin_lang('Edit') }}</a>
+                                                class="ti ti-edit me-2"></i>{{ admin_lang('Edit') }}</a>
                                     </li>
                                     @if ($plugin->action_text)
                                         <li>
@@ -75,14 +75,14 @@
                         @csrf
                         <div class="mb-3">
                             <label class="form-label">{{ admin_lang('Plugin Purchase Code') }} : <span
-                                    class="red">*</span></label>
-                            <input type="text" name="purchase_code" class="bg-dark block w-full p-2 text-white border border-gray-800 rounded-lg bg-gray-500 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                    class="text-danger">*</span></label>
+                            <input type="text" name="purchase_code" class="form-control"
                                 placeholder="{{ admin_lang('Purchase code') }}" required>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">{{ admin_lang('Plugin Files (Zip)') }} : <span
-                                    class="red">*</span></label>
-                            <input type="file" name="plugin_files" class="bg-dark block w-full p-2 text-white border border-gray-800 rounded-lg bg-gray-500 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" accept=".zip" required>
+                                    class="text-danger">*</span></label>
+                            <input type="file" name="plugin_files" class="form-control" accept=".zip" required>
                         </div>
                     </form>
                 </div>

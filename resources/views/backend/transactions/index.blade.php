@@ -3,18 +3,20 @@
 @section('content')
     <div class="row g-3 mb-3 transactions">
         <div class="col-12 col-lg-6 col-xxl-6">
-            <div class="counter-card-z c-light-green">
-                <div class="counter-card-z-upper">
-                    <div class="counter-card-z-meta">
-                        <p class="counter-card-z-title">{{ admin_lang('Total Paid Amount') }}</p>
-                        <h3 class="counter-card-z-counter-card">{{ priceSymbol($paidAmount['total']) }}</h3>
+            <div class="card bg-success text-white mb-3">
+                <div class="card-header">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            {{ admin_lang('Total Paid Amount') }}
+                            <h5 class="card-title text-white">{{ priceSymbol($paidAmount['total']) }}</h5>
+                        </div>
+                        <span class="badge bg-label-primary rounded-pill p-3">
+                            <i class="ti ti-receipt"></i>
+                        </span>
                     </div>
-                    <div class="counter-card-z-icon">
-                        <i class="fas fa-receipt"></i>
-                    </div>
+                    <hr>
                 </div>
-                <hr>
-                <div class="counter-card-z-lower">
+                <div class="card-body">
                     <div class="details">
                         <div class="d-flex justify-content-between align-items-center mb-1">
                             <span>{{ admin_lang('Subscriptions') }}</span>
@@ -33,30 +35,32 @@
             </div>
         </div>
         <div class="col-12 col-lg-6 col-xxl-6">
-            <div class="counter-card-z c-red">
-                <div class="counter-card-z-upper">
-                    <div class="counter-card-z-meta">
-                        <p class="counter-card-z-title">{{ admin_lang('Total Canceled Amount') }}</p>
-                        <h3 class="counter-card-z-counter-card">{{ priceSymbol($paidAmount['total']) }}</h3>
+            <div class="card bg-danger text-white mb-3">
+                <div class="card-header">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            {{ admin_lang('Total Canceled Amount') }}
+                            <h5 class="card-title text-white">{{ priceSymbol($canceledAmount['total']) }}</h5>
+                        </div>
+                        <span class="badge bg-label-primary rounded-pill p-3">
+                            <i class="ti ti-receipt"></i>
+                        </span>
                     </div>
-                    <div class="counter-card-z-icon">
-                        <i class="fas fa-receipt"></i>
-                    </div>
+                    <hr>
                 </div>
-                <hr>
-                <div class="counter-card-z-lower">
+                <div class="card-body">
                     <div class="details">
                         <div class="d-flex justify-content-between align-items-center mb-1">
                             <span>{{ admin_lang('Subscriptions') }}</span>
-                            <span>- {{ priceSymbol($canceledAmount['subscriptions']) }}</span>
+                            <span>+ {{ priceSymbol($canceledAmount['subscriptions']) }}</span>
                         </div>
                         <div class="d-flex justify-content-between align-items-center mb-1">
                             <span>{{ admin_lang('Taxes') }}</span>
-                            <span>- {{ priceSymbol($canceledAmount['taxes']) }}</span>
+                            <span>+ {{ priceSymbol($canceledAmount['taxes']) }}</span>
                         </div>
                         <div class="d-flex justify-content-between align-items-center mb-0">
                             <span>{{ admin_lang('Fees') }}</span>
-                            <span>- {{ priceSymbol($canceledAmount['fees']) }}</span>
+                            <span>+ {{ priceSymbol($canceledAmount['fees']) }}</span>
                         </div>
                     </div>
                 </div>
@@ -83,7 +87,7 @@
     <div class="card custom-card">
         <div class="tab-content">
             <div class="tab-pane fade show active" id="paid" role="tabpanel" aria-labelledby="paid-tab">
-                <table class="datatable50 table w-100">
+                <table class="dtable table w-100">
                     <thead>
                         <tr>
                             <th class="tb-w-2x">{{ admin_lang('#ID') }}</th>
@@ -108,7 +112,7 @@
                                     </a>
                                 </td>
                                 <td><a href="{{ route('admin.plans.edit', $transaction->plan->id) }}"><i
-                                            class="far fa-gem me-2"></i>
+                                            class="ti ti-diamond me-2"></i>
                                         {{ $transaction->plan->name }}
                                     </a>
                                 </td>
@@ -138,13 +142,13 @@
                                     <div class="text-end">
                                         <button type="button" class="btn btn-sm rounded-3" data-bs-toggle="dropdown"
                                             aria-expanded="true">
-                                            <i class="fa fa-ellipsis-v fa-sm text-muted"></i>
+                                            <i class="ti ti-dots-vertical fa-sm text-muted"></i>
                                         </button>
                                         <ul class="dropdown-menu dropdown-menu-sm-end" data-popper-placement="bottom-end">
                                             <li>
                                                 <a class="dropdown-item"
                                                     href="{{ route('admin.transactions.edit', $transaction->id) }}"><i
-                                                        class="fa fa-edit me-2"></i>{{ admin_lang('Edit') }}</a>
+                                                        class="ti ti-edit me-2"></i>{{ admin_lang('Edit') }}</a>
                                             </li>
                                             <li>
                                                 <hr class="dropdown-divider" />
@@ -154,7 +158,7 @@
                                                     method="POST">
                                                     @csrf @method('DELETE')
                                                     <button class="billiongroup-able-to-delete dropdown-item text-danger"><i
-                                                            class="far fa-trash-alt me-2"></i>{{ admin_lang('Delete') }}</button>
+                                                            class="ti ti-trash me-2"></i>{{ admin_lang('Delete') }}</button>
                                                 </form>
                                             </li>
                                         </ul>
@@ -166,7 +170,7 @@
                 </table>
             </div>
             <div class="tab-pane fade" id="canceled" role="tabpanel" aria-labelledby="canceled-tab">
-                <table class="datatable50 table w-100">
+                <table class="dtable table w-100">
                     <thead>
                         <tr>
                             <th class="tb-w-2x">{{ admin_lang('#ID') }}</th>
@@ -191,7 +195,7 @@
                                     </a>
                                 </td>
                                 <td><a href="{{ route('admin.plans.edit', $transaction->plan->id) }}"><i
-                                            class="far fa-gem me-2"></i>
+                                            class="ti ti-diamond me-2"></i>
                                         {{ $transaction->plan->name }}
                                     </a>
                                 </td>
@@ -221,13 +225,13 @@
                                     <div class="text-end">
                                         <button type="button" class="btn btn-sm rounded-3" data-bs-toggle="dropdown"
                                             aria-expanded="true">
-                                            <i class="fa fa-ellipsis-v fa-sm text-muted"></i>
+                                            <i class="ti ti-dots-vertical fa-sm text-muted"></i>
                                         </button>
                                         <ul class="dropdown-menu dropdown-menu-sm-end" data-popper-placement="bottom-end">
                                             <li>
                                                 <a class="dropdown-item"
                                                     href="{{ route('admin.transactions.edit', $transaction->id) }}"><i
-                                                        class="fa fa-edit me-2"></i>{{ admin_lang('Edit') }}</a>
+                                                        class="ti ti-edit me-2"></i>{{ admin_lang('Edit') }}</a>
                                             </li>
                                             <li>
                                                 <hr class="dropdown-divider" />
@@ -237,7 +241,7 @@
                                                     method="POST">
                                                     @csrf @method('DELETE')
                                                     <button class="billiongroup-able-to-delete dropdown-item text-danger"><i
-                                                            class="far fa-trash-alt me-2"></i>{{ admin_lang('Delete') }}</button>
+                                                            class="ti ti-trash me-2"></i>{{ admin_lang('Delete') }}</button>
                                                 </form>
                                             </li>
                                         </ul>

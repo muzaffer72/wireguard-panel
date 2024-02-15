@@ -3,14 +3,16 @@
 @section('section', admin_lang('Settings'))
 @section('back', route('admin.settings.languages.index'))
 @section('content')
-    <div class="note note-warning d-flex">
-        <div class="icon">
-            <i class="fas fa-exclamation-circle"></i>
-        </div>
-        <div>
-            <strong>{{ admin_lang('Important!') }}</strong><br>
-            <small>{{ admin_lang('There are some words that should not be translated that start with some tags or are inside a tag') }}
-                <strong>{{ admin_lang(':value, :seconds, :min, ::max, {username}') }}</strong> {{ admin_lang('etc...') }}</small>
+    <div class="alert mb-4 alert-warning">
+        <div class="card-body d-flex justify-content-first">
+            <div class="icon me-2">
+                <i class="ti ti-exclamation-circle"></i>
+            </div>
+            <div>
+                <strong>{{ admin_lang('Important!') }}</strong><br>
+                <small>{{ admin_lang('There are some words that should not be translated that start with some tags or are inside a tag') }}
+                    <strong>{{ admin_lang(':value, :seconds, :min, ::max, {username}') }}</strong> {{ admin_lang('etc...') }}</small>
+            </div>
         </div>
     </div>
     <div class="mb-3">
@@ -43,12 +45,12 @@
                         @if (is_array($value1))
                             <h2 class="header">{{ $key1 }}</h2>
                             @foreach ($value1 as $key2 => $value2)
-                                <div class="billiongroup-translated-item d-block d-lg-flex bd-highlight align-items-center">
+                                <div class="billiongroup-translated-item d-block d-lg-flex bd-highlight align-items-center mb-2">
                                     <div class="flex-grow-1 bd-highlight">
                                         <textarea id="autosizeInput" class="billiongroup-translate-key translate-fields form-control" rows="1" readonly>{{ $defaultLanguage[$key1][$key2] }}</textarea>
                                     </div>
                                     <div class="pe-3 ps-3 bd-highlight text-center text-success d-none d-lg-block"><i
-                                            class="fas fa-chevron-right"></i></div>
+                                            class="ti ti-chevron-right"></i></div>
                                     <div class="flex-grow-1 bd-highlight">
                                         <textarea id="autosizeInput" name="translates[{{ $key1 }}][{{ $key2 }}]"
                                             class="translate-fields form-control" rows="1" placeholder="{{ $value2 }}">{{ $value2 }}</textarea>
@@ -56,12 +58,12 @@
                                 </div>
                             @endforeach
                         @else
-                            <div class="billiongroup-translated-item d-block d-lg-flex bd-highlight align-items-center">
+                            <div class="billiongroup-translated-item d-block d-lg-flex bd-highlight align-items-center mb-2">
                                 <div class="flex-grow-1 bd-highlight">
                                     <textarea id="autosizeInput" class="billiongroup-translate-key translate-fields form-control" rows="1" readonly>{{ $defaultLanguage[$key1] }}</textarea>
                                 </div>
                                 <div class="pe-3 ps-3 bd-highlight text-center text-success d-none d-lg-block"><i
-                                        class="fas fa-chevron-right"></i></div>
+                                        class="ti ti-chevron-right"></i></div>
                                 <div class="flex-grow-1 bd-highlight">
                                     <textarea id="autosizeInput" name="translates[{{ $key1 }}]" class="translate-fields form-control"
                                         rows="1" placeholder="{{ $value1 }}">{{ $value1 }}</textarea>
@@ -82,7 +84,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="importModalLabel">{{ $language->name }} <i
-                            class="fas fa-angle-right ms-1 me-1"></i> {{ admin_lang('Import') }}
+                            class="ti ti-chevron-right ms-1 me-1"></i> {{ admin_lang('Import') }}
                     </h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
@@ -101,8 +103,8 @@
                         </div>
                         <div class="mb-3">
                             <label class="form-label">{{ admin_lang('Language File (ZIP)') }} : <span
-                                    class="red">*</span></label>
-                            <input type="file" name="language_file" class="bg-dark block w-full p-2 text-white border border-gray-800 rounded-lg bg-gray-500 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                    class="text-danger">*</span></label>
+                            <input type="file" name="language_file" class="form-control">
                         </div>
                         <button class="btn btn-primary">{{ admin_lang('Import') }}</button>
                     </form>

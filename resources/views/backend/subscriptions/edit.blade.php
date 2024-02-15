@@ -1,7 +1,7 @@
 @extends('backend.layouts.form')
 @section('title', admin_lang('Edit Subscription for ' . $subscription->user->name))
 @section('back', route('admin.subscriptions.index'))
-@section('container', 'container-max-lg')
+@section('container', 'container-xxl flex-grow-1 container-p-y')
 @section('content')
     @if ($subscription->isCancelled())
         <div class="alert bg-danger text-white">
@@ -23,8 +23,8 @@
         <div class="card p-2">
             <div class="card-body">
                 <div class="mb-1">
-                    <label class="form-label">{{ admin_lang('Status') }} : <span class="red">*</span></label>
-                    <select name="status" class="bg-dark block w-full p-2 text-white border border-gray-800 rounded-lg bg-gray-500 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                    <label class="form-label">{{ admin_lang('Status') }} : <span class="text-danger">*</span></label>
+                    <select name="status" class="form-control">
                         <option value="0" {{ $subscription->status == 0 ? 'selected' : '' }}>
                             {{ admin_lang('Canceled') }}
                         </option>
@@ -34,8 +34,8 @@
                     </select>
                 </div>
                 <div class="mb-1 mt-3">
-                    <label class="form-label">{{ admin_lang('Plan') }} : <span class="red">*</span></label>
-                    <select id="subscriptionPlan" name="plan" class="bg-dark block w-full p-2 text-white border border-gray-800 rounded-lg bg-gray-500 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
+                    <label class="form-label">{{ admin_lang('Plan') }} : <span class="text-danger">*</span></label>
+                    <select id="subscriptionPlan" name="plan" class="form-control" required>
                         @foreach ($plans as $plan)
                             <option value="{{ $plan->id }}"
                                 {{ $subscription->plan->id == $plan->id ? 'selected' : '' }}>
@@ -46,8 +46,8 @@
                     </select>
                 </div>
                 <div class="mt-3">
-                    <label class="form-label">{{ admin_lang('Expiry at') }} : <span class="red">*</span></label>
-                    <input type="datetime-local" name="expiry_at" class="bg-dark block w-full p-2 text-white border border-gray-800 rounded-lg bg-gray-500 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    <label class="form-label">{{ admin_lang('Expiry at') }} : <span class="text-danger">*</span></label>
+                    <input type="datetime-local" name="expiry_at" class="form-control"
                         value="{{ carbon()->parse($subscription->expiry_at)->format('Y-m-d\TH:i:s') }}" required>
                 </div>
                 

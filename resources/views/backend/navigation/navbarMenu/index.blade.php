@@ -1,6 +1,6 @@
 @extends('backend.layouts.form')
 @section('title', $active . ' ' . admin_lang('Navbar Menu'))
-@section('container', 'container-max-lg')
+@section('container', 'container-xxl flex-grow-1 container-p-y')
 @section('link', route('admin.navbarMenu.create'))
 @section('language', true)
 @if ($navbarMenuLinks->count() == 0)
@@ -22,14 +22,14 @@
                                 <span class="dd-title">{{ $navbarMenuLink->name }}</span>
                                 <div class="dd-nodrag ms-auto">
                                     <a href="{{ route('admin.navbarMenu.edit', $navbarMenuLink->id) }}"
-                                        class="btn btn-sm btn-blue me-2"><i class="fa fa-edit"></i></a>
+                                        class="btn btn-sm btn-blue me-2"><i class="ti ti-edit"></i></a>
                                     <form class="d-inline"
                                         action="{{ route('admin.navbarMenu.destroy', $navbarMenuLink->id) }}"
                                         method="POST">
                                         @method('DELETE')
                                         @csrf
                                         <button class="billiongroup-able-to-delete btn btn-sm btn-danger"><i
-                                                class="far fa-trash-alt"></i></button>
+                                                class="ti ti-trash"></i></button>
                                     </form>
                                 </div>
                             </div>
@@ -42,14 +42,14 @@
                                                 <span class="dd-title">{{ $child->name }}</span>
                                                 <div class="dd-nodrag ms-auto">
                                                     <a href="{{ route('admin.navbarMenu.edit', $child->id) }}"
-                                                        class="btn btn-sm btn-blue me-2"><i class="fa fa-edit"></i></a>
+                                                        class="btn btn-sm btn-blue me-2"><i class="ti ti-edit"></i></a>
                                                     <form class="d-inline"
                                                         action="{{ route('admin.navbarMenu.destroy', $child->id) }}"
                                                         method="POST">
                                                         @method('DELETE')
                                                         @csrf
                                                         <button class="billiongroup-able-to-delete btn btn-sm btn-danger"><i
-                                                                class="far fa-trash-alt"></i></button>
+                                                                class="ti ti-trash"></i></button>
                                                     </form>
                                                 </div>
                                             </div>

@@ -11,23 +11,23 @@
                     <div class="card-body">
                         <div class="mb-3">
                             <label class="form-label">{{ admin_lang('Article title') }} : <span
-                                    class="red">*</span></label>
-                            <input type="text" name="title" id="create_slug" class="bg-dark block w-full p-2 text-white border border-gray-800 rounded-lg bg-gray-500 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                    class="text-danger">*</span></label>
+                            <input type="text" name="title" id="create_slug" class="form-control"
                                 value="{{ old('title') }}" required autofocus />
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">{{ admin_lang('Slug') }} : <span class="red">*</span></label>
+                            <label class="form-label">{{ admin_lang('Slug') }} : <span class="text-danger">*</span></label>
                             <div class="input-group billiongroup-input-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">{{ url('blog/articles/') }}/</span>
                                 </div>
-                                <input type="text" name="slug" id="show_slug" class="bg-dark block w-full p-2 text-white border border-gray-800 rounded-lg bg-gray-500 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                <input type="text" name="slug" id="show_slug" class="form-control"
                                     value="{{ old('slug') }}" required />
                             </div>
                         </div>
                         <div class="ckeditor-lg mb-0">
                             <label class="form-label">{{ admin_lang('Article content') }} : <span
-                                    class="red">*</span></label>
+                                    class="text-danger">*</span></label>
                             <textarea name="content" rows="10" class="form-control ckeditor">{{ old('content') }}</textarea>
                         </div>
                     </div>
@@ -49,7 +49,7 @@
                                 class="text-muted d-block">{{ admin_lang('Image will be resized into (1280x720)') }}</small>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">{{ admin_lang('Language') }} :<span class="red">*</span></label>
+                            <label class="form-label">{{ admin_lang('Language') }} :<span class="text-danger">*</span></label>
                             <select id="articleLang" name="lang" class="form-select select2" required>
                                 <option></option>
                                 @foreach ($adminLanguages as $adminLanguage)
@@ -61,15 +61,15 @@
                         </div>
                         <div class="mb-3">
                             <label class="form-label">{{ admin_lang('Article category') }} : <span
-                                    class="red">*</span></label>
+                                    class="text-danger">*</span></label>
                             <select id="articleCategory" name="category" class="form-select" required>
                                 <option value="" selected disabled>{{ admin_lang('Choose') }}</option>
                             </select>
                         </div>
                         <div class="mb-0">
                             <label class="form-label">{{ admin_lang('Short description') }} : <span
-                                    class="red">*</span></label>
-                            <textarea name="short_description" rows="6" class="bg-dark block w-full p-2 text-white border border-gray-800 rounded-lg bg-gray-500 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                    class="text-danger">*</span></label>
+                            <textarea name="short_description" rows="6" class="form-control"
                                 placeholder="{{ admin_lang('50 to 200 character at most') }}" required>{{ old('short_description') }}</textarea>
                         </div>
                     </div>

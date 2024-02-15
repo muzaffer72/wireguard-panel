@@ -11,14 +11,14 @@
                 <li role="presentation">
                     <button class="nav-link active me-2" id="active-tab" data-bs-toggle="tab" data-bs-target="#active"
                         type="button" role="tab" aria-controls="active" aria-selected="true"><i
-                            class="far fa-check-circle me-2"></i>{{ admin_lang('Active') }}
+                            class="ti ti-circle-check me-2"></i>{{ admin_lang('Active') }}
                         ({{ $activeSubscriptions->count() }})
                     </button>
                 </li>
                 <li role="presentation">
                     <button class="nav-link me-2" id="expired-tab" data-bs-toggle="tab" data-bs-target="#expired"
                         type="button" role="tab" aria-controls="expired" aria-selected="false"><i
-                            class="far fa-clock me-2"></i>{{ admin_lang('Expired') }}
+                            class="ti ti-clock me-2"></i>{{ admin_lang('Expired') }}
                         ({{ $expiredSubscriptions->count() }})
                     </button>
                 </li>
@@ -46,7 +46,7 @@
     </div>
         <div class="tab-content">
             <div class="tab-pane fade show active" id="active" role="tabpanel" aria-labelledby="active-tab">
-                <table class="datatable50 table w-100">
+                <table class="dtable table w-100">
                     <thead>
                         <tr>
                             <th class="tb-w-2x">{{ admin_lang('#') }}</th>
@@ -63,21 +63,21 @@
                             <tr>
                                 <td>{{ $subscription->id }}</td>
                                 <td>
-                                    <div class="billiongroup-user-box">
-                                        <a class="billiongroup-user-avatar"
-                                            href="{{ route('admin.users.edit', $subscription->user->id) }}">
-                                            <img src="{{ asset($subscription->user->avatar) }}">
+                                    <div class="d-flex justify-content-first align-items-center">
+                                        <a class="me-2"
+                                        href="{{ route('admin.users.edit', $subscription->user->id) }}">
+                                        <img src="{{ asset($subscription->user->avatar) }}" alt="User" width="35"/>
                                         </a>
                                         <div>
                                             <a class="text-reset"
-                                                href="{{ route('admin.users.edit', $subscription->user->id) }}">
+                                            href="{{ route('admin.users.edit', $subscription->user->id) }}">
                                                 {{ $subscription->user->name }}</a>
                                             <p class="text-muted mb-0">{{ $subscription->user->email }}</p>
                                         </div>
                                     </div>
                                 </td>
                                 <td><a href="{{ route('admin.plans.edit', $subscription->plan->id) }}"><i
-                                            class="far fa-gem me-2"></i>
+                                            class="ti ti-diamond me-2"></i>
                                         {{ $subscription->plan->name }}
                                     </a>
                                 </td>
@@ -100,14 +100,14 @@
                                     <div class="text-end">
                                         <button type="button" class="btn btn-sm rounded-3" data-bs-toggle="dropdown"
                                             aria-expanded="true">
-                                            <i class="fa fa-ellipsis-v fa-sm text-muted"></i>
+                                            <i class="ti ti-dots-vertical fa-sm text-muted"></i>
                                         </button>
                                         <ul class="dropdown-menu dropdown-menu-sm-end dropdown-menu-lg"
                                             data-popper-placement="bottom-end">
                                             <li>
                                                 <a class="dropdown-item"
                                                     href="{{ route('admin.subscriptions.edit', $subscription->id) }}"><i
-                                                        class="fa fa-edit me-2"></i>{{ admin_lang('Edit') }}</a>
+                                                        class="ti ti-edit me-2"></i>{{ admin_lang('Edit') }}</a>
                                             </li>
                                             <li>
                                                 <a class="dropdown-item"
@@ -123,7 +123,7 @@
                                                     method="POST">
                                                     @csrf @method('DELETE')
                                                     <button class="billiongroup-able-to-delete dropdown-item text-danger"><i
-                                                            class="far fa-trash-alt me-2"></i>{{ admin_lang('Delete') }}</button>
+                                                            class="ti ti-trash me-2"></i>{{ admin_lang('Delete') }}</button>
                                                 </form>
                                             </li>
                                         </ul>
@@ -135,7 +135,7 @@
                 </table>
             </div>
             <div class="tab-pane fade" id="expired" role="tabpanel" aria-labelledby="expired-tab">
-                <table class="datatable50 table w-100">
+                <table class="dtable table w-100">
                     <thead>
                         <tr>
                             <th class="tb-w-2x">{{ admin_lang('#') }}</th>
@@ -166,7 +166,7 @@
                                     </div>
                                 </td>
                                 <td><a href="{{ route('admin.plans.edit', $subscription->plan->id) }}"><i
-                                            class="far fa-gem me-2"></i>
+                                            class="ti ti-diamond me-2"></i>
                                         {{ $subscription->plan->name }}
                                     </a>
                                 </td>
@@ -189,14 +189,14 @@
                                     <div class="text-end">
                                         <button type="button" class="btn btn-sm rounded-3" data-bs-toggle="dropdown"
                                             aria-expanded="true">
-                                            <i class="fa fa-ellipsis-v fa-sm text-muted"></i>
+                                            <i class="ti ti-dots-vertical fa-sm text-muted"></i>
                                         </button>
                                         <ul class="dropdown-menu dropdown-menu-sm-end dropdown-menu-lg"
                                             data-popper-placement="bottom-end">
                                             <li>
                                                 <a class="dropdown-item"
                                                     href="{{ route('admin.subscriptions.edit', $subscription->id) }}"><i
-                                                        class="fa fa-edit me-2"></i>{{ admin_lang('Edit') }}</a>
+                                                        class="ti ti-edit me-2"></i>{{ admin_lang('Edit') }}</a>
                                             </li>
                                             <li>
                                                 <a class="dropdown-item"
@@ -212,7 +212,7 @@
                                                     method="POST">
                                                     @csrf @method('DELETE')
                                                     <button class="billiongroup-able-to-delete dropdown-item text-danger"><i
-                                                            class="far fa-trash-alt me-2"></i>{{ admin_lang('Delete') }}</button>
+                                                            class="ti ti-trash me-2"></i>{{ admin_lang('Delete') }}</button>
                                                 </form>
                                             </li>
                                         </ul>
@@ -225,7 +225,7 @@
             </div>
             @if ($canceledSubscriptions->count() > 0)
                 <div class="tab-pane fade" id="canceled" role="tabpanel" aria-labelledby="canceled-tab">
-                    <table class="datatable50 table w-100">
+                    <table class="dtable table w-100">
                         <thead>
                             <tr>
                                 <th class="tb-w-2x">{{ admin_lang('#') }}</th>
@@ -257,7 +257,7 @@
                                     </td>
                                     <td><a href="{{ route('admin.plans.edit', $subscription->plan->id) }}"
                                             style="color: {{ $subscription->plan->color }}"><i
-                                                class="far fa-gem me-2"></i>
+                                                class="ti ti-diamond me-2"></i>
                                             {{ $subscription->plan->name }}
                                         </a>
                                     </td>
@@ -280,14 +280,14 @@
                                         <div class="text-end">
                                             <button type="button" class="btn btn-sm rounded-3" data-bs-toggle="dropdown"
                                                 aria-expanded="true">
-                                                <i class="fa fa-ellipsis-v fa-sm text-muted"></i>
+                                                <i class="ti ti-dots-vertical fa-sm text-muted"></i>
                                             </button>
                                             <ul class="dropdown-menu dropdown-menu-sm-end dropdown-menu-lg"
                                                 data-popper-placement="bottom-end">
                                                 <li>
                                                     <a class="dropdown-item"
                                                         href="{{ route('admin.subscriptions.edit', $subscription->id) }}"><i
-                                                            class="fa fa-edit me-2"></i>{{ admin_lang('Edit') }}</a>
+                                                            class="ti ti-edit me-2"></i>{{ admin_lang('Edit') }}</a>
                                                 </li>
                                                 <li>
                                                     <a class="dropdown-item"
@@ -304,7 +304,7 @@
                                                         @csrf @method('DELETE')
                                                         <button
                                                             class="billiongroup-able-to-delete dropdown-item text-danger"><i
-                                                                class="far fa-trash-alt me-2"></i>{{ admin_lang('Delete') }}</button>
+                                                                class="ti ti-trash me-2"></i>{{ admin_lang('Delete') }}</button>
                                                     </form>
                                                 </li>
                                             </ul>
@@ -329,7 +329,7 @@
                     <form action="{{ route('admin.subscriptions.store') }}" method="POST">
                         @csrf
                         <div class="mb-3">
-                            <label class="form-label">{{ admin_lang('User') }} : <span class="red">*</span></label>
+                            <label class="form-label">{{ admin_lang('User') }} : <span class="text-danger">*</span></label>
                             <select id="billiongroup-select-user" name="user" class="form-select select2Modal" required>
                                 <option></option>
                                 @foreach ($users as $user)
@@ -343,7 +343,7 @@
                             </select>
                         </div>
                         <div class="mb-4">
-                            <label class="form-label">{{ admin_lang('Plan') }} : <span class="red">*</span></label>
+                            <label class="form-label">{{ admin_lang('Plan') }} : <span class="text-danger">*</span></label>
                             <select name="plan" class="form-select" required>
                                 <option value="" selected disabled>{{ admin_lang('Choose') }}</option>
                                 @foreach ($plans as $plan)

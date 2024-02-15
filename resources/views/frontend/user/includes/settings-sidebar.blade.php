@@ -19,7 +19,7 @@
             <div class="settings-links">
                 <a href="{{ route('user.settings.index') }}"
                     class="settings-link {{ request()->routeIs('user.settings.index') ? 'active' : '' }}">
-                    <i class="fa fa-edit"></i>{{ lang('Account details', 'account') }}
+                    <i class="ti ti-edit"></i>{{ lang('Account details', 'account') }}
                 </a>
                 <a href="{{ route('user.settings.subscription') }}"
                     class="settings-link {{ request()->routeIs('user.settings.subscription') ? 'active' : '' }}">

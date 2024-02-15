@@ -36,13 +36,13 @@
                                 <div class="text-end">
                                     <button type="button" class="btn btn-sm rounded-3" data-bs-toggle="dropdown"
                                         aria-expanded="true">
-                                        <i class="fa fa-ellipsis-v fa-sm text-muted"></i>
+                                        <i class="ti ti-dots-vertical fa-sm text-muted"></i>
                                     </button>
                                     <ul class="dropdown-menu dropdown-menu-sm-end" data-popper-placement="bottom-end">
                                         <li>
                                             <a class="dropdown-item"
                                                 href="{{ route('admin.advertisements.edit', $advertisement->id) }}"><i
-                                                    class="fa fa-edit me-2"></i>{{ admin_lang('Edit') }}</a>
+                                                    class="ti ti-edit me-2"></i>{{ admin_lang('Edit') }}</a>
                                         </li>
                                     </ul>
                                 </div>

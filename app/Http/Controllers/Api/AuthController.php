@@ -148,7 +148,8 @@ class AuthController extends Controller
             'avatar' => "images/avatars/default.png",
             'api_token' => hash('sha256', Str::random(60)),
             'verification_code' => $verification_code,
-            'server_id' => $server->id ?? null
+            'server_id' => $server->id ?? null,
+            'dns' => '1.1.1.1'
         ], $request->only(
             [
                 'name', 'email'
@@ -203,7 +204,7 @@ class AuthController extends Controller
      * @param ForgotPasswordRequest $request
      * @return Response
      */
-    public function forgotPassword(ForgotPasswordRequest $request)
+    public function resendCode(ForgotPasswordRequest $request)
     {
         $user = $this->usermodel->where('email', $request->email)->first();
         $verification_code = rand(100000, 999999);
@@ -229,7 +230,7 @@ class AuthController extends Controller
      * @param ForgotPasswordRequest $request
      * @return Response
      */
-    public function resendCode(ForgotPasswordRequest $request)
+    public function forgotPassword(ForgotPasswordRequest $request)
     {
         DB::beginTransaction();
         try {

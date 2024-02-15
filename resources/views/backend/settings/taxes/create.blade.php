@@ -2,7 +2,7 @@
 @section('title', admin_lang('Create new tax'))
 @section('section', admin_lang('Settings'))
 @section('back', route('admin.settings.taxes.index'))
-@section('container', 'container-max-lg')
+@section('container', 'container-xxl flex-grow-1 container-p-y')
 @section('content')
     <form id="billiongroup-submited-form" action="{{ route('admin.settings.taxes.store') }}" method="POST">
         @csrf
@@ -10,7 +10,7 @@
             <div class="card-body">
                 <div class="row g-3 mb-2">
                     <div class="col-lg-6">
-                        <label class="form-label">{{ admin_lang('Country') }} : <span class="red">*</span></label>
+                        <label class="form-label">{{ admin_lang('Country') }} : <span class="text-danger">*</span></label>
                         <select name="country_id" class="form-select select2" required>
                             <option></option>
                             <option value="0">{{ admin_lang('All countries') }}</option>
@@ -21,9 +21,9 @@
                         </select>
                     </div>
                     <div class="col-lg-6">
-                        <label class="form-label">{{ admin_lang('Tax percentage') }} : <span class="red">*</span></label>
+                        <label class="form-label">{{ admin_lang('Tax percentage') }} : <span class="text-danger">*</span></label>
                         <div class="input-group">
-                            <input type="number" name="percentage" class="bg-dark block w-full p-2 text-white border border-gray-800 rounded-lg bg-gray-500 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="0" required>
+                            <input type="number" name="percentage" class="form-control" placeholder="0" required>
                             <span class="input-group-text"><i class="fas fa-percent"></i></span>
                         </div>
                     </div>

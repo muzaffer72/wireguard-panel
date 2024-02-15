@@ -1,32 +1,43 @@
 @extends('backend.layouts.auth')
 @section('title', admin_lang('Login'))
 @section('content')
-   
-    <form action="{{ route('admin.login.store') }}" method="POST">
-        @csrf
-        <div class="mb-3">
-            <label class="form-label">{{ admin_lang('Email Address') }} : <span class="red">*</span></label>
-            <input type="email" name="email" class="bg-dark block w-full p-2 text-white border border-gray-800 rounded-lg bg-gray-500 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ old('email') }}" required />
-        </div>
-        <div class="mb-3">
-            <label class="form-label">{{ admin_lang('Password') }} : <span class="red">*</span></label>
-            <input type="password" name="password" class="bg-dark block w-full p-2 text-white border border-gray-800 rounded-lg bg-gray-500 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
-        </div>
-        <div class="row mb-3">
-            <div class="col-auto">
-                <label class="form-check mb-0">
-                    <input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}
-                        class="form-check-input">
-                    <span class="form-check-label">{{ admin_lang('Remember me') }}</span>
-                </label>
-            </div>
-            <div class="col-auto ms-auto">
-            <p class="text-md font-medium text-white dark:text-white"><a href="{{ route('admin.password.reset') }}">{{ admin_lang('Forgot password') }}?</a></p>
-                
-            </div>
-        </div>
-        {!! display_captcha() !!}
-        
-        <button class="btn btn-primary btn-lg d-block w-100 text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">{{ admin_lang('Login') }}</button>
-    </form>
+<h3 class="mb-1">Welcome to WG-Backend 👋</h3>
+<p class="mb-4">Please sign-in to your account and start the adventure</p>
+<form id="formAuthentication" class="mb-3" action="{{ route('admin.login.store') }}" method="POST">
+  @csrf
+  <div class="mb-3">
+    <label for="email" class="form-label">{{ admin_lang('Email Address') }}</label>
+    <input
+      type="email"
+      class="form-control"
+      id="email"
+      name="email"
+      placeholder="Enter your email"
+      autofocus />
+  </div>
+  <div class="mb-3 form-password-toggle">
+    <div class="d-flex justify-content-between">
+      <label class="form-label" for="password">{{ admin_lang('Password') }}</label>
+      <a href="{{ route('admin.password.reset') }}"><small>{{ admin_lang('Forgot password') }}?</a></small>
+    </div>
+    <div class="input-group input-group-merge">
+      <input
+        type="password"
+        id="password"
+        class="form-control"
+        name="password"
+        placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
+        aria-describedby="password" />
+      <span class="input-group-text cursor-pointer"><i class="ti ti-eye-off"></i></span>
+    </div>
+  </div>
+  <div class="mb-3">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }} />
+      <label class="form-check-label" for="remember-me"> {{ admin_lang('Remember me') }} </label>
+    </div>
+  </div>
+  {!! display_captcha() !!}
+  <button class="btn btn-primary d-grid w-100">{{ admin_lang('Login') }}</button>
+</form>
 @endsection
