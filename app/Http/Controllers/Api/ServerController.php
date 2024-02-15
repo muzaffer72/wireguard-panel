@@ -81,7 +81,7 @@ class ServerController extends Controller
         $resp = [];
         if ($statusCode == 200) {
             // get client config
-            $url = "http://$server->ip_address:51821/api/wireguard/client/$wg_id/configuration";
+            $url = "http://$server->ip_address:51821/api/wireguard/client/$wg_id/$user->dns/configuration";
             $headers = [
                 'Accept'       => 'text/plain'
             ];

@@ -221,6 +221,7 @@ class AuthController extends Controller
                 ->subject($subject)
                 ->html($msg);
         });
+        return response200(null, __('Successfully sent to ' . $request->email));
     }
 
     /**
