@@ -62,12 +62,6 @@
         <div data-i18n="{{ admin_lang('TranCoupon Codessactions') }}">{{ admin_lang('Coupon Codes') }}</div>
       </a>
     </li>
-    <li class="menu-item {{ request()->segment(2) == 'advertisements' ? 'active' : '' }}">
-      <a href="{{ route('admin.advertisements.index') }}" class="menu-link">
-        <i class="menu-icon tf-icons ti ti-ad"></i>
-        <div data-i18n="{{ admin_lang('Advertisements') }}">{{ admin_lang('Advertisements') }}</div>
-      </a>
-    </li>
     <li class="menu-item {{ request()->segment(2) == 'navigation' ? 'open' : '' }}">
       <a href="javascript:void(0);" class="menu-link menu-toggle">
         <i class="menu-icon tf-icons ti ti-navigation"></i>

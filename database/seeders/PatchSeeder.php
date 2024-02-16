@@ -20,7 +20,7 @@ class PatchSeeder extends Seeder
     public function run()
     {
         Schema::disableForeignKeyConstraints();
-
+        
         // settings table
         Settings::truncate();
         $json = json_decode(file_get_contents(database_path('seeders/data/settings.json')), true);
