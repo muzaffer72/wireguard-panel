@@ -164,18 +164,12 @@
               responsivePriority: 2,
               targets: 3,
               render: function (data, type, full, meta) {
-                return data;
-              }
-            },
-            {
-              // For Responsive
-              className: '',
-              searchable: false,
-              orderable: false,
-              responsivePriority: 2,
-              targets: 3,
-              render: function (data, type, full, meta) {
-                return data;
+                if (full['plan_id'] == "") return '';
+                const ret = `<a href="${full['plan_id']}"><i
+                                class="ti ti-diamond me-2"></i>
+                                ${full['plan']}
+                              </a>`;
+                return ret;
               }
             },
             {
