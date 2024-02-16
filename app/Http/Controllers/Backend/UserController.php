@@ -99,7 +99,7 @@ class UserController extends Controller
             $q->where('plans.id','=', $planparam);
         }
                         
-        $records = $q->select('users.*','plans.name as plan')
+        $records = $q->select('users.*','plans.id as plan_id', 'plans.name as plan')
             ->skip($start)
             ->take($rowperpage)
             ->get();
@@ -138,6 +138,7 @@ class UserController extends Controller
                 "id" => $record->id,
                 "name" => $record->name,
                 "subscription" => $subscription,
+                "plan_id" => $record->plan_id ? route('admin.plans.edit', $record->plan_id) : '',
                 "plan" => $record->plan,
                 "email" => $record->email,
                 "avatar" => $record->avatar,
