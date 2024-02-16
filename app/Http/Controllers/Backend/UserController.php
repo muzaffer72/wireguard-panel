@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Country;
 use App\Models\User;
 use App\Models\UserLog;
+use App\Models\Plan;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -25,29 +26,138 @@ class UserController extends Controller
         }
         $activeUsersCount = User::where('status', 1)->get()->count();
         $bannedUserscount = User::where('status', 0)->get()->count();
-        if ($request->input('search')) {
-            $q = $request->input('search');
-            $users = User::where('firstname', 'like', '%' . $q . '%')
-                ->OrWhere('lastname', 'like', '%' . $q . '%')
-                ->OrWhere('email', 'like', '%' . $q . '%')
-                ->orderbyDesc('id')
-                ->paginate(30);
-            $users->appends(['search' => $q]);
-        } elseif ($request->input('filter')) {
-            $filter = $request->input('filter');
-            $arr = ['active', 'banned'];
-            abort_if(!in_array($filter, $arr), 404);
-            $status = ($filter == 'active') ? 1 : 0;
-            $users = User::where('status', $status)->orderbyDesc('id')->paginate(30);
-            $users->appends(['filter' => $filter]);
-        } else {
-            $users = User::orderbyDesc('id')->paginate(30);
-        }
+
+        $plans = Plan::orderBy('name','asc')->get();
+        
         return view('backend.users.index', [
-            'users' => $users,
+            'plans' => $plans,
             'activeUsersCount' => $activeUsersCount,
             'bannedUserscount' => $bannedUserscount,
         ]);
+    }
+
+    public function ajaxData(Request $request)
+    {
+        $draw = $request->get('draw');
+        $start = $request->get("start");
+        $rowperpage = $request->get("length"); // total number of rows per page
+
+        $columnIndex_arr = $request->get('order');
+        $columnName_arr = $request->get('columns');
+        $order_arr = $request->get('order');
+        $search_arr = $request->get('search');
+
+        $columnIndex = $columnIndex_arr[0]['column']; // Column index
+        $columnName = $columnName_arr[$columnIndex]['data']; // Column name
+        $columnSortOrder = $order_arr[0]['dir']; // asc or desc
+        $searchValue = $search_arr['value']; // Search value
+
+        // param plan
+        $planparam = $columnName_arr[3]['search']['value'];
+
+        // Total records
+        $totalRecords = User::select('count(*) as allcount')
+        ->orWhere(function ($query) use ($searchValue) {
+            $query->where('users.name', 'like', '%' . $searchValue . '%')
+            ->orWhere('users.firstname', 'like', '%' . $searchValue . '%')
+            ->orWhere('users.lastname', 'like', '%' . $searchValue . '%');
+        })
+        ->leftJoin('subscriptions', 'users.id', '=', 'subscriptions.user_id')
+        ->leftJoin('plans', 'subscriptions.plan_id', '=', 'plans.id');
+
+        if ($planparam != "") {
+            $totalRecords->where('plans.id','=', $planparam);
+        }
+        $totalRecords = $totalRecords->count();
+
+        // total with filter
+        $totalRecordswithFilter = User::select('count(*) as allcount')
+        ->orWhere(function ($query) use ($searchValue) {
+            $query->where('users.name', 'like', '%' . $searchValue . '%')
+            ->orWhere('users.firstname', 'like', '%' . $searchValue . '%')
+            ->orWhere('users.lastname', 'like', '%' . $searchValue . '%');
+        })
+        ->leftJoin('subscriptions', 'users.id', '=', 'subscriptions.user_id')
+        ->leftJoin('plans', 'subscriptions.plan_id', '=', 'plans.id');
+
+        if ($planparam != "") {
+            $totalRecordswithFilter->where('plans.id','=', $planparam);
+        }
+        $totalRecordswithFilter = $totalRecordswithFilter->count();
+
+        // Get records, also we have included search filter as well
+        $q = User::orderBy($columnName, $columnSortOrder)
+            ->orWhere(function ($query) use ($searchValue) {
+                $query->where('users.name', 'like', '%' . $searchValue . '%')
+                ->orWhere('users.firstname', 'like', '%' . $searchValue . '%')
+                ->orWhere('users.lastname', 'like', '%' . $searchValue . '%');
+            })
+            ->leftJoin('subscriptions', 'users.id', '=', 'subscriptions.user_id')
+            ->leftJoin('plans', 'subscriptions.plan_id', '=', 'plans.id');
+
+        if ($planparam != "") {
+            $q->where('plans.id','=', $planparam);
+        }
+                        
+        $records = $q->select('users.*','plans.name as plan')
+            ->skip($start)
+            ->take($rowperpage)
+            ->get();
+
+        $data_arr = array();
+
+        foreach ($records as $record) {
+            // subscription
+            $subscription = "";
+            if ($record->isSubscribed()) {
+                if ($record->subscription->isCancelled()) {
+                    $subscription = 'Canceled';
+                } elseif ($record->subscription->isExpired()) {
+                    $subscription = 'Expired';
+                } else {
+                    $subscription = 'Subscribed';
+                }
+            } else {
+                $subscription = 'Unsubscribed';
+            }
+
+            // email status
+            if ($record->email_verified_at) {
+                $email_status = '<span class="badge bg-girl">' . admin_lang('Verified') . '</span>';
+            } else {
+                $email_status = '<span class="badge bg-secondary">' . admin_lang('Unverified') . '</span>';
+            }
+
+            // account status
+            if ($record->status) {
+                $account_status = '<span class="badge bg-success">' . admin_lang('Active') . '</span>';
+            } else {
+                $account_status = '<span class="badge bg-danger">' . admin_lang('Banned') . '</span>';
+            }
+            $data_arr[] = array(
+                "id" => $record->id,
+                "name" => $record->name,
+                "subscription" => $subscription,
+                "plan" => $record->plan,
+                "email" => $record->email,
+                "avatar" => $record->avatar,
+                "email_verified_at" => $record->email_verified_at,
+                "email_status" => $email_status,
+                "account_status" => $account_status,
+                "subs_label" => admin_lang($subscription),
+                "link_detail" => route('admin.users.edit', $record->id),
+                "link_destroy" => route('admin.users.destroy', $record->id)
+            );
+        }
+
+        $response = array(
+            "draw" => intval($draw),
+            "recordsTotal" => $totalRecords,
+            "recordsFiltered" => $totalRecordswithFilter,
+            "data" => $data_arr,
+        );
+
+        echo json_encode($response);
     }
 
     public function create()

@@ -38,6 +38,7 @@ Route::group(['prefix' => adminPath(), 'namespace' => 'Backend'], function () {
                 Route::delete('deleteallread', 'NotificationController@deleteAllRead')->name('deleteallread');
             });
             Route::name('users.')->prefix('users')->group(function () {
+                Route::post('ajax', 'UserController@ajaxData');
                 Route::post('{user}/edit/change/avatar', 'UserController@changeAvatar');
                 Route::delete('{user}/edit/delete/avatar', 'UserController@deleteAvatar')->name('deleteAvatar');
                 Route::post('{user}/edit/sentmail', 'UserController@sendMail')->name('sendmail');
