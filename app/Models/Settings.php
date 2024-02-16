@@ -12,7 +12,7 @@ class Settings extends UnicodeModel
     public $timestamps = false;
 
     protected $casts = [
-        // 'value' => 'object',
+        'value' => 'object',
     ];
 
     public static function selectSettings($key)
