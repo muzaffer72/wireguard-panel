@@ -7,6 +7,8 @@ use App\Models\Country;
 use App\Models\User;
 use App\Models\UserLog;
 use App\Models\Plan;
+use App\Models\Subscription;
+use App\Models\Server;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -186,6 +188,10 @@ class UserController extends Controller
         } else {
             $avatar = "images/avatars/default.png";
         }
+
+        // get random free server
+        $server = Server::inRandomOrder()->where('status',1)->where('is_premium',0)->first();
+
         $user = User::create([
             'name' => $request->firstname . ' ' . $request->lastname,
             'firstname' => $request->firstname,
@@ -193,11 +199,32 @@ class UserController extends Controller
             'email' => $request->email,
             'avatar' => $avatar,
             'password' => Hash::make($request->password),
+            'api_token' => hash('sha256', Str::random(60)),
+            'server_id' => $server->id ?? null,
+            'dns' => '1.1.1.1'
         ]);
         if ($user) {
             if (settings('actions')->email_verification_status) {
                 $user->forceFill(['email_verified_at' => Carbon::now()])->save();
             }
+            
+            // auto subs ke free plan
+            $plan = Plan::find(13);// id plan harus 13
+            if (is_null($plan)) {
+                return response422(['plan' => [__(admin_lang('Plan not exists'))]]);
+            }
+            if ($plan->interval == 1) {
+                $expiry_at = Carbon::now()->addMonth();
+            } else {
+                $expiry_at = Carbon::now()->addYear();
+            }
+            Subscription::create([
+                'user_id' => $user->id,
+                'plan_id' => $plan->id,
+                'expiry_at' => $expiry_at,
+                'is_viewed' => 0,
+            ]);
+
             toastr()->success(admin_lang('Created Successfully'));
             return redirect()->route('admin.users.edit', $user->id);
         }
