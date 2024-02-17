@@ -33,6 +33,7 @@ class SubscriptionController extends Controller
 
         $validator = Validator::make($request->all(), [
             'plan' => ['required', 'integer'],
+            'expiry_at' => ['required'],
         ]);
         if ($validator->fails()) {
             return response()->json(['errors'=>$validator->errors()]);
@@ -41,14 +42,15 @@ class SubscriptionController extends Controller
         $plan = Plan::findOrFail($request->plan);
         $subscription = $subscription::where('user_id', $user->id);
 
-        $subs = $subscription->first();
-        $exp = explode(" ", $subs->expiry_at)[0] . " " . date("H:i:s");
-        if ($plan->interval == 1) {
-            $expiry_at = Carbon::parse($exp)->addMonth();
-        } else {
-            $expiry_at = Carbon::parse($exp)->addYear();
-        }
+        // $subs = $subscription->first();
+        // $exp = explode(" ", $subs->expiry_at)[0] . " " . date("H:i:s");
+        // if ($plan->interval == 1) {
+        //     $expiry_at = Carbon::parse($exp)->addMonth();
+        // } else {
+        //     $expiry_at = Carbon::parse($exp)->addYear();
+        // }
 
+        $expiry_at = Carbon::parse($request->expiry_at);
         $updateSubscription = $subscription->update([
             'plan_id' => $plan->id,
             'expiry_at' => $expiry_at,
