@@ -24,10 +24,12 @@
 </head>
 
 <body>
-    @include('frontend.includes.navbar')
-    @yield('content')    
-    @include('frontend.includes.footer')
-    @include('frontend.global.scripts')
+  @include('frontend.includes.navbar')
+  @yield('content')
+  @include('frontend.includes.footer')
+  @include('frontend.configurations.config')
+  @include('frontend.configurations.widgets')
+  @include('frontend.global.scripts')
 </body>
 
 </html>

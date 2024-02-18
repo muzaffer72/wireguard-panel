@@ -16,7 +16,7 @@
           <i class="ti ti-menu-2 ti-sm align-middle"></i>
         </button>
         <!-- Mobile menu toggle: End-->
-        <a href="{{ route('admin.dashboard') }}" class="app-brand-link">
+        <a href="{{ route('home') }}" class="app-brand-link">
           <span class="app-brand-logo demo">
             <img src="{{ asset($settings->media->light_logo) }}" alt="{{ $settings->general->site_name }}" />
           </span>
@@ -94,12 +94,18 @@
         <!-- / Style Switcher-->
 
         <!-- navbar button: Start -->
-        <li>
-          <a href="../vertical-menu-template/auth-login-cover.html" class="btn btn-primary" target="_blank"
-            ><span class="tf-icons ti ti-login scaleX-n1-rtl me-md-1"></span
-            ><span class="d-none d-md-block">Login/Register</span></a
-          >
-        </li>
+        @guest
+          <li>
+            <a href="{{ route('login') }}" class="btn btn-primary">
+              <span class="tf-icons ti ti-login scaleX-n1-rtl me-md-1"></span
+            >
+              <span class="d-none d-md-block">Login/Register</span>
+            </a>
+          </li>
+        @endguest
+        @auth
+          @include('frontend.global.user-menu')
+        @endauth
         <!-- navbar button: End -->
       </ul>
       <!-- Toolbar: End -->

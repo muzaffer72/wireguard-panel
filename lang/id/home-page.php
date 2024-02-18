@@ -35,4 +35,7 @@ return array (
   'read_more' => 'Read More',
   'your_prompt_contains_forbidden_words' => 'Your prompt contains forbidden words',
   'download_now' => 'Download Now',
+  'tombol_kalo_subscribed' => 'Tombol kalo subscribed',
+  'button_when_subscribed' => 'Button When subscribed',
+  'button_when_expired' => 'Button When expired',
 );

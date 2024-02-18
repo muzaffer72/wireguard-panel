@@ -12,7 +12,9 @@ class SubscriptionManager
     {
         if (Auth::user()) {
             $subscription = self::users();
-        } 
+            return (object) $subscription;
+        }
+        return false;
     }
 
     private static function users()

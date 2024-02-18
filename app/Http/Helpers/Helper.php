@@ -1045,7 +1045,7 @@ function array_diff_key_objects($obj1, $obj2)
 }
 
 function subscription()
-{
+{    
     return SubscriptionManager::subscription();
 }
 

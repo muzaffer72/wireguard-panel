@@ -21,8 +21,11 @@
             <div class="landing-hero-btn d-inline-block position-relative">
               @if (subscription())
                 @if (subscription()->is_subscribed)
-                  <a href="#landingPricing" class="btn btn-primary btn-lg">Get early access</a>
+                  <a href="{{ route('user.settings.index') }}"
+                    class="btn btn-primary btn-lg">{{ lang('Button When subscribed', 'home page') }}</a>
                 @else
+                  <a href="{{ route('user.settings.index') }}"
+                    class="btn btn-primary btn-lg">{{ lang('Button When expired', 'home page') }}</a>
                 @endif
               @else
                 <a href="{{ route('login') }}"
