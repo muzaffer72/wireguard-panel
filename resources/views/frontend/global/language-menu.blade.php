@@ -1,22 +1,24 @@
 @if ($settings->actions->language_menu_status)
-    <div class="drop-down languages" data-dropdown data-dropdown-position="top">
-        <div class="drop-down-btn">
-            <div class="language-img">
-                <img src="{{ getLangFlag() }}" alt="{{ getLangName() }}" />
+  <li class="nav-item dropdown me-2 me-xl-0">
+    <a class="nav-link dropdown-toggle d-flex align-items-center" href="javascript:void(0);" data-bs-toggle="dropdown">
+      <div class="language-img pe-2">
+          <img src="{{ getLangFlag() }}" alt="{{ getLangName() }}" width="25px"/>
+      </div>
+      <span class="d-none d-md-block">{{ getLangName() }}</span>
+      <i class="ti ti-angle-down ms-2"></i>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end dropdown-styles">
+      @foreach ($languages as $language)
+        <li>
+          <a href="{{ langURL($language->code) }}"
+            class="dropdown-item d-flex align-items-center {{ getLang() == $language->code ? 'active' : '' }}">
+            <div class="language-img pe-2">
+              <img src="{{ asset($language->flag) }}" alt="{{ $language->name }}" width="25px"/>
             </div>
-            <span>{{ getLangName() }}</span>
-            <i class="fa fa-angle-down ms-2"></i>
-        </div>
-        <div class="drop-down-menu">
-            @foreach ($languages as $language)
-                <a href="{{ langURL($language->code) }}"
-                    class="drop-down-item {{ getLang() == $language->code ? 'active' : '' }}">
-                    <div class="language-img">
-                        <img src="{{ asset($language->flag) }}" alt="{{ $language->name }}" />
-                    </div>
-                    <span>{{ $language->name }}</span>
-                </a>
-            @endforeach
-        </div>
-    </div>
+            <span>{{ $language->name }}</span>
+          </a>
+        </li>
+      @endforeach
+    </ul>
+  </li>
 @endif

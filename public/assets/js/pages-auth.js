@@ -22,6 +22,20 @@ document.addEventListener('DOMContentLoaded', function (e) {
               }
             }
           },
+          firstname: {
+            validators: {
+              notEmpty: {
+                message: 'Please enter your Firstname'
+              }
+            }
+          },
+          lastname: {
+            validators: {
+              notEmpty: {
+                message: 'Please enter your Lastname'
+              }
+            }
+          },
           email: {
             validators: {
               notEmpty: {

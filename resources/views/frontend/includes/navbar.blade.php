@@ -1,70 +1,108 @@
-<div class="nav-bar">
-    <div class="container">
-        <div class="nav-bar-container">
-            <a href="{{ route('home') }}" class="logo">
-                <img class="logo-dark" src="{{ asset($settings->media->dark_logo) }}"
-                    alt="{{ $settings->general->site_name }}" />
-                <img class="logo-light d-none" src="{{ asset($settings->media->light_logo) }}"
-                    alt="{{ $settings->general->site_name }}" />
-            </a>
-            <div class="nav-bar-menu">
-                <div class="overlay"></div>
-                <div class="nav-bar-links">
-                    <div class="nav-bar-menu-header">
-                        <a class="nav-bar-menu-close ms-auto">
-                            <i class="fa fa-times"></i>
+<!-- Navbar: Start -->
+<nav class="layout-navbar shadow-none py-0">
+  <div class="container">
+    <div class="navbar navbar-expand-lg landing-navbar px-3 px-md-4">
+      <!-- Menu logo wrapper: Start -->
+      <div class="navbar-brand app-brand demo d-flex py-0 py-lg-2 me-4">
+        <!-- Mobile menu toggle: Start-->
+        <button
+          class="navbar-toggler border-0 px-0 me-2"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation">
+          <i class="ti ti-menu-2 ti-sm align-middle"></i>
+        </button>
+        <!-- Mobile menu toggle: End-->
+        <a href="{{ route('admin.dashboard') }}" class="app-brand-link">
+          <span class="app-brand-logo demo">
+            <img src="{{ asset($settings->media->light_logo) }}" alt="{{ $settings->general->site_name }}" />
+          </span>
+          <span class="app-brand-text demo menu-text fw-bold">{{ $settings->general->site_name }}</span>
+        </a>
+      </div>
+      <!-- Menu logo wrapper: End -->
+      <!-- Menu wrapper: Start -->
+      <div class="collapse navbar-collapse landing-nav-menu" id="navbarSupportedContent">
+        <button
+          class="navbar-toggler border-0 text-heading position-absolute end-0 top-0 scaleX-n1-rtl"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation">
+          <i class="ti ti-x ti-sm"></i>
+        </button>
+        <ul class="navbar-nav me-auto">
+          @foreach ($navbarMenuLinks as $navbarMenuLink)
+            <li class="nav-item">
+              @if ($navbarMenuLink->children->count() > 0)
+                <div class="btn-group">
+                  <a class="nav-link fw-medium dropdown-toggle waves-effect waves-light" data-bs-toggle="dropdown" aria-expanded="false">{{ $navbarMenuLink->name }}</a>
+                  <ul class="dropdown-menu" style="">
+                    @foreach ($navbarMenuLink->children as $child)
+                      <li>
+                        <a href="{{ $child->link }}" class="dropdown-item">
+                          <span>{{ $child->name }}</span>
                         </a>
-                    </div>
-                    @foreach ($navbarMenuLinks as $navbarMenuLink)
-                        @if ($navbarMenuLink->children->count() > 0)
-                            <div class="drop-down" data-dropdown data-dropdown-position="top">
-                                <div class="drop-down-btn">
-                                    <span>{{ $navbarMenuLink->name }}</span>
-                                    <i class="fa fa-angle-down ms-2"></i>
-                                </div>
-                                <div class="drop-down-menu">
-                                    @foreach ($navbarMenuLink->children as $child)
-                                        <a href="{{ $child->link }}" class="drop-down-item">
-                                            <span>{{ $child->name }}</span>
-                                        </a>
-                                    @endforeach
-                                </div>
-                            </div>
-                        @else
-                            <a href="{{ $navbarMenuLink->link }}" class="link">
-                                <div class="link-title">
-                                    <span>{{ $navbarMenuLink->name }}</span>
-                                </div>
-                            </a>
-                        @endif
+                      </li>
                     @endforeach
-                    @include('frontend.global.language-menu')
-                    @guest
-                        <a href="{{ route('login') }}" class="link-btn">
-                            <button class="btn btn-outline-primary">{{ lang('Sign In', 'auth') }}</button>
-                        </a>
-                        @if ($settings->actions->registration_status)
-                            <a href="{{ route('register') }}" class="link-btn">
-                                <button class="btn btn-primary">{{ lang('Sign Up', 'auth') }}</button>
-                            </a>
-                        @endif
-                    @endguest
+                  </ul>
                 </div>
-            </div>
-            <div class="nav-bar-actions">
-                @auth
-                    @include('frontend.global.user-menu')
-                @endauth
-                @if ($settings->theme->mode_switcher)
-                    <button class="btn btn-theme ms-3">
-                        <i class="fa fa-sun"></i>
-                        <i class="fa fa-moon"></i>
-                    </button>
-                @endif
-                <div class="nav-bar-menu-btn">
-                    <i class="fa-solid fa-bars-staggered fa-lg"></i>
-                </div>
-            </div>
-        </div>
+              @else
+                <a class="nav-link fw-medium" href="{{ $navbarMenuLink->link }}">
+                  <div class="link-title">
+                    <span>{{ $navbarMenuLink->name }}</span>
+                  </div>
+                </a>
+              @endif
+            </li>
+          @endforeach
+        </ul>
+      </div>
+      <div class="landing-menu-overlay d-lg-none"></div>
+      <!-- Menu wrapper: End -->
+      <!-- Toolbar: Start -->
+      <ul class="navbar-nav flex-row align-items-center ms-auto">
+        @include('frontend.global.language-menu')
+        <!-- Style Switcher -->
+        <li class="nav-item dropdown-style-switcher dropdown me-2 me-xl-0">
+          <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
+            <i class="ti ti-sm"></i>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end dropdown-styles">
+            <li>
+              <a class="dropdown-item" href="javascript:void(0);" data-theme="light">
+                <span class="align-middle"><i class="ti ti-sun me-2"></i>Light</span>
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="javascript:void(0);" data-theme="dark">
+                <span class="align-middle"><i class="ti ti-moon me-2"></i>Dark</span>
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="javascript:void(0);" data-theme="system">
+                <span class="align-middle"><i class="ti ti-device-desktop me-2"></i>System</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <!-- / Style Switcher-->
+
+        <!-- navbar button: Start -->
+        <li>
+          <a href="../vertical-menu-template/auth-login-cover.html" class="btn btn-primary" target="_blank"
+            ><span class="tf-icons ti ti-login scaleX-n1-rtl me-md-1"></span
+            ><span class="d-none d-md-block">Login/Register</span></a
+          >
+        </li>
+        <!-- navbar button: End -->
+      </ul>
+      <!-- Toolbar: End -->
     </div>
-</div>
+  </div>
+</nav>
