@@ -7,6 +7,7 @@
 <link rel="stylesheet" href="{{ asset('assets/vendor/css/pages/front-page.css') }}">
 <!-- Vendors CSS -->
 <link rel="stylesheet" href="{{ asset('assets/vendor/libs/node-waves/node-waves.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/vendor/libs/animate-on-scroll/animate-on-scroll.css') }}">
 @stack('styles_libs')
 
 <link rel="stylesheet" href="{{ asset('assets/vendor/libs/nouislider/nouislider.css') }}">

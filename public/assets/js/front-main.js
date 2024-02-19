@@ -152,4 +152,15 @@ window.isDarkStyle = window.Helpers.isDarkStyle();
       imageEl.src = assetsPath + 'img/' + setImage; // Using window.assetsPath to get the exact relative path
     });
   }
+
+  // AOS
+  var aosInit = function aosInit() {
+    if ($('[data-aos]').length > 0) {
+      AOS.init({
+        once: true,
+        disable: 'mobile'
+      });
+    }
+  };
+  aosInit();
 })();

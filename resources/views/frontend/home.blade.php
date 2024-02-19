@@ -36,15 +36,13 @@
         </div>
       </div>
     </section>
-  </div>
-    
     {!! ads_home_page_center() !!}
-  
     @include('frontend.includes.faqs')
     @include('frontend.includes.articles')
+  </div>
     @push('styles_libs')
     @endpush
-    {!! ads_home_page_bottom() !!}
+      {!! ads_home_page_bottom() !!}
     @push('scripts_libs')
     @endpush
 @endsection

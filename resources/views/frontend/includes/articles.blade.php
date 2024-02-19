@@ -1,52 +1,46 @@
 @if ($settings->actions->blog_status && $blogArticles->count() > 0)
-    <section id="blogArticles" class="section">
-        <div class="container">
-            <div class="section-inner">
-                <div class="section-header">
-                    <h2 class="section-title">{{ lang('Latest blog posts', 'home page') }}</h2>
-                    <p class="fw-light text-muted col-lg-7 mb-0">
-                        {{ lang('blog section description', 'home page') }}
-                    </p>
+  <!-- FAQ: Start -->
+  <section id="landingArticles" class="section-py b-articles" data-aos="fade-up" data-aos-duration="1000">
+    <div class="container">
+      <h3 class="text-center mb-1">
+        {{ lang('Latest blog posts', 'home page') }}
+      </h3>
+      <p class="text-center mb-5 pb-3">{{ lang('blog section description', 'home page') }}</p>
+
+      <div class="row gy-4 mb-4">
+        @foreach ($blogArticles as $blogArticle)
+          <div class="col-sm-6 col-lg-4">
+            <div class="card p-2 h-100 shadow-none border">
+              <div class="rounded-2 text-center mb-3">
+                <a href="{{ route('blog.article', $blogArticle->slug) }}"
+                  ><img
+                    class="img-fluid"
+                    src="{{ asset($blogArticle->image) }}" alt="{{ $blogArticle->title }}"
+                /></a>
+              </div>
+              <div class="card-body p-3 pt-2">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                  <span class="badge bg-label-primary">{{ dateFormat($blogArticle->created_at) }}</span>
                 </div>
-                <div class="section-body">
-                    <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 justify-content-center g-3">
-                        @foreach ($blogArticles as $blogArticle)
-                            <div class="col" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
-                                <div class="blog-post">
-                                    <div class="blog-post-header">
-                                        <a href="{{ route('blog.article', $blogArticle->slug) }}">
-                                            <img src="{{ asset($blogArticle->image) }}" alt="{{ $blogArticle->title }}"
-                                                class="blog-post-img">
-                                        </a>
-                                    </div>
-                                    <div class="blog-post-body">
-                                        <div class="blog-post-time">
-                                            <time>{{ dateFormat($blogArticle->created_at) }}</time>
-                                        </div>
-                                        <a href="{{ route('blog.article', $blogArticle->slug) }}"
-                                            class="blog-post-title">
-                                            <h4>{{ $blogArticle->title }}</h4>
-                                        </a>
-                                        <p class="blog-post-text">{{ $blogArticle->short_description }}</p>
-                                        <div class="mt-2">
-                                            <a href="{{ route('blog.article', $blogArticle->slug) }}"
-                                                class="link link-secondary">
-                                                {{ lang('Read More', 'home page') }} <i
-                                                    class="fa fa-arrow-right fa-sm ms-1"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        @endforeach
-                    </div>
-                    <div class="d-flex justify-content-center mt-5">
-                        <a href="{{ route('blog.index') }}"
-                            class="btn btn-primary-icon btn-md">{{ lang('View More', 'home page') }}
-                            <i class="fas fa-arrow-right"></i></a>
-                    </div>
+                <a href="{{ route('blog.article', $blogArticle->slug) }}" class="h5">{{ $blogArticle->title }}</a>
+                <p class="mt-2">{{ $blogArticle->short_description }}</p>
+                <div class="mt-2">
+                  <a href="{{ route('blog.article', $blogArticle->slug) }}"
+                    class="link link-primary">
+                    {{ lang('Read More', 'home page') }} <i
+                        class="ti ti-arrow-right fa-sm ms-1"></i>
+                  </a>
                 </div>
+              </div>
             </div>
+          </div>
+        @endforeach
+        <div class="d-flex justify-content-center mt-5">
+          <a href="{{ route('blog.index') }}"
+            class="btn btn-primary btn-md">{{ lang('View More', 'home page') }}
+            <i class="ti ti-arrow-right"></i></a>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 @endif

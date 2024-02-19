@@ -2,8 +2,8 @@
 @section('title', lang('Settings', 'account'))
 @section('container', 'dash-container-small')
 @section('content')
-    <div class="settings">
-        <div class="row g-3">
+  <div class="settings">
+    <div class="row g-3">
             @include('frontend.user.includes.settings-sidebar')
             <div class="col-lg-8 col-xxl-9">
                 <div class="card-v p-0">
@@ -90,4 +90,5 @@
             </div>
         </div>
     </div>
+  </div>
 @endsection
