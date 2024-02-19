@@ -215,5 +215,25 @@ class DatabaseSeeder extends Seeder
                 'value'              => $value
             ]);
         }
+
+        // country table
+        Country::truncate();
+        $json = json_decode(file_get_contents(database_path('seeders/data/countries.json')), true);
+        foreach ($json as $row) {
+            Settings::create([
+                'id'              => $row['id'],
+                'code'            => $row['code'],
+                'name'            => $row['name'],
+                'capital'         => $row['capital'],
+                'continent'       => $row['continent'],
+                'continent_code'  => $row['continent_code'],
+                'phone'           => $row['phone'],
+                'currency'        => $row['currency'],
+                'symbol'          => $row['symbol'],
+                'alpha_3'         => $row['alpha_3'],
+                'created_at'      => $row['created_at'],
+                'updated_at'      => $row['updated_at'],
+            ]);
+        }
     }
 }
