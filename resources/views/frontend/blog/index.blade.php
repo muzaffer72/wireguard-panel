@@ -27,7 +27,7 @@
                                         <div class="mt-2">
                                             <a href="{{ route('blog.article', $blogArticle->slug) }}"
                                                 class="link link-primary">
-                                                {{ lang('Read More', 'blog') }} <i class="fa fa-arrow-right fa-sm ms-1"></i>
+                                                {{ lang('Read More', 'blog') }} <i class="ti ti-arrow-right fa-sm ms-1"></i>
                                             </a>
                                         </div>
                                     </div>

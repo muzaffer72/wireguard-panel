@@ -1,6 +1,6 @@
 @if ($settings->actions->blog_status && $blogArticles->count() > 0)
   <!-- FAQ: Start -->
-  <section id="landingArticles" class="section-py b-articles" data-aos="fade-up" data-aos-duration="1000">
+  <section id="landingArticles" class="section-py bg-body b-articles" data-aos="fade-up" data-aos-duration="1000">
     <div class="container">
       <h3 class="text-center mb-1">
         {{ lang('Latest blog posts', 'home page') }}
