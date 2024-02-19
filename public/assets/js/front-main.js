@@ -163,4 +163,32 @@ window.isDarkStyle = window.Helpers.isDarkStyle();
     }
   };
   aosInit();
+
+  var clipboardBtn = document.querySelectorAll(".btn-copy");
+  if (clipboardBtn) {
+    clipboardBtn.forEach(function (el) {
+      var clipboard = new ClipboardJS(el);
+      clipboard.on("success", function () {
+        toastr.success(getConfig.copiedToClipboardSuccess);
+      });
+    });
+  }
+
+  // Plan Switcher
+  var plans = document.querySelectorAll(".plans .plans-item"),
+    planSwitcher = document.querySelector(".plan-switcher");
+  if (planSwitcher) {
+    planSwitcher.querySelectorAll(".plan-switcher-item").forEach(function (el, id) {
+      el.onclick = function () {
+        planSwitcher.querySelectorAll(".plan-switcher-item").forEach(function (ele) {
+          ele.classList.remove("active");
+        });
+        el.classList.add("active");
+        plans.forEach(function (el) {
+          el.classList.remove("active");
+        });
+        plans[id].classList.add("active");
+      };
+    });
+  }
 })();

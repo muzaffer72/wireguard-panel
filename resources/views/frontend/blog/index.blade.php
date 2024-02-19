@@ -13,11 +13,11 @@
                                     <div class="blog-post-header">
                                         <a href="{{ route('blog.article', $blogArticle->slug) }}">
                                             <img src="{{ asset($blogArticle->image) }}" alt="{{ $blogArticle->title }}"
-                                                class="blog-post-img">
+                                                class="img-fluid">
                                         </a>
                                     </div>
                                     <div class="blog-post-body">
-                                        <div class="blog-post-time">
+                                        <div class="badge bg-label-primary mb-4">
                                             <time>{{ dateFormat($blogArticle->created_at) }}</time>
                                         </div>
                                         <a href="{{ route('blog.article', $blogArticle->slug) }}" class="blog-post-title">

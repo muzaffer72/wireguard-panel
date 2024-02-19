@@ -13,7 +13,7 @@
                         </div>
                         <div class="dash-table">
                             @if ($transactions->count() > 0)
-                                <table class="table table-striped table-light mb-0">
+                                <table class="table table-hover">
                                     <thead>
                                         <tr>
                                             <th>{{ lang('ID', 'account') }}</th>
