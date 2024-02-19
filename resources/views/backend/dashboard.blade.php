@@ -57,6 +57,7 @@
         </div>
       </div>
     </div>
+   
     <div class="col-md-6 col-lg-8">
       <div class="card">
       <div class="card-header d-flex justify-content-between">
@@ -75,65 +76,65 @@
   </div>
   <div class="row mb-4">
     <div class="col-lg-3 col-sm-6 mb-4">
-      <div class="card h-100">
-        <div class="card-body d-flex justify-content-between align-items-center">
-          <div class="card-icon">
-            <span class="badge bg-label-primary rounded-pill p-2">
-              <i class="ti ti-report-money ti-sm"></i>
-            </span>
-          </div>
-          <div class="card-title mb-0">
-            <h5 class="mb-0 me-2">{{ priceSymbol($widget['total_earnings']) }}</h5>
-            <small>{{ admin_lang('Total Earnings') }}</small>
-          </div>
+    <div class="card h-100">
+      <div class="card-body d-flex justify-content-between align-items-center">
+        <div class="card-title mb-0">
+          <h5 class="mb-0 me-2">{{ priceSymbol($widget['total_earnings']) }}</h5>
+          <small>{{ admin_lang('Total Earnings') }}</small>
+        </div>
+        <div class="card-icon">
+          <span class="badge bg-label-primary rounded-pill p-2">
+            <i class='ti ti-report-money ti-sm'></i>
+          </span>
         </div>
       </div>
     </div>
-    <div class="col-lg-3 col-sm-6 mb-4">
-      <div class="card h-100">
-        <div class="card-body d-flex justify-content-between align-items-center">
-          <div class="card-icon">
-            <span class="badge bg-label-primary rounded-pill p-2">
-              <i class="ti ti-report-money ti-sm"></i>
-            </span>
-          </div>
-          <div class="card-title mb-0">
-            <h5 class="mb-0 me-2">{{ priceSymbol($widget['current_month_earnings']) }}</h5>
-            <small>{{ admin_lang('Current Month Earnings') }}</small>
-          </div>
+  </div>
+  <div class="col-lg-3 col-sm-6 mb-4">
+    <div class="card h-100">
+      <div class="card-body d-flex justify-content-between align-items-center">
+        <div class="card-title mb-0">
+          <h5 class="mb-0 me-2">{{ priceSymbol($widget['current_month_earnings']) }}</h5>
+          <small>{{ admin_lang('Current Month Earnings') }}</small>
+        </div>
+        <div class="card-icon">
+          <span class="badge bg-label-success rounded-pill p-2">
+            <i class='ti ti-report-money ti-sm'></i>
+          </span>
         </div>
       </div>
     </div>
-    <div class="col-lg-3 col-sm-6 mb-4">
-      <div class="card h-100">
-        <div class="card-body d-flex justify-content-between align-items-center">
-          <div class="card-icon">
-            <span class="badge bg-label-primary rounded-pill p-2">
-              <i class="ti ti-users ti-sm"></i>
-            </span>
-          </div>
-          <div class="card-title mb-0">
-            <h5 class="mb-0 me-2">{{ number_format($widget['total_users']) }}</h5>
-            <small>{{ admin_lang('Total Users') }}</small>
-          </div>
+  </div>
+  <div class="col-lg-3 col-sm-6 mb-4">
+    <div class="card h-100">
+      <div class="card-body d-flex justify-content-between align-items-center">
+        <div class="card-title mb-0">
+          <h5 class="mb-0 me-2">{{ number_format($widget['total_users']) }}</h5>
+          <small>{{ admin_lang('Total Users') }}</small>
+        </div>
+        <div class="card-icon">
+          <span class="badge bg-label-danger rounded-pill p-2">
+            <i class='ti ti-users ti-sm'></i>
+          </span>
         </div>
       </div>
     </div>
-    <div class="col-lg-3 col-sm-6 mb-4">
-      <div class="card h-100">
-        <div class="card-body d-flex justify-content-between align-items-center">
-          <div class="card-icon">
-            <span class="badge bg-label-primary rounded-pill p-2">
-              <i class="ti ti-users ti-sm"></i>
-            </span>
-          </div>
-          <div class="card-title mb-0">
-            <h5 class="mb-0 me-2">{{ number_format($widget['current_month_users']) }}</h5>
-            <small>{{ admin_lang('Current Month Users') }}</small>
-          </div>
+  </div>
+  <div class="col-lg-3 col-sm-6 mb-4">
+    <div class="card h-100">
+      <div class="card-body d-flex justify-content-between align-items-center">
+        <div class="card-title mb-0">
+          <h5 class="mb-0 me-2">{{ number_format($widget['current_month_users']) }}</h5>
+          <small>{{ admin_lang('Current Month Users') }}</small>
+        </div>
+        <div class="card-icon">
+          <span class="badge bg-label-warning rounded-pill p-2">
+            <i class='ti ti-users ti-sm'></i>
+          </span>
         </div>
       </div>
     </div>
+  </div>
   </div>
   <div class="row mb-4">
     <div class="col-md-6 col-lg-8">
