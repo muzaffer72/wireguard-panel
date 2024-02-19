@@ -2,9 +2,9 @@
 @section('title', lang('features', 'pages'))
 @section('content')
     {!! ads_other_pages_top() !!}
-    <div class="section-header mb-5">
+    <div class="section-header text-center mb-5">
         <h1 class="mb-3">{{ lang('Features', 'pages') }}</h1>
-        <p class="fw-light text-muted col-lg-7 mb-0">
+        <p class="fw-light text-muted mb-0">
             {{ lang('Features description', 'pages') }}
         </p>
     </div>
@@ -13,9 +13,9 @@
             @foreach ($features as $feature)
                 <div class="col">
                     <div class="feature">
-                        <div class="card-v align-items-center text-center">
-                            <div class="card-v-icon">
-                                <img src="{{ asset($feature->image) }}" alt="{{ $feature->title }}" />
+                        <div class="card align-items-center text-center">
+                            <div class="mb-3">
+                                <img src="{{ asset($feature->image) }}" alt="{{ $feature->title }}" class="card-img-top"/>
                             </div>
                             <h5 class="card-v-title">{{ $feature->title }}</h5>
                             <p class="card-v-text">{{ $feature->content }}</p>

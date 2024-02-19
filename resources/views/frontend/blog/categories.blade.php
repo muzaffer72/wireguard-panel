@@ -5,7 +5,7 @@
     <div class="section-body">
         <div class="row">
             <div class="col-lg-6 m-auto">
-                <div class="card-v">
+                <div class="card">
                     <h5 class="card-v-title mb-4">{{ lang('Categories', 'blog') }}</h5>
                     <div class="categories">
                         @forelse ($blogCategories as $blogCategory)

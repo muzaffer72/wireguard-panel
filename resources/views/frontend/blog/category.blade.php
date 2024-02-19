@@ -9,15 +9,15 @@
                     <div class="row row-cols-1 row-cols-md-2 g-4" data-aos="fade-zoom-in" data-aos-duration="2000">
                         @foreach ($blogArticles as $blogArticle)
                             <div class="col">
-                                <div class="blog-post">
+                                <div class="card mb-3 p-4">
                                     <div class="blog-post-header">
                                         <a href="{{ route('blog.article', $blogArticle->slug) }}">
                                             <img src="{{ asset($blogArticle->image) }}" alt="{{ $blogArticle->title }}"
-                                                class="blog-post-img">
+                                                class="img-fluid">
                                         </a>
                                     </div>
                                     <div class="blog-post-body">
-                                        <div class="blog-post-time">
+                                        <div class="badge bg-label-primary mb-4">
                                             <time>{{ dateFormat($blogArticle->created_at) }}</time>
                                         </div>
                                         <a href="{{ route('blog.article', $blogArticle->slug) }}" class="blog-post-title">
@@ -27,7 +27,7 @@
                                         <div class="mt-2">
                                             <a href="{{ route('blog.article', $blogArticle->slug) }}"
                                                 class="link link-primary">
-                                                {{ lang('Read More', 'blog') }} <i class="fa fa-arrow-right fa-sm ms-1"></i>
+                                                {{ lang('Read More', 'blog') }} <i class="ti ti-arrow-right fa-sm ms-1"></i>
                                             </a>
                                         </div>
                                     </div>

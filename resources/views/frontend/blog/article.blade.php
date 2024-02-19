@@ -11,19 +11,19 @@
                         <div class="blog-post v2 p-4">
                             <div class="blog-post-header">
                                 <img src="{{ asset($blogArticle->image) }}" alt="{{ $blogArticle->title }}"
-                                    class="blog-post-img">
+                                    class="img-fluid">
                             </div>
                             <div class="blog-post-body px-0">
                                 <span class="blog-post-title text-normal">
                                     <h5>{{ $blogArticle->title }}</h5>
                                 </span>
-                                <div class="post-meta mb-3">
-                                    <div class="post-meta-item">
-                                        <i class="far fa-user"></i>
+                                <div class="post-meta mb-3 d-flex justify-content-first">
+                                    <div class="post-meta-item me-2">
+                                        <i class="ti ti-user"></i>
                                         <span>{{ $blogArticle->admin->name }}</span>
                                     </div>
                                     <div class="post-meta-item">
-                                        <i class="fa-regular fa-calendar"></i>
+                                        <i class="ti ti-calendar"></i>
                                         <time>{{ dateFormat($blogArticle->created_at) }}</time>
                                     </div>
                                 </div>
@@ -58,23 +58,25 @@
                             <div class="blog-post-footer px-0">
                                 <div class="comments">
                                     <h5 class="comments-title">
-                                        <i class="far fa-comments me-2"></i> {{ lang('Comments', 'blog') }}
+                                        <i class="ti ti-messages me-2"></i> {{ lang('Comments', 'blog') }}
                                         ({{ $blogArticleComments->count() }})
                                     </h5>
                                     @forelse ($blogArticleComments as $blogArticleComment)
-                                        <div class="comment">
-                                            <div class="comment-img">
-                                                <img src="{{ asset($blogArticleComment->user->avatar) }}"
-                                                    alt="{{ $blogArticleComment->user->name }}">
-                                            </div>
-                                            <div class="comment-info">
-                                                <div class="d-flex flex-column">
-                                                    <h6 class="comment-title mb-1">
-                                                        {{ $blogArticleComment->user->name }}</h6>
-                                                    <time
-                                                        class="comment-time text-muted mb-2">{{ dateFormat($blogArticleComment->created_at) }}</time>
+                                        <div class="card mb-3">
+                                            <div class="comment">
+                                                <div class="comment-img">
+                                                    <img src="{{ asset($blogArticleComment->user->avatar) }}"
+                                                        alt="{{ $blogArticleComment->user->name }}" class="img-fluid">
                                                 </div>
-                                                <p class="comment-text mb-0 text-muted">{!! allowBr($blogArticleComment->comment) !!}</p>
+                                                <div class="comment-info">
+                                                    <div class="d-flex flex-column">
+                                                        <h6 class="comment-title mb-1">
+                                                            {{ $blogArticleComment->user->name }}</h6>
+                                                        <time
+                                                            class="comment-time text-muted mb-2">{{ dateFormat($blogArticleComment->created_at) }}</time>
+                                                    </div>
+                                                    <p class="comment-text mb-0 text-muted">{!! allowBr($blogArticleComment->comment) !!}</p>
+                                                </div>
                                             </div>
                                         </div>
                                     @empty

@@ -243,3 +243,118 @@
   inset-inline-start: -3.125rem;
   transform: rotate(90deg);
 }
+
+::selection {
+  background-color: var(--bs-primary);
+  color: #fff
+}
+
+.plan-card:hover {
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+  transform: translateY(-5px);
+}
+
+.plan-switcher {
+  position: relative;
+  display: inline-flex;
+  cursor: pointer;
+  border: 1px solid var(--bs-primary);
+  box-shadow: rgba(27, 31, 35, 0.04) 0px 1px 0px, rgba(255, 255, 255, 0.25) 0px 1px 0px inset;
+  border-radius: 200px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+.plan-switcher.plan-switcher-light {
+  border-color: #fff;
+}
+
+.plan-switcher.plan-switcher-light .plan-switcher-item {
+  color: #fff;
+}
+
+.plan-switcher.plan-switcher-light .plan-switcher-item.active {
+  background-color: #fff;
+  color: #222;
+}
+
+.plan-switcher .plan-switcher-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 125px;
+  text-align: center;
+  transition: 0.3s;
+  height: 45px;
+  font-weight: 600;
+  margin: -1px;
+  color: var(--bs-primary);
+}
+
+.plan-switcher .plan-switcher-item:first-child {
+  border-top-left-radius: 200px;
+  border-bottom-left-radius: 200px;
+}
+
+.plan-switcher .plan-switcher-item:last-child {
+  border-top-right-radius: 200px;
+  border-bottom-right-radius: 200px;
+}
+
+.plan-switcher .plan-switcher-item.active {
+  background-color: var(--bs-primary);
+  color: #fff;
+}
+
+.plans .plans-item {
+  display: none;
+}
+
+.plans .plans-item.active {
+  display: block;
+}
+
+.plan .plan-price {
+  font-size: 40px;
+  font-weight: 500;
+}
+.plan .plan-price span {
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.comments {
+  width: 100%;
+}
+
+.comments .comments-title {
+  margin-bottom: 25px;
+}
+
+.comments .comment {
+  display: flex;
+  background-color: #f8f8f8;
+  padding: 30px 20px;
+  border-radius: 10px;
+}
+
+.comments .comment .comment-img img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  margin-right: 16px;
+}
+
+.comments .comment .comment-title {
+  font-size: 1.115rem;
+}
+
+.comments .comment .comment-time {
+  font-size: 14px;
+}
+
+.comments .comment:not(:last-child) {
+  margin-bottom: 16px;
+}

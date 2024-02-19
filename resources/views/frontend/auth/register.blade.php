@@ -4,38 +4,54 @@
     <div class="sign-box sign-box-wide">
         <h4>{{ lang('Sign Up', 'auth') }}</h4>
         <p class="text-muted fw-light mb-4">{{ lang('Enter your details to create an account.', 'auth') }}.</p>
-        <form action="{{ route('register') }}" method="POST">
+        <form id="formAuthentication" action="{{ route('register') }}" class="mb-3 fv-plugins-bootstrap5 fv-plugins-framework" method="POST">
             @csrf
-            <div class="row row-cols-1 row-cols-md-2 g-3 mb-3">
-                <div class="col">
-                    <label class="form-label">{{ lang('First Name', 'forms') }}</label>
-                    <input type="firstname" name="firstname" class="form-control form-control-md"
-                        value="{{ old('firstname') }}" placeholder="{{ lang('First Name', 'forms') }}" maxlength="50"
-                        required>
-                </div>
-                <div class="col">
-                    <label class="form-label">{{ lang('Last Name', 'forms') }}</label>
-                    <input id="lastname" type="lastname" name="lastname" class="form-control form-control-md"
-                        value="{{ old('lastname') }}" placeholder="{{ lang('Last Name', 'forms') }}" maxlength="50"
-                        required>
-                </div>
+            <div class="row">
+              <div class="mb-3 col-md-6 fv-plugins-icon-container">
+                <label for="firstname" class="form-label">{{ lang('First Name', 'forms') }}</label>
+                <input type="text" class="form-control" id="firstname" name="firstname"
+                  placeholder="{{ lang('First Name', 'forms') }}" required>
+              </div>
+              <div class="mb-3 col-md-6 fv-plugins-icon-container">
+                <label for="lastname" class="form-label">{{ lang('Last Name', 'forms') }}</label>
+                <input type="text" class="form-control" id="lastname" name="lastname"
+                  placeholder="{{ lang('Last Name', 'forms') }}" required>
+              </div>
             </div>
             <div class="mb-3">
-                <label class="form-label">{{ lang('Email address', 'forms') }}</label>
-                <input type="email" name="email" class="form-control form-control-md" value="{{ old('email') }}"
+                <label class="form-label" for="email">{{ lang('Email address', 'forms') }}</label>
+                <input type="email" name="email" id="email" class="form-control form-control-md" value="{{ old('email') }}"
                     placeholder="{{ lang('Email address', 'forms') }}" required>
             </div>
-            <div class="mb-3">
-                <label class="form-label">{{ lang('Password', 'forms') }}
-                </label>
-                <input type="password" name="password" class="form-control form-control-md"
-                    placeholder="{{ lang('Password', 'forms') }}" minlength="8" required>
+            <div class="mb-3 form-password-toggle">
+                <div class="d-flex justify-content-between">
+                    <label class="form-label" for="password">{{ lang('Password', 'forms') }}</label>
+                </div>
+                <div class="input-group input-group-merge">
+                    <input
+                        type="password"
+                        id="password"
+                        class="form-control"
+                        name="password"
+                        placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
+                        aria-describedby="password" />
+                    <span class="input-group-text cursor-pointer"><i class="ti ti-eye-off"></i></span>
+                </div>
             </div>
-            <div class="mb-3">
-                <label class="form-label">{{ lang('Confirm password', 'forms') }}
-                </label>
-                <input type="password" name="password_confirmation" class="form-control form-control-md"
-                    placeholder="{{ lang('Confirm password', 'forms') }}" minlength="8" required>
+            <div class="mb-3 form-password-toggle">
+                <div class="d-flex justify-content-between">
+                    <label class="form-label" for="confirm-password">{{ lang('Confirm Password', 'forms') }}</label>
+                </div>
+                <div class="input-group input-group-merge">
+                    <input
+                        type="password"
+                        id="confirm-password"
+                        class="form-control"
+                        name="password_confirmation"
+                        placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
+                        aria-describedby="password" />
+                    <span class="input-group-text cursor-pointer"><i class="ti ti-eye-off"></i></span>
+                </div>
             </div>
             @if ($settings->general->terms_of_service_link)
                 <div class="mb-3">
