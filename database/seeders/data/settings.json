@@ -2,7 +2,7 @@
 	{
 		"id" : 1,
 		"key" : "general",
-		"value" : {"site_name":"billiongroup","site_url":"https:\/\/server.billiongroup.net","contact_email":"support@billiongroup.net","terms_of_service_link":null,"date_format":"10","timezone":"America\/New_York"}
+		"value" : {"site_name":"billiongroup","site_url":"http:\/\/wg-backend.test","contact_email":"support@billiongroup.net","terms_of_service_link":null,"date_format":"10","timezone":"America\/New_York","premium_users":"7.1k+","joined_users":"50k+","highly_rated_products":"4.8\/5","money_free":"100%"}
 	},
 	{
 		"id" : 2,

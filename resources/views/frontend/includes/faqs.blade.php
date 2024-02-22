@@ -1,6 +1,6 @@
 @if ($settings->actions->faqs_status && $faqs->count() > 0)
   <!-- FAQ: Start -->
-  <section id="landingFAQ" class="section-py landing-faq" data-aos="fade-up" data-aos-duration="1000">
+  <section id="landingFAQ" class="section-py bg-body" data-aos="fade-up" data-aos-duration="1000">
     <div class="container">
       <div class="text-center mb-3 pb-1">
         <span class="badge bg-label-primary">{{ lang('FAQs', 'home page') }}</span>
