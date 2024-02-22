@@ -13,7 +13,7 @@
                 <div class="row g-3 mb-3">
                     <div class="col-lg-6">
                         <label for="small-input" class="block mb-2 text-sm font-medium">{{ admin_lang('Site Name') }} : <span class="text-danger">*</span></label>
-    <input type="text" name="general[site_name]" value="{{ $settings->general->site_name }}" id="small-input" class="form-control" required>
+                        <input type="text" name="general[site_name]" value="{{ $settings->general->site_name }}" id="small-input" class="form-control" required>
                         
                     </div>
                     <div class="col-lg-6">
@@ -220,6 +220,35 @@
                             </div>
                         </div>
                     @endforeach
+                </div>
+            </div>
+        </div>
+        <div class="card mb-3">
+            <div class="card-header">
+                {{ admin_lang('Fun Facts') }}
+            </div>
+            <div class="card-body">
+                <div class="row g-3 mb-3">
+                    <div class="col-lg-6">
+                        <label for="small-input" class="block mb-2 text-sm font-medium">{{ admin_lang('Premium Users') }} : <span class="text-danger">*</span></label>
+                        <input type="text" name="general[premium_users]" value="{{ $settings->general->premium_users }}" id="small-input" class="form-control" required>
+                        
+                    </div>
+                    <div class="col-lg-6">
+                        <label for="small-input" class="block mb-2 text-sm font-medium">{{ admin_lang('Joined Users') }} : <span class="text-danger">*</span></label>
+                        <input type="text" name="general[joined_users]" id="small-input" class="form-control"
+                            value="{{ $settings->general->joined_users }}" required>
+                    </div>
+                    <div class="col-lg-6">
+                        <label for="small-input" class="block mb-2 text-sm font-medium">{{ admin_lang('Highly Rated Products') }} : <span class="text-danger">*</span></label>
+                        <input type="text" name="general[highly_rated_products]" value="{{ $settings->general->highly_rated_products }}" id="small-input" class="form-control" required>
+                        
+                    </div>
+                    <div class="col-lg-6">
+                        <label for="small-input" class="block mb-2 text-sm font-medium">{{ admin_lang('Money Free') }} : <span class="text-danger">*</span></label>
+                        <input type="text" name="general[money_free]" id="small-input" class="form-control"
+                            value="{{ $settings->general->money_free }}" required>
+                    </div>
                 </div>
             </div>
         </div>

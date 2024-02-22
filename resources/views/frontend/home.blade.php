@@ -37,6 +37,7 @@
       </div>
     </section>
     {!! ads_home_page_center() !!}
+    @include('frontend.includes.fact')
     @include('frontend.includes.faqs')
     @include('frontend.includes.articles')
   </div>
