@@ -2,7 +2,7 @@
 	{
 		"id" : 3,
 		"name" : "Monthly Plan",
-		"short_description" : "Monthly Plan",
+		"product_id" : "Monthly Plan",
 		"interval" : 1,
 		"price" : 12.99,
 		"expiration" : 1,
@@ -17,7 +17,7 @@
 	{
 		"id" : 9,
 		"name" : "Yearly Plan",
-		"short_description" : "Yearly Plan",
+		"product_id" : "Yearly Plan",
 		"interval" : 2,
 		"price" : 69.99,
 		"expiration" : null,
@@ -32,7 +32,7 @@
 	{
 		"id" : 13,
 		"name" : "Free Plan",
-		"short_description" : "Free Plan",
+		"product_id" : "Free Plan",
 		"interval" : 2,
 		"price" : 0.0,
 		"expiration" : null,

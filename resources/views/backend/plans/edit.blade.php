@@ -31,11 +31,11 @@
                 <li class="list-group-item">
                     <div class="row g-2 align-items-center">
                         <div class="col-12 col-lg-8">
-                            <label class="col-form-label d-block"><strong>{{ admin_lang('Short description') }} : <span
+                            <label class="col-form-label d-block"><strong>{{ admin_lang('Product Id') }} : <span
                                         class="text-danger">*</span></strong></label>
                         </div>
                         <div class="col-12 col-lg-4">
-                            <textarea name="short_description" class="form-control" required placeholder="{{ admin_lang('Max 150 character') }}">{{ $plan->short_description }}</textarea>
+                            <textarea name="product_id" class="form-control" required placeholder="{{ admin_lang('Max 150 character') }}">{{ $plan->product_id }}</textarea>
                         </div>
                     </div>
                 </li>

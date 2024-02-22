@@ -33,7 +33,7 @@
                                         class="text-danger">*</span></strong></label>
                         </div>
                         <div class="col-12 col-lg-4">
-                            <textarea name="short_description" class="form-control" required placeholder="{{ admin_lang('Max 150 character') }}">{{ old('short_description') }}</textarea>
+                            <textarea name="product_id" class="form-control" required placeholder="{{ admin_lang('Max 150 character') }}">{{ old('product_id') }}</textarea>
                         </div>
                     </div>
                 </li>
