@@ -56,7 +56,7 @@ class Plan extends Model
      */
     protected $fillable = [
         'name',
-        'short_description',
+        'product_id',
         'interval',
         'price',
         'expiration',

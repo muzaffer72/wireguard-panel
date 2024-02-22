@@ -173,7 +173,7 @@ class DatabaseSeeder extends Seeder
             Plan::create([
                 'id'                   => $row['id'],
                 'name'                 => $row['name'],
-                'short_description'    => $row['short_description'],
+                'product_id'    => $row['product_id'],
                 'interval'             => $row['interval'],
                 'price'                => $row['price'],
                 'expiration'           => $row['expiration'],

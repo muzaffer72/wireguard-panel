@@ -53,7 +53,7 @@ class PlanController extends Controller
         }
         $validator = Validator::make($request->all(), [
             'name' => ['required', 'string', 'max:255'],
-            'short_description' => ['required', 'string', 'max:150'],
+            'product_id' => ['required', 'string', 'max:150'],
             'interval' => ['required', 'integer', 'min:1', 'max:2'],
             'price' => ['sometimes', 'required', 'numeric', 'regex:/^\d*(\.\d{2})?$/'],
         ]);
@@ -90,7 +90,7 @@ class PlanController extends Controller
         $request->advertisements = ($request->has('advertisements')) ? 1 : 0;
         $plan = Plan::create([
             'name' => $request->name,
-            'short_description' => $request->short_description,
+            'product_id' => $request->product_id,
             'interval' => $request->interval,
             'price' => $request->price,
             'advertisements' => $request->advertisements,
@@ -142,7 +142,7 @@ class PlanController extends Controller
        
         $validator = Validator::make($request->all(), [
             'name' => ['required', 'string', 'max:255'],
-            'short_description' => ['required', 'string', 'max:150'],
+            'product_id' => ['required', 'string', 'max:150'],
             'price' => ['sometimes', 'required', 'numeric', 'regex:/^\d*(\.\d{2})?$/'],
         ]);
         if ($validator->fails()) {
@@ -179,7 +179,7 @@ class PlanController extends Controller
         
         $update = $plan->update([
             'name' => $request->name,
-            'short_description' => $request->short_description,
+            'product_id' => $request->product_id,
             'price' => $request->price,
             'advertisements' => $request->advertisements,
             'custom_features' => $request->custom_features,
