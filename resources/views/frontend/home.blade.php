@@ -12,7 +12,7 @@
           alt="hero background"
           class="position-absolute top-0 start-50 translate-middle-x object-fit-contain w-100 h-100"
           data-speed="1" />
-        <div class="container">
+        <div class="container d-lg-flex align-items-center">
           <div class="hero-text-box text-center mb-4">
             <h1 class="text-primary hero-title display-6 fw-bold">{{ lang('Wireguard VPN', 'home page') }}</h1>
             <h2 class="hero-sub-title h6 mb-4 pb-1">
@@ -29,17 +29,17 @@
                 @endif
               @else
                 <a href="{{ route('login') }}"
-                  class="btn btn-primary btn-lg">{{ lang('Start Generating', 'home page') }}</a>
+                  class="btn btn-primary btn-lg">{{ lang('Start VPN', 'home page') }}</a>
               @endif
             </div>
           </div>
-          <div id="heroDashboardAnimation" class="hero-animation-img">
+          <div class="">
             <a href="#" target="_blank">
-              <div id="heroAnimationImg" class="position-relative hero-dashboard-img">
+              <div class="">
                 <img
                   src="{{ asset('assets/img/front-pages/landing-page/hero-dashboard-light.jpg') }}"
                   alt="hero dashboard"
-                  class="animation-img"
+                  class="img-fluid"
                   data-app-light-img="front-pages/landing-page/hero-dashboard-light.jpg"
                   data-app-dark-img="front-pages/landing-page/hero-dashboard-dark.jpg" />
               </div>
@@ -51,8 +51,10 @@
     </section>
     {!! ads_home_page_center() !!}
     @include('frontend.includes.fact')
+    @include('frontend.includes.features')
     @include('frontend.includes.faqs')
     @include('frontend.includes.articles')
+    @include('frontend.includes.plans')
   </div>
     @push('styles_libs')
     @endpush

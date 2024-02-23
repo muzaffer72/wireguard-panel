@@ -39,4 +39,8 @@ return array (
   'button_when_expired' => 'Button When expired',
   'wireguard_vpn' => 'Wireguard VPN',
   'trusted_by_3oooooooo_users' => 'Trusted by 3oo,ooo,ooo users.',
+  'start_vpn' => 'Start VPN',
+  'features' => 'Features',
+  'choose_your_plan' => 'Choose Your Plan',
+  '100_anonymous_and_untraceable' => '100% ANONYMOUS AND UNTRACEABLE.',
 );

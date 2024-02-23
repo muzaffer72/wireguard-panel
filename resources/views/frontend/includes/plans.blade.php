@@ -1,13 +1,17 @@
-@extends('frontend.layouts.single')
-@section('title', lang('Pricing', 'pages'))
-@section('content')
-    {!! ads_other_pages_top() !!}
-    <div class="section-header text-center mb-5">
-        <h1 class="mb-3">{{ lang('Pricing', 'pages') }}</h1>
-        <p class="fw-light text-muted mb-0">
-            {{ lang('Pricing description', 'pages') }}
-        </p>
+<!-- Pricing plans: Start -->
+<section id="landingPricing" class="section-py bg-body landing-pricing">
+  <div class="container">
+    <div class="text-center mb-3 pb-1">
+      <span class="badge bg-label-primary">Pricing Plans</span>
     </div>
+    <h3 class="text-center mb-1">
+      <span class="position-relative fw-bold z-1"
+        >{{ lang('Choose Your Plan', 'home page') }}
+      </span>
+    </h3>
+    <p class="text-center mb-4 pb-3">
+      {{ lang('100% ANONYMOUS AND UNTRACEABLE.', 'home page') }}
+    </p>
     @if ($yearlyPlans->count() > 0)
         <div class="d-flex justify-content-center mb-5">
             <div class="plan-switcher">
@@ -79,5 +83,6 @@
             </div>
         @endif
     </div>
-    {!! ads_other_pages_bottom() !!}
-@endsection
+  </div>
+</section>
+<!-- Pricing plans: End -->

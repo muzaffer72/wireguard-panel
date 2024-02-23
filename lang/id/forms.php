@@ -10,4 +10,5 @@ return array (
   'state' => 'State',
   'postal_code' => 'Postal code',
   'country' => 'Country',
+  'password' => 'Password',
 );

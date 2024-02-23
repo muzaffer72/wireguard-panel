@@ -6,7 +6,9 @@ use App\Models\AdminNotification;
 use App\Models\BlogArticle;
 use App\Models\BlogCategory;
 use App\Models\BlogComment;
+use App\Models\Feature;
 use App\Models\Faq;
+use App\Models\Plan;
 use App\Models\FooterMenu;
 use App\Models\GeneratedImage;
 use App\Models\Language;
@@ -76,6 +78,11 @@ class AppServiceProvider extends ServiceProvider
                     $view->with('navbarMenuLinks', $navbarMenuLinks);
                 });
 
+                view()->composer('frontend.includes.features', function ($view) {
+                    $features = Feature::where('lang', getLang())->limit(5)->get();
+                    $view->with('features', $features);
+                });
+
                 view()->composer('frontend.includes.faqs', function ($view) {
                     $faqs = Faq::where('lang', getLang())->limit(10)->get();
                     $view->with('faqs', $faqs);
@@ -84,6 +91,16 @@ class AppServiceProvider extends ServiceProvider
                 view()->composer('frontend.includes.articles', function ($view) {
                     $blogArticles = BlogArticle::where('lang', getLang())->limit(3)->orderByDesc('id')->get();
                     $view->with('blogArticles', $blogArticles);
+                });
+
+                view()->composer('frontend.includes.plans', function ($view) {
+                    $monthlyPlans = Plan::where('interval', 1)->get();
+                    $yearlyPlans = Plan::where('interval', 2)->get();
+                    $view->with('monthlyPlans', $monthlyPlans);
+                    $view->with('yearlyPlans', $yearlyPlans);
+
+                    $plans = Plan::limit(4)->orderByDesc('id')->get();
+                    $view->with('plans', $plans);
                 });
 
                 view()->composer('frontend.blog.includes.sidebar', function ($view) {
