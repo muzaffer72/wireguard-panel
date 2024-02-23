@@ -38,4 +38,6 @@ return array (
   'tombol_kalo_subscribed' => 'Tombol kalo subscribed',
   'button_when_subscribed' => 'Button When subscribed',
   'button_when_expired' => 'Button When expired',
+  'wireguard_vpn' => 'Wireguard VPN',
+  'trusted_by_3oooooooo_users' => 'Trusted by 3oo,ooo,ooo users.',
 );

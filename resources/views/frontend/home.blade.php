@@ -13,10 +13,10 @@
           class="position-absolute top-0 start-50 translate-middle-x object-fit-contain w-100 h-100"
           data-speed="1" />
         <div class="container">
-          <div class="hero-text-box text-center">
-            <h1 class="text-primary hero-title display-6 fw-bold">{{ lang('AI Image Generator', 'home page') }}</h1>
+          <div class="hero-text-box text-center mb-4">
+            <h1 class="text-primary hero-title display-6 fw-bold">{{ lang('Wireguard VPN', 'home page') }}</h1>
             <h2 class="hero-sub-title h6 mb-4 pb-1">
-              {{ lang('Create stunning and unique images with ease using our AI image generation.', 'home page') }}
+              {{ lang('Trusted by 3oo,ooo,ooo users.', 'home page') }}
             </h2>
             <div class="landing-hero-btn d-inline-block position-relative">
               @if (subscription())
@@ -33,8 +33,21 @@
               @endif
             </div>
           </div>
+          <div id="heroDashboardAnimation" class="hero-animation-img">
+            <a href="#" target="_blank">
+              <div id="heroAnimationImg" class="position-relative hero-dashboard-img">
+                <img
+                  src="{{ asset('assets/img/front-pages/landing-page/hero-dashboard-light.jpg') }}"
+                  alt="hero dashboard"
+                  class="animation-img"
+                  data-app-light-img="front-pages/landing-page/hero-dashboard-light.jpg"
+                  data-app-dark-img="front-pages/landing-page/hero-dashboard-dark.jpg" />
+              </div>
+            </a>
+          </div>
         </div>
       </div>
+      <div class="landing-hero-blank"></div>
     </section>
     {!! ads_home_page_center() !!}
     @include('frontend.includes.fact')
