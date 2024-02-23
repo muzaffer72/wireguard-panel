@@ -10,6 +10,26 @@
 		"updated_at" : "2023-02-01 22:59:00.0"
 	},
 	{
+		"id" : 7,
+		"name" : "Features",
+		"link" : "\/features",
+		"lang" : "en",
+		"parent_id" : null,
+		"order" : 2,
+		"created_at" : "2023-02-01 22:58:00.0",
+		"updated_at" : "2023-02-11 03:11:38.0"
+	},
+	{
+		"id" : 8,
+		"name" : "Pricing",
+		"link" : "\/pricing",
+		"lang" : "en",
+		"parent_id" : null,
+		"order" : 3,
+		"created_at" : "2023-02-01 23:07:47.0",
+		"updated_at" : "2023-02-11 03:11:58.0"
+	},
+	{
 		"id" : 9,
 		"name" : "Blog",
 		"link" : "\/blog",
