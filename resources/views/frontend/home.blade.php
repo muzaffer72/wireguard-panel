@@ -41,7 +41,7 @@
                   alt="hero dashboard"
                   class="animation-img"
                   data-app-light-img="front-pages/landing-page/hero-dashboard-light.jpg"
-                  data-app-dark-img="front-pages/landing-page/hero-dashboard-dark.png" />
+                  data-app-dark-img="front-pages/landing-page/hero-dashboard-dark.jpg" />
               </div>
             </a>
           </div>
