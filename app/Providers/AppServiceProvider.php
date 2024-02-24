@@ -99,7 +99,7 @@ class AppServiceProvider extends ServiceProvider
                     $view->with('monthlyPlans', $monthlyPlans);
                     $view->with('yearlyPlans', $yearlyPlans);
 
-                    $plans = Plan::limit(4)->orderByDesc('id')->get();
+                    $plans = Plan::limit(3)->orderByDesc('id')->get();
                     $view->with('plans', $plans);
                 });
 

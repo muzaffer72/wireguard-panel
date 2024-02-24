@@ -309,7 +309,7 @@
 }
 
 .plans .plans-item {
-  display: none;
+  display: block;
 }
 
 .plans .plans-item.active {
