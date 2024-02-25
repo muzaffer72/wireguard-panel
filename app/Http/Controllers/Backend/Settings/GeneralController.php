@@ -46,6 +46,7 @@ class GeneralController extends Controller
             'media.light_logo' => 'nullable|mimes:png,jpg,jpeg,svg',
             'media.favicon' => 'nullable|mimes:png,jpg,jpeg,ico',
             'media.social_image' => 'nullable|mimes:jpg,jpeg',
+            'media.hero_image' => 'nullable|mimes:jpg,jpeg,png',
         ]);
 
         if ($validator->fails()) {
@@ -95,6 +96,14 @@ class GeneralController extends Controller
             $requestData['media']['social_image'] = $ogImage;
         } else {
             $requestData['media']['social_image'] = settings('media')->social_image;
+        }
+
+        if ($request->has('media.hero_image')) {
+            $filename = 'hero-image';
+            $heroImage = fileUpload($request->file('media.hero_image'), 'images/', $filename, settings('media')->hero_image);
+            $requestData['media']['hero_image'] = $heroImage;
+        } else {
+            $requestData['media']['hero_image'] = settings('media')->hero_image;
         }
 
         $requestData['theme']['mode_switcher'] = ($request->has('theme.mode_switcher')) ? 1 : 0;

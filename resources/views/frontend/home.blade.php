@@ -33,15 +33,13 @@
               @endif
             </div>
           </div>
-          <div class="">
+          <div class="w-60">
             <a href="#" target="_blank">
               <div class="">
                 <img
-                  src="{{ asset('assets/img/front-pages/landing-page/hero-dashboard-light.jpg') }}"
+                  src="{{ asset($settings->media->hero_image) }}?rand={{rand()}}"
                   alt="hero dashboard"
-                  class="img-fluid"
-                  data-app-light-img="front-pages/landing-page/hero-dashboard-light.jpg"
-                  data-app-dark-img="front-pages/landing-page/hero-dashboard-dark.jpg" />
+                  class="rounded img-fluid"/>
               </div>
             </a>
           </div>
