@@ -13,6 +13,7 @@ use App\Models\PaymentGateway;
 use App\Models\Plan;
 use App\Models\SeoConfiguration;
 use App\Models\Settings;
+use App\Models\Country;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Schema;
 
