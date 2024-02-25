@@ -392,6 +392,30 @@
                     </div>
                 </div>
             </div>
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-header">
+                        {{ admin_lang('Hero Image') }}
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group mb-3">
+                            <div class="billiongroup-image-preview-box bg-light">
+                                <img id="billiongroup-preview-img-5" src="{{ asset($settings->media->hero_image) }}?rand={{rand()}}"
+                                    width="100%" height="315px">
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <input id="billiongroup-image-targeted-input-5" type="file" name="media[hero_image]"
+                                accept="image/jpg, image/jpeg" class="form-control" hidden>
+                            <button data-id="5" type="button"
+                                class="billiongroup-select-image-button btn btn-secondary btn-lg w-100 mb-2">{{ admin_lang('Choose Hero Image') }}</button>
+                            <small class="text-muted">
+                                {{ admin_lang('Supported (JPEG, JPG, PNG) Size') }}
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </form>
     @push('styles_libs')
