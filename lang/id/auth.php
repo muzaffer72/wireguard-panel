@@ -7,4 +7,5 @@ return array (
   'forgot_your_password' => 'Forgot Your Password?',
   'remember_me' => 'Remember Me',
   'sign_up' => 'Sign Up',
+  'reset' => 'Reset',
 );
