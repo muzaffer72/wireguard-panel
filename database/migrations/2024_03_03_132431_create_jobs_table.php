@@ -32,7 +32,7 @@ return new class extends Migration
             $table->string('vps_username')->default('');
             $table->string('vps_password')->default('');
             $table->enum('status', ['idle', 'running', 'stopped', 'success', 'failed'])->default('idle');
-            $table->text('message');
+            $table->text('message')->nullable();
             $table->timestamps();
         });
         
@@ -64,6 +64,9 @@ return new class extends Migration
      */
     public function down()
     {
+        Schema::dropIfExists('config_server_jobs');
+        Schema::dropIfExists('config_server_actions');
+        Schema::dropIfExists('failed_jobs');
         Schema::dropIfExists('jobs');
     }
 };

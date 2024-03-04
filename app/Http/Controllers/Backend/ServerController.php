@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\ConfigServerAction;
+use App\Models\ConfigServerJob;
 use App\Models\Server;
+use App\Jobs\ConfigServer;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Validator;
@@ -18,8 +21,8 @@ class ServerController extends Controller
      */
     public function index()
     {
-        $freeServers = Server::free()->get();
-        $premiumServers = Server::premium()->get();
+        $freeServers = Server::free()->select('servers.*', 'config_server_jobs.status AS job_status')->join('config_server_jobs', 'servers.id', '=', 'config_server_jobs.server_id')->get();
+        $premiumServers = Server::premium()->select('servers.*', 'config_server_jobs.status AS job_status')->join('config_server_jobs', 'servers.id', '=', 'config_server_jobs.server_id')->get();
         return view('backend.servers.index', [
             'countries' => listCountries(),
             'statusOptions'        => ['1'=>'Enabled', '0'=>'Disabled'],
@@ -28,6 +31,25 @@ class ServerController extends Controller
             'freeServers' => $freeServers,
             'premiumServers' => $premiumServers,
         ]);
+    }
+
+    /**
+     * Get deployment detail
+     *
+     * @return \Illuminate\Http\Response as JSON
+     */
+    public function getDeployment(Server $server)
+    {
+        $data = ConfigServerAction::select('config_server_actions.*')
+                ->join('config_server_jobs', 'config_server_actions.config_job_id', '=', 'config_server_jobs.id')
+                ->join('servers', 'config_server_jobs.server_id', '=', 'servers.id')
+                ->where('servers.id', $server->id)
+                ->get();
+        if ($data->count() > 0) {
+            return response()->json((object) ['empty' => false, 'data' => $data]);
+        } else {
+            return response()->json((object) ['empty' => true]);
+        }
     }
 
     /**
@@ -55,6 +77,9 @@ class ServerController extends Controller
             'ip_address' => ['required'],
             'recommended' => ['required'],
             'is_premium' => ['required'],
+            'ssh_port' => ['required'],
+            'vps_username' => ['required'],
+            'vps_password' => ['required'],
         ]);
         if ($validator->fails()) {
             foreach ($validator->errors()->all() as $error) {
@@ -62,7 +87,7 @@ class ServerController extends Controller
             }
             return back();
         }
-                
+
         $createServer = Server::create([
             'country' => $request->country,
             'state' => $request->state,
@@ -72,6 +97,24 @@ class ServerController extends Controller
             'is_premium' => $request->is_premium,
         ]);
         if ($createServer) {
+            $job = new ConfigServerJob();
+            $job->server_id = $createServer->id;
+            $job->ip = $request->ip_address;
+            $job->ssh_port = $request->ssh_port;
+            $job->vps_username = $request->vps_username;
+            $job->vps_password = $request->vps_password ?: "";
+            $job->status = 'running';
+            $job->save();
+
+            $action = new ConfigServerAction();
+            $action->config_job_id = $job->id;
+            $action->action = "Server config. IP={$job->ip}";
+            $action->result_code = 0;
+            $action->result = "Started";
+            $action->save();
+
+            ConfigServer::dispatch($job);
+
             toastr()->success(admin_lang('Added successfully'));
             return back();
         }

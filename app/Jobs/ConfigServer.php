@@ -21,11 +21,9 @@ class ConfigServer implements ShouldQueue
     public $tries = 0;
 
     private ConfigServerJob $configJob;
-    private $settings;
 
-    public function __construct(ConfigServerJob $configJob, $settings) {
+    public function __construct(ConfigServerJob $configJob) {
         $this->configJob = $configJob;
-        $this->settings = $settings;
     }
 
     /**
@@ -47,33 +45,34 @@ class ConfigServer implements ShouldQueue
         $sshTimeout = 30;
 
         $sshpass = "sshpass -p '$vpsPassword'";
+        // jika windows,tambahin wsl sebelum $sshpass
         $sshCmd = "$sshpass ssh -p $sshPort $vpsUsername@$ip -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o ConnectTimeout=$sshTimeout -o LogLevel=QUIET";
         
         $cmds = [
             [
                 'action' => "Install Docker",
-                'command' => "cp ",
-            ], [
-                'action' => "Setting Container",
-                'command' => "",
+                'command' => "$sshCmd \"curl -sSL https://get.docker.com | sh\"",
+            ],
+            [
+                'action' => "Install Wg Easy",
+                'command' => "$sshCmd \"docker run -d "
+                . "--name=wg-easy "
+                . "-e LANG=en "
+                . "-e WG_HOST=$ip "
+                // . "-e PASSWORD=Aqswde!123 "
+                . "-v ~/.wg-easy:/etc/wireguard "
+                . "-p 51820:51820/udp "
+                . "-p 51821:51821/tcp "
+                . "--cap-add=NET_ADMIN "
+                . "--cap-add=SYS_MODULE "
+                . "--sysctl=\"net.ipv4.conf.all.src_valid_mark=1\" "
+                . "--sysctl=\"net.ipv4.ip_forward=1\" "
+                . "--restart unless-stopped "
+                . "ombapit/wg-easy\""
             ]
         ];
 
-        array_push($cmds, [
-            'action' => "Upload ssh key",
-            'command' => "mkdir -p ~/.ssh && $sshpass ssh-copy-id -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o ConnectTimeout=$sshTimeout -i $ovpnPath/ssh_key -p $sshPort $vpsUsername@$ip",
-        ], [
-            'action' => "Uploading necessary files to server",
-            'command' => "rm -rf $ovpnPath/ovpn_config_files && mkdir $ovpnPath/ovpn_config_files "
-                . "&& cp $ovpnPath/server/* $ovpnPath/ovpn_config_files && cp $ovpnPath/ca.crt $ovpnPath/ovpn_config_files && cp $ovpnPath/ta.key $ovpnPath/ovpn_config_files "
-                . "&& $sshpass scp -rp -o StrictHostKeyChecking=no -P $sshPort $ovpnPath/ovpn_config_files/ $vpsUsername@$ip:~/ "
-                . "&& rm -rf $ovpnPath/ovpn_config_files"
-        ], [
-            'action' => "Installing wg-easy",
-            'command' => "$sshCmd \"sudo apt -qq update && sudo apt -qq install -y openvpn ufw\""
-        ]);
-
-        echo "\nStarting Wg installation";
+        echo "\nStarting Wg-Easy installation\n";
         foreach ($cmds as $index => $cmd) {
             $output = array();
             $result_code = -1;
@@ -101,37 +100,16 @@ class ConfigServer implements ShouldQueue
             echo "Result=$result_code & Output={$action->result}\n";
             $action->save();
 
-            echo "VPN server installation failed.\n";
-            $this->server->status = 'failed';
-            $this->server->save();
+            echo "WG Easy server installation failed.\n";
+            $this->configJob->status = 'failed';
+            $this->configJob->save();
             $this->fail();
             return;
         }
 
-        echo "VPN server installation finished successfully.\n";
+        echo "WG Easy installation finished successfully.\n";
 
-        if ($this->settings['config_server_auto_add']) {
-            $maxOrder = Server::max('order');
-            $server = new Server();
-            $server->is_enabled =  $this->settings['config_server_auto_add'] == '1' ? 1 : 0;
-            $server->country_code = strtolower($this->server->country_code);
-            $server->city = "";
-            $server->ip = $this->server->ip_address;
-            $server->port = $this->server->ssh_port;
-            $server->vpn_username = $vpnUsername;
-            $server->vpn_password = $vpnPassword;
-            $server->order = $maxOrder ? $maxOrder + 1 : 0;
-            $server->free_connect_duration = 0;
-            $server->capacity = 100;
-            $server->protocol = $this->server->vpn_protocol;
-            $server->is_free = 1;
-            $server->service_provider_link = "";
-            $server->notes = "";
-            $server->save();
-            $this->server->server_id = $server->id;
-        }
-
-        $this->server->status = 'success';
-        $this->server->save();
+        $this->configJob->status = 'success';
+        $this->configJob->save();
     }
 }
