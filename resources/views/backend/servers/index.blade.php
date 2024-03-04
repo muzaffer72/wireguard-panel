@@ -37,6 +37,7 @@
                             <th class="tb-w-7x">{{ admin_lang('Status') }}</th>
                             <th class="tb-w-7x">{{ admin_lang('IP Address') }}</th>
                             <th class="tb-w-3x">{{ admin_lang('Recommend') }}</th>
+                            <th class="tb-w-3x">{{ admin_lang('Status Deployment') }}</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -53,6 +54,11 @@
                                 </td>
                                 <td>{{ $row->ip_address }}</td>
                                 <td>{{ $row->printRecommended() }}</td>
+                                <td class="text-center">
+                                    <button type="button" class="btn btn-{{ $row->job_status !== 'failed' ? 'primary' : 'danger' }} rounded-3" onclick="view_detail({{ $row->id }})">
+                                        {{ $row->job_status}}
+                                    </button>
+                                </td>
                                 <td>
                                     <div class="text-end">
                                         <button type="button" class="btn btn-sm rounded-3" data-bs-toggle="dropdown"
@@ -101,6 +107,7 @@
                             <th class="tb-w-7x">{{ admin_lang('Status') }}</th>
                             <th class="tb-w-7x">{{ admin_lang('IP Address') }}</th>
                             <th class="tb-w-3x">{{ admin_lang('Recommend') }}</th>
+                            <th class="tb-w-3x">{{ admin_lang('Status Deployment') }}</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -111,12 +118,17 @@
                                 <td>{{ $row->country }}</td>
                                 <td>{{ $row->state }}</td>
                                 <td>
-                                    <button type="button" class="btn btn-{{ $row->status === 0 ? 'danger' : 'primary' }} rounded-3">
+                                    <button type="button" class="btn btn-{{ $row->status === 0 ? 'danger' : 'primary' }} rounded-3" onclick="view_detail({{ $row->id }})">
                                         {{ $row->printStatus()}}
                                     </button>
                                 </td>
                                 <td>{{ $row->ip_address }}</td>
                                 <td>{{ $row->printRecommended() }}</td>
+                                <td class="text-center">
+                                    <button type="button" class="btn btn-{{ $row->job_status !== 'failed' ? 'primary' : 'danger' }} rounded-3">
+                                        {{ $row->job_status}}
+                                    </button>
+                                </td>
                                 <td>
                                     <div class="text-end">
                                         <button type="button" class="btn btn-sm rounded-3" data-bs-toggle="dropdown"
@@ -222,14 +234,77 @@
                                 @endforeach
                             </select>
                         </div>
+                        <div class="mb-4">
+                            <label class="form-label">{{ admin_lang('SSH Port') }} : <span class="text-danger">*</span></label>
+                            <input type="text" name="ssh_port" class="form-control" value="22" required/>
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-label">{{ admin_lang('VPS Username') }} : <span class="text-danger">*</span></label>
+                            <input type="text" name="vps_username" class="form-control" required/>
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-label">{{ admin_lang('VPS Password') }} : <span class="text-danger">*</span></label>
+                            <input type="text" name="vps_password" class="form-control" required/>
+                        </div>
                         <button class="btn btn-primary">{{ admin_lang('Save') }}</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
+
+    <div class="modal fade" id="deployModal" tabindex="-1" aria-labelledby="deployModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header py-3">
+                    <h6 class="modal-title" id="deployModalLabel">{{ admin_lang('Deployment Detail') }}</h6>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Action</th>
+                                <th>Result</th>
+                            </tr>
+                        </thead>
+                        <tbody id="deployData">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
 @push('scripts_libs')
 <script>
+    // view deploy
+    function view_detail(server_id) {
+        $("#deployModal").modal('show');
+        $("#deployData").html("<tr><td colspan=\"2\">Loading data..</td></tr>");
+        $.ajax({
+            url: "{{ config('app.url') }}/admin/servers/"+ server_id + "/deploy",
+            type: "GET",
+            dataType: "json",
+            success: function(data) {
+                let html = '';
+                if (!data.empty) {
+                    let  no = 1;
+                    data.data.forEach(element => {
+                        html += '<tr>';
+                        html += `<td class="text-center">${no}</td>`;
+                        html += `<td>${element.action}</td>`;
+                        html += `<td>${element.result}</td>`;
+                        html += '</tr>';
+                        no++;
+                    });
+                } else {
+                    html = "<tr><td colspan=\"2\">Empty data</td></tr>";
+                }
+                $("#deployData").html(html);
+            }
+        });
+    }
     //get state
   $("#country").on('change', function() {
     if (this.value == '') return
