@@ -221,7 +221,7 @@ class DatabaseSeeder extends Seeder
         Country::truncate();
         $json = json_decode(file_get_contents(database_path('seeders/data/countries.json')), true);
         foreach ($json as $row) {
-            Settings::create([
+            Country::create([
                 'id'              => $row['id'],
                 'code'            => $row['code'],
                 'name'            => $row['name'],
