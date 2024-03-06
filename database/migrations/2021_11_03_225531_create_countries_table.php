@@ -17,7 +17,7 @@ class CreateCountriesTable extends Migration
             $table->bigIncrements('id');
             $table->string('code', 3);
             $table->string('name', 100);
-            $table->string('capital', 100);
+            $table->string('capital', 100)->nullable();
             $table->string('continent', 100);
             $table->string('continent_code', 10);
             $table->string('phone', 10);

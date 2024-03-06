@@ -7,7 +7,7 @@
 	{
 		"id" : 2,
 		"key" : "media",
-		"value" : {"dark_logo":"images\/dark-logo.jpg","light_logo":"images\/light-logo.jpg","favicon":"images\/favicon.jpg","social_image":"images\/social-image.jpg","hero_image":"images\/hero-image.jpg"}
+		"value" : {"dark_logo":"images\/dark-logo.jpg","light_logo":"images\/light-logo.jpg","favicon":"images\/favicon.ico","social_image":"images\/social-image.jpg","hero_image":"images\/hero-image.jpg"}
 	},
 	{
 		"id" : 3,
