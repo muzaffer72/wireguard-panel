@@ -101,7 +101,7 @@ class UserController extends Controller
             $q->where('plans.id','=', $planparam);
         }
                         
-        $records = $q->select('users.*','plans.id as plan_id', 'plans.name as plan')
+        $records = $q->select('users.*','subscriptions.id as subscription_id','plans.id as plan_id', 'plans.name as plan')
             ->skip($start)
             ->take($rowperpage)
             ->get();
@@ -149,6 +149,7 @@ class UserController extends Controller
                 "account_status" => $account_status,
                 "subs_label" => admin_lang($subscription),
                 "link_detail" => route('admin.users.edit', $record->id),
+                "link_subs" => route('admin.subscriptions.edit', $record->subscription_id),
                 "link_destroy" => route('admin.users.destroy', $record->id)
             );
         }
