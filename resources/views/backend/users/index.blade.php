@@ -193,10 +193,10 @@
                 if (full['subscription'] == "Subscribed") {
                   li_subs = `<li>
                     <a class="dropdown-item"
-                      href="${full['link_edit']}"><i
+                      href="${full['link_subs']}"><i
                         class="ti ti-diamond me-2"></i>{{ admin_lang('Subscription') }}</a>
                   </li>`;
-                }
+                }                
                 // Creates full output for row
                 let $row_output = `<div class="text-end">
                   <button type="button" class="btn btn-sm rounded-3" data-bs-toggle="dropdown"

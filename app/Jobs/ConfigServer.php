@@ -2,6 +2,9 @@
 
 namespace App\Jobs;
 
+ini_set('memory_limit', '-1');
+ini_set('max_execution_time', '0');
+
 use App\Models\ConfigServerAction;
 use App\Models\ConfigServerJob;
 use App\Models\Server;
@@ -87,6 +90,8 @@ class ConfigServer implements ShouldQueue
             echo "action={$action->action}\n";
             echo "command={$cmd['command']}\n";
             exec($cmd['command'] . " 2>&1", $output, $result_code);
+
+            sleep(2);
 
             $action->result_code = $result_code;
             if ($result_code == 0) {
