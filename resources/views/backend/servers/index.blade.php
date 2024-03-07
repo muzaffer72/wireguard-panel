@@ -125,7 +125,7 @@
                                 <td>{{ $row->ip_address }}</td>
                                 <td>{{ $row->printRecommended() }}</td>
                                 <td class="text-center">
-                                    <button type="button" class="btn btn-{{ $row->job_status !== 'failed' ? 'primary' : 'danger' }} rounded-3">
+                                    <button type="button" class="btn btn-{{ $row->job_status !== 'failed' ? 'primary' : 'danger' }} rounded-3" onclick="view_detail({{ $row->id }})">
                                         {{ $row->job_status}}
                                     </button>
                                 </td>

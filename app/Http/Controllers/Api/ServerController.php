@@ -22,9 +22,9 @@ class ServerController extends Controller
         $free = $user->subscription->plan->is_free;
         $servers = Server::where('status',1);
 
-        if ($user->subscription->isExpired() || $free == 1) {
-            $servers->where('is_premium', 0);
-        }
+        // if ($user->subscription->isExpired() || $free == 1) {
+        //     $servers->where('is_premium', 0);
+        // }
 
         // filter premium
         if ($request['is_premium'] == "0") {
