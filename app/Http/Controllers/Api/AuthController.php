@@ -122,7 +122,7 @@ class AuthController extends Controller
         if (Hash::check($request->password, $user->password)) {
             $this->createLog($user);
             return $this->handleLogin($user, __('Successfully entered the system'));
-        }        
+        }
         return response422([
             'email' => [__('The email or password entered is incorrect')]
         ]);
@@ -137,9 +137,9 @@ class AuthController extends Controller
     public function register(RegisterRequest $request)
     {
         $verification_code = rand(100000, 999999);
-        
+
         // get random free server
-        $server = Server::inRandomOrder()->where('status',1)->where('is_premium',0)->first();
+        $server = Server::inRandomOrder()->where('status', 1)->where('is_premium', 0)->first();
 
         $data = array_merge([
             'password' => bcrypt($request->password),
@@ -151,10 +151,12 @@ class AuthController extends Controller
             'server_id' => $server->id ?? null,
             'dns' => '1.1.1.1'
         ], $request->only(
-            [
-                'name', 'email'
-            ]
-        ));
+                    [
+                        'name',
+                        'email'
+                    ]
+                )
+        );
 
         DB::beginTransaction();
         try {
@@ -176,7 +178,7 @@ class AuthController extends Controller
                 'expiry_at' => $expiry_at,
                 'is_viewed' => 0,
             ]);
-            
+
             // sendmail
             $email = $user->email;
             $subject = "Verify Account";
@@ -240,7 +242,7 @@ class AuthController extends Controller
                 'email_token' => Str::random(100),
                 'verification_code' => $verification_code
             ]);
-            
+
             // sendmail
             $email = $user->email;
             $subject = "Forgot Password";
@@ -278,8 +280,8 @@ class AuthController extends Controller
                 ]);
             }
             $user->update([
-                'email_verified_at' => now(),                
-                'email_token'       => null,
+                'email_verified_at' => now(),
+                'email_token' => null,
                 'verification_code' => null
             ]);
 
@@ -303,10 +305,11 @@ class AuthController extends Controller
     public function checkCode(Request $request)
     {
         $request->validate([
-            'email'             => 'required|email|exists:users,email',
+            'email' => 'required|email|exists:users,email',
             'verification_code' => 'required|min:6|max:6|exists:users,verification_code'
         ]);
-        if ($this->settingRepository->loginMustVerified() === false) abort(404);
+        if ($this->settingRepository->loginMustVerified() === false)
+            abort(404);
         $user = $this->userRepository->findByEmail($request->email);
         if ($user === null) {
             abort(404);
@@ -316,7 +319,7 @@ class AuthController extends Controller
             ]);
         }
         return response200([
-            'status'             => true,
+            'status' => true,
             'verification_token' => $user->email_token
         ], __('Kode verifikasi valid'));
     }
@@ -344,8 +347,8 @@ class AuthController extends Controller
             //     ]);
             // }
             $userNew = $user->update([
-                'password'          => bcrypt($request->new_password),
-                'email_token'       => null,
+                'password' => bcrypt($request->new_password),
+                'email_token' => null,
                 'verification_code' => null
             ]);
             DB::commit();
@@ -378,9 +381,9 @@ class AuthController extends Controller
     private function handleLogin(User $user, string $message)
     {
         $userdata = [
-            "name"=> $user->name,
-            "email"=> $user->email,
-            "token"=> $user->api_token
+            "name" => $user->name,
+            "email" => $user->email,
+            "token" => $user->api_token
         ];
         return response200($userdata, $message);
     }
@@ -396,8 +399,8 @@ class AuthController extends Controller
     {
         return [
             'access_token' => $token,
-            'token_type'   => 'bearer',
-            'expires_in'   => auth('api')->factory()->getTTL() * 60
+            'token_type' => 'bearer',
+            'expires_in' => auth('api')->factory()->getTTL() * 60
         ];
     }
 
@@ -412,6 +415,7 @@ class AuthController extends Controller
         $user->subscription;
         $user->subscription->plan;
         $user->servers;
+        $user->logs;
         return response200($user, __('Successfully retrieved user data'));
     }
 
@@ -439,7 +443,7 @@ class AuthController extends Controller
     {
         $user = auth('api')->user();
         $user->update([
-            'password'             => bcrypt($request->new_password),
+            'password' => bcrypt($request->new_password),
             'last_password_change' => now(),
         ]);
         return response200(true, __('Successfully updated password'));
