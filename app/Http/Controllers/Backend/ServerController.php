@@ -73,6 +73,8 @@ class ServerController extends Controller
         $validator = Validator::make($request->all(), [
             'country' => ['required'],
             'state' => ['required'],
+            'latitude' => ['required'],
+            'longitude' => ['required'],
             'status' => ['required'],
             'ip_address' => ['required'],
             'recommended' => ['required'],
@@ -91,6 +93,8 @@ class ServerController extends Controller
         $createServer = Server::create([
             'country' => $request->country,
             'state' => $request->state,
+            'latitude' => $request->latitude,
+            'longitude' => $request->longitude,
             'status' => $request->status,
             'ip_address' => $request->ip_address,
             'recommended' => $request->recommended,
@@ -175,6 +179,8 @@ class ServerController extends Controller
         $validator = Validator::make($request->all(), [
             'country' => ['required'],
             'state' => ['required'],
+            'latitude' => ['required'],
+            'longitude' => ['required'],
             'status' => ['required'],
             'ip_address' => ['required'],
             'recommended' => ['required'],
@@ -189,6 +195,8 @@ class ServerController extends Controller
         $updateServer = $server->update([
             'country' => $request->country,
             'state' => $request->state,
+            'latitude' => $request->latitude,
+            'longitude' => $request->longitude,
             'status' => $request->status,
             'ip_address' => $request->ip_address,
             'recommended' => $request->recommended,
