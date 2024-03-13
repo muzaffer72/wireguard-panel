@@ -41,6 +41,8 @@ class Server extends Model
     protected $fillable = [
 		'country',
 		'state',
+		'latitude',
+		'longitude',
 		'status',
 		'ip_address',
 		'recommended',

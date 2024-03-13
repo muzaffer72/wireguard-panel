@@ -24,7 +24,6 @@ class CreateServerTable extends Migration
             $table->tinyInteger('recommended');
             $table->tinyInteger('is_premium')->default(0);
             $table->timestamps();
-
         });
     }
 

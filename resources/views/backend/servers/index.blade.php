@@ -197,6 +197,16 @@
                                 <option value="" selected disabled>{{ admin_lang('Choose') }}</option>
                             </select>
                         </div>
+                        <div class="d-flex">
+                            <div class="col-xl-6 col-md-6 col-sm-6 mb-4">
+                                <label class="form-label">{{ admin_lang('Latitude') }} : <span class="text-danger">*</span></label>
+                                <input type="text" name="latitude" class="form-control" required/>
+                            </div>
+                            <div class="col-xl-6 col-md-6 col-sm-6 mb-4">
+                                <label class="form-label">{{ admin_lang('Longitude') }} : <span class="text-danger">*</span></label>
+                                <input type="text" name="longitude" class="form-control" required/>
+                            </div>
+                        </div>
                         <div class="mb-4">
                             <label class="form-label">{{ admin_lang('Status') }} : <span class="text-danger">*</span></label>
                             <select name="status" id="status" class="form-select" required>
