@@ -33,6 +33,8 @@ class CountrySeeder extends Seeder
                 'currency'        => $row['currency'],
                 'symbol'          => $row['symbol'],
                 'alpha_3'         => $row['alpha_3'],
+                'latitude'          => $row['latitude'],
+                'longitude'         => $row['longitude'],
                 'created_at'      => $row['created_at'],
                 'updated_at'      => $row['updated_at'],
             ]);

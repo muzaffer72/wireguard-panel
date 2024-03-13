@@ -15,16 +15,15 @@ class CreateServerTable extends Migration
     {
         Schema::create('servers', function (Blueprint $table) {
             $table->id();
-			$table->string('country', 191);
-			$table->string('state', 191);
+            $table->string('country', 191);
+            $table->string('state', 191);
             $table->string('latitude', 191);
             $table->string('longitude', 191);
-			$table->tinyInteger('status');
-			$table->string('ip_address', 191);
-			$table->tinyInteger('recommended');
-			$table->tinyInteger('is_premium')->default(0);
-			$table->timestamps();
-			
+            $table->tinyInteger('status');
+            $table->string('ip_address', 191);
+            $table->tinyInteger('recommended');
+            $table->tinyInteger('is_premium')->default(0);
+            $table->timestamps();
         });
     }
 

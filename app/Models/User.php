@@ -102,7 +102,7 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function logs()
     {
-        return $this->hasMany(UserLog::class);
+        return $this->hasOne(UserLog::class)->latest();
     }
 
     public function socialProviders()
@@ -125,5 +125,5 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->belongsTo(Server::class, 'server_id');
     }
 
-   
+
 }
