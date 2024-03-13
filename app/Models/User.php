@@ -102,7 +102,7 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function logs()
     {
-        return $this->hasOne(UserLog::class);
+        return $this->hasOne(UserLog::class)->latest();
     }
 
     public function socialProviders()
