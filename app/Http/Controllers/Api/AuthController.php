@@ -141,27 +141,29 @@ class AuthController extends Controller
         // get random free server
         $server = Server::inRandomOrder()->where('status', 1)->where('is_premium', 0)->first();
 
-        $data = array_merge([
-            'password' => bcrypt($request->password),
-            'firstname' => "",
-            'lastname' => "",
-            'avatar' => "images/avatars/default.png",
-            'api_token' => hash('sha256', Str::random(60)),
-            'verification_code' => $verification_code,
-            'server_id' => $server->id ?? null,
-            'dns' => '1.1.1.1'
-        ], $request->only(
-                    [
-                        'name',
-                        'email'
-                    ]
-                )
+        $data = array_merge(
+            [
+                'password' => bcrypt($request->password),
+                'firstname' => "",
+                'lastname' => "",
+                'avatar' => "images/avatars/default.png",
+                'api_token' => hash('sha256', Str::random(60)),
+                'verification_code' => $verification_code,
+                'server_id' => $server->id ?? null,
+                'dns' => '1.1.1.1'
+            ],
+            $request->only(
+                [
+                    'name',
+                    'email'
+                ]
+            )
         );
 
         DB::beginTransaction();
         try {
             $user = $this->usermodel->create($data);
-
+            $this->createLog($user);
             // auto subs ke free plan
             $plan = Plan::find(13);// id plan harus 13
             if (is_null($plan)) {
