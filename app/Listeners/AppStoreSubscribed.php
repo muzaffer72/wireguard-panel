@@ -2,13 +2,13 @@
 
 namespace App\Listeners;
 
-use Imdhemy\Purchases\Events\AppStore\InitialBuy;
+use Imdhemy\Purchases\Events\AppStore\Subscribed;
 use App\Models\Plan;
 use App\Models\Subscription;
 // use App\Repositories\SubscriptionRepository;
 use App\User;
 
-class AppStoreSubscription
+class AppStoreSubscribed
 {
     //  /**
     //   * @param SubscriptionRepository
@@ -21,16 +21,16 @@ class AppStoreSubscription
     /**
     * The subscription.
     *
-    * @param InitialBuy $receipt
+    * @param Subscribed $subscribed
     * @return void
     */
-    public function handle(InitialBuy $ib)
+    public function handle(Subscribed $subscribed)
     {
         // $receiptResponse = Subscription::appStore()->receiptData($receipt)->verify();
         // // Get the receipt status
         // $receiptStatus = $receiptResponse->getStatus();
 
-        Log::debug($ib);
+        Log::debug(print_r($subscribed,true));
         die;
 
         if($receiptStatus->isValid()) {

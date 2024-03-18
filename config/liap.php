@@ -81,8 +81,11 @@ return [
         /*  \Imdhemy\Purchases\Events\AppStore\Cancel::class => [
               \App\Listeners\AppStore\Cancel::class,
           ],*/
-          \Imdhemy\Purchases\Events\AppStore\InitialBuy::class => [
-            \App\Listeners\AppStoreInitialBuy::class,
+        //   \Imdhemy\Purchases\Events\AppStore\InitialBuy::class => [
+        //     \App\Listeners\AppStoreInitialBuy::class,
+        //   ],
+          \Imdhemy\Purchases\Events\AppStore\Subscribed::class => [
+            \App\Listeners\AppStoreSubscribed::class,
           ]
 
         /*
