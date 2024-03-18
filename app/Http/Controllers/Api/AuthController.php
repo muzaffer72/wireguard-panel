@@ -497,9 +497,5 @@ class AuthController extends Controller
         logLogin();
         return response200(true, __('Successfully insert log'));
     }
-
-    public function appstore(Request $request)
-    {
-        Log::debug($request->all());
-    }
+    
 }
