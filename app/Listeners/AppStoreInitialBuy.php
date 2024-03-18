@@ -24,13 +24,14 @@ class AppStoreSubscription
     * @param InitialBuy $receipt
     * @return void
     */
-    public function handle(InitialBuy $receipt)
+    public function handle(InitialBuy $ib)
     {
         // $receiptResponse = Subscription::appStore()->receiptData($receipt)->verify();
         // // Get the receipt status
         // $receiptStatus = $receiptResponse->getStatus();
 
-        // print_r($receiptStatus);die;
+        Log::debug($ib);
+        die;
 
         if($receiptStatus->isValid()) {
             $latestReceiptInfo = $receiptResponse->getLatestReceiptInfo();

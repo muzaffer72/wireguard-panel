@@ -18,8 +18,6 @@ use App\Http\Controllers\Api\ServerController;
  */
 
 Route::as('api.')->prefix('v1')->group(function () {
-    // capture req
-    Route::post('appstore', [AuthController::class, 'appstore'])->name('appstore');
     # AUTH MODULES
     Route::post('auth/login', [AuthController::class, 'login'])->name('login');
     Route::post('auth/register', [AuthController::class, 'register'])->name('register');
