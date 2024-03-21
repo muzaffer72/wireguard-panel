@@ -6,4 +6,6 @@ return array (
   'search' => 'Search…',
   'categories' => 'Categories',
   'popular_articles' => 'Popular Articles',
+  'no_articles_found' => 'No articles found',
+  'no_categories_found' => 'No categories found',
 );

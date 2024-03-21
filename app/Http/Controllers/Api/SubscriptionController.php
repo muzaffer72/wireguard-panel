@@ -8,6 +8,10 @@ use App\Models\Subscription;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Validator;
+use Imdhemy\AppStore\Jws\Parser;
+use Imdhemy\AppStore\Jws\AppStoreJwsVerifier;
+use Imdhemy\AppStore\ServerNotifications\V2DecodedPayload;
+use Illuminate\Support\Facades\Log;
 
 class SubscriptionController extends Controller
 {
@@ -29,7 +33,12 @@ class SubscriptionController extends Controller
      */
     public function update(Request $request, Subscription $subscription)
     {
-        $user = auth('api')->user();
+	$user = auth('api')->user();
+
+
+	$jws = Parser::toJws($request->serverVerificationData);
+        $d = V2DecodedPayload::fromJws($jws);
+	Log::debug(print_r($d,true));die;
 
         $validator = Validator::make($request->all(), [
             'plan' => ['required', 'integer'],
