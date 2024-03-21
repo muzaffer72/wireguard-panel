@@ -151,10 +151,12 @@ class AuthController extends Controller
             'server_id' => $server->id ?? null,
             'dns' => '1.1.1.1'
         ], $request->only(
-            [
-                'name', 'email'
-            ]
-        ));
+                    [
+                        'name',
+                        'email'
+                    ]
+                )
+        );
 
         DB::beginTransaction();
         try {
