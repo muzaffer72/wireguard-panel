@@ -67,6 +67,7 @@ class SubscriptionController extends Controller
             $trx->user_id = $user->id;
             $trx->plan_id = $plan->id;
             $trx->price = $request->price;
+            $trx->total = $request->price;
             $trx->payer_email = $user->email;
             $trx->type = $request->type;
             $trx->status = $request->status;
