@@ -16,6 +16,7 @@
         "fruitcake/laravel-cors": "^3.0",
         "guzzlehttp/guzzle": "^7.2",
         "guzzlehttp/psr7": "^2.4",
+        "imdhemy/laravel-purchases": "^1.10",
         "intervention/image": "^3.3",
         "jenssegers/date": "^4.0",
         "laravel/framework": "^9.19",

@@ -125,7 +125,7 @@
                                 <td>{{ $row->ip_address }}</td>
                                 <td>{{ $row->printRecommended() }}</td>
                                 <td class="text-center">
-                                    <button type="button" class="btn btn-{{ $row->job_status !== 'failed' ? 'primary' : 'danger' }} rounded-3">
+                                    <button type="button" class="btn btn-{{ $row->job_status !== 'failed' ? 'primary' : 'danger' }} rounded-3" onclick="view_detail({{ $row->id }})">
                                         {{ $row->job_status}}
                                     </button>
                                 </td>
@@ -196,6 +196,16 @@
                             <select name="state" id="state" class="form-select" required>
                                 <option value="" selected disabled>{{ admin_lang('Choose') }}</option>
                             </select>
+                        </div>
+                        <div class="d-flex">
+                            <div class="col-xl-6 col-md-6 col-sm-6 mb-4">
+                                <label class="form-label">{{ admin_lang('Latitude') }} : <span class="text-danger">*</span></label>
+                                <input type="text" name="latitude" class="form-control" required/>
+                            </div>
+                            <div class="col-xl-6 col-md-6 col-sm-6 mb-4">
+                                <label class="form-label">{{ admin_lang('Longitude') }} : <span class="text-danger">*</span></label>
+                                <input type="text" name="longitude" class="form-control" required/>
+                            </div>
                         </div>
                         <div class="mb-4">
                             <label class="form-label">{{ admin_lang('Status') }} : <span class="text-danger">*</span></label>

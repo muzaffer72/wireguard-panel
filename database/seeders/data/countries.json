@@ -10,6 +10,8 @@
       "currency" : "AFN",
       "symbol" : "؋",
       "alpha_3" : "AFG",
+      "latitude" : "33",
+      "longitude" : "65",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -38,6 +40,8 @@
       "currency" : "ALL",
       "symbol" : "Lek",
       "alpha_3" : "ALB",
+      "latitude" : "41",
+      "longitude" : "20",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -52,6 +56,8 @@
       "currency" : "DZD",
       "symbol" : "دج",
       "alpha_3" : "DZA",
+      "latitude" : "28",
+      "longitude" : "3",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -66,6 +72,8 @@
       "currency" : "USD",
       "symbol" : "$",
       "alpha_3" : "ASM",
+      "latitude" : "-14.3333",
+      "longitude" : "-170",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -80,6 +88,8 @@
       "currency" : "EUR",
       "symbol" : "€",
       "alpha_3" : "AND",
+      "latitude": "42.546245",
+      "longitude": "1.601554",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -94,6 +104,8 @@
       "currency" : "AOA",
       "symbol" : "Kz",
       "alpha_3" : "AGO",
+      "latitude": "-11.202692",
+      "longitude": "17.873887",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -108,6 +120,8 @@
       "currency" : "XCD",
       "symbol" : "$",
       "alpha_3" : "AIA",
+      "latitude" : "18.25",
+      "longitude" : "-63.1667",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -122,6 +136,8 @@
       "currency" : "AAD",
       "symbol" : "$",
       "alpha_3" : "ATA",
+      "latitude" : "-90",
+      "longitude" : "0",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -136,6 +152,8 @@
       "currency" : "XCD",
       "symbol" : "$",
       "alpha_3" : "ATG",
+      "latitude" : "17.05",
+      "longitude" : "-61.8",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -150,6 +168,8 @@
       "currency" : "ARS",
       "symbol" : "$",
       "alpha_3" : "ARG",
+      "latitude" : "-34",
+      "longitude" : "-64",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -164,6 +184,8 @@
       "currency" : "AMD",
       "symbol" : "֏",
       "alpha_3" : "ARM",
+      "latitude" : "40",
+      "longitude" : "45",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -178,6 +200,8 @@
       "currency" : "AWG",
       "symbol" : "ƒ",
       "alpha_3" : "ABW",
+      "latitude" : "12.5",
+      "longitude" : "-69.9667",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -192,6 +216,8 @@
       "currency" : "AUD",
       "symbol" : "$",
       "alpha_3" : "AUS",
+      "latitude" : "-27",
+      "longitude" : "133",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -206,6 +232,8 @@
       "currency" : "EUR",
       "symbol" : "€",
       "alpha_3" : "AUT",
+      "latitude" : "47.3333",
+      "longitude" : "13.3333",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -220,6 +248,8 @@
       "currency" : "AZN",
       "symbol" : "m",
       "alpha_3" : "AZE",
+      "latitude" : "40.5",
+      "longitude" : "47.5",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -234,6 +264,8 @@
       "currency" : "BSD",
       "symbol" : "B$",
       "alpha_3" : "BHS",
+      "latitude" : "24.25",
+      "longitude" : "-76",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -248,6 +280,8 @@
       "currency" : "BHD",
       "symbol" : ".د.ب",
       "alpha_3" : "BHR",
+      "latitude" : "26",
+      "longitude" : "50.55",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -262,6 +296,8 @@
       "currency" : "BDT",
       "symbol" : "৳",
       "alpha_3" : "BGD",
+      "latitude" : "24",
+      "longitude" : "90",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -276,6 +312,8 @@
       "currency" : "BBD",
       "symbol" : "Bds$",
       "alpha_3" : "BRB",
+      "latitude" : "13.1667",
+      "longitude" : "-59.5333",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -290,6 +328,8 @@
       "currency" : "BYN",
       "symbol" : "Br",
       "alpha_3" : "BLR",
+      "latitude" : "53",
+      "longitude" : "28",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -304,6 +344,8 @@
       "currency" : "EUR",
       "symbol" : "€",
       "alpha_3" : "BEL",
+      "latitude" : "50.8333",
+      "longitude" : "4",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -318,6 +360,8 @@
       "currency" : "BZD",
       "symbol" : "$",
       "alpha_3" : "BLZ",
+      "latitude" : "17.25",
+      "longitude" : "-88.75",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -332,6 +376,8 @@
       "currency" : "XOF",
       "symbol" : "CFA",
       "alpha_3" : "BEN",
+      "latitude" :" 9.5",
+      "longitude" : "2.25",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -346,6 +392,8 @@
       "currency" : "BMD",
       "symbol" : "$",
       "alpha_3" : "BMU",
+      "latitude" : "32.3333",
+      "longitude" : "-64.75",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -360,6 +408,8 @@
       "currency" : "BTN",
       "symbol" : "Nu.",
       "alpha_3" : "BTN",
+      "latitude" : "27.5",
+      "longitude" : "90.5",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -374,6 +424,8 @@
       "currency" : "BOB",
       "symbol" : "Bs.",
       "alpha_3" : "BOL",
+      "latitude" : "-17",
+      "longitude" : "-65",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -388,6 +440,8 @@
       "currency" : "USD",
       "symbol" : "$",
       "alpha_3" : "BES",
+      "latitude" : "44",
+      "longitude" : "18",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -402,6 +456,8 @@
       "currency" : "BAM",
       "symbol" : "KM",
       "alpha_3" : "BIH",
+      "latitude" : "44",
+      "longitude" : "18",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -416,6 +472,8 @@
       "currency" : "BWP",
       "symbol" : "P",
       "alpha_3" : "BWA",
+      "latitude" : "-22",
+      "longitude" : "24",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -430,6 +488,8 @@
       "currency" : "NOK",
       "symbol" : "kr",
       "alpha_3" : "BVT",
+      "latitude" : "-54.4333",
+      "longitude" : "3.4",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -444,6 +504,8 @@
       "currency" : "BRL",
       "symbol" : "R$",
       "alpha_3" : "BRA",
+      "latitude" : "-10",
+      "longitude" : "-55",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -458,6 +520,8 @@
       "currency" : "USD",
       "symbol" : "$",
       "alpha_3" : "IOT",
+      "latitude" : "-6",
+      "longitude" : "71.5",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -472,6 +536,8 @@
       "currency" : "BND",
       "symbol" : "B$",
       "alpha_3" : "BRN",
+      "latitude" : "4.5",
+      "longitude" : "114.6667",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -486,6 +552,8 @@
       "currency" : "BGN",
       "symbol" : "Лв.",
       "alpha_3" : "BGR",
+      "latitude" : "43",
+      "longitude" : "25",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -500,6 +568,8 @@
       "currency" : "XOF",
       "symbol" : "CFA",
       "alpha_3" : "BFA",
+      "latitude" : "13",
+      "longitude" : "-2",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -514,6 +584,8 @@
       "currency" : "BIF",
       "symbol" : "FBu",
       "alpha_3" : "BDI",
+      "latitude" : "-3.5",
+      "longitude" : "30",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -528,6 +600,8 @@
       "currency" : "KHR",
       "symbol" : "KHR",
       "alpha_3" : "KHM",
+      "latitude" : "13",
+      "longitude" : "105",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -542,6 +616,8 @@
       "currency" : "XAF",
       "symbol" : "FCFA",
       "alpha_3" : "CMR",
+      "latitude" : "6",
+      "longitude" : "12",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -556,6 +632,8 @@
       "currency" : "CAD",
       "symbol" : "$",
       "alpha_3" : "CAN",
+      "latitude" : "60",
+      "longitude" : "-95",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -570,6 +648,8 @@
       "currency" : "CVE",
       "symbol" : "$",
       "alpha_3" : "CPV",
+      "latitude" : "16",
+      "longitude" : "-24",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -584,6 +664,8 @@
       "currency" : "KYD",
       "symbol" : "$",
       "alpha_3" : "CYM",
+      "latitude" : "19.5",
+      "longitude" : "-80.5",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -598,6 +680,8 @@
       "currency" : "XAF",
       "symbol" : "FCFA",
       "alpha_3" : "CAF",
+      "latitude" : "7",
+      "longitude" : "21",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -612,6 +696,8 @@
       "currency" : "XAF",
       "symbol" : "FCFA",
       "alpha_3" : "TCD",
+      "latitude" : "15",
+      "longitude" : "19",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -626,6 +712,8 @@
       "currency" : "CLP",
       "symbol" : "$",
       "alpha_3" : "CHL",
+      "latitude" : "-30",
+      "longitude" : "-71",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -640,6 +728,8 @@
       "currency" : "CNY",
       "symbol" : "¥",
       "alpha_3" : "CHN",
+      "latitude" : "35",
+      "longitude" : "105",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -654,6 +744,8 @@
       "currency" : "AUD",
       "symbol" : "$",
       "alpha_3" : "CXR",
+      "latitude" : "-10.5",
+      "longitude" : "105.6667",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -668,6 +760,8 @@
       "currency" : "AUD",
       "symbol" : "$",
       "alpha_3" : "CCK",
+      "latitude" : "-12.5",
+      "longitude" : "96.8333",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -682,6 +776,8 @@
       "currency" : "COP",
       "symbol" : "$",
       "alpha_3" : "COL",
+      "latitude" : "4",
+      "longitude" : "-72",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -696,6 +792,8 @@
       "currency" : "KMF",
       "symbol" : "CF",
       "alpha_3" : "COM",
+      "latitude" : "-12.1667",
+      "longitude" :" 44.25",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -710,6 +808,8 @@
       "currency" : "XAF",
       "symbol" : "FC",
       "alpha_3" : "COG",
+      "latitude" : "-1",
+      "longitude" : "15",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -724,6 +824,8 @@
       "currency" : "CDF",
       "symbol" : "FC",
       "alpha_3" : "COD",
+      "latitude" : "0",
+      "longitude" : "25",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -738,6 +840,8 @@
       "currency" : "NZD",
       "symbol" : "$",
       "alpha_3" : "COK",
+      "latitude" : "-21.2333",
+      "longitude" : "-159.7667",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -752,6 +856,8 @@
       "currency" : "CRC",
       "symbol" : "₡",
       "alpha_3" : "CRI",
+      "latitude" : "10",
+      "longitude" : "-84",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -766,6 +872,8 @@
       "currency" : "XOF",
       "symbol" : "CFA",
       "alpha_3" : "CIV",
+      "latitude" : "8",
+      "longitude" : "-5",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -780,6 +888,8 @@
       "currency" : "HRK",
       "symbol" : "kn",
       "alpha_3" : "HRV",
+      "latitude" : "45.1667",
+      "longitude" : "15.5",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -794,6 +904,8 @@
       "currency" : "CUP",
       "symbol" : "$",
       "alpha_3" : "CUB",
+      "latitude" : "21.5",
+      "longitude" : "-80",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -808,6 +920,8 @@
       "currency" : "ANG",
       "symbol" : "ƒ",
       "alpha_3" : "CUW",
+      "latitude" : "12.169570",
+      "longitude" : "-68.990021",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -822,6 +936,8 @@
       "currency" : "EUR",
       "symbol" : "€",
       "alpha_3" : "CYP",
+      "latitude" : "35",
+      "longitude" : "33",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -836,6 +952,8 @@
       "currency" : "CZK",
       "symbol" : "Kč",
       "alpha_3" : "CZE",
+      "latitude" : "49.75",
+      "longitude" : "15.5",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -850,6 +968,8 @@
       "currency" : "DKK",
       "symbol" : "Kr.",
       "alpha_3" : "DNK",
+      "latitude" : "56",
+      "longitude" : "10",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -864,6 +984,8 @@
       "currency" : "DJF",
       "symbol" : "Fdj",
       "alpha_3" : "DJI",
+      "latitude" : "11.5",
+      "longitude" : "43",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -878,6 +1000,8 @@
       "currency" : "XCD",
       "symbol" : "$",
       "alpha_3" : "DMA",
+      "latitude" : "15.4167",
+      "longitude" : "-61.3333",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -892,6 +1016,8 @@
       "currency" : "DOP",
       "symbol" : "$",
       "alpha_3" : "DOM",
+      "latitude" : "19",
+      "longitude" : "-70.6667",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -906,6 +1032,8 @@
       "currency" : "USD",
       "symbol" : "$",
       "alpha_3" : "ECU",
+      "latitude" :" -2",
+      "longitude" : "-77.5",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -920,6 +1048,8 @@
       "currency" : "EGP",
       "symbol" : "ج.م",
       "alpha_3" : "EGY",
+      "latitude" : "27",
+      "longitude" : "30",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -934,6 +1064,8 @@
       "currency" : "USD",
       "symbol" : "$",
       "alpha_3" : "SLV",
+      "latitude" : "13.8333",
+      "longitude" : "-88.9167",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -948,6 +1080,8 @@
       "currency" : "XAF",
       "symbol" : "FCFA",
       "alpha_3" : "GNQ",
+      "latitude" : "2",
+      "longitude" : "10",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -962,6 +1096,8 @@
       "currency" : "ERN",
       "symbol" : "Nfk",
       "alpha_3" : "ERI",
+      "latitude" : "15",
+      "longitude" : "39",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -976,6 +1112,8 @@
       "currency" : "EUR",
       "symbol" : "€",
       "alpha_3" : "EST",
+      "latitude" : "59",
+      "longitude" : "26",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -990,6 +1128,8 @@
       "currency" : "ETB",
       "symbol" : "Nkf",
       "alpha_3" : "ETH",
+      "latitude" : "8",
+      "longitude" : "38",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -1004,6 +1144,8 @@
       "currency" : "FKP",
       "symbol" : "£",
       "alpha_3" : "FLK",
+      "latitude" : "-51.75",
+      "longitude" :" -59",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -1018,6 +1160,8 @@
       "currency" : "DKK",
       "symbol" : "Kr.",
       "alpha_3" : "FRO",
+      "latitude" : "62",
+      "longitude" : "-7",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -1032,6 +1176,8 @@
       "currency" : "FJD",
       "symbol" : "FJ$",
       "alpha_3" : "FJI",
+      "latitude" : "-18",
+      "longitude" : "175",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -1046,6 +1192,8 @@
       "currency" : "EUR",
       "symbol" : "€",
       "alpha_3" : "FIN",
+      "latitude" : "64",
+      "longitude" : "26",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -1060,6 +1208,8 @@
       "currency" : "EUR",
       "symbol" : "€",
       "alpha_3" : "FRA",
+      "latitude" : "46",
+      "longitude" : "2",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -1074,6 +1224,8 @@
       "currency" : "EUR",
       "symbol" : "€",
       "alpha_3" : "GUF",
+      "latitude" : "4",
+      "longitude" : "-53",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -1088,6 +1240,8 @@
       "currency" : "XPF",
       "symbol" : "₣",
       "alpha_3" : "PYF",
+      "latitude" : "-15",
+      "longitude" : "-140",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -1102,6 +1256,8 @@
       "currency" : "EUR",
       "symbol" : "€",
       "alpha_3" : "ATF",
+      "latitude" : "-43",
+      "longitude" : "67",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -1116,6 +1272,8 @@
       "currency" : "XAF",
       "symbol" : "FCFA",
       "alpha_3" : "GAB",
+      "latitude" : "-1",
+      "longitude" : "11.75",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -1130,6 +1288,8 @@
       "currency" : "GMD",
       "symbol" : "D",
       "alpha_3" : "GMB",
+      "latitude" : "13.4667",
+      "longitude" : "-16.5667",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -1144,6 +1304,8 @@
       "currency" : "GEL",
       "symbol" : "ლ",
       "alpha_3" : "GEO",
+      "latitude" : "42",
+      "longitude" : "43.5",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -1158,6 +1320,8 @@
       "currency" : "EUR",
       "symbol" : "€",
       "alpha_3" : "DEU",
+      "latitude" : "51",
+      "longitude" : "9",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -1172,6 +1336,8 @@
       "currency" : "GHS",
       "symbol" : "GH₵",
       "alpha_3" : "GHA",
+      "latitude" : "8",
+      "longitude" : "-2",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -1186,6 +1352,8 @@
       "currency" : "GIP",
       "symbol" : "£",
       "alpha_3" : "GIB",
+      "latitude" : "36.1833",
+      "longitude" : "-5.3667",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -1200,6 +1368,8 @@
       "currency" : "EUR",
       "symbol" : "€",
       "alpha_3" : "GRC",
+      "latitude" : "39",
+      "longitude" : "22",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -1214,6 +1384,8 @@
       "currency" : "DKK",
       "symbol" : "Kr.",
       "alpha_3" : "GRL",
+      "latitude" : "72",
+      "longitude" : "-40",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -1228,6 +1400,8 @@
       "currency" : "XCD",
       "symbol" : "$",
       "alpha_3" : "GRD",
+      "latitude" : "12.1167",
+      "longitude" : "-61.6667",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -1242,6 +1416,8 @@
       "currency" : "EUR",
       "symbol" : "€",
       "alpha_3" : "GLP",
+      "latitude" : "16.25",
+      "longitude" : "-61.5833",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -1256,6 +1432,8 @@
       "currency" : "USD",
       "symbol" : "$",
       "alpha_3" : "GUM",
+      "latitude" : "13.4667",
+      "longitude" : "144.7833",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -1270,6 +1448,8 @@
       "currency" : "GTQ",
       "symbol" : "Q",
       "alpha_3" : "GTM",
+      "latitude" : "15.5",
+      "longitude" : "-90.25",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -1284,6 +1464,8 @@
       "currency" : "GBP",
       "symbol" : "£",
       "alpha_3" : "GGY",
+      "latitude" : "49.5",
+      "longitude" : "-2.56",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -1298,6 +1480,8 @@
       "currency" : "GNF",
       "symbol" : "FG",
       "alpha_3" : "GIN",
+      "latitude" : "11",
+      "longitude" : "-10",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -1312,6 +1496,8 @@
       "currency" : "XOF",
       "symbol" : "CFA",
       "alpha_3" : "GNB",
+      "latitude" : "12",
+      "longitude" : "-15",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -1326,6 +1512,8 @@
       "currency" : "GYD",
       "symbol" : "$",
       "alpha_3" : "GUY",
+      "latitude" : "5",
+      "longitude" : "-59",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -1340,6 +1528,8 @@
       "currency" : "HTG",
       "symbol" : "G",
       "alpha_3" : "HTI",
+      "latitude" : "19",
+      "longitude" : "-72.4167",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -1354,6 +1544,8 @@
       "currency" : "AUD",
       "symbol" : "$",
       "alpha_3" : "HMD",
+      "latitude" : "-53.1",
+      "longitude" : "72.5167",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -1368,6 +1560,8 @@
       "currency" : "EUR",
       "symbol" : "€",
       "alpha_3" : "VAT",
+      "latitude" : "41.9",
+      "longitude" : "12.45",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -1382,6 +1576,8 @@
       "currency" : "HNL",
       "symbol" : "L",
       "alpha_3" : "HND",
+      "latitude" : "15",
+      "longitude" : "-86.5",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -1396,6 +1592,8 @@
       "currency" : "HKD",
       "symbol" : "$",
       "alpha_3" : "HKG",
+      "latitude" : "22.25",
+      "longitude" : "114.1667",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -1410,6 +1608,8 @@
       "currency" : "HUF",
       "symbol" : "Ft",
       "alpha_3" : "HUN",
+      "latitude" : "47",
+      "longitude" : "20",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -1424,6 +1624,8 @@
       "currency" : "ISK",
       "symbol" : "kr",
       "alpha_3" : "ISL",
+      "latitude" : "65",
+      "longitude" : "-18",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -1438,6 +1640,8 @@
       "currency" : "INR",
       "symbol" : "₹",
       "alpha_3" : "IND",
+      "latitude" : "20",
+      "longitude" : "77",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -1452,6 +1656,8 @@
       "currency" : "IDR",
       "symbol" : "Rp",
       "alpha_3" : "IDN",
+      "latitude" : "-5",
+      "longitude" : "120",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -1466,6 +1672,8 @@
       "currency" : "IRR",
       "symbol" : "﷼",
       "alpha_3" : "IRN",
+      "latitude" : "32",
+      "longitude" : "53",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -1480,6 +1688,8 @@
       "currency" : "IQD",
       "symbol" : "د.ع",
       "alpha_3" : "IRQ",
+      "latitude" : "33",
+      "longitude" : "44",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -1494,6 +1704,8 @@
       "currency" : "EUR",
       "symbol" : "€",
       "alpha_3" : "IRL",
+      "latitude" : "53",
+      "longitude" : "-8",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -1508,6 +1720,8 @@
       "currency" : "GBP",
       "symbol" : "£",
       "alpha_3" : "IMN",
+      "latitude" : "54.23",
+      "longitude" : "-4.55",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -1522,6 +1736,8 @@
       "currency" : "ILS",
       "symbol" : "₪",
       "alpha_3" : "ISR",
+      "latitude" : "31.5",
+      "longitude" : "34.75",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -1536,6 +1752,8 @@
       "currency" : "EUR",
       "symbol" : "€",
       "alpha_3" : "ITA",
+      "latitude" : "42.8333",
+      "longitude" : "12.8333",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -1550,6 +1768,8 @@
       "currency" : "JMD",
       "symbol" : "J$",
       "alpha_3" : "JAM",
+      "latitude" : "18.25",
+      "longitude" : "-77.5",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -1564,6 +1784,8 @@
       "currency" : "JPY",
       "symbol" : "¥",
       "alpha_3" : "JPN",
+      "latitude" : "36",
+      "longitude" : "138",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -1578,6 +1800,8 @@
       "currency" : "GBP",
       "symbol" : "£",
       "alpha_3" : "JEY",
+      "latitude" : "49.21",
+      "longitude" : "-2.13",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -1592,6 +1816,8 @@
       "currency" : "JOD",
       "symbol" : "ا.د",
       "alpha_3" : "JOR",
+      "latitude" : "31",
+      "longitude" : "36",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -1606,6 +1832,8 @@
       "currency" : "KZT",
       "symbol" : "лв",
       "alpha_3" : "KAZ",
+      "latitude" : "48",
+      "longitude" : "68",
       "created_at" : "2021-11-04 05:07:15.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -1620,6 +1848,8 @@
       "currency" : "KES",
       "symbol" : "KSh",
       "alpha_3" : "KEN",
+      "latitude" : "1",
+      "longitude" : "38",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -1634,6 +1864,8 @@
       "currency" : "AUD",
       "symbol" : "$",
       "alpha_3" : "KIR",
+      "latitude" : "1.4167",
+      "longitude" : "173",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -1648,6 +1880,8 @@
       "currency" : "KPW",
       "symbol" : "₩",
       "alpha_3" : "PRK",
+      "latitude" : "40",
+      "longitude" : "127",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -1662,6 +1896,8 @@
       "currency" : "KRW",
       "symbol" : "₩",
       "alpha_3" : "KOR",
+      "latitude" : "37",
+      "longitude" : "127.5",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -1676,6 +1912,8 @@
       "currency" : "EUR",
       "symbol" : "€",
       "alpha_3" : "XKX",
+      "latitude" : "42.658772",
+      "longitude" : "20.855055",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -1690,6 +1928,8 @@
       "currency" : "KWD",
       "symbol" : "ك.د",
       "alpha_3" : "KWT",
+      "latitude" : "29.3375",
+      "longitude" : "47.6581",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -1704,6 +1944,8 @@
       "currency" : "KGS",
       "symbol" : "лв",
       "alpha_3" : "KGZ",
+      "latitude" : "41",
+      "longitude" : "75",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -1718,6 +1960,8 @@
       "currency" : "LAK",
       "symbol" : "₭",
       "alpha_3" : "LAO",
+      "latitude" : "18",
+      "longitude" : "105",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -1732,6 +1976,8 @@
       "currency" : "EUR",
       "symbol" : "€",
       "alpha_3" : "LVA",
+      "latitude" : "57",
+      "longitude" : "25",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -1746,6 +1992,8 @@
       "currency" : "LBP",
       "symbol" : "£",
       "alpha_3" : "LBN",
+      "latitude" : "33.8333",
+      "longitude" : "35.8333",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -1760,6 +2008,8 @@
       "currency" : "LSL",
       "symbol" : "L",
       "alpha_3" : "LSO",
+      "latitude" : "-29.5",
+      "longitude" : "28.5",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -1774,6 +2024,8 @@
       "currency" : "LRD",
       "symbol" : "$",
       "alpha_3" : "LBR",
+      "latitude" : "6.5",
+      "longitude" : "-9.5",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -1788,6 +2040,8 @@
       "currency" : "LYD",
       "symbol" : "د.ل",
       "alpha_3" : "LBY",
+      "latitude" : "25",
+      "longitude" : "17",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -1802,6 +2056,8 @@
       "currency" : "CHF",
       "symbol" : "CHf",
       "alpha_3" : "LIE",
+      "latitude" : "47.1667",
+      "longitude" : "9.5333",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -1816,6 +2072,8 @@
       "currency" : "EUR",
       "symbol" : "€",
       "alpha_3" : "LTU",
+      "latitude" : "56",
+      "longitude" : "24",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -1830,6 +2088,8 @@
       "currency" : "EUR",
       "symbol" : "€",
       "alpha_3" : "LUX",
+      "latitude" : "49.75",
+      "longitude" : "6.1667",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -1844,6 +2104,8 @@
       "currency" : "MOP",
       "symbol" : "$",
       "alpha_3" : "MAC",
+      "latitude" : "22.1667",
+      "longitude" : "113.55",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -1858,6 +2120,8 @@
       "currency" : "MKD",
       "symbol" : "ден",
       "alpha_3" : "MKD",
+      "latitude" : "41.8333",
+      "longitude" : "22",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -1872,6 +2136,8 @@
       "currency" : "MGA",
       "symbol" : "Ar",
       "alpha_3" : "MDG",
+      "latitude" : "-20",
+      "longitude" : "47",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -1886,6 +2152,8 @@
       "currency" : "MWK",
       "symbol" : "MK",
       "alpha_3" : "MWI",
+      "latitude" : "-13.5",
+      "longitude" : "34",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -1900,6 +2168,8 @@
       "currency" : "MYR",
       "symbol" : "RM",
       "alpha_3" : "MYS",
+      "latitude" : "2.5",
+      "longitude" : "112.5",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -1914,6 +2184,8 @@
       "currency" : "MVR",
       "symbol" : "Rf",
       "alpha_3" : "MDV",
+      "latitude" : "3.25",
+      "longitude" : "73",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -1928,6 +2200,8 @@
       "currency" : "XOF",
       "symbol" : "CFA",
       "alpha_3" : "MLI",
+      "latitude" : "17",
+      "longitude" : "-4",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -1942,6 +2216,8 @@
       "currency" : "EUR",
       "symbol" : "€",
       "alpha_3" : "MLT",
+      "latitude" : "35.8333",
+      "longitude" : "14.5833",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -1956,6 +2232,8 @@
       "currency" : "USD",
       "symbol" : "$",
       "alpha_3" : "MHL",
+      "latitude" : "9",
+      "longitude" : "168",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -1970,6 +2248,8 @@
       "currency" : "EUR",
       "symbol" : "€",
       "alpha_3" : "MTQ",
+      "latitude" : "14.6667",
+      "longitude" : "-61",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -1984,6 +2264,8 @@
       "currency" : "MRO",
       "symbol" : "MRU",
       "alpha_3" : "MRT",
+      "latitude" : "20",
+      "longitude" : "-12",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -1998,6 +2280,8 @@
       "currency" : "MUR",
       "symbol" : "₨",
       "alpha_3" : "MUS",
+      "latitude" : "-20.2833",
+      "longitude" : "57.55",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -2012,6 +2296,8 @@
       "currency" : "EUR",
       "symbol" : "€",
       "alpha_3" : "MYT",
+      "latitude" : "-12.8333",
+      "longitude" : "45.1667",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -2026,6 +2312,8 @@
       "currency" : "MXN",
       "symbol" : "$",
       "alpha_3" : "MEX",
+      "latitude" : "23",
+      "longitude" : "-102",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -2040,6 +2328,8 @@
       "currency" : "USD",
       "symbol" : "$",
       "alpha_3" : "FSM",
+      "latitude" : "6.9167",
+      "longitude" : "158.25",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -2054,6 +2344,8 @@
       "currency" : "MDL",
       "symbol" : "L",
       "alpha_3" : "MDA",
+      "latitude" : "47",
+      "longitude" : "29",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -2068,6 +2360,8 @@
       "currency" : "EUR",
       "symbol" : "€",
       "alpha_3" : "MCO",
+      "latitude" : "43.7333",
+      "longitude" : "7.4",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -2082,6 +2376,8 @@
       "currency" : "MNT",
       "symbol" : "₮",
       "alpha_3" : "MNG",
+      "latitude" : "46",
+      "longitude" : "105",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -2096,6 +2392,8 @@
       "currency" : "EUR",
       "symbol" : "€",
       "alpha_3" : "MNE",
+      "latitude" : "42",
+      "longitude" : "19",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -2110,6 +2408,8 @@
       "currency" : "XCD",
       "symbol" : "$",
       "alpha_3" : "MSR",
+      "latitude" : "16.75",
+      "longitude" : "-62.2",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -2124,6 +2424,8 @@
       "currency" : "MAD",
       "symbol" : "DH",
       "alpha_3" : "MAR",
+      "latitude" : "32",
+      "longitude" : "-5",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -2138,6 +2440,8 @@
       "currency" : "MZN",
       "symbol" : "MT",
       "alpha_3" : "MOZ",
+      "latitude" : "-18.25",
+      "longitude" : "35",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -2152,6 +2456,8 @@
       "currency" : "MMK",
       "symbol" : "K",
       "alpha_3" : "MMR",
+      "latitude" : "22",
+      "longitude" : "98",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -2166,6 +2472,8 @@
       "currency" : "NAD",
       "symbol" : "$",
       "alpha_3" : "NAM",
+      "latitude" : "-22",
+      "longitude" : "17",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -2180,6 +2488,8 @@
       "currency" : "AUD",
       "symbol" : "$",
       "alpha_3" : "NRU",
+      "latitude" :"-0.5333",
+      "longitude" : "166.9167",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -2194,6 +2504,8 @@
       "currency" : "NPR",
       "symbol" : "₨",
       "alpha_3" : "NPL",
+      "latitude" : "28",
+      "longitude" : "84",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -2208,6 +2520,8 @@
       "currency" : "EUR",
       "symbol" : "€",
       "alpha_3" : "NLD",
+      "latitude" : "52.5",
+      "longitude" : "5.75",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -2222,6 +2536,8 @@
       "currency" : "ANG",
       "symbol" : "NAf",
       "alpha_3" : "ANT",
+      "latitude" : "12.25",
+      "longitude" : "-68.75",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -2236,6 +2552,8 @@
       "currency" : "XPF",
       "symbol" : "₣",
       "alpha_3" : "NCL",
+      "latitude" : "-21.5",
+      "longitude" : "165.5",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -2250,6 +2568,8 @@
       "currency" : "NZD",
       "symbol" : "$",
       "alpha_3" : "NZL",
+      "latitude" : "-41",
+      "longitude" : "174",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -2264,6 +2584,8 @@
       "currency" : "NIO",
       "symbol" : "C$",
       "alpha_3" : "NIC",
+      "latitude" : "13",
+      "longitude" : "-85",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -2278,6 +2600,8 @@
       "currency" : "XOF",
       "symbol" : "CFA",
       "alpha_3" : "NER",
+      "latitude" : "16",
+      "longitude" : "8",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -2292,6 +2616,8 @@
       "currency" : "NGN",
       "symbol" : "₦",
       "alpha_3" : "NGA",
+      "latitude" : "10",
+      "longitude" : "8",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -2306,6 +2632,8 @@
       "currency" : "NZD",
       "symbol" : "$",
       "alpha_3" : "NIU",
+      "latitude" : "-19.0333",
+      "longitude" : "-169.8667",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -2320,6 +2648,8 @@
       "currency" : "AUD",
       "symbol" : "$",
       "alpha_3" : "NFK",
+      "latitude" : "-29.0333",
+      "longitude" : "167.95",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -2334,6 +2664,8 @@
       "currency" : "USD",
       "symbol" : "$",
       "alpha_3" : "MNP",
+      "latitude" : "15.2",
+      "longitude" : "145.75",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -2348,6 +2680,8 @@
       "currency" : "NOK",
       "symbol" : "kr",
       "alpha_3" : "NOR",
+      "latitude" : "62",
+      "longitude" : "10",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -2362,6 +2696,8 @@
       "currency" : "OMR",
       "symbol" : ".ع.ر",
       "alpha_3" : "OMN",
+      "latitude" : "21",
+      "longitude" : "57",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -2376,6 +2712,8 @@
       "currency" : "PKR",
       "symbol" : "₨",
       "alpha_3" : "PAK",
+      "latitude" : "30",
+      "longitude" : "70",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -2390,6 +2728,8 @@
       "currency" : "USD",
       "symbol" : "$",
       "alpha_3" : "PLW",
+      "latitude" : "7.5",
+      "longitude" : "134.5",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -2404,6 +2744,8 @@
       "currency" : "ILS",
       "symbol" : "₪",
       "alpha_3" : "PSE",
+      "latitude" : "32",
+      "longitude" : "35.25",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -2418,6 +2760,8 @@
       "currency" : "PAB",
       "symbol" : "B\/.",
       "alpha_3" : "PAN",
+      "latitude" : "9",
+      "longitude" : "-80",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -2432,6 +2776,8 @@
       "currency" : "PGK",
       "symbol" : "K",
       "alpha_3" : "PNG",
+      "latitude" : "-6",
+      "longitude" : "147",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -2446,6 +2792,8 @@
       "currency" : "PYG",
       "symbol" : "₲",
       "alpha_3" : "PRY",
+      "latitude" : "-23",
+      "longitude" : "-58",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -2460,6 +2808,8 @@
       "currency" : "PEN",
       "symbol" : "S\/.",
       "alpha_3" : "PER",
+      "latitude" : "-10",
+      "longitude" : "-76",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -2474,6 +2824,8 @@
       "currency" : "PHP",
       "symbol" : "₱",
       "alpha_3" : "PHL",
+      "latitude" : "13",
+      "longitude" : "122",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -2488,6 +2840,8 @@
       "currency" : "NZD",
       "symbol" : "$",
       "alpha_3" : "PCN",
+      "latitude" : "-24.7",
+      "longitude" : "-127.4",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -2502,6 +2856,8 @@
       "currency" : "PLN",
       "symbol" : "zł",
       "alpha_3" : "POL",
+      "latitude" : "52",
+      "longitude" : "20",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -2516,6 +2872,8 @@
       "currency" : "EUR",
       "symbol" : "€",
       "alpha_3" : "PRT",
+      "latitude" : "39.5",
+      "longitude" : "-8",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -2530,6 +2888,8 @@
       "currency" : "USD",
       "symbol" : "$",
       "alpha_3" : "PRI",
+      "latitude" : "18.25",
+      "longitude" : "-66.5",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -2544,6 +2904,8 @@
       "currency" : "QAR",
       "symbol" : "ق.ر",
       "alpha_3" : "QAT",
+      "latitude" : "25.5",
+      "longitude" : "51.25",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -2558,6 +2920,8 @@
       "currency" : "EUR",
       "symbol" : "€",
       "alpha_3" : "REU",
+      "latitude" : "-21.1",
+      "longitude" : "55.6",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -2572,6 +2936,8 @@
       "currency" : "RON",
       "symbol" : "lei",
       "alpha_3" : "ROM",
+      "latitude" : "46",
+      "longitude" : "25",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -2586,6 +2952,8 @@
       "currency" : "RUB",
       "symbol" : "₽",
       "alpha_3" : "RUS",
+      "latitude" : "60",
+      "longitude" : "100",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -2600,6 +2968,8 @@
       "currency" : "RWF",
       "symbol" : "FRw",
       "alpha_3" : "RWA",
+      "latitude" : "-2",
+      "longitude" : "30",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -2614,6 +2984,8 @@
       "currency" : "EUR",
       "symbol" : "€",
       "alpha_3" : "BLM",
+      "latitude" : "17.89618",
+      "longitude" : "-62.84978",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -2628,6 +3000,8 @@
       "currency" : "SHP",
       "symbol" : "£",
       "alpha_3" : "SHN",
+      "latitude" : "-15.9333",
+      "longitude" : "-5.7",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -2642,6 +3016,8 @@
       "currency" : "XCD",
       "symbol" : "$",
       "alpha_3" : "KNA",
+      "latitude" : "17.3333",
+      "longitude" : "-62.75",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -2656,6 +3032,8 @@
       "currency" : "XCD",
       "symbol" : "$",
       "alpha_3" : "LCA",
+      "latitude" : "13.8833",
+      "longitude" : "-61.1333",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -2670,6 +3048,8 @@
       "currency" : "EUR",
       "symbol" : "€",
       "alpha_3" : "MAF",
+      "latitude" : "18.075277",
+      "longitude" : "-63.060001",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -2684,6 +3064,8 @@
       "currency" : "EUR",
       "symbol" : "€",
       "alpha_3" : "SPM",
+      "latitude" : "46.8333",
+      "longitude" : "-56.3333",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -2698,6 +3080,8 @@
       "currency" : "XCD",
       "symbol" : "$",
       "alpha_3" : "VCT",
+      "latitude" : "13.25",
+      "longitude" : "-61.2",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -2712,6 +3096,8 @@
       "currency" : "WST",
       "symbol" : "SAT",
       "alpha_3" : "WSM",
+      "latitude" : "-13.5833",
+      "longitude" : "-172.3333",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -2726,6 +3112,8 @@
       "currency" : "EUR",
       "symbol" : "€",
       "alpha_3" : "SMR",
+      "latitude" : "43.7667",
+      "longitude" : "12.4167",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -2740,6 +3128,8 @@
       "currency" : "STD",
       "symbol" : "Db",
       "alpha_3" : "STP",
+      "latitude" : "1",
+      "longitude" : "7",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -2754,6 +3144,8 @@
       "currency" : "SAR",
       "symbol" : "﷼",
       "alpha_3" : "SAU",
+      "latitude" : "25",
+      "longitude" : "45",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -2768,6 +3160,8 @@
       "currency" : "XOF",
       "symbol" : "CFA",
       "alpha_3" : "SEN",
+      "latitude" : "14",
+      "longitude" : "-14",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -2782,6 +3176,8 @@
       "currency" : "RSD",
       "symbol" : "din",
       "alpha_3" : "SRB",
+      "latitude" : "44",
+      "longitude" : "21",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -2796,6 +3192,8 @@
       "currency" : "RSD",
       "symbol" : "din",
       "alpha_3" : "SCG",
+      "latitude" : "44",
+      "longitude" : "21",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -2810,6 +3208,8 @@
       "currency" : "SCR",
       "symbol" : "SRe",
       "alpha_3" : "SYC",
+      "latitude" : "-4.5833",
+      "longitude" : "55.6667",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -2824,6 +3224,8 @@
       "currency" : "SLL",
       "symbol" : "Le",
       "alpha_3" : "SLE",
+      "latitude" : "8.5",
+      "longitude" : "-11.5",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -2838,6 +3240,8 @@
       "currency" : "SGD",
       "symbol" : "$",
       "alpha_3" : "SGP",
+      "latitude" : "1.3667",
+      "longitude" : "103.8",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -2852,6 +3256,8 @@
       "currency" : "ANG",
       "symbol" : "ƒ",
       "alpha_3" : "SXM",
+      "latitude" : "18.0347",
+      "longitude" : "-63.0681",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -2866,6 +3272,8 @@
       "currency" : "EUR",
       "symbol" : "€",
       "alpha_3" : "SVK",
+      "latitude" : "48.6667",
+      "longitude" : "19.5",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -2880,6 +3288,8 @@
       "currency" : "EUR",
       "symbol" : "€",
       "alpha_3" : "SVN",
+      "latitude" : "46",
+      "longitude" : "15",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -2894,6 +3304,8 @@
       "currency" : "SBD",
       "symbol" : "Si$",
       "alpha_3" : "SLB",
+      "latitude" : "-8",
+      "longitude" : "159",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -2908,6 +3320,8 @@
       "currency" : "SOS",
       "symbol" : "Sh.",
       "alpha_3" : "SOM",
+      "latitude" : "10",
+      "longitude" : "49",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -2922,6 +3336,8 @@
       "currency" : "ZAR",
       "symbol" : "R",
       "alpha_3" : "ZAF",
+      "latitude" : "-29",
+      "longitude" : "24",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -2936,6 +3352,8 @@
       "currency" : "GBP",
       "symbol" : "£",
       "alpha_3" : "SGS",
+      "latitude" : "-54.281151",
+      "longitude" : "-36.508739",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -2950,6 +3368,8 @@
       "currency" : "SSP",
       "symbol" : "£",
       "alpha_3" : "SSD",
+      "latitude" : "4.859363",
+      "longitude" : "31.571251",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -2964,6 +3384,8 @@
       "currency" : "EUR",
       "symbol" : "€",
       "alpha_3" : "ESP",
+      "latitude" : "40",
+      "longitude" : "-4",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -2978,6 +3400,8 @@
       "currency" : "LKR",
       "symbol" : "Rs",
       "alpha_3" : "LKA",
+      "latitude" : "7",
+      "longitude" : "81",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -2992,6 +3416,8 @@
       "currency" : "SDG",
       "symbol" : ".س.ج",
       "alpha_3" : "SDN",
+      "latitude" : "15",
+      "longitude" : "30",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -3006,6 +3432,8 @@
       "currency" : "SRD",
       "symbol" : "$",
       "alpha_3" : "SUR",
+      "latitude" : "4",
+      "longitude" : "-56",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -3020,6 +3448,8 @@
       "currency" : "NOK",
       "symbol" : "kr",
       "alpha_3" : "SJM",
+      "latitude" : "78",
+      "longitude" : "20",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -3034,6 +3464,8 @@
       "currency" : "SZL",
       "symbol" : "E",
       "alpha_3" : "SWZ",
+      "latitude" : "-26.5",
+      "longitude" : "31.5",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -3048,6 +3480,8 @@
       "currency" : "SEK",
       "symbol" : "kr",
       "alpha_3" : "SWE",
+      "latitude" : "62",
+      "longitude" : "15",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -3062,6 +3496,8 @@
       "currency" : "CHF",
       "symbol" : "CHf",
       "alpha_3" : "CHE",
+      "latitude" : "47",
+      "longitude" : "8",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -3076,6 +3512,8 @@
       "currency" : "SYP",
       "symbol" : "LS",
       "alpha_3" : "SYR",
+      "latitude" : "35",
+      "longitude" : "38",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -3090,6 +3528,8 @@
       "currency" : "TWD",
       "symbol" : "$",
       "alpha_3" : "TWN",
+      "latitude" : "23.5",
+      "longitude" : "121",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -3104,6 +3544,8 @@
       "currency" : "TJS",
       "symbol" : "SM",
       "alpha_3" : "TJK",
+      "latitude" : "39",
+      "longitude" : "71",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -3118,6 +3560,8 @@
       "currency" : "TZS",
       "symbol" : "TSh",
       "alpha_3" : "TZA",
+      "latitude" : "-6",
+      "longitude" : "35",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -3132,6 +3576,8 @@
       "currency" : "THB",
       "symbol" : "฿",
       "alpha_3" : "THA",
+      "latitude" : "15",
+      "longitude" : "100",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -3146,6 +3592,8 @@
       "currency" : "USD",
       "symbol" : "$",
       "alpha_3" : "TLS",
+      "latitude" : "-8.55",
+      "longitude" : "125.5167",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -3160,6 +3608,8 @@
       "currency" : "XOF",
       "symbol" : "CFA",
       "alpha_3" : "TGO",
+      "latitude" : "8",
+      "longitude" : "1.1667",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -3174,6 +3624,8 @@
       "currency" : "NZD",
       "symbol" : "$",
       "alpha_3" : "TKL",
+      "latitude" : "-9",
+      "longitude" : "-172",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -3188,6 +3640,8 @@
       "currency" : "TOP",
       "symbol" : "$",
       "alpha_3" : "TON",
+      "latitude" : "-20",
+      "longitude" : "-175",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -3202,6 +3656,8 @@
       "currency" : "TTD",
       "symbol" : "$",
       "alpha_3" : "TTO",
+      "latitude" : "11",
+      "longitude" : "-61",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -3216,6 +3672,8 @@
       "currency" : "TND",
       "symbol" : "ت.د",
       "alpha_3" : "TUN",
+      "latitude" : "34",
+      "longitude" : "9",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -3230,6 +3688,8 @@
       "currency" : "TRY",
       "symbol" : "₺",
       "alpha_3" : "TUR",
+      "latitude" : "39",
+      "longitude" : "35",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -3244,6 +3704,8 @@
       "currency" : "TMT",
       "symbol" : "T",
       "alpha_3" : "TKM",
+      "latitude" : "40",
+      "longitude" : "60",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -3258,6 +3720,8 @@
       "currency" : "USD",
       "symbol" : "$",
       "alpha_3" : "TCA",
+      "latitude" : "21.75",
+      "longitude" : "-71.5833",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -3272,6 +3736,8 @@
       "currency" : "AUD",
       "symbol" : "$",
       "alpha_3" : "TUV",
+      "latitude" : "-8",
+      "longitude" : "178",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -3286,6 +3752,8 @@
       "currency" : "UGX",
       "symbol" : "USh",
       "alpha_3" : "UGA",
+      "latitude" : "1",
+      "longitude" : "32",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -3300,6 +3768,8 @@
       "currency" : "UAH",
       "symbol" : "₴",
       "alpha_3" : "UKR",
+      "latitude" : "49",
+      "longitude" : "32",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -3314,6 +3784,8 @@
       "currency" : "AED",
       "symbol" : "إ.د",
       "alpha_3" : "ARE",
+      "latitude" : "24",
+      "longitude" : "54",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -3328,6 +3800,8 @@
       "currency" : "GBP",
       "symbol" : "£",
       "alpha_3" : "GBR",
+      "latitude" : "54",
+      "longitude" :" -2",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -3342,6 +3816,8 @@
       "currency" : "USD",
       "symbol" : "$",
       "alpha_3" : "USA",
+      "latitude" : "38",
+      "longitude" : "-97",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -3356,6 +3832,8 @@
       "currency" : "USD",
       "symbol" : "$",
       "alpha_3" : "UMI",
+      "latitude" : "19.2833",
+      "longitude" : "166.6",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -3370,6 +3848,8 @@
       "currency" : "UYU",
       "symbol" : "$",
       "alpha_3" : "URY",
+      "latitude" : "-33",
+      "longitude" : "-56",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -3384,6 +3864,8 @@
       "currency" : "UZS",
       "symbol" : "лв",
       "alpha_3" : "UZB",
+      "latitude" : "41",
+      "longitude" : "64",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -3398,6 +3880,8 @@
       "currency" : "VUV",
       "symbol" : "VT",
       "alpha_3" : "VUT",
+      "latitude" : "-16",
+      "longitude" : "167",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -3412,6 +3896,8 @@
       "currency" : "VEF",
       "symbol" : "Bs",
       "alpha_3" : "VEN",
+      "latitude" : "8",
+      "longitude" : "-66",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -3426,6 +3912,8 @@
       "currency" : "VND",
       "symbol" : "₫",
       "alpha_3" : "VNM",
+      "latitude" : "16",
+      "longitude" : "106",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -3440,6 +3928,8 @@
       "currency" : "USD",
       "symbol" : "$",
       "alpha_3" : "VGB",
+      "latitude" : "18.5",
+      "longitude" : "-64.5",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -3454,6 +3944,8 @@
       "currency" : "USD",
       "symbol" : "$",
       "alpha_3" : "VIR",
+      "latitude" : "18.3333",
+      "longitude" : "-64.8333",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -3468,6 +3960,8 @@
       "currency" : "XPF",
       "symbol" : "₣",
       "alpha_3" : "WLF",
+      "latitude" : "-13.3",
+      "longitude" : "-176.2",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -3482,6 +3976,8 @@
       "currency" : "MAD",
       "symbol" : "MAD",
       "alpha_3" : "ESH",
+      "latitude" : "24.5",
+      "longitude" : "-13",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -3496,6 +3992,8 @@
       "currency" : "YER",
       "symbol" : "﷼",
       "alpha_3" : "YEM",
+      "latitude" : "15",
+      "longitude" : "48",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -3510,6 +4008,8 @@
       "currency" : "ZMW",
       "symbol" : "ZK",
       "alpha_3" : "ZMB",
+      "latitude" : "-15",
+      "longitude" : "30",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     },
@@ -3524,6 +4024,8 @@
       "currency" : "ZWL",
       "symbol" : "$",
       "alpha_3" : "ZWE",
+      "latitude" : "-20",
+      "longitude" : "30",
       "created_at" : "2021-11-04 05:07:16.0",
       "updated_at" : "2021-11-04 22:59:30.0"
     }
