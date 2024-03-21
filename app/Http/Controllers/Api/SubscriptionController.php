@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\Plan;
 use App\Models\Subscription;
+use App\Models\Transaction;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Validator;
@@ -34,6 +35,9 @@ class SubscriptionController extends Controller
         $validator = Validator::make($request->all(), [
             'plan' => ['required', 'integer'],
             'expiry_at' => ['required'],
+            'price' => ['required'],
+            'type' => ['required'],
+            'status' => ['required'],
         ]);
         if ($validator->fails()) {
             return response()->json(['errors'=>$validator->errors()]);
@@ -57,6 +61,18 @@ class SubscriptionController extends Controller
             'status' => 1,
         ]);
         if ($updateSubscription) {
+            // insert to transaction table
+            $trx = new Transaction();
+            $trx->checkout_id = date("YmdHis") . "-" . $user->id . "-" . $plan->id;
+            $trx->user_id = $user->id;
+            $trx->plan_id = $plan->id;
+            $trx->price = $request->price;
+            $trx->payer_email = $user->email;
+            $trx->type = $request->type;
+            $trx->status = $request->status;
+            $trx->is_viewed = 0;
+            $trx->save();
+            
             $subs = $subscription->first();
             return response200($subs, __('Successfully update subscription data'));
         }
