@@ -41,7 +41,7 @@ class SubscriptionController extends Controller
             'status' => ['required'],
         ]);
         if ($validator->fails()) {
-            return response()->json(['errors'=>$validator->errors()]);
+            return response()->json(['errors' => $validator->errors()]);
         }
 
         $plan = Plan::findOrFail($request->plan);
@@ -69,13 +69,14 @@ class SubscriptionController extends Controller
             $trx->plan_id = $plan->id;
             $trx->price = $request->price;
             $trx->total = $request->price;
+
             $trx->payment_gateway_id = $request->payment_gateway_id;
             $trx->payer_email = $user->email;
             $trx->type = $request->type;
             $trx->status = $request->status;
             $trx->is_viewed = 0;
             $trx->save();
-            
+
             $subs = $subscription->first();
             return response200($subs, __('Successfully update subscription data'));
         }

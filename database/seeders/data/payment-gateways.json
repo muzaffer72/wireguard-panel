@@ -62,5 +62,37 @@
 		"status" : 0,
 		"created_at" : "2022-01-09 01:05:29.0",
 		"updated_at" : "2023-11-10 19:41:15.0"
+	},
+	{
+		"id" : 5,
+		"name" : "Appstore",
+		"alias" : "appstore",
+		"handler" : "App\\Http\\Controllers\\Frontend\\Gateways\\RazorpayController",
+		"logo" : "images\/payments\/appstore.png",
+		"supported_currencies" : "[\"AUD\",\"BRL\",\"CAD\",\"CZK\",\"DKK\",\"EUR\",\"GBP\",\"HKD\",\"HUF\",\"ILS\",\"INR\",\"JPY\",\"MXN\",\"MYR\",\"NOK\",\"NZD\",\"PHP\",\"PLN\",\"RUB\",\"SEK\",\"SGD\",\"THB\",\"TRY\",\"USD\",\"ZAR\"]",
+		"fees" : 0,
+		"min" : 0.0,
+		"test_mode" : null,
+		"credentials" : "{\"key_id\":\"\",\"key_secret\":\"\"}",
+		"instructions" : "<ul class=\"mb-0\"> <li>You can get the API keys from : <a target=\"__blank\" href=\"https:\/\/dashboard.razorpay.com\/app\/keys\">https:\/\/dashboard.razorpay.com\/app\/keys<\/a>&nbsp;<\/li>\r\n<\/ul>",
+		"status" : 1,
+		"created_at" : "2022-01-09 01:05:29.0",
+		"updated_at" : "2023-11-10 19:41:15.0"
+	},
+	{
+		"id" : 6,
+		"name" : "Playstore",
+		"alias" : "playstore",
+		"handler" : "App\\Http\\Controllers\\Frontend\\Gateways\\RazorpayController",
+		"logo" : "images\/payments\/playstore.png",
+		"supported_currencies" : "[\"AUD\",\"BRL\",\"CAD\",\"CZK\",\"DKK\",\"EUR\",\"GBP\",\"HKD\",\"HUF\",\"ILS\",\"INR\",\"JPY\",\"MXN\",\"MYR\",\"NOK\",\"NZD\",\"PHP\",\"PLN\",\"RUB\",\"SEK\",\"SGD\",\"THB\",\"TRY\",\"USD\",\"ZAR\"]",
+		"fees" : 0,
+		"min" : 0.0,
+		"test_mode" : null,
+		"credentials" : "{\"key_id\":\"\",\"key_secret\":\"\"}",
+		"instructions" : "<ul class=\"mb-0\"> <li>You can get the API keys from : <a target=\"__blank\" href=\"https:\/\/dashboard.razorpay.com\/app\/keys\">https:\/\/dashboard.razorpay.com\/app\/keys<\/a>&nbsp;<\/li>\r\n<\/ul>",
+		"status" : 1,
+		"created_at" : "2022-01-09 01:05:29.0",
+		"updated_at" : "2023-11-10 19:41:15.0"
 	}
 ]
