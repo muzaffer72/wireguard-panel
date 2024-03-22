@@ -17,7 +17,7 @@ use App\Http\Controllers\Api\ServerController;
 |
  */
 
-Route::as('api.')->prefix('v1')->group(function () {
+Route:: as('api.')->prefix('v1')->group(function () {
     # AUTH MODULES
     Route::post('auth/login', [AuthController::class, 'login'])->name('login');
     Route::post('auth/register', [AuthController::class, 'register'])->name('register');
@@ -36,25 +36,25 @@ Route::as('api.')->prefix('v1')->group(function () {
         Route::post('profiles', [AuthController::class, 'updateProfile'])->name('update-profile');
 
         # SUBSCRIPTION
-        Route::as('subscription.')->prefix('subscription')->group(function () {
+        Route:: as ('subscription.')->prefix('subscription')->group(function () {
             Route::post('', [SubscriptionController::class, 'update'])->name('update-subscription');
         });
 
-        # SERVER
-        Route::as('server.')->prefix('server')->group(function () {
-            Route::post('', [ServerController::class, 'index'])->name('servers');            
-            Route::get('random', [ServerController::class, 'random'])->name('server-random');
-            Route::get('connect/{server}', [ServerController::class, 'connect'])->name('server-connect');
-        });
-        
         Route::get('log', [AuthController::class, 'log'])->name('insert-log');
     });
 
     # SUBSCRIPTION
-    Route::as('subscription.')->prefix('subscription')->group(function () {
+    Route:: as ('subscription.')->prefix('subscription')->group(function () {
         Route::get('plans', [SubscriptionController::class, 'plans'])->name('plans');
     });
-    
+
+    # SERVER
+    Route:: as ('server.')->prefix('server')->group(function () {
+        Route::post('', [ServerController::class, 'index'])->name('servers');
+        Route::get('random', [ServerController::class, 'random'])->name('server-random');
+        Route::get('connect/{server}', [ServerController::class, 'connect'])->name('server-connect');
+    });
+
 });
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
