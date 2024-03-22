@@ -43,17 +43,23 @@ Route:: as('api.')->prefix('v1')->group(function () {
         Route::get('log', [AuthController::class, 'log'])->name('insert-log');
     });
 
-    # SUBSCRIPTION
-    Route:: as ('subscription.')->prefix('subscription')->group(function () {
-        Route::get('plans', [SubscriptionController::class, 'plans'])->name('plans');
+    Route::group([
+        'middleware' => 'with_fast_api_key'
+    ], function () {
+
+        # SUBSCRIPTION
+        Route:: as ('subscription.')->prefix('subscription')->group(function () {
+            Route::get('plans', [SubscriptionController::class, 'plans'])->name('plans');
+        });
+
+        # SERVER
+        Route:: as ('server.')->prefix('server')->group(function () {
+            Route::post('', [ServerController::class, 'index'])->name('servers');
+            Route::get('random', [ServerController::class, 'random'])->name('server-random');
+            Route::get('connect/{server}', [ServerController::class, 'connect'])->name('server-connect');
+        });
     });
 
-    # SERVER
-    Route:: as ('server.')->prefix('server')->group(function () {
-        Route::post('', [ServerController::class, 'index'])->name('servers');
-        Route::get('random', [ServerController::class, 'random'])->name('server-random');
-        Route::get('connect/{server}', [ServerController::class, 'connect'])->name('server-connect');
-    });
 
 });
 
