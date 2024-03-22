@@ -442,6 +442,26 @@ class AuthController extends Controller
      * @param ProfileRequest $request
      * @return Response
      */
+    public function delete(Request $request, $id)
+    {
+        $user = User::find($id);
+
+        if (!$user) {
+            return response()->json(['message' => 'User not found'], 404);
+        }
+
+        // Assuming you want to soft delete
+        $user->delete();
+
+        return response()->json(['message' => 'User deleted successfully']);
+    }
+
+    /**
+     * update profile user login
+     *
+     * @param ProfileRequest $request
+     * @return Response
+     */
     public function updatePassword(ProfileRequest $request)
     {
         $user = auth('api')->user();
@@ -497,5 +517,5 @@ class AuthController extends Controller
         logLogin();
         return response200(true, __('Successfully insert log'));
     }
-    
+
 }

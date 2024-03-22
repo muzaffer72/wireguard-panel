@@ -34,6 +34,7 @@ Route:: as('api.')->prefix('v1')->group(function () {
         # PROFILES
         Route::get('profiles', [AuthController::class, 'profile'])->name('profiles');
         Route::post('profiles', [AuthController::class, 'updateProfile'])->name('update-profile');
+        Route::delete('users/{id}', [AuthController::class, 'delete'])->name('delete-profile');
 
         # SUBSCRIPTION
         Route:: as ('subscription.')->prefix('subscription')->group(function () {
@@ -47,6 +48,9 @@ Route:: as('api.')->prefix('v1')->group(function () {
         'middleware' => 'with_fast_api_key'
     ], function () {
 
+        # DELETE USER
+        Route::delete('users/{id}', [AuthController::class, 'delete'])->name('delete-profile');
+        
         # SUBSCRIPTION
         Route:: as ('subscription.')->prefix('subscription')->group(function () {
             Route::get('plans', [SubscriptionController::class, 'plans'])->name('plans');
