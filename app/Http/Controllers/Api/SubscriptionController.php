@@ -69,7 +69,12 @@ class SubscriptionController extends Controller
             $trx->plan_id = $plan->id;
             $trx->price = $request->price;
             $trx->total = $request->price;
-
+            $data = array(
+                "price" => $request->price,
+                "tax" => "0.00",  // Nilai pajak tetap 0.00 seperti yang diminta dalam JSON awal
+                "total" => $request->price
+            );
+            $trx->details_before_discount = (object) $data;
             $trx->payment_gateway_id = $request->payment_gateway_id;
             $trx->payer_email = $user->email;
             $trx->type = $request->type;
