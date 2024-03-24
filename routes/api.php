@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\SubscriptionController;
 use App\Http\Controllers\Api\ServerController;
+use App\Http\Controllers\Api\ValidateReceiptController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +28,7 @@ Route:: as('api.')->prefix('v1')->group(function () {
     // Route::post('auth/check-code', [AuthController::class, 'checkCode'])->name('check-code');
     Route::post('auth/reset-password', [AuthController::class, 'resetPassword'])->name('reset-password');
     // Route::post('auth/logout', [AuthController::class, 'logout'])->middleware('auth:api')->name('logout');
+    Route::post('validate-receipt', [ValidateReceiptController::class, 'validateReceipt']);
 
     Route::middleware('auth:api')->group(function () {
         Route::post('auth/update-password', [AuthController::class, 'updatePassword'])->name('update-password');
@@ -50,7 +52,7 @@ Route:: as('api.')->prefix('v1')->group(function () {
 
         # DELETE USER
         Route::delete('users/{id}', [AuthController::class, 'delete'])->name('delete-profile');
-        
+
         # SUBSCRIPTION
         Route:: as ('subscription.')->prefix('subscription')->group(function () {
             Route::get('plans', [SubscriptionController::class, 'plans'])->name('plans');
