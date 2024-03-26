@@ -406,6 +406,7 @@
                         enabled: true,
                         style: {
                             fontFamily: "Inter, sans-serif",
+                            color:  '#D594FD'
                         },
                     },
                     legend: {

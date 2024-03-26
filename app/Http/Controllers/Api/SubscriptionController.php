@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
 use Validator;
 use Imdhemy\Purchases\Facades\Subscription;
 
-;
+
 
 class SubscriptionController extends Controller
 {
@@ -60,7 +60,7 @@ class SubscriptionController extends Controller
             $user = auth('api')->user();
             $latestReceiptInfo = $receiptResponse->getLatestReceiptInfo();
             $receiptInfo = $latestReceiptInfo[0];
-
+            $isTrial = $receiptInfo->getIsTrialPeriod();
             $expiresDate = $receiptInfo->getExpiresDate();
             $subscription = Subs::where('user_id', $user->id)->first();
 
@@ -139,8 +139,9 @@ class SubscriptionController extends Controller
         }
 
         $user = auth('api')->user();
+        $isTrials = $subscriptionReceipt->getExpiryTime();
         $expiresDate = $subscriptionReceipt->getExpiryTime();
-        $subscription = Subscription::where('user_id', $user->id)->first();
+        $subscription = Subs::where('user_id', $user->id)->first();
 
         if (!$subscription) {
             return response()->json(['error' => 'Subscription not found'], 404);
@@ -172,6 +173,7 @@ class SubscriptionController extends Controller
             $trx->checkout_id = date("YmdHis") . "-" . $user->id . "-" . $plan->id;
             $trx->user_id = $user->id;
             $trx->plan_id = $plan->id;
+
             $trx->price = $request->price;
             $trx->total = $request->price;
             $data = array(

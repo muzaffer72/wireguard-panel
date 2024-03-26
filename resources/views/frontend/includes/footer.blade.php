@@ -36,6 +36,7 @@
               <a href="javascript:void(0);" class="d-block footer-link"
                 ><img src="{{ asset('assets/img/front-pages/landing-page/google-play-icon.png') }}" alt="google play icon"
               /></a>
+              
             </div>
           </div>
         </div>

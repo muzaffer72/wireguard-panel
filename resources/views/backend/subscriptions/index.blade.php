@@ -152,14 +152,14 @@
                             <tr>
                                 <td>{{ $subscription->id }}</td>
                                 <td>
-                                    <div class="billiongroup-user-box">
-                                        <a class="billiongroup-user-avatar"
-                                            href="{{ route('admin.subscriptions.edit', $subscription->id) }}">
-                                            <img src="{{ asset($subscription->user->avatar) }}">
+                                    <div class="d-flex justify-content-first align-items-center">
+                                        <a class="me-2"
+                                        href="{{ route('admin.users.edit', $subscription->user->id) }}">
+                                        <img src="{{ asset($subscription->user->avatar) }}" alt="User" width="35"/>
                                         </a>
                                         <div>
                                             <a class="text-reset"
-                                                href="{{ route('admin.users.edit', $subscription->user->id) }}">
+                                            href="{{ route('admin.users.edit', $subscription->user->id) }}">
                                                 {{ $subscription->user->name }}</a>
                                             <p class="text-muted mb-0">{{ $subscription->user->email }}</p>
                                         </div>
@@ -242,19 +242,19 @@
                                 <tr>
                                     <td>{{ $subscription->id }}</td>
                                     <td>
-                                        <div class="billiongroup-user-box">
-                                            <a class="billiongroup-user-avatar"
-                                                href="{{ route('admin.users.edit', $subscription->user->id) }}">
-                                                <img src="{{ asset($subscription->user->avatar) }}">
-                                            </a>
-                                            <div>
-                                                <a class="text-reset"
-                                                    href="{{ route('admin.users.edit', $subscription->user->id) }}">
-                                                    {{ $subscription->user->name }}</a>
-                                                <p class="text-muted mb-0">{{ $subscription->user->email }}</p>
-                                            </div>
+                                    <div class="d-flex justify-content-first align-items-center">
+                                        <a class="me-2"
+                                        href="{{ route('admin.users.edit', $subscription->user->id) }}">
+                                        <img src="{{ asset($subscription->user->avatar) }}" alt="User" width="35"/>
+                                        </a>
+                                        <div>
+                                            <a class="text-reset"
+                                            href="{{ route('admin.users.edit', $subscription->user->id) }}">
+                                                {{ $subscription->user->name }}</a>
+                                            <p class="text-muted mb-0">{{ $subscription->user->email }}</p>
                                         </div>
-                                    </td>
+                                    </div>
+                                </td>
                                     <td><a href="{{ route('admin.plans.edit', $subscription->plan->id) }}"
                                             style="color: {{ $subscription->plan->color }}"><i
                                                 class="ti ti-diamond me-2"></i>

@@ -14,4 +14,5 @@ return array (
   'new_password' => 'New Password',
   'confirm_new_password' => 'Confirm New Password',
   'otp_code' => 'OTP Code',
+  'confirm_password' => 'Confirm Password',
 );
