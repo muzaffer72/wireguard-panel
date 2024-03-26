@@ -130,7 +130,7 @@ class SubscriptionController extends Controller
     private function validateAndUpdateGooglePlaySubscription(Request $request)
     {
         $productId = $request->input('product_id');
-        $purchaseToken = $request->input('purchase_token');
+        $purchaseToken = $request->input('receipt_data');
 
         try {
             $subscriptionReceipt = Subscription::googlePlay()->id($productId)->token($purchaseToken)->get();
@@ -189,7 +189,7 @@ class SubscriptionController extends Controller
             $trx->save();
 
             $subs = $subscription->first();
-            return response()->json(['receipt' => $subs, 'message' => __('Successfully update subscription data')]);
+            return response()->json(['receipt' => $subscriptionReceipt, 'message' => __('Successfully update subscription data')]);
         }
 
     }
