@@ -27,10 +27,6 @@ class AppStoreSubscribed
     */
     public function handle(Subscribed $subscribed)
     {
-        // $receiptResponse = Subscription::appStore()->receiptData($receipt)->verify();
-        // // Get the receipt status
-        // $receiptStatus = $receiptResponse->getStatus();
-
         Log::debug(print_r($subscribed,true));
         die;
 

@@ -69,10 +69,7 @@ class SubscriptionController extends Controller
 
             $validator = Validator::make($request->all(), [
                 'plan' => ['required', 'integer'],
-                'price' => ['required'],
                 'payment_gateway_id' => ['required'],
-                'type' => ['required'],
-                'status' => ['required'],
             ]);
 
             if ($validator->fails()) {
@@ -94,25 +91,26 @@ class SubscriptionController extends Controller
                 $trx->user_id = $user->id;
                 $trx->plan_id = $plan->id;
                 if ($receiptInfo->getIsTrialPeriod()) {
-                    $trx->price = "0";
-                } else
-                    $trx->price = $request->price;
-                $trx->total = $request->price;
+                    $price = "0";
+                } else {
+                    $price = $plan->price;
+                }
+                $trx->price = $price;
+                $trx->total = $price;
                 $data = array(
-                    "price" => $request->price,
+                    "price" => $price,
                     "tax" => "0.00",  // Nilai pajak tetap 0.00 seperti yang diminta dalam JSON awal
-                    "total" => $request->price
+                    "total" => $price
                 );
                 $trx->details_before_discount = (object) $data;
                 $trx->payment_gateway_id = $request->payment_gateway_id;
                 $trx->payment_id = $receiptInfo->getOriginalTransactionId();
                 $trx->payer_email = $user->email;
-                $trx->type = $request->type;
-                $trx->status = $request->status;
+                $trx->type = $receiptInfo->getInAppOwnershipType();
                 $trx->is_viewed = 0;
                 $trx->save();
 
-                $receipt = $receiptResponse->getLatestReceiptInfo();
+                // $receipt = $receiptResponse->getLatestReceiptInfo();
                 return response()->json(['receipt' => $receiptInfo, 'message' => __('Successfully update subscription data')]);
             }
         } else {
@@ -132,13 +130,15 @@ class SubscriptionController extends Controller
     private function validateAndUpdateGooglePlaySubscription(Request $request)
     {
         $purchaseToken = $request->input('receipt_data');
-        $productId = $request->input('product_id');
+        
+        $plan = Plan::findOrFail($request->input('plan'));
 
         try {
-            $subscriptionReceipt = Subscription::googlePlay()->id($productId)->token($purchaseToken)->get();
+            $subscriptionReceipt = Subscription::googlePlay()->id($plan->product_id)->token($purchaseToken)->get();
         } catch (\Exception $e) {
             return response()->json(['error' => $e->getMessage()], 500);
         }
+        print_r($subscriptionReceipt);die;
         $user = auth('api')->user();
         $milliseconds = $subscriptionReceipt->getExpiryTimeMillis();
         $seconds = $milliseconds / 1000;
@@ -153,17 +153,12 @@ class SubscriptionController extends Controller
 
         $validator = Validator::make($request->all(), [
             'plan' => ['required', 'integer'],
-            'price' => ['required'],
             'payment_gateway_id' => ['required'],
-            'type' => ['required'],
-            'status' => ['required'],
         ]);
 
         if ($validator->fails()) {
             return response()->json(['errors' => $validator->errors()]);
         }
-
-        $plan = Plan::findOrFail($request->input('plan'));
 
         $updateSubscription = $subscription->update([
             'plan_id' => $plan->id,
@@ -177,12 +172,12 @@ class SubscriptionController extends Controller
             $trx->checkout_id = date("YmdHis") . "-" . $user->id . "-" . $plan->id;
             $trx->user_id = $user->id;
             $trx->plan_id = $plan->id;
-            $trx->price = $request->price;
-            $trx->total = $request->price;
+            $trx->price = $plan->price;
+            $trx->total = $plan->price;
             $data = array(
-                "price" => $request->price,
+                "price" => $plan->price,
                 "tax" => "0.00",  // Nilai pajak tetap 0.00 seperti yang diminta dalam JSON awal
-                "total" => $request->price
+                "total" => $plan->price
             );
             $trx->details_before_discount = (object) $data;
             $trx->payment_gateway_id = $request->payment_gateway_id;
