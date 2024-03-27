@@ -106,7 +106,9 @@ class SubscriptionController extends Controller
                 $trx->payment_gateway_id = $request->payment_gateway_id;
                 $trx->payment_id = $receiptInfo->getOriginalTransactionId();
                 $trx->payer_email = $user->email;
-                $trx->type = $receiptInfo->getInAppOwnershipType();
+                // $trx->type = $receiptInfo->getInAppOwnershipType();
+                $trx->type = 1;
+                $trx->status = 2;
                 $trx->is_viewed = 0;
                 $trx->save();
 
@@ -187,7 +189,9 @@ class SubscriptionController extends Controller
             $trx->payment_gateway_id = $request->payment_gateway_id;
             $trx->payment_id = $subscriptionReceipt->getOrderId();
             $trx->payer_email = $user->email;
-            $trx->type = $subscriptionReceipt->getPurchaseType();
+            // $trx->type = $subscriptionReceipt->getPurchaseType();
+            $trx->type = 1;
+            $trx->status = 2;
             $trx->is_viewed = 0;
             $trx->save();
 
