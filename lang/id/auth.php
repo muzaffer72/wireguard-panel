@@ -8,4 +8,5 @@ return array (
   'remember_me' => 'Remember Me',
   'sign_up' => 'Sign Up',
   'reset' => 'Reset',
+  'enter_your_details_to_create_an_account' => 'Enter your details to create an account.',
 );

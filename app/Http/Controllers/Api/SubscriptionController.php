@@ -11,7 +11,11 @@ use Illuminate\Http\Request;
 use Validator;
 use Imdhemy\Purchases\Facades\Subscription;
 
+<<<<<<< HEAD
 ;
+=======
+
+>>>>>>> 3ab8607efb93e29fb4e04a310ac60c96f7f22b1a
 
 class SubscriptionController extends Controller
 {
@@ -139,6 +143,10 @@ class SubscriptionController extends Controller
         }
 
         $user = auth('api')->user();
+<<<<<<< HEAD
+=======
+        $isTrials = $subscriptionReceipt->getExpiryTime();
+>>>>>>> 3ab8607efb93e29fb4e04a310ac60c96f7f22b1a
         $expiresDate = $subscriptionReceipt->getExpiryTime();
         $subscription = Subs::where('user_id', $user->id)->first();
 
@@ -172,11 +180,16 @@ class SubscriptionController extends Controller
             $trx->checkout_id = date("YmdHis") . "-" . $user->id . "-" . $plan->id;
             $trx->user_id = $user->id;
             $trx->plan_id = $plan->id;
+<<<<<<< HEAD
             if ($receiptInfo->getIsTrialPeriod()) {
                 $trx->price =$request->price;
             } else {
                 $trx->price = "0";
             }
+=======
+
+            $trx->price = $request->price;
+>>>>>>> 3ab8607efb93e29fb4e04a310ac60c96f7f22b1a
             $trx->total = $request->price;
             $data = array(
                 "price" => $request->price,

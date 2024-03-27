@@ -90,28 +90,51 @@ class AuthController extends Controller
     *      ),
     *  )
     */
-    public function createAdminNotify($user)
+    public function createRegisterNotify($user)
     {
-        $title = $user->name . ' ' . admin_lang('has registered and verified');
+        $title = $user->name . ' ' . admin_lang('has registered');
         $image = asset($user->avatar);
         $link = route('admin.users.edit', $user->id);
         return adminNotify($title, $image, $link);
     }
-    public function createLog($user)
+
+    protected function setLog($user)
     {
-        $newLoginLog = new UserLog();
-        $newLoginLog->user_id = $user->id;
-        $newLoginLog->ip = ipInfo()->ip;
-        $newLoginLog->country = ipInfo()->location->country;
-        $newLoginLog->country_code = ipInfo()->location->country_code;
-        $newLoginLog->timezone = ipInfo()->location->timezone;
-        $newLoginLog->location = ipInfo()->location->city . ', ' . ipInfo()->location->country;
-        $newLoginLog->latitude = ipInfo()->location->latitude;
-        $newLoginLog->longitude = ipInfo()->location->longitude;
-        $newLoginLog->browser = ipInfo()->system->browser;
-        $newLoginLog->os = ipInfo()->system->os;
-        $newLoginLog->save();
+        $ip = ipInfo()->ip;
+        $loginLog = UserLog::where([['user_id', $user->id], ['ip', $ip]])->first();
+        $location = ipInfo()->location->city . ', ' . ipInfo()->location->country;
+        if ($loginLog != null) {
+            $loginLog->country = ipInfo()->location->country;
+            $loginLog->country_code = ipInfo()->location->country_code;
+            $loginLog->timezone = ipInfo()->location->timezone;
+            $loginLog->location = $location;
+            $loginLog->latitude = ipInfo()->location->latitude;
+            $loginLog->longitude = ipInfo()->location->longitude;
+            $loginLog->browser = ipInfo()->system->browser;
+            $loginLog->os = ipInfo()->system->os;
+            $loginLog->update();
+        } else {
+            $newLoginLog = new UserLog();
+            $newLoginLog->user_id = $user->id;
+            $newLoginLog->ip = ipInfo()->ip;
+            $newLoginLog->country = ipInfo()->location->country;
+            $newLoginLog->country_code = ipInfo()->location->country_code;
+            $newLoginLog->timezone = ipInfo()->location->timezone;
+            $newLoginLog->location = $location;
+            $newLoginLog->latitude = ipInfo()->location->latitude;
+            $newLoginLog->longitude = ipInfo()->location->longitude;
+            $newLoginLog->browser = ipInfo()->system->browser;
+            $newLoginLog->os = ipInfo()->system->os;
+            $newLoginLog->save();
+        }
     }
+
+    /**
+     * process login
+     *
+     * @param LoginRequest $request
+     * @return Response
+     */
     public function login(LoginRequest $request)
     {
         $user = $this->usermodel->where('email', $request->email)->first();
@@ -121,7 +144,7 @@ class AuthController extends Controller
         //     ]);
         // } else 
         if (Hash::check($request->password, $user->password)) {
-            $this->createLog($user);
+            $this->setLog($user);
             return $this->handleLogin($user, __('Successfully entered the system'));
         }
         return response422([
@@ -138,10 +161,8 @@ class AuthController extends Controller
     public function register(RegisterRequest $request)
     {
         $verification_code = rand(100000, 999999);
-
         // get random free server
         $server = Server::inRandomOrder()->where('status', 1)->where('is_premium', 0)->first();
-
         $data = array_merge(
             [
                 'password' => bcrypt($request->password),
@@ -164,8 +185,9 @@ class AuthController extends Controller
         DB::beginTransaction();
         try {
             $user = $this->usermodel->create($data);
-            $this->createLog($user);
             // auto subs ke free plan
+            $this->setLog($user);
+            $this->createRegisterNotify($user);
             $plan = Plan::find(13);// id plan must 13
             if (is_null($plan)) {
                 return response422(['plan' => [__(admin_lang('Plan not exists'))]]);
@@ -284,8 +306,6 @@ class AuthController extends Controller
                 'verification_code' => null
             ]);
 
-            $this->createAdminNotify($user);
-            $this->createLog($user);
 
             DB::commit();
             $user = $this->usermodel->where('email', $request->email)->first();
@@ -449,7 +469,7 @@ class AuthController extends Controller
         // Assuming you want to soft delete
         $user->delete();
 
-        return response()->json(['message' => 'Account Deleted Successfully']);
+        return response()->json(['message' => 'User deleted successfully']);
     }
 
     /**

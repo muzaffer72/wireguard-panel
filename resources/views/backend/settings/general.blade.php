@@ -406,7 +406,7 @@
                         </div>
                         <div class="mb-3">
                             <input id="billiongroup-image-targeted-input-5" type="file" name="media[hero_image]"
-                                accept="image/jpg, image/jpeg" class="form-control" hidden>
+                                accept="image/jpg, image/jpeg, image/png" class="form-control" hidden>
                             <button data-id="5" type="button"
                                 class="billiongroup-select-image-button btn btn-secondary btn-lg w-100 mb-2">{{ admin_lang('Choose Hero Image') }}</button>
                             <small class="text-muted">
