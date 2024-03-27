@@ -24,4 +24,5 @@ return array (
   'microsoft_authenticator_for_ios' => 'Microsoft Authenticator for iOS',
   'microsoft_authenticator_for_android' => 'Microsoft Authenticator for Android',
   'enable' => 'Enable',
+  'cancelled' => 'Cancelled',
 );

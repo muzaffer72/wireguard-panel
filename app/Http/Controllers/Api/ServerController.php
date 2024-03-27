@@ -18,9 +18,9 @@ class ServerController extends Controller
      */
     public function index(Request $request)
     {
-        $user = auth('api')->user();
-        $free = $user->subscription->plan->is_free;
-        $servers = Server::where('status',1);
+        // $user = auth('api')->user();
+        // $free = $user->subscription->plan->is_free;
+        $servers = Server::where('status', 1);
 
         // if ($user->subscription->isExpired() || $free == 1) {
         //     $servers->where('is_premium', 0);
@@ -44,7 +44,7 @@ class ServerController extends Controller
      */
     public function random()
     {
-        $server = Server::inRandomOrder()->where('status',1)->where('is_premium',0)->first();
+        $server = Server::inRandomOrder()->where('status', 1)->where('is_premium', 0)->first();
         return response200($server, __('Successfully retrieved random server data'));
     }
 
@@ -60,7 +60,7 @@ class ServerController extends Controller
         // update server_id
         $user->server_id = $server->id;
         $user->save();
-        
+
         // create client wg
         $wg_id = "wg" . $user->id;
         $url = "http://$server->ip_address:51821/api/wireguard/client";
@@ -69,12 +69,12 @@ class ServerController extends Controller
         ];
         $headers = [
             'Content-Type' => 'application/json',
-            'Accept'       => 'application/json',
+            'Accept' => 'application/json',
         ];
         $client = new Client();
         $response = $client->post($url, [
             'headers' => $headers,
-            'json'    => $data,
+            'json' => $data,
         ]);
         $statusCode = $response->getStatusCode();
 
@@ -83,7 +83,7 @@ class ServerController extends Controller
             // get client config
             $url = "http://$server->ip_address:51821/api/wireguard/client/$wg_id/$user->dns/configuration";
             $headers = [
-                'Accept'       => 'text/plain'
+                'Accept' => 'text/plain'
             ];
             $client = new Client();
             $response = $client->get($url, [

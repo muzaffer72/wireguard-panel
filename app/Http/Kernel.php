@@ -83,5 +83,6 @@ class Kernel extends HttpKernel
         'disable.faqs' => \App\Http\Middleware\FaqsDisable::class,
         'subscribed' => \App\Http\Middleware\IsSubscribed::class,
         'IsIpProxy' => \App\Http\Middleware\IsIpProxy::class,
+        'with_fast_api_key' => \App\Http\Middleware\VerifyFastApiKey::class,
     ];
 }

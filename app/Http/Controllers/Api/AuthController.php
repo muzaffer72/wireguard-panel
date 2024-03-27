@@ -166,15 +166,11 @@ class AuthController extends Controller
             $user = $this->usermodel->create($data);
             $this->createLog($user);
             // auto subs ke free plan
-            $plan = Plan::find(13);// id plan harus 13
+            $plan = Plan::find(13);// id plan must 13
             if (is_null($plan)) {
                 return response422(['plan' => [__(admin_lang('Plan not exists'))]]);
             }
-            if ($plan->interval == 1) {
-                $expiry_at = Carbon::now()->addMonth();
-            } else {
-                $expiry_at = Carbon::now()->addYear();
-            }
+            $expiry_at = Carbon::now();
             $createSubscription = Subscription::create([
                 'user_id' => $user->id,
                 'plan_id' => $plan->id,
@@ -185,7 +181,7 @@ class AuthController extends Controller
             // sendmail
             $email = $user->email;
             $subject = "Verify Account";
-            $msg = __('Please input this code on your apps to activate your account immediately.<br/>Verification Code: ' . $verification_code);
+            $msg = __('Please input this code on apps to activate your account immediately.<br/>Verification Code: ' . $verification_code);
             \Mail::send([], [], function ($message) use ($msg, $email, $subject) {
                 $message->to($email)
                     ->subject($subject)
@@ -442,6 +438,26 @@ class AuthController extends Controller
      * @param ProfileRequest $request
      * @return Response
      */
+    public function delete(Request $request, $id)
+    {
+        $user = User::find($id);
+
+        if (!$user) {
+            return response()->json(['message' => 'User not found'], 404);
+        }
+
+        // Assuming you want to soft delete
+        $user->delete();
+
+        return response()->json(['message' => 'Account Deleted Successfully']);
+    }
+
+    /**
+     * update profile user login
+     *
+     * @param ProfileRequest $request
+     * @return Response
+     */
     public function updatePassword(ProfileRequest $request)
     {
         $user = auth('api')->user();
@@ -497,5 +513,5 @@ class AuthController extends Controller
         logLogin();
         return response200(true, __('Successfully insert log'));
     }
-    
+
 }
