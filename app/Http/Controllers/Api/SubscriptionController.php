@@ -91,7 +91,7 @@ class SubscriptionController extends Controller
                 $trx->user_id = $user->id;
                 $trx->plan_id = $plan->id;
                 if ($receiptInfo->getIsTrialPeriod()) {
-                    $price = "0";
+                    $price = 0;
                 } else {
                     $price = $plan->price;
                 }
@@ -138,7 +138,6 @@ class SubscriptionController extends Controller
         } catch (\Exception $e) {
             return response()->json(['error' => $e->getMessage()], 500);
         }
-        print_r($subscriptionReceipt);die;
         $user = auth('api')->user();
         $milliseconds = $subscriptionReceipt->getExpiryTimeMillis();
         $seconds = $milliseconds / 1000;
@@ -172,19 +171,23 @@ class SubscriptionController extends Controller
             $trx->checkout_id = date("YmdHis") . "-" . $user->id . "-" . $plan->id;
             $trx->user_id = $user->id;
             $trx->plan_id = $plan->id;
-            $trx->price = $plan->price;
-            $trx->total = $plan->price;
+            if ($subscriptionReceipt->getPaymentState() == 2) {
+                $price = 0;
+            } else {
+                $price = $plan->price;
+            }
+            $trx->price = $price;
+            $trx->total = $price;
             $data = array(
-                "price" => $plan->price,
+                "price" => $price,
                 "tax" => "0.00",  // Nilai pajak tetap 0.00 seperti yang diminta dalam JSON awal
-                "total" => $plan->price
+                "total" => $price
             );
             $trx->details_before_discount = (object) $data;
             $trx->payment_gateway_id = $request->payment_gateway_id;
             $trx->payment_id = $subscriptionReceipt->getOrderId();
             $trx->payer_email = $user->email;
-            $trx->type = $request->type;
-            $trx->status = $request->status;
+            $trx->type = $subscriptionReceipt->getPurchaseType();
             $trx->is_viewed = 0;
             $trx->save();
 
