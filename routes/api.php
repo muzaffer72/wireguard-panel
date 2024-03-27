@@ -7,10 +7,7 @@ use App\Http\Controllers\Api\SubscriptionController;
 use App\Http\Controllers\Api\FreeSubscriptionController;
 use App\Http\Controllers\Api\ServerController;
 use App\Http\Controllers\Api\ValidateReceiptController;
-<<<<<<< HEAD
-=======
 
->>>>>>> 3ab8607efb93e29fb4e04a310ac60c96f7f22b1a
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -43,10 +40,7 @@ Route:: as('api.')->prefix('v1')->group(function () {
 
         # SUBSCRIPTION
         Route::post('update-subscription', [SubscriptionController::class, 'validateAndUpdateSubscription'])->name('update-subscription');
-<<<<<<< HEAD
-=======
         Route::post('update-free-subscription', [FreeSubscriptionController::class, 'update'])->name('update-free-subscription');
->>>>>>> 3ab8607efb93e29fb4e04a310ac60c96f7f22b1a
         Route::get('plans', [SubscriptionController::class, 'plans'])->name('plans');
         Route::get('log', [AuthController::class, 'log'])->name('insert-log');
     });
@@ -57,13 +51,8 @@ Route:: as('api.')->prefix('v1')->group(function () {
 
         # DELETE USER
         Route::delete('users/{id}', [AuthController::class, 'delete'])->name('delete-profile');
-<<<<<<< HEAD
-        
-        
-=======
 
 
->>>>>>> 3ab8607efb93e29fb4e04a310ac60c96f7f22b1a
 
         # SERVER
         Route:: as ('server.')->prefix('server')->group(function () {

@@ -21,18 +21,6 @@ return [
     'prefix' => '',
   ],
 
-<<<<<<< HEAD
-    /*
-     |--------------------------------------------------------------------------
-     | Google Play Default Package name
-     |--------------------------------------------------------------------------
-     |
-     | This value is the default package name used when the package name is not
-     | provided while verifying the receipts.
-     |
-     */
-    'google_play_package_name' => env('GOOGLE_PLAY_PACKAGE_NAME'),
-=======
   /*
    |--------------------------------------------------------------------------
    | Google Play Default Package name
@@ -43,7 +31,6 @@ return [
    |
    */
   'google_play_package_name' => env('GOOGLE_PLAY_PACKAGE_NAME'),
->>>>>>> 3ab8607efb93e29fb4e04a310ac60c96f7f22b1a
 
   /*
    |--------------------------------------------------------------------------
