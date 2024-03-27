@@ -10,7 +10,7 @@ use App\Models\Transaction;
 use Illuminate\Http\Request;
 use Validator;
 use Imdhemy\Purchases\Facades\Subscription;
-
+use Carbon\Carbon;
 
 
 class SubscriptionController extends Controller
@@ -49,7 +49,7 @@ class SubscriptionController extends Controller
 
 
         try {
-            $receiptResponse = Subscription::appStore()->receiptData($receiptBase64Data)->verifyRenewable();
+            $receiptResponse = Subscription::appStore()->receiptData($receiptBase64Data)->verifyReceipt();
             $receiptStatus = $receiptResponse->getStatus();
         } catch (\Exception $e) {
             return response()->json(['error' => $e->getMessage()], 500);
@@ -60,7 +60,6 @@ class SubscriptionController extends Controller
             $user = auth('api')->user();
             $latestReceiptInfo = $receiptResponse->getLatestReceiptInfo();
             $receiptInfo = $latestReceiptInfo[0];
-            $isTrial = $receiptInfo->getIsTrialPeriod();
             $expiresDate = $receiptInfo->getExpiresDate();
             $subscription = Subs::where('user_id', $user->id)->first();
 
@@ -94,7 +93,10 @@ class SubscriptionController extends Controller
                 $trx->checkout_id = date("YmdHis") . "-" . $user->id . "-" . $plan->id;
                 $trx->user_id = $user->id;
                 $trx->plan_id = $plan->id;
-                $trx->price = $request->price;
+                if ($receiptInfo->getIsTrialPeriod()) {
+                    $trx->price = "0";
+                } else
+                    $trx->price = $request->price;
                 $trx->total = $request->price;
                 $data = array(
                     "price" => $request->price,
@@ -111,7 +113,7 @@ class SubscriptionController extends Controller
                 $trx->save();
 
                 $receipt = $receiptResponse->getLatestReceiptInfo();
-                return response()->json(['receipt' => $receipt, 'message' => __('Successfully update subscription data')]);
+                return response()->json(['receipt' => $receiptInfo, 'message' => __('Successfully update subscription data')]);
             }
         } else {
             return response()->json([
@@ -129,18 +131,20 @@ class SubscriptionController extends Controller
      */
     private function validateAndUpdateGooglePlaySubscription(Request $request)
     {
-        $productId = $request->input('product_id');
         $purchaseToken = $request->input('receipt_data');
+        $productId = $request->input('product_id');
 
         try {
             $subscriptionReceipt = Subscription::googlePlay()->id($productId)->token($purchaseToken)->get();
         } catch (\Exception $e) {
             return response()->json(['error' => $e->getMessage()], 500);
         }
-
         $user = auth('api')->user();
-        $isTrials = $subscriptionReceipt->getExpiryTime();
-        $expiresDate = $subscriptionReceipt->getExpiryTime();
+        $milliseconds = $subscriptionReceipt->getExpiryTimeMillis();
+        $seconds = $milliseconds / 1000;
+        $dateTime = Carbon::createFromTimestamp($seconds);
+        $formattedDateTime = $dateTime->toDateTimeString();
+        $expiresDate = $formattedDateTime;
         $subscription = Subs::where('user_id', $user->id)->first();
 
         if (!$subscription) {
@@ -173,7 +177,6 @@ class SubscriptionController extends Controller
             $trx->checkout_id = date("YmdHis") . "-" . $user->id . "-" . $plan->id;
             $trx->user_id = $user->id;
             $trx->plan_id = $plan->id;
-
             $trx->price = $request->price;
             $trx->total = $request->price;
             $data = array(
@@ -193,6 +196,7 @@ class SubscriptionController extends Controller
             $subs = $subscription->first();
             return response()->json(['receipt' => $subscriptionReceipt, 'message' => __('Successfully update subscription data')]);
         }
+
 
     }
 }
