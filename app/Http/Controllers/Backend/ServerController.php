@@ -21,8 +21,8 @@ class ServerController extends Controller
      */
     public function index()
     {
-        $freeServers = Server::free()->select('servers.*', 'config_server_jobs.status AS job_status')->join('config_server_jobs', 'servers.id', '=', 'config_server_jobs.server_id')->get();
-        $premiumServers = Server::premium()->select('servers.*', 'config_server_jobs.status AS job_status')->join('config_server_jobs', 'servers.id', '=', 'config_server_jobs.server_id')->get();
+        $freeServers = Server::free()->select('servers.*', 'config_server_jobs.status AS job_status')->join('config_server_jobs', 'servers.id', '=', 'config_server_jobs.server_id','left')->get();
+        $premiumServers = Server::premium()->select('servers.*', 'config_server_jobs.status AS job_status')->join('config_server_jobs', 'servers.id', '=', 'config_server_jobs.server_id','left')->get();
         return view('backend.servers.index', [
             'countries' => listCountries(),
             'statusOptions'        => ['1'=>'Enabled', '0'=>'Disabled'],
@@ -79,9 +79,9 @@ class ServerController extends Controller
             'ip_address' => ['required'],
             'recommended' => ['required'],
             'is_premium' => ['required'],
-            'ssh_port' => ['required'],
-            'vps_username' => ['required'],
-            'vps_password' => ['required'],
+            // 'ssh_port' => ['required'],
+            // 'vps_username' => ['required'],
+            // 'vps_password' => ['required'],
         ]);
         if ($validator->fails()) {
             foreach ($validator->errors()->all() as $error) {
@@ -89,7 +89,7 @@ class ServerController extends Controller
             }
             return back();
         }
-
+        
         $createServer = Server::create([
             'country' => $request->country,
             'state' => $request->state,
@@ -99,25 +99,29 @@ class ServerController extends Controller
             'ip_address' => $request->ip_address,
             'recommended' => $request->recommended,
             'is_premium' => $request->is_premium,
+            'is_ovpn' => $request->isOVPN ? 1 : 0,
+            'ovpn_config' => $request->isOVPN ? $request->ovpn_config ?? '' : '',
         ]);
         if ($createServer) {
-            $job = new ConfigServerJob();
-            $job->server_id = $createServer->id;
-            $job->ip = $request->ip_address;
-            $job->ssh_port = $request->ssh_port;
-            $job->vps_username = $request->vps_username;
-            $job->vps_password = $request->vps_password ?: "";
-            $job->status = 'running';
-            $job->save();
+            if ($request->installWgEasy === "on") {
+                $job = new ConfigServerJob();
+                $job->server_id = $createServer->id;
+                $job->ip = $request->ip_address;
+                $job->ssh_port = $request->ssh_port;
+                $job->vps_username = $request->vps_username;
+                $job->vps_password = $request->vps_password ?: "";
+                $job->status = 'running';
+                $job->save();
 
-            $action = new ConfigServerAction();
-            $action->config_job_id = $job->id;
-            $action->action = "Server config. IP={$job->ip}";
-            $action->result_code = 0;
-            $action->result = "Started";
-            $action->save();
+                $action = new ConfigServerAction();
+                $action->config_job_id = $job->id;
+                $action->action = "Server config. IP={$job->ip}";
+                $action->result_code = 0;
+                $action->result = "Started";
+                $action->save();
 
-            ConfigServer::dispatch($job);
+                ConfigServer::dispatch($job);
+            }
 
             toastr()->success(admin_lang('Added successfully'));
             return back();
@@ -201,6 +205,8 @@ class ServerController extends Controller
             'ip_address' => $request->ip_address,
             'recommended' => $request->recommended,
             'is_premium' => $request->is_premium,
+            'is_ovpn' => $request->isOVPN ? 1 : 0,
+            'ovpn_config' => $request->isOVPN ? $request->ovpn_config ?? '' : '',
         ]);
         if ($updateServer) {
             toastr()->success(admin_lang('Updated successfully'));

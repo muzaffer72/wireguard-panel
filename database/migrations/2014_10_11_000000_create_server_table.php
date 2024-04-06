@@ -23,6 +23,8 @@ class CreateServerTable extends Migration
             $table->string('ip_address', 191);
             $table->tinyInteger('recommended');
             $table->tinyInteger('is_premium')->default(0);
+            $table->tinyInteger('is_ovpn')->default(0);
+            $table->longText('ovpn_config');
             $table->timestamps();
         });
     }

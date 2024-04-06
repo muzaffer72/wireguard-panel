@@ -47,6 +47,8 @@ class Server extends Model
 		'ip_address',
 		'recommended',
 		'is_premium',
+		'is_ovpn',
+		'ovpn_config',
     ];
 
     /**

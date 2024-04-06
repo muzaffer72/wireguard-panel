@@ -75,6 +75,14 @@
                         @endforeach
                     </select>
                 </div>
+                <div class="form-check form-switch mb-2">
+                    <input class="form-check-input" type="checkbox" id="isOVPN" name="isOVPN"{{ $server->is_ovpn == 1 ? 'checked' : '' }}>
+                    <label class="form-check-label" for="isOVPN">Is OVPN?</label>
+                </div>
+                <div class="mb-4 ovpn">
+                    <label class="form-label">{{ admin_lang('OVPN Config') }} :</label>
+                    <textarea name="ovpn_config" id="ovpn_config" class="form-control" rows="10">{{ $server->ovpn_config }}</textarea>
+                </div>
             </div>
         </div>
     </form>
@@ -82,6 +90,26 @@
 <script>
   let g_country = '{{ $country = $server->country ?? old('country') }}'
   let g_state = '{{ $state = $server->state ?? old('state')}}'
+
+  $(function() {
+    // ovpn config
+    $("#isOVPN").on('change', function () {
+        if ($(this).is(':checked')) {
+            $('.ovpn').show()
+            $("#ovpn_config").attr("required", true)
+        } else {
+            $('.ovpn').hide()
+            $("#ovpn_config").removeAttr("required")
+        }
+    })
+    @if ($server->is_ovpn == 1)
+        $("#isOVPN").prop("checked", true)
+        $('.ovpn').show()
+    @else
+        $("#isOVPN").removeAttr("checked")
+        $('.ovpn').hide()
+    @endif
+  })
 
   //get state
   $("#country").on('change', function() {

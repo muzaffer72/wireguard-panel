@@ -55,9 +55,11 @@
                                 <td>{{ $row->ip_address }}</td>
                                 <td>{{ $row->printRecommended() }}</td>
                                 <td class="text-center">
+                                    @if ($row->is_ovpn == 1)
                                     <button type="button" class="btn btn-{{ $row->job_status !== 'failed' ? 'primary' : 'danger' }} rounded-3" onclick="view_detail({{ $row->id }})">
                                         {{ $row->job_status}}
                                     </button>
+                                    @endif
                                 </td>
                                 <td>
                                     <div class="text-end">
@@ -125,9 +127,11 @@
                                 <td>{{ $row->ip_address }}</td>
                                 <td>{{ $row->printRecommended() }}</td>
                                 <td class="text-center">
-                                    <button type="button" class="btn btn-{{ $row->job_status !== 'failed' ? 'primary' : 'danger' }} rounded-3" onclick="view_detail({{ $row->id }})">
-                                        {{ $row->job_status}}
-                                    </button>
+                                    @if ($row->is_ovpn == 1)
+                                        <button type="button" class="btn btn-{{ $row->job_status !== 'failed' ? 'primary' : 'danger' }} rounded-3" onclick="view_detail({{ $row->id }})">
+                                            {{ $row->job_status}}
+                                        </button>
+                                    @endif
                                 </td>
                                 <td>
                                     <div class="text-end">
@@ -244,17 +248,29 @@
                                 @endforeach
                             </select>
                         </div>
-                        <div class="mb-4">
+                        <div class="form-check form-switch mb-2">
+                            <input class="form-check-input" type="checkbox" id="installWgEasy" name="installWgEasy">
+                            <label class="form-check-label" for="installWgEasy">Install Wg Easy?</label>
+                        </div>
+                        <div class="mb-4 install">
                             <label class="form-label">{{ admin_lang('SSH Port') }} : <span class="text-danger">*</span></label>
-                            <input type="text" name="ssh_port" class="form-control" value="22" required/>
+                            <input type="text" name="ssh_port" id="ssh_port" class="form-control" value="22"/>
                         </div>
-                        <div class="mb-4">
+                        <div class="mb-4 install">
                             <label class="form-label">{{ admin_lang('VPS Username') }} : <span class="text-danger">*</span></label>
-                            <input type="text" name="vps_username" class="form-control" required/>
+                            <input type="text" name="vps_username" id="vps_username" class="form-control"/>
                         </div>
-                        <div class="mb-4">
+                        <div class="mb-4 install">
                             <label class="form-label">{{ admin_lang('VPS Password') }} : <span class="text-danger">*</span></label>
-                            <input type="text" name="vps_password" class="form-control" required/>
+                            <input type="text" name="vps_password" id="vps_password" class="form-control"/>
+                        </div>
+                        <div class="form-check form-switch mb-2">
+                            <input class="form-check-input" type="checkbox" id="isOVPN" name="isOVPN">
+                            <label class="form-check-label" for="isOVPN">Is OVPN?</label>
+                        </div>
+                        <div class="mb-4 ovpn">
+                            <label class="form-label">{{ admin_lang('OVPN Config') }} :</label>
+                            <textarea name="ovpn_config" id="ovpn_config" class="form-control" rows="10"></textarea>
                         </div>
                         <button class="btn btn-primary">{{ admin_lang('Save') }}</button>
                     </form>
@@ -288,6 +304,38 @@
     </div>
 @push('scripts_libs')
 <script>
+    $(function() {
+        // wg easy
+        $("#installWgEasy").on('change', function () {
+            if ($(this).is(':checked')) {
+                $('.install').show()
+                $("#ssh_port").attr("required", true)
+                $("#vps_username").attr("required", true)
+                $("#vps_pasword").attr("required", true)
+            } else {
+                $('.install').hide()
+                $("#ssh_port").removeAttr("required")
+                $("#vps_username").removeAttr("required")
+                $("#vps_pasword").removeAttr("required")
+            }
+        })
+        $("#installWgEasy").prop("checked", false)
+        $('.install').hide()
+
+        // ovpn config
+        $("#isOVPN").on('change', function () {
+            if ($(this).is(':checked')) {
+                $('.ovpn').show()
+                $("#ovpn_config").attr("required", true)
+            } else {
+                $('.ovpn').hide()
+                $("#ovpn_config").removeAttr("required")
+            }
+        })
+        $("#isOVPN").prop("checked", false)
+        $('.ovpn').hide()
+    })
+    
     // view deploy
     function view_detail(server_id) {
         $("#deployModal").modal('show');
