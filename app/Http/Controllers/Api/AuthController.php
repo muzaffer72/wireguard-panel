@@ -10,6 +10,7 @@ use App\Http\Requests\RegisterRequest;
 use App\Http\Requests\ResetPasswordRequest;
 use App\Models\User;
 use App\Models\Subscription;
+use App\Models\Transaction;
 use App\Models\Plan;
 use App\Models\Server;
 use App\Notifications\ForgotPasswordNotification;
@@ -98,35 +99,20 @@ class AuthController extends Controller
         return adminNotify($title, $image, $link);
     }
 
-    protected function setLog($user)
+    public function createLog($user)
     {
-        $ip = ipInfo()->ip;
-        $loginLog = UserLog::where([['user_id', $user->id], ['ip', $ip]])->first();
-        $location = ipInfo()->location->city . ', ' . ipInfo()->location->country;
-        if ($loginLog != null) {
-            $loginLog->country = ipInfo()->location->country;
-            $loginLog->country_code = ipInfo()->location->country_code;
-            $loginLog->timezone = ipInfo()->location->timezone;
-            $loginLog->location = $location;
-            $loginLog->latitude = ipInfo()->location->latitude;
-            $loginLog->longitude = ipInfo()->location->longitude;
-            $loginLog->browser = ipInfo()->system->browser;
-            $loginLog->os = ipInfo()->system->os;
-            $loginLog->update();
-        } else {
-            $newLoginLog = new UserLog();
-            $newLoginLog->user_id = $user->id;
-            $newLoginLog->ip = ipInfo()->ip;
-            $newLoginLog->country = ipInfo()->location->country;
-            $newLoginLog->country_code = ipInfo()->location->country_code;
-            $newLoginLog->timezone = ipInfo()->location->timezone;
-            $newLoginLog->location = $location;
-            $newLoginLog->latitude = ipInfo()->location->latitude;
-            $newLoginLog->longitude = ipInfo()->location->longitude;
-            $newLoginLog->browser = ipInfo()->system->browser;
-            $newLoginLog->os = ipInfo()->system->os;
-            $newLoginLog->save();
-        }
+        $newLoginLog = new UserLog();
+        $newLoginLog->user_id = $user->id;
+        $newLoginLog->ip = ipInfo()->ip;
+        $newLoginLog->country = ipInfo()->location->country;
+        $newLoginLog->country_code = ipInfo()->location->country_code;
+        $newLoginLog->timezone = ipInfo()->location->timezone;
+        $newLoginLog->location = ipInfo()->location->city . ', ' . ipInfo()->location->country;
+        $newLoginLog->latitude = ipInfo()->location->latitude;
+        $newLoginLog->longitude = ipInfo()->location->longitude;
+        $newLoginLog->browser = ipInfo()->system->browser;
+        $newLoginLog->os = ipInfo()->system->os;
+        $newLoginLog->save();
     }
 
     /**
@@ -144,7 +130,7 @@ class AuthController extends Controller
         //     ]);
         // } else 
         if (Hash::check($request->password, $user->password)) {
-            $this->setLog($user);
+            $this->createLog($user);
             return $this->handleLogin($user, __('Successfully entered the system'));
         }
         return response422([
@@ -186,7 +172,7 @@ class AuthController extends Controller
         try {
             $user = $this->usermodel->create($data);
             // auto subs ke free plan
-            $this->setLog($user);
+            $this->createLog($user);
             $this->createRegisterNotify($user);
             $plan = Plan::find(13);// id plan must 13
             if (is_null($plan)) {
@@ -522,7 +508,17 @@ class AuthController extends Controller
         $subs->plan = $user->subscription->plan;
         return response200($subs, __('Successfully retrieved subscription data'));
     }
-
+    /**
+     * payment History
+     * 
+     * @return JsonResponse
+     */
+    public function paymentHistory()
+    {
+        $user = auth('api')->user();
+        $transactions = Transaction::where('user_id', $user->id)->whereIn('status', [2, 3])->orderbyDesc('id')->paginate(5);
+        return response200($transactions, __('Successfully retrieved subscription data'));
+    }
     /**
      * post log
      * 

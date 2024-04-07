@@ -40,8 +40,8 @@ Route:: as('api.')->prefix('v1')->group(function () {
 
         # SUBSCRIPTION
         Route::post('update-subscription', [SubscriptionController::class, 'validateAndUpdateSubscription'])->name('update-subscription');
-        Route::post('update-free-subscription', [FreeSubscriptionController::class, 'update'])->name('update-free-subscription');
         Route::get('plans', [SubscriptionController::class, 'plans'])->name('plans');
+        Route::get('history', [AuthController::class, 'paymentHistory'])->name('history');
         Route::get('log', [AuthController::class, 'log'])->name('insert-log');
     });
 
