@@ -55,7 +55,7 @@
                                 <td>{{ $row->ip_address }}</td>
                                 <td>{{ $row->printRecommended() }}</td>
                                 <td class="text-center">
-                                    @if ($row->is_ovpn == 1)
+                                    @if ($row->job_status != "")
                                     <button type="button" class="btn btn-{{ $row->job_status !== 'failed' ? 'primary' : 'danger' }} rounded-3" onclick="view_detail({{ $row->id }})">
                                         {{ $row->job_status}}
                                     </button>
@@ -127,7 +127,7 @@
                                 <td>{{ $row->ip_address }}</td>
                                 <td>{{ $row->printRecommended() }}</td>
                                 <td class="text-center">
-                                    @if ($row->is_ovpn == 1)
+                                    @if ($row->job_status != "")
                                         <button type="button" class="btn btn-{{ $row->job_status !== 'failed' ? 'primary' : 'danger' }} rounded-3" onclick="view_detail({{ $row->id }})">
                                             {{ $row->job_status}}
                                         </button>
