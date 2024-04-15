@@ -1,17 +1,13 @@
 <?php
 
-return array (
+return array(
   'faqs' => 'FAQs',
   'faqs_description' => 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti esse reprehenderit voluptates obcaecati placeat architecto hic ratione ducimus nemo.',
   'view_more' => 'View More',
-  'style' => 'Style',
-  'model' => 'Model',
-  'samples' => 'Samples',
   'visibility' => 'Visibility',
   'public' => 'Public',
   'private' => 'Private',
   'options' => 'Options',
-  'generate' => 'Generate',
   'api_provider_not_enabled' => 'API provider not enabled',
   'api_provider_error' => 'API provider error',
   'latest_blog_posts' => 'Latest blog posts',
