@@ -1,7 +1,7 @@
 @extends('frontend.layouts.auth')
 @section('title', lang('Sign In', 'auth'))
 @section('content')
-<h3 class="mb-1">Welcome to WG-Connect</h3>
+<h3 class="mb-1">Login/Register</h3>
 <p class="mb-4">{{ lang('Sign in to your account to continue', 'auth') }}</p>
 <form id="formAuthentication" action="{{ route('login') }}" class="mb-3 fv-plugins-bootstrap5 fv-plugins-framework" method="POST">
   @csrf
