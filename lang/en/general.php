@@ -9,7 +9,7 @@ return array (
   'copied_to_clipboard' => 'Copied to clipboard',
   'close' => 'Close',
   'are_you_sure' => 'Are you sure?',
-  'view_image' => 'View Image',
   'login' => 'Login',
   'email_address' => 'Email Address',
+  'view_image' => 'View Image',
 );
