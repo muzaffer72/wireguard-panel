@@ -135,6 +135,17 @@ class RegisterController extends Controller
         
 
         $user = $this->create($data);
+        $plan = Plan::find(14); 
+        if (is_null($plan)) {
+            return response422(['plan' => [__(admin_lang('Plan does not exist'))]]);
+        }
+        $expiry_at = Carbon::now();
+        $createSubscription = Subscription::create([
+            'user_id' => $user->id,
+            'plan_id' => $plan->id,
+            'expiry_at' => $expiry_at,
+            'is_viewed' => 0,
+        ]);
 
         event(new Registered($user));
         $this->guard()->login($user);
