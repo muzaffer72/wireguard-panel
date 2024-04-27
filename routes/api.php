@@ -48,17 +48,13 @@ Route:: as('api.')->prefix('v1')->group(function () {
     Route::group([
         'middleware' => 'with_fast_api_key'
     ], function () {
-
-        # DELETE USER
         Route::delete('users/{id}', [AuthController::class, 'delete'])->name('delete-profile');
-
-
-
         # SERVER
         Route:: as ('server.')->prefix('server')->group(function () {
             Route::post('', [ServerController::class, 'index'])->name('servers');
             Route::get('random', [ServerController::class, 'random'])->name('server-random');
             Route::get('connect/{server}', [ServerController::class, 'connect'])->name('server-connect');
+            Route::get('create', [ServerController::class, 'createClient'])->name('server-create');
         });
     });
 

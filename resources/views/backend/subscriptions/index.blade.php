@@ -2,7 +2,13 @@
 @section('title', admin_lang('Subscriptions'))
 @section('add_modal', admin_lang('Add New'))
 @section('content')
-    
+<div class="alert alert-danger d-flex align-items-center alert-dismissible" role="alert">
+      <span class="alert-icon text-danger me-2">
+        <i class="ti ti-info-circle ti-xs"></i>
+      </span>
+      {{ admin_lang('We recommend not deleting users who have expired and canceled so that the apps run well. ') }}
+     
+    </div>
     
     <div class="card custom-card">
     <div class="card custom-card custom-tabs mb-3">

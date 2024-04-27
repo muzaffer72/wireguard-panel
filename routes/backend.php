@@ -47,7 +47,7 @@ Route::group(['prefix' => adminPath(), 'namespace' => 'Backend'], function () {
                 Route::get('logs/{ip}', 'UserController@logsByIp')->name('logsbyip');
             });
             Route::resource('users', 'UserController');
-            
+
             Route::resource('servers', 'ServerController');
             Route::get('servers/{server}/deploy', 'ServerController@getDeployment')->middleware('ajax.only');
             Route::resource('subscriptions', 'SubscriptionController');
@@ -60,7 +60,7 @@ Route::group(['prefix' => adminPath(), 'namespace' => 'Backend'], function () {
                 Route::post('{advertisement}', 'AdvertisementController@update')->name('update');
             });
         });
-        Route::namespace('Navigation')->prefix('navigation')->name('admin.')->middleware('demo')->group(function () {
+        Route::namespace ('Navigation')->prefix('navigation')->name('admin.')->middleware('demo')->group(function () {
             Route::post('navbarMenu/nestable', 'NavbarMenuController@nestable')->name('navbarMenu.nestable');
             Route::resource('navbarMenu', 'NavbarMenuController');
             Route::post('footerMenu/nestable', 'FooterMenuController@nestable')->name('footerMenu.nestable');
@@ -119,12 +119,12 @@ Route::group(['prefix' => adminPath(), 'namespace' => 'Backend'], function () {
                 Route::get('popup-notice', 'PopupNoticeController@index')->name('notice');
                 Route::post('popup-notice/update', 'PopupNoticeController@update')->name('notice.update');
             });
-            Route::namespace('Others')->prefix('others')->group(function () {
+            Route::namespace ('Others')->prefix('others')->group(function () {
                 Route::resource('features', 'FeatureController');
                 Route::resource('faqs', 'FaqController');
             });
             Route::post('ckeditor/upload', 'CKEditorController@upload');
-            Route::namespace('Account')->prefix('account')->group(function () {
+            Route::namespace ('Account')->prefix('account')->group(function () {
                 Route::get('details', 'SettingsController@detailsForm')->name('account.details');
                 Route::get('security', 'SettingsController@securityForm')->name('account.security');
                 Route::post('details/update', 'SettingsController@detailsUpdate')->name('account.details.update');

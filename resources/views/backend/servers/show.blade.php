@@ -19,7 +19,7 @@
             <tbody>
                 @foreach ($logs as $row)
                 @php
-                    $user_id = str_replace("wg","",$row->id);
+    $user_id = str_replace("wg","",$row->id);
                 @endphp
                     <tr>
                         <td><a href="{{ route('admin.users.edit', $user_id) }}">{{ $row->id }}</a></td>
@@ -30,6 +30,7 @@
                         <td>{{ $row->createdAt }}</td>
                         <td>{{ $row->updatedAt }}</td>
                     </tr>
+                    
                 @endforeach
             </tbody>
         </table>
