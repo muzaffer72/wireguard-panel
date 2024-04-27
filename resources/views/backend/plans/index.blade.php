@@ -2,6 +2,13 @@
 @section('title', admin_lang('Pricing plans'))
 @section('link', route('admin.plans.create'))
 @section('content')
+<div class="alert alert-danger d-flex align-items-center alert-dismissible" role="alert">
+      <span class="alert-icon text-danger me-2">
+        <i class="ti ti-info-circle ti-xs"></i>
+      </span>
+      {{ admin_lang('Please dont delete the plan below, please just edit it. ') }}
+      
+    </div>
     <div class="card custom-card custom-tabs mb-3">
         <div class="card-body">
             <ul class="nav nav-pills" role="tablist">

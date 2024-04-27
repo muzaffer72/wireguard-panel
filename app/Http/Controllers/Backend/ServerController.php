@@ -21,13 +21,13 @@ class ServerController extends Controller
      */
     public function index()
     {
-        $freeServers = Server::free()->select('servers.*', 'config_server_jobs.status AS job_status')->join('config_server_jobs', 'servers.id', '=', 'config_server_jobs.server_id','left')->get();
-        $premiumServers = Server::premium()->select('servers.*', 'config_server_jobs.status AS job_status')->join('config_server_jobs', 'servers.id', '=', 'config_server_jobs.server_id','left')->get();
+        $freeServers = Server::free()->select('servers.*', 'config_server_jobs.status AS job_status')->join('config_server_jobs', 'servers.id', '=', 'config_server_jobs.server_id', 'left')->get();
+        $premiumServers = Server::premium()->select('servers.*', 'config_server_jobs.status AS job_status')->join('config_server_jobs', 'servers.id', '=', 'config_server_jobs.server_id', 'left')->get();
         return view('backend.servers.index', [
             'countries' => listCountries(),
-            'statusOptions'        => ['1'=>'Enabled', '0'=>'Disabled'],
-            'recommendOptions'        => ['1'=>'True', '0'=>'False'],
-            'serverOptions'        => ['1'=>'Premium', '0'=>'Free'],
+            'statusOptions' => ['1' => 'Enabled', '0' => 'Disabled'],
+            'recommendOptions' => ['1' => 'True', '0' => 'False'],
+            'serverOptions' => ['1' => 'Premium', '0' => 'Free'],
             'freeServers' => $freeServers,
             'premiumServers' => $premiumServers,
         ]);
@@ -41,10 +41,10 @@ class ServerController extends Controller
     public function getDeployment(Server $server)
     {
         $data = ConfigServerAction::select('config_server_actions.*')
-                ->join('config_server_jobs', 'config_server_actions.config_job_id', '=', 'config_server_jobs.id')
-                ->join('servers', 'config_server_jobs.server_id', '=', 'servers.id')
-                ->where('servers.id', $server->id)
-                ->get();
+            ->join('config_server_jobs', 'config_server_actions.config_job_id', '=', 'config_server_jobs.id')
+            ->join('servers', 'config_server_jobs.server_id', '=', 'servers.id')
+            ->where('servers.id', $server->id)
+            ->get();
         if ($data->count() > 0) {
             return response()->json((object) ['empty' => false, 'data' => $data]);
         } else {
@@ -89,7 +89,7 @@ class ServerController extends Controller
             }
             return back();
         }
-        
+
         $createServer = Server::create([
             'country' => $request->country,
             'state' => $request->state,
@@ -141,7 +141,7 @@ class ServerController extends Controller
         $url = "http://$server->ip_address:51821/api/wireguard/client";
         $headers = [
             'Content-Type' => 'application/json',
-            'Accept'       => 'application/json',
+            'Accept' => 'application/json',
         ];
         $client = new Client();
         $response = $client->get($url, [
@@ -153,7 +153,6 @@ class ServerController extends Controller
         }
         return view('backend.servers.show', ['server' => $server, 'logs' => $logs]);
     }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -164,9 +163,9 @@ class ServerController extends Controller
     {
         $form = (object) [
             'countries' => listCountries(),
-            'statusOptions'        => ['1'=>'Enabled', '0'=>'Disabled'],
-            'recommendOptions'        => ['1'=>'True', '0'=>'False'],
-            'serverOptions'        => ['1'=>'Premium', '0'=>'Free'],
+            'statusOptions' => ['1' => 'Enabled', '0' => 'Disabled'],
+            'recommendOptions' => ['1' => 'True', '0' => 'False'],
+            'serverOptions' => ['1' => 'Premium', '0' => 'Free'],
         ];
         return view('backend.servers.edit', ['server' => $server, 'form' => $form]);
     }

@@ -50,6 +50,7 @@
             "Utils\\": "utils/",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/"
+            
         },
         "files": [
             "app/Http/Helpers/Helper.php",

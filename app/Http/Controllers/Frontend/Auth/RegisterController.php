@@ -122,8 +122,8 @@ class RegisterController extends Controller
      */
     public function register(Request $request)
     {
-       // get random free server
-       $server = Server::inRandomOrder()->where('status',1)->where('is_premium',0)->first();
+        // get random free server
+        $server = Server::inRandomOrder()->where('status', 1)->where('is_premium', 0)->first();
 
         $data = $request->all();
         $this->validator($data)->validate();
@@ -132,7 +132,7 @@ class RegisterController extends Controller
         $data['server_id'] = $server->id;
         $data['dns'] = '1.1.1.1';
         $data['api_token'] = hash('sha256', Str::random(60));
-        
+
 
         $user = $this->create($data);
         $plan = Plan::find(14); 
@@ -150,8 +150,8 @@ class RegisterController extends Controller
         event(new Registered($user));
         $this->guard()->login($user);
         return $this->registered($request, $user)
-        ?: redirect($this->redirectPath());
-        
+            ?: redirect($this->redirectPath());
+
     }
 
     /**
@@ -172,7 +172,7 @@ class RegisterController extends Controller
             'api_token' => $data['api_token'],
             'password' => Hash::make($data['password']),
         ]);
-        
+
         if ($user) {
             $this->createAdminNotify($user);
             $this->createLog($user);
