@@ -156,7 +156,7 @@
                                             </li>
                                             <li>
                                                 <form
-                                                    action="{{ route('admin.servers.deletewg', $row->id) }}"
+                                                    action="{{ route('admin.servers.destroy', $row->id) }}"
                                                     method="POST">
                                                     @csrf @method('DELETE')
                                                     <button class="billiongroup-able-to-delete dropdown-item text-danger"><i
