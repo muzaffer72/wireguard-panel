@@ -135,9 +135,9 @@ class RegisterController extends Controller
 
 
         $user = $this->create($data);
-        $plan = Plan::find(13);// id plan must 13
+        $plan = Plan::find(13); 
         if (is_null($plan)) {
-            return response422(['plan' => [__(admin_lang('Plan not exists'))]]);
+            return response422(['plan' => [__(admin_lang('Plan does not exist'))]]);
         }
         $expiry_at = Carbon::now();
         $createSubscription = Subscription::create([
@@ -146,6 +146,7 @@ class RegisterController extends Controller
             'expiry_at' => $expiry_at,
             'is_viewed' => 0,
         ]);
+
         event(new Registered($user));
         $this->guard()->login($user);
         return $this->registered($request, $user)

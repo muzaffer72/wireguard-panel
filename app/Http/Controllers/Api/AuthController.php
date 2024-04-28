@@ -176,7 +176,7 @@ class AuthController extends Controller
             $this->createRegisterNotify($user);
             $plan = Plan::find(13);// id plan must 13
             if (is_null($plan)) {
-                return response422(['plan' => [__(admin_lang('Plan not exists'))]]);
+                return response422(['plan' => [__(admin_lang('Plan does not exist'))]]);
             }
             $expiry_at = Carbon::now();
             $createSubscription = Subscription::create([
@@ -266,7 +266,7 @@ class AuthController extends Controller
         } catch (Exception $e) {
             return $e->getMessage();
             DB::rollBack();
-            return response500(null, __('Failed to send email, email server is down'));
+            return response500(null, __('Failed to send email, please try again.'));
         }
     }
 
@@ -283,7 +283,7 @@ class AuthController extends Controller
             $user = $this->usermodel->where('email', $request->email)->first();
             if ($user->verification_code !== $request->verification_code) {
                 return response422([
-                    'verification_code' => [__('The verification code entered is incorrect.')]
+                    'verification_code' => [__('Incorrect Verification Code')]
                 ]);
             }
             $user->update([
@@ -295,7 +295,7 @@ class AuthController extends Controller
 
             DB::commit();
             $user = $this->usermodel->where('email', $request->email)->first();
-            return response200($user, __('Successfully verified the account'));
+            return response200($user, __('Successfully verified!'));
         } catch (Exception $e) {
             return response500(null, __('Failed to verify account'));
         }
@@ -320,7 +320,7 @@ class AuthController extends Controller
             abort(404);
         } else if ($user->verification_code !== $request->verification_code || $user->email_token === null) {
             return response422([
-                'verification_code' => [__('The verification code entered is incorrect.')]
+                'verification_code' => [__('Incorrect Verification')]
             ]);
         }
         return response200([
@@ -343,7 +343,7 @@ class AuthController extends Controller
             $user = $this->usermodel->where('email', $request->email)->first();
             if ($user->verification_code !== $request->verification_code) {
                 return response422([
-                    'verification_code' => [__('The verification code entered is incorrect.')]
+                    'verification_code' => [__('Incorrect Verification')]
                 ]);
             }
             // else if ($user->email_token !== $request->verification_token) {
@@ -360,7 +360,7 @@ class AuthController extends Controller
             $user = $this->usermodel->where('email', $request->email)->first();
             return response200($user, __('Password updated successfully'));
         } catch (Exception $e) {
-            return response500(null, __('Failed to update password'));
+            return response500(null, __('Failed to update password, please try again.'));
         }
     }
 
@@ -493,7 +493,7 @@ class AuthController extends Controller
     public function settings()
     {
         $data = $this->settingRepository->all();
-        return response200($data, __('Successfully got the settings'));
+        return response200($data, __('Successfully retreived settings'));
     }
 
     /**
@@ -527,7 +527,7 @@ class AuthController extends Controller
     public function log()
     {
         logLogin();
-        return response200(true, __('Successfully insert log'));
+        return response200(true, __('Successfully inserted log'));
     }
 
 }

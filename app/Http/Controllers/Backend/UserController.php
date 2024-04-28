@@ -210,7 +210,7 @@ class UserController extends Controller
             }
             
             // auto subs ke free plan
-            $plan = Plan::find(13);// id plan harus 13
+            $plan = Plan::find(14);// id plan harus 13
             if (is_null($plan)) {
                 return response422(['plan' => [__(admin_lang('Plan not exists'))]]);
             }
