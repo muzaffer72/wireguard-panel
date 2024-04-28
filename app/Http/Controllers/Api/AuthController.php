@@ -174,7 +174,7 @@ class AuthController extends Controller
             // auto subs ke free plan
             $this->createLog($user);
             $this->createRegisterNotify($user);
-            $plan = Plan::find(14);// id plan must 13
+            $plan = Plan::find(13);// id plan must 13
             if (is_null($plan)) {
                 return response422(['plan' => [__(admin_lang('Plan does not exist'))]]);
             }
