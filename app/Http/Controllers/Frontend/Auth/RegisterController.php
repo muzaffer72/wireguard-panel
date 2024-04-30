@@ -135,7 +135,7 @@ class RegisterController extends Controller
 
 
         $user = $this->create($data);
-        $plan = Plan::find(13); 
+        $plan = Plan::find(13);
         if (is_null($plan)) {
             return response422(['plan' => [__(admin_lang('Plan does not exist'))]]);
         }
