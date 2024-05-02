@@ -31,6 +31,10 @@ class ServerController extends Controller
             $servers->where('is_premium', 0);
         } elseif ($request['is_premium'] == "1") {
             $servers->where('is_premium', 1);
+        } elseif ($request['recommended'] == "0") {
+            $servers->where('recommended', 0);
+        } elseif ($request['recommended'] == "1") {
+            $servers->where('recommended', 1);
         }
 
         $servers = $servers->get();
