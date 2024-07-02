@@ -5,13 +5,8 @@
       <!-- Menu logo wrapper: Start -->
       <div class="navbar-brand app-brand demo d-flex py-0 py-lg-2 me-4">
         <!-- Mobile menu toggle: Start-->
-        <button
-          class="navbar-toggler border-0 px-0 me-2"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
+        <button class="navbar-toggler border-0 px-0 me-2" type="button" data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
           aria-label="Toggle navigation">
           <i class="ti ti-menu-2 ti-sm align-middle"></i>
         </button>
@@ -26,41 +21,37 @@
       <!-- Menu logo wrapper: End -->
       <!-- Menu wrapper: Start -->
       <div class="collapse navbar-collapse landing-nav-menu" id="navbarSupportedContent">
-        <button
-          class="navbar-toggler border-0 text-heading position-absolute end-0 top-0 scaleX-n1-rtl"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation">
+        <button class="navbar-toggler border-0 text-heading position-absolute end-0 top-0 scaleX-n1-rtl" type="button"
+          data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+          aria-expanded="false" aria-label="Toggle navigation">
           <i class="ti ti-x ti-sm"></i>
         </button>
         <ul class="navbar-nav me-auto">
           @foreach ($navbarMenuLinks as $navbarMenuLink)
-            <li class="nav-item">
-              @if ($navbarMenuLink->children->count() > 0)
-                <div class="btn-group">
-                  <a class="nav-link fw-medium dropdown-toggle waves-effect waves-light" data-bs-toggle="dropdown" aria-expanded="false">{{ $navbarMenuLink->name }}</a>
-                  <ul class="dropdown-menu" style="">
-                    @foreach ($navbarMenuLink->children as $child)
-                      <li>
-                        <a href="{{ $child->link }}" class="dropdown-item">
-                          <span>{{ $child->name }}</span>
-                        </a>
-                      </li>
-                    @endforeach
-                  </ul>
-                </div>
-              @else
-                <a class="nav-link fw-medium" href="{{ $navbarMenuLink->link }}">
-                  <div class="link-title">
-                    <span>{{ $navbarMenuLink->name }}</span>
-                  </div>
-                </a>
-              @endif
-            </li>
-          @endforeach
+        <li class="nav-item">
+        @if ($navbarMenuLink->children->count() > 0)
+      <div class="btn-group">
+        <a class="nav-link fw-medium dropdown-toggle waves-effect waves-light" data-bs-toggle="dropdown"
+        aria-expanded="false">{{ $navbarMenuLink->name }}</a>
+        <ul class="dropdown-menu" style="">
+        @foreach ($navbarMenuLink->children as $child)
+      <li>
+      <a href="{{ $child->link }}" class="dropdown-item">
+      <span>{{ $child->name }}</span>
+      </a>
+      </li>
+    @endforeach
+        </ul>
+      </div>
+    @else
+    <a class="nav-link fw-medium" href="{{ $navbarMenuLink->link }}">
+      <div class="link-title">
+      <span>{{ $navbarMenuLink->name }}</span>
+      </div>
+    </a>
+  @endif
+        </li>
+      @endforeach
         </ul>
       </div>
       <div class="landing-menu-overlay d-lg-none"></div>
@@ -95,17 +86,16 @@
 
         <!-- navbar button: Start -->
         @guest
-          <li>
-            <a href="{{ route('login') }}" class="btn btn-primary">
-              <span class="tf-icons ti ti-login scaleX-n1-rtl me-md-1"></span
-            >
-              <span class="d-none d-md-block">Login/Register</span>
-            </a>
-          </li>
-        @endguest
+      <li>
+        <a href="{{ route('login') }}" class="btn btn-primary">
+        <span class="tf-icons ti ti-login scaleX-n1-rtl me-md-1"></span>
+        <span class="d-none d-md-block">Login/Register</span>
+        </a>
+      </li>
+    @endguest
         @auth
-          @include('frontend.global.user-menu')
-        @endauth
+      @include('frontend.global.user-menu')
+    @endauth
         <!-- navbar button: End -->
       </ul>
       <!-- Toolbar: End -->
