@@ -18,47 +18,73 @@ class StripeCheckoutController extends Controller
             $data['msg'] = lang('Invalid or expired transaction', 'checkout');
             return json_encode($data);
         }
-        $planInterval = ($trx->plan->interval == 1) ? '(Monthly)' : '(Yearly)';
+
+        // Determine plan interval text
+        switch ($trx->plan->interval) {
+            case 1:
+                $planInterval = '(Monthly)';
+                break;
+            case 2:
+                $planInterval = '(Yearly)';
+                break;
+            case 3:
+                $planInterval = '(Weekly)';
+                break;
+            case 4:
+                $planInterval = '(Half Yearly)';
+                break;
+            default:
+                $planInterval = '';
+                break;
+        }
+
         $paymentName = "Payment for subscription " . $trx->plan->name . " Plan " . $planInterval;
+
         $gatewayFees = ($trx->total * paymentGateway('stripe_checkout')->fees) / 100;
         $totalPrice = round(($trx->total + $gatewayFees), 2);
         $priceIncludeFees = str_replace('.', '', ($totalPrice * 100));
+
         $paymentDeatails = [
             'customer_creation' => 'always',
             'customer_email' => $trx->user->email,
             'payment_method_types' => [
                 'card',
             ],
-            'line_items' => [[
-                'price_data' => [
-                    'unit_amount' => $priceIncludeFees,
-                    'currency' => settings('currency')->code,
-                    'product_data' => [
-                        'name' => settings('general')->site_name,
-                        'description' => $paymentName,
+            'line_items' => [
+                [
+                    'price_data' => [
+                        'unit_amount' => $priceIncludeFees,
+                        'currency' => settings('currency')->code,
+                        'product_data' => [
+                            'name' => settings('general')->site_name,
+                            'description' => $paymentName,
+                        ],
                     ],
-                ],
-                'quantity' => 1,
-            ]],
+                    'quantity' => 1,
+                ]
+            ],
             'mode' => 'payment',
             'cancel_url' => route('user.settings.subscription'),
             'success_url' => route('ipn.stripe_checkout') . '?session_id={CHECKOUT_SESSION_ID}',
         ];
+
         try {
             Stripe::setApiKey(paymentGateway('stripe_checkout')->credentials->secret_key);
             $session = Session::create($paymentDeatails);
+
             if ($session) {
                 $trx->update(['fees' => $gatewayFees, 'payment_id' => $session->id]);
                 $data['error'] = false;
                 $data['redirectUrl'] = $session->url;
                 return json_encode($data);
             }
-        } catch (\Exception$e) {
+        } catch (\Exception $e) {
             $data['error'] = true;
             $data['msg'] = $e->getMessage();
             return json_encode($data);
         }
     }
+
 
     public function ipn(Request $request)
     {
@@ -95,7 +121,7 @@ class StripeCheckoutController extends Controller
                 toastr()->error(lang('Payment failed', 'checkout'));
                 return redirect()->route('user.settings.subscription');
             }
-        } catch (\Exception$e) {
+        } catch (\Exception $e) {
             toastr()->error(lang('Payment failed', 'checkout'));
             return redirect()->route('user.settings.subscription');
         }

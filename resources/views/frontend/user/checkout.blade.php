@@ -60,12 +60,12 @@
                                 <label class="form-label">{{ lang('First Name', 'forms') }} : </label>
                                 <input type="firstname" class="form-control form-control-md"
                                     placeholder="{{ lang('First Name', 'forms') }}" value="{{ $user->firstname }}"
-                                    readonly>
+                                    >
                             </div>
                             <div class="col">
                                 <label class="form-label">{{ lang('Last Name', 'forms') }} : </label>
                                 <input type="lastname" class="form-control form-control-md"
-                                    placeholder="{{ lang('Last Name', 'forms') }}" value="{{ $user->lastname }}" readonly>
+                                    placeholder="{{ lang('Last Name', 'forms') }}" value="{{ $user->lastname }}">
                             </div>
                         </div>
                         <div class="mb-3">

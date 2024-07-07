@@ -27,6 +27,7 @@ class GeneralController extends Controller
             'general.joined_users' => 'required',
             'general.highly_rated_products' => 'required',
             'general.money_free' => 'required',
+            'general.active_device_limit' => 'required',
             'theme.mode_default' => 'required|in:auto,light,dark',
             'currency.code' => ['required', 'string', 'max:4', 'regex:/^[A-Z]{3}$/'],
             'currency.symbol' => ['required', 'string', 'max:4'],
@@ -50,7 +51,9 @@ class GeneralController extends Controller
         ]);
 
         if ($validator->fails()) {
-            foreach ($validator->errors()->all() as $error) {toastr()->error($error);}
+            foreach ($validator->errors()->all() as $error) {
+                toastr()->error($error);
+            }
             return back();
         }
 
@@ -128,7 +131,7 @@ class GeneralController extends Controller
 
         setEnv('APP_URL', $requestData['general']['site_url']);
         setEnv('APP_TIMEZONE', "'{$requestData['general']['timezone']}'");
-
+        setEnv('MAX_ACTIVE_DEVICES', $requestData['general']['active_device_limit']);
         $colorsFile = 'assets/css/colors.css';
         if (!file_exists($colorsFile)) {
             fopen($colorsFile, "w");

@@ -162,7 +162,15 @@ class CheckoutController extends Controller
             throw new Exception(lang('Incomplete payment', 'checkout'));
         }
         if ($transaction->type == 1) {
-            $expiry_at = ($transaction->plan->interval == 1) ? Carbon::now()->addMonth() : Carbon::now()->addYear();
+            if ($transaction->plan->interval == 1) { // Monthly subscription
+                $expiry_at = Carbon::now()->addMonth();
+            } elseif ($transaction->plan->interval == 2) { // Yearly subscription
+                $expiry_at = Carbon::now()->addYear();
+            } elseif ($transaction->plan->interval == 3) { // Weekly subscription
+                $expiry_at = Carbon::now()->addWeek();
+            } elseif ($transaction->plan->interval == 4) { // Half-Yearly subscription
+                $expiry_at = Carbon::now()->addMonths(6);
+            }
             $subscription = new Subscription();
             $subscription->user_id = $transaction->user_id;
             $subscription->plan_id = $transaction->plan_id;
@@ -171,19 +179,32 @@ class CheckoutController extends Controller
         }
         if ($transaction->type == 2) {
             $subscription = $transaction->user->subscription;
-            if ($transaction->plan->interval == 1) {
+            if ($transaction->plan->interval == 1) { // Monthly subscription
                 if ($subscription->isExpired()) {
                     $expiry_at = Carbon::now()->addMonth();
                 } else {
                     $expiry_at = Carbon::parse($subscription->expiry_at)->addMonth();
                 }
-            } else {
+            } elseif ($transaction->plan->interval == 2) { // Yearly subscription
                 if ($subscription->isExpired()) {
                     $expiry_at = Carbon::now()->addYear();
                 } else {
                     $expiry_at = Carbon::parse($subscription->expiry_at)->addYear();
                 }
+            } elseif ($transaction->plan->interval == 3) { // Weekly subscription
+                if ($subscription->isExpired()) {
+                    $expiry_at = Carbon::now()->addWeek();
+                } else {
+                    $expiry_at = Carbon::parse($subscription->expiry_at)->addWeek();
+                }
+            } elseif ($transaction->plan->interval == 4) { // Half-Yearly subscription
+                if ($subscription->isExpired()) {
+                    $expiry_at = Carbon::now()->addMonths(6);
+                } else {
+                    $expiry_at = Carbon::parse($subscription->expiry_at)->addMonths(6);
+                }
             }
+
             $subscription->expiry_at = $expiry_at;
             $subscription->about_to_expire_reminder = false;
             $subscription->expired_reminder = false;
@@ -191,7 +212,15 @@ class CheckoutController extends Controller
         }
         if ($transaction->type == 3 || $transaction->type == 4) {
             $subscription = $transaction->user->subscription;
-            $expiry_at = ($transaction->plan->interval == 1) ? Carbon::now()->addMonth() : Carbon::now()->addYear();
+            if ($transaction->plan->interval == 1) { // Monthly subscription
+                $expiry_at = Carbon::now()->addMonth();
+            } elseif ($transaction->plan->interval == 2) { // Yearly subscription
+                $expiry_at = Carbon::now()->addYear();
+            } elseif ($transaction->plan->interval == 3) { // Weekly subscription
+                $expiry_at = Carbon::now()->addWeek();
+            } elseif ($transaction->plan->interval == 4) { // Half-Yearly subscription
+                $expiry_at = Carbon::now()->addMonths(6);
+            }
             $subscription->plan_id = $transaction->plan_id;
             $subscription->expiry_at = $expiry_at;
             $subscription->about_to_expire_reminder = false;

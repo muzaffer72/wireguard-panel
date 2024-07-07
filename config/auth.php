@@ -125,5 +125,5 @@ return [
      */
 
     'password_timeout' => 10800,
-
+    'max_active_devices' => env('MAX_ACTIVE_DEVICES', 2),
 ];

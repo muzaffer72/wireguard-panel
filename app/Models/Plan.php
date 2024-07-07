@@ -18,7 +18,15 @@ class Plan extends Model
     {
         $query->where('interval', 2);
     }
+    public function scopeWeekly($query)
+    {
+        $query->where('interval', 3);
+    }
 
+    public function scopeHalfYearly($query)
+    {
+        $query->where('interval', 4);
+    }
     public function scopeFree($query)
     {
         $query->where('is_free', 1);

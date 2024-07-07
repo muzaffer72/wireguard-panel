@@ -1045,7 +1045,7 @@ function array_diff_key_objects($obj1, $obj2)
 }
 
 function subscription()
-{    
+{
     return SubscriptionManager::subscription();
 }
 
@@ -1092,6 +1092,10 @@ function formatInterval($interval)
         return lang('monthly', 'plans');
     } elseif ($interval == 2) {
         return lang('yearly', 'plans');
+    } elseif ($interval == 3) {
+        return lang('weekly', 'plans');
+    } elseif ($interval == 4) {
+        return lang('halfyearly', 'plans');
     }
     return '';
 }
@@ -1118,8 +1122,10 @@ function planButton($plan)
                 if ($plan->id == $subscription->plan->id && $subscription->isAboutToExpire()) {
                     $buttonText = lang('Renew', 'plans');
                     $type = "renew";
-                } elseif ($plan->id != $subscription->plan->id && $plan->price < $subscription->plan->price &&
-                    $plan->interval <= $subscription->plan->interval) {
+                } elseif (
+                    $plan->id != $subscription->plan->id && $plan->price < $subscription->plan->price &&
+                    $plan->interval <= $subscription->plan->interval
+                ) {
                     $buttonText = lang('Downgrade', 'plans');
                     $type = "downgrade";
                 } elseif ($plan->id != $subscription->plan->id) {
@@ -1150,8 +1156,8 @@ function responseHandler($response)
 function listCountries()
 {
     $options = [];
-    
-    $endpoint = getenv('APP_URL') ."/assets/data/countries_v1.json";
+
+    $endpoint = getenv('APP_URL') . "/assets/data/countries_v1.json";
     $client = new \GuzzleHttp\Client();
     $response = $client->request('GET', $endpoint);
 

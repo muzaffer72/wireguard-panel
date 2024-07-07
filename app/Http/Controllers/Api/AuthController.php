@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use Illuminate\Support\Facades\Config;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ForgotPasswordRequest;
 use App\Http\Requests\LoginRequest;
@@ -99,8 +100,10 @@ class AuthController extends Controller
         return adminNotify($title, $image, $link);
     }
 
-    public function createLog($user)
+    public function createLog(Request $request)
     {
+        $user = $request->user();
+
         $newLoginLog = new UserLog();
         $newLoginLog->user_id = $user->id;
         $newLoginLog->ip = ipInfo()->ip;
@@ -111,10 +114,11 @@ class AuthController extends Controller
         $newLoginLog->latitude = ipInfo()->location->latitude;
         $newLoginLog->longitude = ipInfo()->location->longitude;
         $newLoginLog->browser = ipInfo()->system->browser;
-        $newLoginLog->os = ipInfo()->system->os;
+        $newLoginLog->os = $request->input('os'); // Retrieve OS information from request body
         $newLoginLog->save();
-    }
 
+        return response()->json(['message' => 'Log created successfully'], 201);
+    }
     /**
      * process login
      *
@@ -124,20 +128,29 @@ class AuthController extends Controller
     public function login(LoginRequest $request)
     {
         $user = $this->usermodel->where('email', $request->email)->first();
-        // if ($user->email_verified_at === null) {
-        //     return response422([
-        //         'email' => [__('Account is not verified, please verify first')]
-        //     ]);
-        // } else 
-        if (Hash::check($request->password, $user->password)) {
-            $this->createLog($user);
+
+        if ($user && Hash::check($request->password, $user->password)) {
+            // Count active devices for the user
+            $activeDeviceCount = UserLog::where('user_id', $user->id)->count();
+
+            // Fetch maximum active devices limit from configuration
+            $maxActiveDevices = Config::get('auth.max_active_devices');
+
+            if ($activeDeviceCount >= $maxActiveDevices) {
+                return response()->json([
+                    'info' => __('You have reached the maximum number of active devices.')
+                ], 422);
+            }
+
+            // Proceed with successful login
             return $this->handleLogin($user, __('Successfully entered the system'));
         }
-        return response422([
-            'email' => [__('The email or password entered is incorrect')]
-        ]);
-    }
 
+        // If email or password is incorrect
+        return response()->json([
+            'info' => __('The email or password entered is incorrect')
+        ], 422);
+    }
     /**
      * process register
      *
@@ -172,7 +185,7 @@ class AuthController extends Controller
         try {
             $user = $this->usermodel->create($data);
             // auto subs ke free plan
-            $this->createLog($user);
+            //$this->createLog($user);
             $this->createRegisterNotify($user);
             $plan = Plan::find(13);// id plan must 13
             if (is_null($plan)) {
@@ -423,7 +436,38 @@ class AuthController extends Controller
         $user->logs;
         return response200($user, __('Successfully retrieved user data'));
     }
+    /**
+     * get list logs user
+     *
+     * @return JsonResponse
+     */
+    public function listLogs()
+    {
+        $user = auth('api')->user();
+        $listLogs = $user->listLogs()->orderByDesc('id')->get();
+        return response200($listLogs, __('Successfully retrieved user data'));
+    }
+    /**
+     * delete logs user 
+     *
+     * @param ProfileRequest $request
+     * @return Response
+     */
+    public function deleteLogs(Request $request, $id)
+    {
+        // Retrieve the logs for the given user ID
+        $userLogs = UserLog::where('id', $id);
 
+        // Check if logs exist
+        if (!$userLogs->exists()) {
+            return response()->json(['message' => 'User logs not found'], 404);
+        }
+
+        // Delete the logs (soft delete if using soft deletes)
+        $userLogs->delete();
+
+        return response()->json(['message' => 'User logs deleted successfully']);
+    }
     /**
      * update profile user login
      *
@@ -439,7 +483,7 @@ class AuthController extends Controller
     }
 
     /**
-     * update profile user login
+     * delete profile user 
      *
      * @param ProfileRequest $request
      * @return Response

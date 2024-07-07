@@ -42,7 +42,13 @@ Route:: as('api.')->prefix('v1')->group(function () {
         Route::post('update-subscription', [SubscriptionController::class, 'validateAndUpdateSubscription'])->name('update-subscription');
         Route::get('plans', [SubscriptionController::class, 'plans'])->name('plans');
         Route::get('history', [AuthController::class, 'paymentHistory'])->name('history');
+
+        # LOGS
         Route::get('log', [AuthController::class, 'log'])->name('insert-log');
+        Route::get('listLogs', [AuthController::class, 'listLogs'])->name('list-log');
+        Route::delete('userLogs/{ip}', [AuthController::class, 'deleteLogs'])->name('delete-logs');
+        Route::post('create-log', [AuthController::class, 'createLog'])->name('create-logs');
+
     });
 
     Route::group([
@@ -50,7 +56,7 @@ Route:: as('api.')->prefix('v1')->group(function () {
     ], function () {
         Route::delete('users/{id}', [AuthController::class, 'delete'])->name('delete-profile');
         # SERVER
-        Route:: as ('server.')->prefix('server')->group(function () {
+        Route:: as('server.')->prefix('server')->group(function () {
             Route::post('', [ServerController::class, 'index'])->name('servers');
             Route::get('random', [ServerController::class, 'random'])->name('server-random');
             Route::get('connect/{server}', [ServerController::class, 'connect'])->name('server-connect');

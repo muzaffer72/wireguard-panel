@@ -34,8 +34,17 @@ class GlobalController extends Controller
     {
         $monthlyPlans = Plan::monthly()->get();
         $yearlyPlans = Plan::yearly()->get();
-        return view('frontend.pricing', ['monthlyPlans' => $monthlyPlans, 'yearlyPlans' => $yearlyPlans]);
+        $weeklyPlans = Plan::weekly()->get(); // Fetch weekly plans
+        $halfYearlyPlans = Plan::halfYearly()->get(); // Fetch six-month plans
+
+        return view('frontend.pricing', [
+            'monthlyPlans' => $monthlyPlans,
+            'yearlyPlans' => $yearlyPlans,
+            'weeklyPlans' => $weeklyPlans, // Pass weekly plans to the view
+            'halfYearlyPlans' => $halfYearlyPlans, // Pass six-month plans to the view
+        ]);
     }
+
 
     public function faqs()
     {
@@ -80,7 +89,7 @@ class GlobalController extends Controller
             });
             toastr()->success(lang('Your message has been sent successfully'));
             return back();
-        } catch (\Exception$e) {
+        } catch (\Exception $e) {
             toastr()->error(lang('Error on sending'));
             return back();
         }

@@ -54,6 +54,12 @@
                             @endforeach
                         </select>
                     </div>
+                    <div class="col-lg-6">
+                        <label for="small-input" class="block mb-2 text-sm font-medium">{{ admin_lang('Device Limit') }} : <small
+                                class="text-muted">({{ admin_lang('Active Device Limit') }})</small></label>
+                        <input type="text" name="general[active_device_limit]" id="log-limit-input" class="form-control"
+                            value="{{ $settings->general->active_device_limit }}">
+                    </div>
                 </div>
             </div>
         </div>
@@ -249,6 +255,7 @@
                         <input type="text" name="general[money_free]" id="small-input" class="form-control"
                             value="{{ $settings->general->money_free }}" required>
                     </div>
+                    
                 </div>
             </div>
         </div>

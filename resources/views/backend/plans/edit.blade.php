@@ -1,11 +1,14 @@
 @extends('backend.layouts.form')
+
 @section('title', admin_lang('Edit Plan') . ' | ' . $plan->name)
 @section('container', 'container-xxl flex-grow-1 container-p-y')
 @section('back', route('admin.plans.index'))
+
 @section('content')
     <form id="billiongroup-submited-form" action="{{ route('admin.plans.update', $plan->id) }}" method="POST">
         @csrf
         @method('PUT')
+
         <div class="card custom-card mb-4">
             <div class="card-header bg-primary text-white">
                 {{ admin_lang('Plan details') }}
@@ -35,33 +38,40 @@
                                         class="text-danger">*</span></strong></label>
                         </div>
                         <div class="col-12 col-lg-4">
-                            <textarea name="product_id" class="form-control" required placeholder="{{ admin_lang('Max 150 character') }}">{{ $plan->product_id }}</textarea>
+                            <textarea name="product_id" class="form-control"
+                                required>{{ $plan->product_id }}</textarea>
                         </div>
                     </div>
                 </li>
                 <li class="list-group-item">
                     <div class="row g-2 align-items-center">
                         <div class="col-12 col-lg-8">
-                            <label class="col-form-label"><strong>{{ admin_lang('Plan Interval') }} :
-                                </strong></strong></label>
+                            <label class="col-form-label"><strong>{{ admin_lang('Plan Interval') }} :</strong></label>
                         </div>
                         <div class="col col-lg-4">
-                            <select class="form-select" disabled required>
-                                <option value="1" {{ old('interval') == 1 ? 'selected' : '' }}>
-                                    {{ admin_lang('Monthly') }}
-                                </option>
-                                <option value="2" {{ old('interval') == 2 ? 'selected' : '' }}>
-                                    {{ admin_lang('Yearly') }}
-                                </option>
-                            </select>
-                        </div>
+    <select class="form-select" name="interval" required>
+        <option value="1" {{ $plan->interval == 1 ? 'selected' : '' }}>
+            {{ admin_lang('Monthly') }}
+        </option>
+        <option value="2" {{ $plan->interval == 2 ? 'selected' : '' }}>
+            {{ admin_lang('Yearly') }}
+        </option>
+        <option value="3" {{ $plan->interval == 3 ? 'selected' : '' }}>
+            {{ admin_lang('Weekly') }}
+        </option>
+        <option value="4" {{ $plan->interval == 4 ? 'selected' : '' }}>
+            {{ admin_lang('Half-Yearly') }}
+        </option>
+    </select>
+</div>
+
                     </div>
                 </li>
                 <li class="list-group-item">
                     <div class="row g-2 align-items-center">
                         <div class="col-12 col-lg-6">
                             <label class="col-form-label"><strong>{{ admin_lang('Plan Price') }} : <span
-                                        class="text-danger">*</span></strong></strong></label>
+                                        class="text-danger">*</span></strong></label>
                         </div>
                         <div class="col-12 col-lg-2">
                             <input type="checkbox" name="is_free" class="free-plan-checkbox form-check-input"
@@ -71,7 +81,7 @@
                         <div class="col col-lg-4">
                             <div class="custom-input-group input-group plan-price">
                                 <input type="text" name="price" class="form-control input-price"
-                                    value="{{ price($plan->price) }}" placeholder="0.00" required
+                                    value="{{ $plan->price }}" placeholder="0.00" required
                                     {{ $plan->isFree() ? 'disabled' : '' }} />
                                 <span
                                     class="input-group-text {{ $plan->isFree() ? 'disabled' : '' }}"><strong>{{ $settings->currency->code }}</strong></span>
@@ -82,8 +92,7 @@
                 <li class="plan-require-login list-group-item {{ $plan->isFree() ? '' : 'd-none' }}">
                     <div class="row align-items-center">
                         <div class="col-8 col-lg-8">
-                            <label class="col-form-label d-block"><strong>{{ admin_lang('Require Login') }} :
-                                </strong></label>
+                            <label class="col-form-label d-block"><strong>{{ admin_lang('Require Login') }} :</strong></label>
                             <small>{{ admin_lang('Without login, the guests will be able to generate the images.') }}</small>
                         </div>
                         <div class="col-4 col-lg-4">
@@ -93,13 +102,10 @@
                         </div>
                     </div>
                 </li>
-                
-                
                 <li class="list-group-item">
                     <div class="row align-items-center">
                         <div class="col-8 col-lg-8">
-                            <label class="col-form-label d-block"><strong>{{ admin_lang('Show advertisements') }} :
-                                </strong></label>
+                            <label class="col-form-label d-block"><strong>{{ admin_lang('Show advertisements') }} :</strong></label>
                             <small>{{ admin_lang('Show the advertisements (Yes/No)') }}</small>
                         </div>
                         <div class="col-4 col-lg-4">
@@ -109,7 +115,6 @@
                         </div>
                     </div>
                 </li>
-               
                 @if ($plan->custom_features)
                     @foreach ($plan->custom_features as $key => $value)
                         <li id="customFeature{{ $key }}" class="list-group-item">
@@ -131,20 +136,25 @@
         </div>
         <button type="button" id="addCustomFeature" class="btn btn-primary"><i
                 class="fa fa-plus me-2"></i>{{ admin_lang('Add custom feature') }}</button>
+
     </form>
+
     @push('styles_libs')
         <link rel="stylesheet" href="{{ asset('assets/vendor/libs/tags-input/bootstrap-tagsinput.css') }}">
     @endpush
+
     @push('scripts_libs')
         <script src="{{ asset('assets/vendor/libs/jquery/jquery.priceformat.min.js') }}"></script>
         <script src="{{ asset('assets/vendor/libs/tags-input/bootstrap-tagsinput.min.js') }}"></script>
     @endpush
+
     @push('top_scripts')
         <script>
             "use strict";
             var customFeatureI = {{ $plan->custom_features ? count($plan->custom_features) - 1 : -1 }};
         </script>
     @endpush
+
     @push('scripts')
         <script>
             "use strict";

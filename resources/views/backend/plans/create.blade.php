@@ -51,6 +51,12 @@
                                 <option value="2" {{ old('interval') == 2 ? 'selected' : '' }}>
                                     {{ admin_lang('Yearly') }}
                                 </option>
+                                <option value="3" {{ old('interval') == 3 ? 'selected' : '' }}>
+                                    {{ admin_lang('Weekly') }}
+                                </option>
+                                <option value="4" {{ old('interval') == 4 ? 'selected' : '' }}>
+                                    {{ admin_lang('6-Month') }}
+                                </option>
                             </select>
                         </div>
                     </div>

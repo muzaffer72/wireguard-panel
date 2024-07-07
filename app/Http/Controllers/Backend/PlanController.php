@@ -10,40 +10,27 @@ use Validator;
 
 class PlanController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
+        $weeklyPlans = Plan::where('interval', 3)->get();
         $monthlyPlans = Plan::where('interval', 1)->get();
+        $halfYearlyPlans = Plan::where('interval', 4)->get();
         $yearlyPlans = Plan::where('interval', 2)->get();
         return view('backend.plans.index', [
+            'weeklyPlans' => $weeklyPlans,
             'monthlyPlans' => $monthlyPlans,
+            'halfYearlyPlans' => $halfYearlyPlans,
             'yearlyPlans' => $yearlyPlans,
         ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         return view('backend.plans.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        
         if (!$request->has('is_free')) {
             $activePaymentMethod = PaymentGateway::where('status', 1)->hasCurrency()->get();
             if (count($activePaymentMethod) < 1) {
@@ -54,7 +41,7 @@ class PlanController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => ['required', 'string', 'max:255'],
             'product_id' => ['required', 'string', 'max:150'],
-            'interval' => ['required', 'integer', 'min:1', 'max:2'],
+            'interval' => ['required', 'integer', 'min:1', 'max:4'], // Adjusted max to 4
             'price' => ['sometimes', 'required', 'numeric', 'regex:/^\d*(\.\d{2})?$/'],
         ]);
         if ($validator->fails()) {
@@ -63,7 +50,7 @@ class PlanController extends Controller
             }
             return back()->withInput();
         }
-       
+
         if ($request->has('custom_features')) {
             foreach ($request->custom_features as $custom_feature) {
                 if (empty($custom_feature['name'])) {
@@ -75,7 +62,7 @@ class PlanController extends Controller
         if ($request->has('is_free')) {
             $plan = Plan::free()->first();
             if ($plan) {
-                toastr()->error(admin_lang('Free plan is already exists'));
+                toastr()->error(admin_lang('Free plan already exists'));
                 return back()->withInput();
             }
             $request->login_require = ($request->has('login_require')) ? 1 : 0;
@@ -108,41 +95,22 @@ class PlanController extends Controller
         }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Plan  $plan
-     * @return \Illuminate\Http\Response
-     */
     public function show(Plan $plan)
     {
         return abort(404);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Plan  $plan
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Plan $plan)
     {
         return view('backend.plans.edit', ['plan' => $plan]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Plan  $plan
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, Plan $plan)
     {
-       
         $validator = Validator::make($request->all(), [
             'name' => ['required', 'string', 'max:255'],
             'product_id' => ['required', 'string', 'max:150'],
+            'interval' => ['required', 'integer', 'min:1', 'max:4'], // Adjusted max to 4
             'price' => ['sometimes', 'required', 'numeric', 'regex:/^\d*(\.\d{2})?$/'],
         ]);
         if ($validator->fails()) {
@@ -151,7 +119,7 @@ class PlanController extends Controller
             }
             return back()->withInput();
         }
-       
+
         if ($request->has('custom_features')) {
             foreach ($request->custom_features as $custom_feature) {
                 if (empty($custom_feature['name'])) {
@@ -163,7 +131,7 @@ class PlanController extends Controller
         if ($request->has('is_free')) {
             $freePlan = Plan::free()->first();
             if ($freePlan && $plan->id != $freePlan->id) {
-                toastr()->error(admin_lang('Free plan is already exists'));
+                toastr()->error(admin_lang('Free plan already exists'));
                 return back()->withInput();
             }
             $request->login_require = ($request->has('login_require')) ? 1 : 0;
@@ -176,10 +144,11 @@ class PlanController extends Controller
         $request->is_featured = ($request->has('is_featured')) ? 1 : 0;
         $request->expiration = ($request->has('no_expiration')) ? null : $request->expiration;
         $request->advertisements = ($request->has('advertisements')) ? 1 : 0;
-        
+
         $update = $plan->update([
             'name' => $request->name,
             'product_id' => $request->product_id,
+            'interval' => $request->interval,
             'price' => $request->price,
             'advertisements' => $request->advertisements,
             'custom_features' => $request->custom_features,
@@ -196,12 +165,6 @@ class PlanController extends Controller
         }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Plan  $plan
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Plan $plan)
     {
         if ($plan->subscriptions->count() > 0) {
