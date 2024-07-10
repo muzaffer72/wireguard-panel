@@ -99,7 +99,7 @@ class SubscriptionController extends Controller
                 $trx->total = $price;
                 $data = array(
                     "price" => $price,
-                    "tax" => "0.00",  // Nilai pajak tetap 0.00 seperti yang diminta dalam JSON awal
+                    "tax" => "0.00",  
                     "total" => $price
                 );
                 $trx->details_before_discount = (object) $data;

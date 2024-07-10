@@ -29,8 +29,8 @@ class UserController extends Controller
         $activeUsersCount = User::where('status', 1)->get()->count();
         $bannedUserscount = User::where('status', 0)->get()->count();
 
-        $plans = Plan::orderBy('name','asc')->get();
-        
+        $plans = Plan::orderBy('name', 'asc')->get();
+
         return view('backend.users.index', [
             'plans' => $plans,
             'activeUsersCount' => $activeUsersCount,
@@ -59,31 +59,31 @@ class UserController extends Controller
 
         // Total records
         $totalRecords = User::select('count(*) as allcount')
-        ->orWhere(function ($query) use ($searchValue) {
-            $query->where('users.name', 'like', '%' . $searchValue . '%')
-            ->orWhere('users.firstname', 'like', '%' . $searchValue . '%')
-            ->orWhere('users.lastname', 'like', '%' . $searchValue . '%');
-        })
-        ->leftJoin('subscriptions', 'users.id', '=', 'subscriptions.user_id')
-        ->leftJoin('plans', 'subscriptions.plan_id', '=', 'plans.id');
+            ->orWhere(function ($query) use ($searchValue) {
+                $query->where('users.name', 'like', '%' . $searchValue . '%')
+                    ->orWhere('users.firstname', 'like', '%' . $searchValue . '%')
+                    ->orWhere('users.lastname', 'like', '%' . $searchValue . '%');
+            })
+            ->leftJoin('subscriptions', 'users.id', '=', 'subscriptions.user_id')
+            ->leftJoin('plans', 'subscriptions.plan_id', '=', 'plans.id');
 
         if ($planparam != "") {
-            $totalRecords->where('plans.id','=', $planparam);
+            $totalRecords->where('plans.id', '=', $planparam);
         }
         $totalRecords = $totalRecords->count();
 
         // total with filter
         $totalRecordswithFilter = User::select('count(*) as allcount')
-        ->orWhere(function ($query) use ($searchValue) {
-            $query->where('users.name', 'like', '%' . $searchValue . '%')
-            ->orWhere('users.firstname', 'like', '%' . $searchValue . '%')
-            ->orWhere('users.lastname', 'like', '%' . $searchValue . '%');
-        })
-        ->leftJoin('subscriptions', 'users.id', '=', 'subscriptions.user_id')
-        ->leftJoin('plans', 'subscriptions.plan_id', '=', 'plans.id');
+            ->orWhere(function ($query) use ($searchValue) {
+                $query->where('users.name', 'like', '%' . $searchValue . '%')
+                    ->orWhere('users.firstname', 'like', '%' . $searchValue . '%')
+                    ->orWhere('users.lastname', 'like', '%' . $searchValue . '%');
+            })
+            ->leftJoin('subscriptions', 'users.id', '=', 'subscriptions.user_id')
+            ->leftJoin('plans', 'subscriptions.plan_id', '=', 'plans.id');
 
         if ($planparam != "") {
-            $totalRecordswithFilter->where('plans.id','=', $planparam);
+            $totalRecordswithFilter->where('plans.id', '=', $planparam);
         }
         $totalRecordswithFilter = $totalRecordswithFilter->count();
 
@@ -91,17 +91,17 @@ class UserController extends Controller
         $q = User::orderBy($columnName, $columnSortOrder)
             ->orWhere(function ($query) use ($searchValue) {
                 $query->where('users.name', 'like', '%' . $searchValue . '%')
-                ->orWhere('users.firstname', 'like', '%' . $searchValue . '%')
-                ->orWhere('users.lastname', 'like', '%' . $searchValue . '%');
+                    ->orWhere('users.firstname', 'like', '%' . $searchValue . '%')
+                    ->orWhere('users.lastname', 'like', '%' . $searchValue . '%');
             })
             ->leftJoin('subscriptions', 'users.id', '=', 'subscriptions.user_id')
             ->leftJoin('plans', 'subscriptions.plan_id', '=', 'plans.id');
 
         if ($planparam != "") {
-            $q->where('plans.id','=', $planparam);
+            $q->where('plans.id', '=', $planparam);
         }
-                        
-        $records = $q->select('users.*','subscriptions.id as subscription_id','plans.id as plan_id', 'plans.name as plan')
+
+        $records = $q->select('users.*', 'subscriptions.id as subscription_id', 'plans.id as plan_id', 'plans.name as plan')
             ->skip($start)
             ->take($rowperpage)
             ->get();
@@ -191,7 +191,7 @@ class UserController extends Controller
         }
 
         // get random free server
-        $server = Server::inRandomOrder()->where('status',1)->where('is_premium',0)->first();
+        $server = Server::inRandomOrder()->where('status', 1)->where('is_premium', 0)->first();
 
         $user = User::create([
             'name' => $request->firstname . ' ' . $request->lastname,
@@ -208,9 +208,9 @@ class UserController extends Controller
             if (settings('actions')->email_verification_status) {
                 $user->forceFill(['email_verified_at' => Carbon::now()])->save();
             }
-            
+
             // auto subs ke free plan
-            $plan = Plan::find(14);// id plan harus 13
+            $plan = Plan::find(13);// id plan harus 13
             if (is_null($plan)) {
                 return response422(['plan' => [__(admin_lang('Plan not exists'))]]);
             }

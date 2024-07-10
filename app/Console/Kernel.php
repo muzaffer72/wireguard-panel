@@ -15,12 +15,8 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('subscriptions:renew-free')->everyMinute();
-        $schedule->command('subscriptions:expiring-reminder')->everyMinute();
-        $schedule->command('subscriptions:expired-reminder')->everyMinute();
-        $schedule->command('subscriptions:expired-delete')->everyHour();
-        $schedule->command('transactions:unpaid-delete')->everyHour();
-        $schedule->command('images:delete-expired')->everyMinute();
+        $schedule->command('subscriptions:update-expired')->everyMinute();
+        \Log::info('Scheduled task ran successfully at ' . now());
     }
 
     /**
