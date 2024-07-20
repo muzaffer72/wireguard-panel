@@ -127,32 +127,32 @@ class AuthController extends Controller
      * @return Response
      */
     // In your controller
-public function login(LoginRequest $request)
-{
-    $user = $this->usermodel->where('email', $request->email)->first();
+    public function login(LoginRequest $request)
+    {
+        $user = $this->usermodel->where('email', $request->email)->first();
 
-    if ($user && Hash::check($request->password, $user->password)) {
-        // Count active devices for the user
-        $activeDeviceCount = UserLog::where('user_id', $user->id)->count();
+        if ($user && Hash::check($request->password, $user->password)) {
+            // Count active devices for the user
+            $activeDeviceCount = UserLog::where('user_id', $user->id)->count();
 
-        // Fetch maximum active devices limit from the database
-        $maxActiveDevices = Settings::getValue('max_active_devices');
+            // Fetch maximum active devices limit from the database
+            $maxActiveDevices = Settings::selectSettings('max_active_devices');
 
-        if ($activeDeviceCount >= $maxActiveDevices) {
-            return response()->json([
-                'info' => __('You have reached the maximum number of active devices.')
-            ], 422);
+            if ($activeDeviceCount >= $maxActiveDevices) {
+                return response()->json([
+                    'info' => __('You have reached the maximum number of active devices.')
+                ], 422);
+            }
+
+            // Proceed with successful login
+            return $this->handleLogin($user, __('Successfully entered the system'));
         }
 
-        // Proceed with successful login
-        return $this->handleLogin($user, __('Successfully entered the system'));
+        // If email or password is incorrect
+        return response()->json([
+            'info' => __('The email or password entered is incorrect')
+        ], 422);
     }
-
-    // If email or password is incorrect
-    return response()->json([
-        'info' => __('The email or password entered is incorrect')
-    ], 422);
-}
 
     /**
      * process register
