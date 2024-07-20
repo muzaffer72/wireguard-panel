@@ -196,7 +196,7 @@ class DatabaseSeeder extends Seeder
             Server::create([
                 'country' => $row['country'],
                 'state' => $row['state'],
-                'latitude' => $row['v'],
+                'latitude' => $row['latitude'],
                 'longitude' => $row['longitude'],
                 'status' => $row['status'],
                 'ip_address' => $row['ip_address'],
