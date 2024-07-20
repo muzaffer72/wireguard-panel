@@ -14,10 +14,7 @@ class Settings extends UnicodeModel
     protected $casts = [
         'value' => 'object',
     ];
-    public static function getValue($key)
-    {
-        return self::where('key', $key)->value('value');
-    }
+    
     public static function selectSettings($key)
     {
         $setting = Settings::where('key', $key)->first();

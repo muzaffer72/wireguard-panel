@@ -14,6 +14,7 @@ use App\Models\Subscription;
 use App\Models\Transaction;
 use App\Models\Plan;
 use App\Models\Server;
+use App\Models\Settings;
 use App\Notifications\ForgotPasswordNotification;
 use App\Models\UserLog;
 use Exception;
@@ -135,7 +136,7 @@ public function login(LoginRequest $request)
             $activeDeviceCount = UserLog::where('user_id', $user->id)->count();
 
         // Fetch maximum active devices limit from the database
-        $maxActiveDevices = Settings::getValue('max_active_devices');
+        $maxActiveDevices = Settings::selectSettings('max_active_devices');
 
             if ($activeDeviceCount >= $maxActiveDevices) {
                 return response()->json([
