@@ -71,7 +71,7 @@ class ConfigServer implements ShouldQueue
                 . "--sysctl=\"net.ipv4.conf.all.src_valid_mark=1\" "
                 . "--sysctl=\"net.ipv4.ip_forward=1\" "
                 . "--restart unless-stopped "
-                . "ombapit/wg-easy\""
+                . "leduong/wg-easy\""
             ]
         ];
 
