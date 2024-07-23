@@ -2,8 +2,8 @@
 @section('title', admin_lang('Servers'))
 @section('add_modal', admin_lang('Add New'))
 @section('content')
-    
-    
+
+
     <div class="card custom-card">
     <div class="card custom-card custom-tabs mb-3">
         <div class="card-body">
@@ -23,7 +23,7 @@
                     </button>
                 </li>
             </ul>
-            
+
         </div>
     </div>
         <div class="tab-content">
@@ -78,6 +78,11 @@
                                                 <a class="dropdown-item"
                                                     href="{{ route('admin.servers.edit', $row->id) }}"><i
                                                         class="ti ti-edit me-2"></i>{{ admin_lang('Edit') }}</a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item"
+                                                    href="#"><i
+                                                        class="ti ti-device me-2"></i>{{ admin_lang('Rebuild') }}</a>
                                             </li>
                                             <li>
                                                 <hr class="dropdown-divider" />
@@ -183,39 +188,16 @@
                 <div class="modal-body">
                     <form action="{{ route('admin.servers.store') }}" method="POST">
                         @csrf
+
                         <div class="mb-4">
-                            <label class="form-label">{{ admin_lang('Country') }} : <span class="text-danger">*</span></label>
-                            <select name="country" id="country" class="form-select" required>
-                                <option value="" selected disabled>{{ admin_lang('Choose') }}</option>
-                                @foreach ($countries as $key => $country)
-                                    <option value="{{ $country }}"
-                                        {{ old('country') == $country ? 'selected' : '' }}>
-                                        {{ $country }}
-                                    </option>
-                                @endforeach
-                            </select>
+                            <label class="form-label">{{ admin_lang('IP Address') }} : <span class="text-danger">*</span></label>
+                            <input type="text" name="ip_address" id="ip_address" class="form-control" required/>
                         </div>
                         <div class="mb-4">
-                            <label class="form-label">{{ admin_lang('State') }} : <span class="text-danger">*</span></label>
-                            <select name="state" id="state" class="form-select" required>
+                            <label class="form-label">{{ admin_lang('Recommended') }} : <span class="text-danger">*</span></label>
+                            <select name="recommended" id="recommended" class="form-select" required>
                                 <option value="" selected disabled>{{ admin_lang('Choose') }}</option>
-                            </select>
-                        </div>
-                        <div class="d-flex">
-                            <div class="col-xl-6 col-md-6 col-sm-6 mb-4">
-                                <label class="form-label">{{ admin_lang('Latitude') }} : <span class="text-danger">*</span></label>
-                                <input type="text" name="latitude" class="form-control" required/>
-                            </div>
-                            <div class="col-xl-6 col-md-6 col-sm-6 mb-4">
-                                <label class="form-label">{{ admin_lang('Longitude') }} : <span class="text-danger">*</span></label>
-                                <input type="text" name="longitude" class="form-control" required/>
-                            </div>
-                        </div>
-                        <div class="mb-4">
-                            <label class="form-label">{{ admin_lang('Status') }} : <span class="text-danger">*</span></label>
-                            <select name="status" id="status" class="form-select" required>
-                                <option value="" selected disabled>{{ admin_lang('Choose') }}</option>
-                                @foreach ($statusOptions as $key => $row)
+                                @foreach ($recommendOptions as $key => $row)
                                     <option value="{{ $key }}">
                                         {{ $row }}
                                     </option>
@@ -223,14 +205,10 @@
                             </select>
                         </div>
                         <div class="mb-4">
-                            <label class="form-label">{{ admin_lang('IP Address') }} : <span class="text-danger">*</span></label>
-                            <input type="text" name="ip_address" class="form-control" required/>
-                        </div>
-                        <div class="mb-4">
-                            <label class="form-label">{{ admin_lang('Recommended') }} : <span class="text-danger">*</span></label>
-                            <select name="recommended" id="recommended" class="form-select" required>
+                            <label class="form-label">{{ admin_lang('Status') }} : <span class="text-danger">*</span></label>
+                            <select name="status" id="status" class="form-select" required>
                                 <option value="" selected disabled>{{ admin_lang('Choose') }}</option>
-                                @foreach ($recommendOptions as $key => $row)
+                                @foreach ($statusOptions as $key => $row)
                                     <option value="{{ $key }}">
                                         {{ $row }}
                                     </option>
@@ -248,6 +226,47 @@
                                 @endforeach
                             </select>
                         </div>
+
+                        <div class="row g-3">
+                            <div class="col-xl-6 col-md-6 col-sm-6 mb-4">
+                                <label class="form-label">{{ admin_lang('Country') }} : <span class="text-danger">*</span></label>
+                                <input id="country1" type="text" name="country" class="form-control" required/>
+                            </div>
+                            <div class="col-xl-6 col-md-6 col-sm-6 mb-4">
+                                <label class="form-label">{{ admin_lang('Choice Manual') }} </label>
+                                <select id="country" class="form-select" required>
+                                    <option value="" selected disabled>{{ admin_lang('Choose') }}</option>
+                                    @foreach ($countries as $key => $country)
+                                        <option value="{{ $country }}"
+                                            {{ old('country') == $country ? 'selected' : '' }}>
+                                            {{ $country }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row g-3">
+                            <div class="col-xl-6 col-md-6 col-sm-6 mb-4">
+                                <label class="form-label">{{ admin_lang('State') }} : <span class="text-danger">*</span></label>
+                                <input id="state1" type="text" name="state" class="form-control" required/>
+                            </div>
+                            <div class="col-xl-6 col-md-6 col-sm-6">
+                                <label class="form-label">{{ admin_lang('Choice Manual') }} </label>
+                                <select id="state" class="form-select">
+                                    <option value="" selected disabled>{{ admin_lang('Choose') }}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row g-3">
+                            <div class="col-xl-6 col-md-6 col-sm-6 mb-4">
+                                <label class="form-label">{{ admin_lang('Latitude') }} : <span class="text-danger">*</span></label>
+                                <input type="text" id="latitude" name="latitude" class="form-control" required/>
+                            </div>
+                            <div class="col-xl-6 col-md-6 col-sm-6 mb-4">
+                                <label class="form-label">{{ admin_lang('Longitude') }} : <span class="text-danger">*</span></label>
+                                <input type="text" id="longitude" name="longitude" class="form-control" required/>
+                            </div>
+                        </div>
                         <div class="form-check form-switch mb-2">
                             <input class="form-check-input" type="checkbox" id="installWgEasy" name="installWgEasy">
                             <label class="form-check-label" for="installWgEasy">Install Wg Easy?</label>
@@ -258,7 +277,7 @@
                         </div>
                         <div class="mb-4 install">
                             <label class="form-label">{{ admin_lang('VPS Username') }} : <span class="text-danger">*</span></label>
-                            <input type="text" name="vps_username" id="vps_username" class="form-control"/>
+                            <input type="text" name="vps_username" id="vps_username" value="root" class="form-control"/>
                         </div>
                         <div class="mb-4 install">
                             <label class="form-label">{{ admin_lang('VPS Password') }} : <span class="text-danger">*</span></label>
@@ -335,7 +354,7 @@
         $("#isOVPN").prop("checked", false)
         $('.ovpn').hide()
     })
-    
+
     // view deploy
     function view_detail(server_id) {
         $("#deployModal").modal('show');
@@ -363,17 +382,47 @@
             }
         });
     }
-    //get state
+    //get IP info
+    $('#ip_address').on('blur', function() {
+        const ip = $(this).val();
+        let url = "{{ config('app.url') }}/admin/servers/ipinfo";
+        if (ip) {
+            url += `?ip=${ip}`;
+            $.ajax({
+                url: url,
+                method: 'GET',
+                success: function(response) {
+                    $('#latitude').val(response.location.latitude);
+                    $('#longitude').val(response.location.longitude);
+
+                    // Optionally, update the country and state selects if response contains this data
+                    $('#country1').val(response.location.country);  // Assuming country_code matches option value
+                    $('#state1').val(response.location.city); // Modify as needed for state logic
+                },
+                error: function(xhr) {
+                    console.error('An error occurred:', xhr);
+                }
+            });
+        }
+    });
+
+  $("#state").on('change', function() {
+    if (this.value) {
+        $('#state1').val(this.value);
+    }
+  });
+
   $("#country").on('change', function() {
     if (this.value == '') return
-    const param = this.value
+    const param = this.value;
+    $('#country1').val(this.value);
     $.ajax({
       url: "{{ config('app.url') }}/assets/data/countries_v1.json",
       type: "GET",
       success: function(countries) {
         // Mencari indeks elemen dengan attribute "name"
         const index = countries.findIndex(country => country.name === param);
-        
+
         // Mendapatkan array key dari objek dengan attribute "name" bernilai "Indo"
         // const keysArray = index !== -1 ? Object.keys(countries[index]) : [];
 

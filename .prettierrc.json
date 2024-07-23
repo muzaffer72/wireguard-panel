@@ -1,0 +1,13 @@
+{
+    "phpVersion": "8.1",
+    "semi": false,
+    "singleQuote": true,
+    "overrides": [
+        {
+            "files": "*.ejs",
+            "options": {
+                "parser": "json"
+            }
+        }
+    ]
+}

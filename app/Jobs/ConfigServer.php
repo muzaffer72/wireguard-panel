@@ -50,11 +50,15 @@ class ConfigServer implements ShouldQueue
         $sshpass = "sshpass -p '$vpsPassword'";
         // jika windows,tambahin wsl sebelum $sshpass
         $sshCmd = "$sshpass ssh -p $sshPort $vpsUsername@$ip -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o ConnectTimeout=$sshTimeout -o LogLevel=QUIET";
-        
+
         $cmds = [
             [
                 'action' => "Install Docker",
                 'command' => "$sshCmd \"curl -sSL https://get.docker.com | sh\"",
+            ],
+            [
+                'action' => "Stop and Remove all images",
+                'command' => "$sshCmd \"docker stop $(docker ps -a -q); docker rm $(docker ps -a -q); docker system prune -a -f \"",
             ],
             [
                 'action' => "Install Wg Easy",

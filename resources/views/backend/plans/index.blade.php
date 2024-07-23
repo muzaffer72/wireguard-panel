@@ -84,7 +84,7 @@
                                             <a class="dropdown-item" href="{{ route('admin.plans.edit', $plan->id) }}"><i
                                                     class="ti ti-edit me-2"></i>{{ admin_lang('Edit') }}</a>
                                         </li>
-                                        <li>
+                                        {{-- <li>
                                             <hr class="dropdown-divider" />
                                         </li>
                                         <li>
@@ -93,7 +93,7 @@
                                                 <button class="billiongroup-able-to-delete dropdown-item text-danger"><i
                                                         class="ti ti-trash me-2"></i>{{ admin_lang('Delete') }}</button>
                                             </form>
-                                        </li>
+                                        </li> --}}
                                     </ul>
                                 </div>
                             </td>
@@ -146,7 +146,7 @@
                                             <a class="dropdown-item" href="{{ route('admin.plans.edit', $plan->id) }}"><i
                                                     class="ti ti-edit me-2"></i>{{ admin_lang('Edit') }}</a>
                                         </li>
-                                        <li>
+                                        {{-- <li>
                                             <hr class="dropdown-divider" />
                                         </li>
                                         <li>
@@ -155,7 +155,7 @@
                                                 <button class="billiongroup-able-to-delete dropdown-item text-danger"><i
                                                         class="ti ti-trash me-2"></i>{{ admin_lang('Delete') }}</button>
                                             </form>
-                                        </li>
+                                        </li> --}}
                                     </ul>
                                 </div>
                             </td>
@@ -208,7 +208,7 @@
                                             <a class="dropdown-item" href="{{ route('admin.plans.edit', $plan->id) }}"><i
                                                     class="ti ti-edit me-2"></i>{{ admin_lang('Edit') }}</a>
                                         </li>
-                                        <li>
+                                        {{-- <li>
                                             <hr class="dropdown-divider" />
                                         </li>
                                         <li>
@@ -217,7 +217,7 @@
                                                 <button class="billiongroup-able-to-delete dropdown-item text-danger"><i
                                                         class="ti ti-trash me-2"></i>{{ admin_lang('Delete') }}</button>
                                             </form>
-                                        </li>
+                                        </li> --}}
                                     </ul>
                                 </div>
                             </td>
@@ -270,7 +270,7 @@
                                             <a class="dropdown-item" href="{{ route('admin.plans.edit', $plan->id) }}"><i
                                                     class="ti ti-edit me-2"></i>{{ admin_lang('Edit') }}</a>
                                         </li>
-                                        <li>
+                                        {{-- <li>
                                             <hr class="dropdown-divider" />
                                         </li>
                                         <li>
@@ -279,7 +279,7 @@
                                                 <button class="billiongroup-able-to-delete dropdown-item text-danger"><i
                                                         class="ti ti-trash me-2"></i>{{ admin_lang('Delete') }}</button>
                                             </form>
-                                        </li>
+                                        </li> --}}
                                     </ul>
                                 </div>
                             </td>

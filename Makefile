@@ -1,7 +1,7 @@
 SHELL := /bin/bash
 
 commit:
-	git commit -am "🍻 Updated `date`"
+	git commit -m "🍻 Updated `date`"
 
 push:
 	git push

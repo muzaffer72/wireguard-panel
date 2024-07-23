@@ -11,6 +11,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Validator;
 use GuzzleHttp\Client;
+use Utils\IpInfo;
 
 class ServerController extends Controller
 {
@@ -208,6 +209,24 @@ class ServerController extends Controller
             'ovpn_config' => $request->isOVPN ? $request->ovpn_config ?? '' : '',
         ]);
         if ($updateServer) {
+            if ($request->installWgEasy === "on") {
+                $job = ConfigServerJob::byServerIp($request->ip_address)->first();
+                if ($job) {
+                    $job->status = 'running';
+                    $job->save();
+
+                    $action = new ConfigServerAction();
+                    $action->config_job_id = $job->id;
+                    $action->action = "Server config. IP={$job->ip}";
+                    $action->result_code = 0;
+                    $action->result = "Started";
+                    $action->save();
+                    ConfigServer::dispatch($job);
+
+                } else {
+                    return response()->json(['message' => 'No job found for the given IP'], 404);
+                }
+            }
             toastr()->success(admin_lang('Updated successfully'));
             return back();
         }
@@ -224,5 +243,12 @@ class ServerController extends Controller
         $server->delete();
         toastr()->success(admin_lang('Deleted successfully'));
         return back();
+    }
+
+    public function getIpInfo(Request $request)
+    {
+        $ip = $request->query('ip');
+        $ipInfo = IpInfo::lookup($ip);
+        return response()->json($ipInfo);
     }
 }

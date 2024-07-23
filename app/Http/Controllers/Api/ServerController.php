@@ -54,7 +54,7 @@ class ServerController extends Controller
 
     /**
      * post connect server
-     * 
+     *
      * @return JsonResponse
      */
     public function connect(Server $server)
@@ -85,7 +85,8 @@ class ServerController extends Controller
         $resp = [];
         if ($statusCode == 200) {
             // get client config
-            $url = "http://$server->ip_address:51821/api/wireguard/client/$wg_id/$user->dns/configuration";
+            $dns = $user->dns ? $user->dns : '1.1.1.1';
+            $url = "http://$server->ip_address:51821/api/wireguard/client/$wg_id/$dns/configuration";
             $headers = [
                 'Accept' => 'text/plain'
             ];
