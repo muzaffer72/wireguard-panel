@@ -25,7 +25,7 @@
                 </div>
                 <div class="col-xl-6 col-md-6 col-sm-6 mb-4">
                     <label class="form-label">
-                        <div>{{ admin_lang('Country') }} : <span class="text-danger">*</span></div>
+                        <div>{{ admin_lang('Choice Manual') }}</div>
                         <select id="country" class="form-select">
                             <option value="" selected disabled>{{ admin_lang('Choose') }}</option>
                             @foreach ($form->countries as $key => $country)
@@ -47,8 +47,8 @@
                 </div>
                 <div class="col-xl-6 col-md-6 col-sm-6">
                     <label class="form-label">
-                        <div>{{ admin_lang('Choice Manual') }} </div>
-                        <select id="state" class="form-select" required>
+                        <div>{{ admin_lang('Choice Manual') }}</div>
+                        <select id="state" class="form-select">
                             <option value="" selected disabled>{{ admin_lang('Choose') }}</option>
                         </select>
                     </label>
