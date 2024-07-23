@@ -58,15 +58,15 @@
                 <div class="col-xl-6 col-md-6 col-sm-6 mb-4">
                     <label class="form-label">
                         <div>{{ admin_lang('Latitude') }} : <span class="text-danger">*</span></div>
-                        <input type="text" name="latitude" class="form-control" value="{{$server->latitude}}"
-                            required />
+                        <input type="text" name="latitude" id="latitude" class="form-control"
+                            value="{{$server->latitude}}" required />
                     </label>
                 </div>
                 <div class="col-xl-6 col-md-6 col-sm-6 mb-4">
                     <label class="form-label">
                         <div>{{ admin_lang('Longitude') }} : <span class="text-danger">*</span></div>
-                        <input type="text" name="longitude" class="form-control" value="{{$server->longitude}}"
-                            required />
+                        <input type="text" name="longitude" id="longitude" class="form-control"
+                            value="{{$server->longitude}}" required />
                     </label>
                 </div>
             </div>
