@@ -1157,7 +1157,8 @@ function listCountries()
 {
     $options = [];
 
-    $endpoint = getenv('APP_URL') . "/assets/data/countries_v1.json";
+    // $endpoint = getenv('APP_URL') . "/assets/data/countries_v1.json";
+    $endpoint = "https://raw.githubusercontent.com/leduong/wireguard-panel/master/public/assets/data/countries_v1.json";
     $client = new \GuzzleHttp\Client();
     $response = $client->request('GET', $endpoint);
 
