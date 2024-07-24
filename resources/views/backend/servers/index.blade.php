@@ -58,7 +58,7 @@
                         <td class="text-center">
                             @if ($row->job_status != "")
                             <button type="button"
-                                class="btn btn-{{ $row->job_status !== 'failed' ? 'primary' : 'danger' }} rounded-3"
+                                class="btn btn-{{ $row->job_status !== 'running' ? 'warning' : $row->job_status !== 'failed' ? 'success' : 'danger' }} rounded-3"
                                 onclick="view_detail({{ $row->id }})">
                                 {{ $row->job_status}}
                             </button>
