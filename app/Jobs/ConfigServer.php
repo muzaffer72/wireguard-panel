@@ -58,9 +58,10 @@ class ConfigServer implements ShouldQueue
             ],
             [
                 'action' => "Stop and Remove all images",
-                'command' => "$sshCmd \"docker rm -f wg-easy;"
-                            ." docker rm -f wg-easy;"
-                            ." docker rmi leduong/wg-easy:latest;"
+                'command' => "$sshCmd \"docker stop $(docker ps -a -q) &&"
+                            ." docker rm -f $(docker ps -a -q) &&"
+                            ." docker rmi -f $(docker images -q) &7"
+                            ." docker system prune -a -f &&"
                             ." docker pull leduong/wg-easy:latest \"",
             ],
             [
