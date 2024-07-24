@@ -44,7 +44,7 @@ class ConfigServer implements ShouldQueue
         $sshPort = $this->configJob->ssh_port;
         $ip = $this->configJob->ip;
 
-        //settings
+        // settings
         $sshTimeout = 30;
 
         $sshpass = "sshpass -p '$vpsPassword'";
@@ -57,12 +57,12 @@ class ConfigServer implements ShouldQueue
                 'command' => "$sshCmd \"curl -sSL https://get.docker.com | sh && \"",
             ],
             [
+                'action' => "Remove existing Wg Easy container",
+                'command' => "$sshCmd \"docker rm -f wg-easy || true\"",
+            ],
+            [
                 'action' => "Install Wg Easy",
-                'command' => "$sshCmd \"docker stop $(docker ps -a -q) &&"
-                    ." docker rm -f $(docker ps -a -q) &&"
-                    ." docker rmi -f $(docker images -q) &&"
-                    ." docker system prune -a -f &&"
-                    ." docker pull leduong/wg-easy:latest && "
+                'command' => "$sshCmd \"docker system prune -a -f &&"
                     ." docker run -d "
                     . "--name=wg-easy "
                     . "-e LANG=en "
@@ -76,7 +76,7 @@ class ConfigServer implements ShouldQueue
                     . "--sysctl=\"net.ipv4.conf.all.src_valid_mark=1\" "
                     . "--sysctl=\"net.ipv4.ip_forward=1\" "
                     . "--restart unless-stopped "
-                    . "leduong/wg-easy\""
+                    . "leduong/wg-easy:latest\""
             ]
         ];
 
