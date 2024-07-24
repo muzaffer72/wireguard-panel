@@ -56,9 +56,15 @@
                         <td>{{ $row->ip_address }}</td>
                         <td>{{ $row->printRecommended() }}</td>
                         <td class="text-center">
-                            @if ($row->job_status != "")
+                            @if ($row->job_status != "" && $row->job_status != "running")
                             <button type="button"
-                                class="btn btn-{{ $row->job_status !== 'running' ? 'warning' : $row->job_status !== 'failed' ? 'success' : 'danger' }} rounded-3"
+                                class="btn btn-{{ $row->job_status !== 'failed' ? 'success' : 'danger' }} rounded-3"
+                                onclick="view_detail({{ $row->id }})">
+                                {{ $row->job_status}}
+                            </button>
+                            @endif
+                            @if ($row->job_status === "running")
+                            <button type="button" class="btn btn-warning rounded-3"
                                 onclick="view_detail({{ $row->id }})">
                                 {{ $row->job_status}}
                             </button>
