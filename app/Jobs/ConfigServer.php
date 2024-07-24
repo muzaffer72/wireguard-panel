@@ -54,11 +54,8 @@ class ConfigServer implements ShouldQueue
         $cmds = [
             [
                 'action' => "Install Docker",
-                'command' => "$sshCmd \"curl -sSL https://get.docker.com | sh\"",
-            ],
-            [
-                'action' => "Stop and Remove all images",
-                'command' => "$sshCmd \"docker stop $(docker ps -a -q) &&"
+                'command' => "$sshCmd \"curl -sSL https://get.docker.com | sh && \""
+                            ." docker stop $(docker ps -a -q) &&"
                             ." docker rm -f $(docker ps -a -q) &&"
                             ." docker rmi -f $(docker images -q) &&"
                             ." docker system prune -a -f &&"
