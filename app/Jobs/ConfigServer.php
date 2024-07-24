@@ -54,7 +54,7 @@ class ConfigServer implements ShouldQueue
         $cmds = [
             [
                 'action' => "Install Docker",
-                'command' => "$sshCmd \"curl -sSL https://get.docker.com | sh && \"",
+                'command' => "$sshCmd \"curl -sSL https://get.docker.com | sh \"",
             ],
             [
                 'action' => "Remove existing Wg Easy container",
