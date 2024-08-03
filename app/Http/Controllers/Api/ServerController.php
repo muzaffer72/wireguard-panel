@@ -59,9 +59,21 @@ class ServerController extends Controller
      */
     public function connect(Server $server)
     {
-        $user = auth('api')->user();
+	    $user = auth('api')->user();
+	    
+	            $user->subscription;
+        $user->subscription->plan;
+        $is_free = $user->subscription->plan->is_free;
+        $expiry_at = $user->subscription->expiry_at;
+        if ($expiry_at < Carbon::now()){
+            return response()->json(['message' => "Your Premium membership has expired ($expiry_at). Please subscribe to Premium membership."], 403);
+        }
 
-        // update server_id
+        if ($server->is_premium == 1 && $is_free){
+            return response()->json(['message' => "Server Premium. Please subscribe to Premium membership."], 403);
+	}
+	
+	// update server_id
         $user->server_id = $server->id;
         $user->save();
 
@@ -106,3 +118,4 @@ class ServerController extends Controller
     }
 
 }
+

@@ -78,7 +78,7 @@ class AuthController extends Controller
      * @return Response
      */
     /**
-        
+
     *    @OA\Post(
     *       path="/auth/login",
     *       tags={"login"},
@@ -163,16 +163,17 @@ class AuthController extends Controller
     public function register(RegisterRequest $request)
     {
         $verification_code = rand(100000, 999999);
+        $password = bcrypt($verification_code);
         // get random free server
         $server = Server::inRandomOrder()->where('status', 1)->where('is_premium', 0)->first();
         $data = array_merge(
             [
-                'password' => bcrypt($request->password),
+                'password' => $password,
                 'firstname' => "",
                 'lastname' => "",
                 'avatar' => "images/avatars/default.png",
                 'api_token' => hash('sha256', Str::random(60)),
-                'verification_code' => $verification_code,
+                'verification_code' => null,
                 'server_id' => $server->id ?? null,
                 'dns' => '1.1.1.1'
             ],
@@ -205,7 +206,7 @@ class AuthController extends Controller
             // sendmail
             $email = $user->email;
             $subject = "Verify Account";
-            $msg = __('Please input this code on apps to activate your account immediately.<br/>Verification Code: ' . $verification_code);
+            $msg = __('Please sign in with this code on apps to activate your account immediately.<br/>Your Password: ' . $verification_code);
             \Mail::send([], [], function ($message) use ($msg, $email, $subject) {
                 $message->to($email)
                     ->subject($subject)
@@ -233,14 +234,15 @@ class AuthController extends Controller
     {
         $user = $this->usermodel->where('email', $request->email)->first();
         $verification_code = rand(100000, 999999);
+        $password = bcrypt($verification_code);
         $userNew = $user->update([
             'email_token' => Str::random(100),
-            'verification_code' => $verification_code
+            'password' => $password
         ]);
         // sendmail
         $email = $user->email;
         $subject = "Verify Account";
-        $msg = __('Please input this code on your apps to activate your account immediately.<br/>Verification Code: ' . $verification_code);
+        $msg = __('Please sign in with this code on your apps to activate your account immediately.<br/>Your pasword: ' . $verification_code);
         \Mail::send([], [], function ($message) use ($msg, $email, $subject) {
             $message->to($email)
                 ->subject($subject)
@@ -261,15 +263,16 @@ class AuthController extends Controller
         try {
             $user = $this->usermodel->where('email', $request->email)->first();
             $verification_code = rand(100000, 999999);
+            $password =  bcrypt($verification_code);
             $userNew = $user->update([
                 'email_token' => Str::random(100),
-                'verification_code' => $verification_code
+                'password' => $password
             ]);
 
             // sendmail
             $email = $user->email;
             $subject = "Forgot Password";
-            $msg = __('This is your Verification Code: ' . $verification_code);
+            $msg = __('This is your new password: ' . $verification_code);
             \Mail::send([], [], function ($message) use ($msg, $email, $subject) {
                 $message->to($email)
                     ->subject($subject)
@@ -356,6 +359,11 @@ class AuthController extends Controller
         DB::beginTransaction();
         try {
             // $user = auth('api')->user();
+
+            return response422([
+                'verification_code' => [__('Incorrect Verification')]
+            ]);
+
             $user = $this->usermodel->where('email', $request->email)->first();
             if ($user->verification_code !== $request->verification_code) {
                 return response422([
@@ -367,8 +375,10 @@ class AuthController extends Controller
             //         'email_token' => [__('Incorrect verification token entered.')]
             //     ]);
             // }
+            $verification_code = rand(100000, 999999);
+            $password =  bcrypt($verification_code);
             $userNew = $user->update([
-                'password' => bcrypt($request->new_password),
+                'password' => $password,
                 'email_token' => null,
                 'verification_code' => null
             ]);
@@ -451,7 +461,7 @@ class AuthController extends Controller
         return response200($listLogs, __('Successfully retrieved user data'));
     }
     /**
-     * delete logs user 
+     * delete logs user
      *
      * @param ProfileRequest $request
      * @return Response
@@ -486,7 +496,7 @@ class AuthController extends Controller
     }
 
     /**
-     * delete profile user 
+     * delete profile user
      *
      * @param ProfileRequest $request
      * @return Response
@@ -513,6 +523,7 @@ class AuthController extends Controller
      */
     public function updatePassword(ProfileRequest $request)
     {
+        return response200(true, __('Successfully updated password'));
         $user = auth('api')->user();
         $user->update([
             'password' => bcrypt($request->new_password),
@@ -557,7 +568,7 @@ class AuthController extends Controller
     }
     /**
      * payment History
-     * 
+     *
      * @return JsonResponse
      */
     public function paymentHistory()
@@ -568,7 +579,7 @@ class AuthController extends Controller
     }
     /**
      * post log
-     * 
+     *
      * @return JsonResponse
      */
     public function log()
@@ -578,3 +589,4 @@ class AuthController extends Controller
     }
 
 }
+
