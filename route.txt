@@ -1,0 +1,274 @@
+
+  GET|HEAD        / .................................................................................................. home › Frontend\HomeController@index
+  POST            _ignition/execute-solution ................................ ignition.executeSolution › Spatie\LaravelIgnition › ExecuteSolutionController
+  GET|HEAD        _ignition/health-check ............................................ ignition.healthCheck › Spatie\LaravelIgnition › HealthCheckController
+  POST            _ignition/update-config ......................................... ignition.updateConfig › Spatie\LaravelIgnition › UpdateConfigController
+  GET|HEAD        admin ........................................................................ admin.index › Backend\Auth\LoginController@redirectToLogin
+  GET|HEAD        admin/account/details ............................................ admin.account.details › Backend\Account\SettingsController@detailsForm
+  POST            admin/account/details/update ............................ admin.account.details.update › Backend\Account\SettingsController@detailsUpdate
+  GET|HEAD        admin/account/security ......................................... admin.account.security › Backend\Account\SettingsController@securityForm
+  POST            admin/account/security/update ......................... admin.account.security.update › Backend\Account\SettingsController@securityUpdate
+  GET|HEAD        admin/advertisements ................................................. admin.advertisements.index › Backend\AdvertisementController@index
+  POST            admin/advertisements/{advertisement} ............................... admin.advertisements.update › Backend\AdvertisementController@update
+  GET|HEAD        admin/advertisements/{advertisement}/edit .............................. admin.advertisements.edit › Backend\AdvertisementController@edit
+  GET|HEAD        admin/blog/articles ............................................................... articles.index › Backend\Blog\ArticleController@index
+  POST            admin/blog/articles ............................................................... articles.store › Backend\Blog\ArticleController@store
+  GET|HEAD        admin/blog/articles/categories/{lang} ...................................................... Backend\Blog\ArticleController@getCategories
+  GET|HEAD        admin/blog/articles/create ...................................................... articles.create › Backend\Blog\ArticleController@create
+  GET|HEAD        admin/blog/articles/slug ............................................................ articles.slug › Backend\Blog\ArticleController@slug
+  GET|HEAD        admin/blog/articles/{article} ....................................................... articles.show › Backend\Blog\ArticleController@show
+  PUT|PATCH       admin/blog/articles/{article} ................................................... articles.update › Backend\Blog\ArticleController@update
+  DELETE          admin/blog/articles/{article} ................................................. articles.destroy › Backend\Blog\ArticleController@destroy
+  GET|HEAD        admin/blog/articles/{article}/edit .................................................. articles.edit › Backend\Blog\ArticleController@edit
+  GET|HEAD        admin/blog/categories .......................................................... categories.index › Backend\Blog\CategoryController@index
+  POST            admin/blog/categories .......................................................... categories.store › Backend\Blog\CategoryController@store
+  GET|HEAD        admin/blog/categories/create ................................................. categories.create › Backend\Blog\CategoryController@create
+  GET|HEAD        admin/blog/categories/slug ....................................................... categories.slug › Backend\Blog\CategoryController@slug
+  GET|HEAD        admin/blog/categories/{category} ................................................. categories.show › Backend\Blog\CategoryController@show
+  PUT|PATCH       admin/blog/categories/{category} ............................................. categories.update › Backend\Blog\CategoryController@update
+  DELETE          admin/blog/categories/{category} ........................................... categories.destroy › Backend\Blog\CategoryController@destroy
+  GET|HEAD        admin/blog/categories/{category}/edit ............................................ categories.edit › Backend\Blog\CategoryController@edit
+  GET|HEAD        admin/blog/comments ............................................................... comments.index › Backend\Blog\CommentController@index
+  DELETE          admin/blog/comments/{id} ...................................................... comments.destroy › Backend\Blog\CommentController@destroy
+  POST            admin/blog/comments/{id}/update .......................................... comments.update › Backend\Blog\CommentController@updateComment
+  GET|HEAD        admin/blog/comments/{id}/view ................................................................ Backend\Blog\CommentController@viewComment
+  POST            admin/ckeditor/upload ........................................................................ admin. › Backend\CKEditorController@upload
+  GET|HEAD        admin/coupons ...................................................................... admin.coupons.index › Backend\CouponController@index
+  POST            admin/coupons ...................................................................... admin.coupons.store › Backend\CouponController@store
+  GET|HEAD        admin/coupons/create ............................................................. admin.coupons.create › Backend\CouponController@create
+  GET|HEAD        admin/coupons/{coupon} ............................................................... admin.coupons.show › Backend\CouponController@show
+  PUT|PATCH       admin/coupons/{coupon} ........................................................... admin.coupons.update › Backend\CouponController@update
+  DELETE          admin/coupons/{coupon} ......................................................... admin.coupons.destroy › Backend\CouponController@destroy
+  GET|HEAD        admin/coupons/{coupon}/edit .......................................................... admin.coupons.edit › Backend\CouponController@edit
+  GET|HEAD        admin/dashboard ..................................................................... admin.dashboard › Backend\DashboardController@index
+  GET|HEAD        admin/dashboard/charts/earnings .................................................. admin. › Backend\DashboardController@earningsChartData
+  GET|HEAD        admin/dashboard/charts/logs .......................................................... admin. › Backend\DashboardController@logsChartData
+  GET|HEAD        admin/dashboard/charts/users ........................................................ admin. › Backend\DashboardController@usersChartData
+  GET|HEAD        admin/extra/custom-css ........................................................ admin.extra.css › Backend\Extra\CustomCssController@index
+  POST            admin/extra/custom-css/update ......................................... admin.extra.css.update › Backend\Extra\CustomCssController@update
+  GET|HEAD        admin/extra/popup-notice ................................................. admin.extra.notice › Backend\Extra\PopupNoticeController@index
+  POST            admin/extra/popup-notice/update .................................. admin.extra.notice.update › Backend\Extra\PopupNoticeController@update
+  GET|HEAD        admin/login .................................................................... admin.login › Backend\Auth\LoginController@showLoginForm
+  POST            admin/login ...................................................................... admin.login.store › Backend\Auth\LoginController@login
+  POST            admin/logout ......................................................................... admin.logout › Backend\Auth\LoginController@logout
+  GET|HEAD        admin/navigation/footerMenu ...................................... admin.footerMenu.index › Backend\Navigation\FooterMenuController@index
+  POST            admin/navigation/footerMenu ...................................... admin.footerMenu.store › Backend\Navigation\FooterMenuController@store
+  GET|HEAD        admin/navigation/footerMenu/create ............................. admin.footerMenu.create › Backend\Navigation\FooterMenuController@create
+  POST            admin/navigation/footerMenu/nestable ....................... admin.footerMenu.nestable › Backend\Navigation\FooterMenuController@nestable
+  GET|HEAD        admin/navigation/footerMenu/{footerMenu} ........................... admin.footerMenu.show › Backend\Navigation\FooterMenuController@show
+  PUT|PATCH       admin/navigation/footerMenu/{footerMenu} ....................... admin.footerMenu.update › Backend\Navigation\FooterMenuController@update
+  DELETE          admin/navigation/footerMenu/{footerMenu} ..................... admin.footerMenu.destroy › Backend\Navigation\FooterMenuController@destroy
+  GET|HEAD        admin/navigation/footerMenu/{footerMenu}/edit ...................... admin.footerMenu.edit › Backend\Navigation\FooterMenuController@edit
+  GET|HEAD        admin/navigation/navbarMenu ...................................... admin.navbarMenu.index › Backend\Navigation\NavbarMenuController@index
+  POST            admin/navigation/navbarMenu ...................................... admin.navbarMenu.store › Backend\Navigation\NavbarMenuController@store
+  GET|HEAD        admin/navigation/navbarMenu/create ............................. admin.navbarMenu.create › Backend\Navigation\NavbarMenuController@create
+  POST            admin/navigation/navbarMenu/nestable ....................... admin.navbarMenu.nestable › Backend\Navigation\NavbarMenuController@nestable
+  GET|HEAD        admin/navigation/navbarMenu/{navbarMenu} ........................... admin.navbarMenu.show › Backend\Navigation\NavbarMenuController@show
+  PUT|PATCH       admin/navigation/navbarMenu/{navbarMenu} ....................... admin.navbarMenu.update › Backend\Navigation\NavbarMenuController@update
+  DELETE          admin/navigation/navbarMenu/{navbarMenu} ..................... admin.navbarMenu.destroy › Backend\Navigation\NavbarMenuController@destroy
+  GET|HEAD        admin/navigation/navbarMenu/{navbarMenu}/edit ...................... admin.navbarMenu.edit › Backend\Navigation\NavbarMenuController@edit
+  GET|HEAD        admin/notifications .................................................... admin.notifications.index › Backend\NotificationController@index
+  DELETE          admin/notifications/deleteallread ...................... admin.notifications.deleteallread › Backend\NotificationController@deleteAllRead
+  GET|HEAD        admin/notifications/readall ........................................ admin.notifications.readall › Backend\NotificationController@readAll
+  GET|HEAD        admin/notifications/view/{id} ............................................ admin.notifications.view › Backend\NotificationController@view
+  GET|HEAD        admin/others/faqs ................................................................. admin.faqs.index › Backend\Others\FaqController@index
+  POST            admin/others/faqs ................................................................. admin.faqs.store › Backend\Others\FaqController@store
+  GET|HEAD        admin/others/faqs/create ........................................................ admin.faqs.create › Backend\Others\FaqController@create
+  GET|HEAD        admin/others/faqs/{faq} ............................................................. admin.faqs.show › Backend\Others\FaqController@show
+  PUT|PATCH       admin/others/faqs/{faq} ......................................................... admin.faqs.update › Backend\Others\FaqController@update
+  DELETE          admin/others/faqs/{faq} ....................................................... admin.faqs.destroy › Backend\Others\FaqController@destroy
+  GET|HEAD        admin/others/faqs/{faq}/edit ........................................................ admin.faqs.edit › Backend\Others\FaqController@edit
+  GET|HEAD        admin/others/features ..................................................... admin.features.index › Backend\Others\FeatureController@index
+  POST            admin/others/features ..................................................... admin.features.store › Backend\Others\FeatureController@store
+  GET|HEAD        admin/others/features/create ............................................ admin.features.create › Backend\Others\FeatureController@create
+  GET|HEAD        admin/others/features/{feature} ............................................. admin.features.show › Backend\Others\FeatureController@show
+  PUT|PATCH       admin/others/features/{feature} ......................................... admin.features.update › Backend\Others\FeatureController@update
+  DELETE          admin/others/features/{feature} ....................................... admin.features.destroy › Backend\Others\FeatureController@destroy
+  GET|HEAD        admin/others/features/{feature}/edit ........................................ admin.features.edit › Backend\Others\FeatureController@edit
+  GET|HEAD        admin/password/reset ................................... admin.password.reset › Backend\Auth\ForgotPasswordController@showLinkRequestForm
+  POST            admin/password/reset .................................................. admin. › Backend\Auth\ForgotPasswordController@sendResetLinkEmail
+  POST            admin/password/reset/change .................................... admin.password.reset.change › Backend\Auth\ResetPasswordController@reset
+  GET|HEAD        admin/password/reset/{token} ............................. admin.password.reset.link › Backend\Auth\ResetPasswordController@showResetForm
+  GET|HEAD        admin/plans ............................................................................ admin.plans.index › Backend\PlanController@index
+  POST            admin/plans ............................................................................ admin.plans.store › Backend\PlanController@store
+  GET|HEAD        admin/plans/create ................................................................... admin.plans.create › Backend\PlanController@create
+  GET|HEAD        admin/plans/{plan} ....................................................................... admin.plans.show › Backend\PlanController@show
+  PUT|PATCH       admin/plans/{plan} ................................................................... admin.plans.update › Backend\PlanController@update
+  DELETE          admin/plans/{plan} ................................................................. admin.plans.destroy › Backend\PlanController@destroy
+  GET|HEAD        admin/plans/{plan}/edit .................................................................. admin.plans.edit › Backend\PlanController@edit
+  GET|HEAD        admin/servers ...................................................................... admin.servers.index › Backend\ServerController@index
+  POST            admin/servers ...................................................................... admin.servers.store › Backend\ServerController@store
+  GET|HEAD        admin/servers/create ............................................................. admin.servers.create › Backend\ServerController@create
+  GET|HEAD        admin/servers/ipinfo ........................................................................ admin. › Backend\ServerController@getIpInfo
+  GET|HEAD        admin/servers/{server} ............................................................... admin.servers.show › Backend\ServerController@show
+  PUT|PATCH       admin/servers/{server} ........................................................... admin.servers.update › Backend\ServerController@update
+  DELETE          admin/servers/{server} ......................................................... admin.servers.destroy › Backend\ServerController@destroy
+  GET|HEAD        admin/servers/{server}/deploy ........................................................... admin. › Backend\ServerController@getDeployment
+  GET|HEAD        admin/servers/{server}/edit .......................................................... admin.servers.edit › Backend\ServerController@edit
+  GET|HEAD        admin/settings/admins .............................................. admin.settings.admins.index › Backend\Settings\AdminController@index
+  POST            admin/settings/admins .............................................. admin.settings.admins.store › Backend\Settings\AdminController@store
+  GET|HEAD        admin/settings/admins/create ..................................... admin.settings.admins.create › Backend\Settings\AdminController@create
+  GET|HEAD        admin/settings/admins/{admin} ........................................ admin.settings.admins.show › Backend\Settings\AdminController@show
+  PUT|PATCH       admin/settings/admins/{admin} .................................... admin.settings.admins.update › Backend\Settings\AdminController@update
+  DELETE          admin/settings/admins/{admin} .................................. admin.settings.admins.destroy › Backend\Settings\AdminController@destroy
+  GET|HEAD        admin/settings/admins/{admin}/edit ................................... admin.settings.admins.edit › Backend\Settings\AdminController@edit
+  GET|HEAD        admin/settings/gateways ........................................ admin.settings.gateways.index › Backend\Settings\GatewayController@index
+  POST            admin/settings/gateways/{gateway} ............................ admin.settings.gateways.update › Backend\Settings\GatewayController@update
+  GET|HEAD        admin/settings/gateways/{gateway}/edit ........................... admin.settings.gateways.edit › Backend\Settings\GatewayController@edit
+  GET|HEAD        admin/settings/general ................................................ admin.settings.general › Backend\Settings\GeneralController@index
+  POST            admin/settings/general/update ................................. admin.settings.general.update › Backend\Settings\GeneralController@update
+  GET|HEAD        admin/settings/languages ..................................... admin.settings.languages.index › Backend\Settings\LanguageController@index
+  POST            admin/settings/languages ..................................... admin.settings.languages.store › Backend\Settings\LanguageController@store
+  GET|HEAD        admin/settings/languages/create ............................ admin.settings.languages.create › Backend\Settings\LanguageController@create
+  POST            admin/settings/languages/sort .................................. admin.settings.languages.sort › Backend\Settings\LanguageController@sort
+  GET|HEAD        admin/settings/languages/translate/{code} ........... admin.settings.languages.translates › Backend\Settings\LanguageController@translate
+  POST            admin/settings/languages/translate/{code}/export admin.settings.languages.translates.export › Backend\Settings\LanguageController@export
+  POST            admin/settings/languages/translate/{code}/import admin.settings.languages.translates.import › Backend\Settings\LanguageController@import
+  GET|HEAD        admin/settings/languages/translate/{code}/{group} admin.settings.languages.translates.group › Backend\Settings\LanguageController@transl…
+  POST            admin/settings/languages/{id}/update ... admin.settings.languages.translates.update › Backend\Settings\LanguageController@translateUpdate
+  GET|HEAD        admin/settings/languages/{language} ............................ admin.settings.languages.show › Backend\Settings\LanguageController@show
+  PUT|PATCH       admin/settings/languages/{language} ........................ admin.settings.languages.update › Backend\Settings\LanguageController@update
+  DELETE          admin/settings/languages/{language} ...................... admin.settings.languages.destroy › Backend\Settings\LanguageController@destroy
+  GET|HEAD        admin/settings/languages/{language}/edit ....................... admin.settings.languages.edit › Backend\Settings\LanguageController@edit
+  GET|HEAD        admin/settings/mailtemplates ......................... admin.settings.mailtemplates.index › Backend\Settings\MailTemplateController@index
+  POST            admin/settings/mailtemplates/settings/update admin.settings.mailtemplates.updateSettings › Backend\Settings\MailTemplateController@updat…
+  POST            admin/settings/mailtemplates/{mailTemplate} ........ admin.settings.mailtemplates.update › Backend\Settings\MailTemplateController@update
+  GET|HEAD        admin/settings/mailtemplates/{mailTemplate}/edit ....... admin.settings.mailtemplates.edit › Backend\Settings\MailTemplateController@edit
+  GET|HEAD        admin/settings/pages ................................................. admin.settings.pages.index › Backend\Settings\PageController@index
+  POST            admin/settings/pages ................................................. admin.settings.pages.store › Backend\Settings\PageController@store
+  GET|HEAD        admin/settings/pages/create ........................................ admin.settings.pages.create › Backend\Settings\PageController@create
+  GET|HEAD        admin/settings/pages/slug .............................................. admin.settings.pages.slug › Backend\Settings\PageController@slug
+  GET|HEAD        admin/settings/pages/{page} ............................................ admin.settings.pages.show › Backend\Settings\PageController@show
+  PUT|PATCH       admin/settings/pages/{page} ........................................ admin.settings.pages.update › Backend\Settings\PageController@update
+  DELETE          admin/settings/pages/{page} ...................................... admin.settings.pages.destroy › Backend\Settings\PageController@destroy
+  GET|HEAD        admin/settings/pages/{page}/edit ....................................... admin.settings.pages.edit › Backend\Settings\PageController@edit
+  GET|HEAD        admin/settings/seo ...................................................... admin.settings.seo.index › Backend\Settings\SeoController@index
+  POST            admin/settings/seo ...................................................... admin.settings.seo.store › Backend\Settings\SeoController@store
+  GET|HEAD        admin/settings/seo/create ............................................. admin.settings.seo.create › Backend\Settings\SeoController@create
+  GET|HEAD        admin/settings/seo/{seo} .................................................. admin.settings.seo.show › Backend\Settings\SeoController@show
+  PUT|PATCH       admin/settings/seo/{seo} .............................................. admin.settings.seo.update › Backend\Settings\SeoController@update
+  DELETE          admin/settings/seo/{seo} ............................................ admin.settings.seo.destroy › Backend\Settings\SeoController@destroy
+  GET|HEAD        admin/settings/seo/{seo}/edit ............................................. admin.settings.seo.edit › Backend\Settings\SeoController@edit
+  GET|HEAD        admin/settings/smtp ................................................... admin.settings.smtp.index › Backend\Settings\SmtpController@index
+  POST            admin/settings/smtp/test ................................................ admin.settings.smtp.test › Backend\Settings\SmtpController@test
+  POST            admin/settings/smtp/update .......................................... admin.settings.smtp.update › Backend\Settings\SmtpController@update
+  GET|HEAD        admin/settings/taxes .................................................. admin.settings.taxes.index › Backend\Settings\TaxController@index
+  POST            admin/settings/taxes .................................................. admin.settings.taxes.store › Backend\Settings\TaxController@store
+  GET|HEAD        admin/settings/taxes/create ......................................... admin.settings.taxes.create › Backend\Settings\TaxController@create
+  GET|HEAD        admin/settings/taxes/{tax} .............................................. admin.settings.taxes.show › Backend\Settings\TaxController@show
+  PUT|PATCH       admin/settings/taxes/{tax} .......................................... admin.settings.taxes.update › Backend\Settings\TaxController@update
+  DELETE          admin/settings/taxes/{tax} ........................................ admin.settings.taxes.destroy › Backend\Settings\TaxController@destroy
+  GET|HEAD        admin/settings/taxes/{tax}/edit ......................................... admin.settings.taxes.edit › Backend\Settings\TaxController@edit
+  GET|HEAD        admin/subscriptions .................................................... admin.subscriptions.index › Backend\SubscriptionController@index
+  POST            admin/subscriptions .................................................... admin.subscriptions.store › Backend\SubscriptionController@store
+  GET|HEAD        admin/subscriptions/create ........................................... admin.subscriptions.create › Backend\SubscriptionController@create
+  GET|HEAD        admin/subscriptions/{subscription} ....................................... admin.subscriptions.show › Backend\SubscriptionController@show
+  PUT|PATCH       admin/subscriptions/{subscription} ................................... admin.subscriptions.update › Backend\SubscriptionController@update
+  DELETE          admin/subscriptions/{subscription} ................................. admin.subscriptions.destroy › Backend\SubscriptionController@destroy
+  GET|HEAD        admin/subscriptions/{subscription}/edit .................................. admin.subscriptions.edit › Backend\SubscriptionController@edit
+  GET|HEAD        admin/transactions ....................................................... admin.transactions.index › Backend\TransactionController@index
+  POST            admin/transactions ....................................................... admin.transactions.store › Backend\TransactionController@store
+  GET|HEAD        admin/transactions/create .............................................. admin.transactions.create › Backend\TransactionController@create
+  GET|HEAD        admin/transactions/{transaction} ........................................... admin.transactions.show › Backend\TransactionController@show
+  PUT|PATCH       admin/transactions/{transaction} ....................................... admin.transactions.update › Backend\TransactionController@update
+  DELETE          admin/transactions/{transaction} ..................................... admin.transactions.destroy › Backend\TransactionController@destroy
+  GET|HEAD        admin/transactions/{transaction}/edit ...................................... admin.transactions.edit › Backend\TransactionController@edit
+  GET|HEAD        admin/users ............................................................................ admin.users.index › Backend\UserController@index
+  POST            admin/users ............................................................................ admin.users.store › Backend\UserController@store
+  POST            admin/users/ajax ......................................................................... admin.users. › Backend\UserController@ajaxData
+  GET|HEAD        admin/users/create ................................................................... admin.users.create › Backend\UserController@create
+  GET|HEAD        admin/users/logs/{ip} ............................................................ admin.users.logsbyip › Backend\UserController@logsByIp
+  GET|HEAD        admin/users/{user} ....................................................................... admin.users.show › Backend\UserController@show
+  PUT|PATCH       admin/users/{user} ................................................................... admin.users.update › Backend\UserController@update
+  DELETE          admin/users/{user} ................................................................. admin.users.destroy › Backend\UserController@destroy
+  GET|HEAD        admin/users/{user}/edit .................................................................. admin.users.edit › Backend\UserController@edit
+  POST            admin/users/{user}/edit/change/avatar ................................................ admin.users. › Backend\UserController@changeAvatar
+  DELETE          admin/users/{user}/edit/delete/avatar .................................... admin.users.deleteAvatar › Backend\UserController@deleteAvatar
+  GET|HEAD        admin/users/{user}/edit/logs ............................................................. admin.users.logs › Backend\UserController@logs
+  GET|HEAD        admin/users/{user}/edit/logs/get/{userLog} ................................................ admin.users. › Backend\UserController@getLogs
+  POST            admin/users/{user}/edit/sentmail ................................................. admin.users.sendmail › Backend\UserController@sendMail
+  GET|HEAD        api/documentation ....................................................... l5-swagger.default.api › L5Swagger\Http › SwaggerController@api
+  GET|HEAD        api/oauth2-callback .............................. l5-swagger.default.oauth2_callback › L5Swagger\Http › SwaggerController@oauth2Callback
+  GET|HEAD        api/user ................................................................................................................................ 
+  POST            api/v1/auth/forgot-password .................................................................... api. › Api\AuthController@forgotPassword
+  POST            api/v1/auth/login .................................................................................. api.login › Api\AuthController@login
+  POST            api/v1/auth/register ......................................................................... api.register › Api\AuthController@register
+  POST            api/v1/auth/resend-code ............................................................................ api. › Api\AuthController@resendCode
+  POST            api/v1/auth/reset-password ........................................................ api.reset-password › Api\AuthController@resetPassword
+  POST            api/v1/auth/update-password ..................................................... api.update-password › Api\AuthController@updatePassword
+  POST            api/v1/auth/verify ............................................................................... api.verify › Api\AuthController@verify
+  POST            api/v1/create-log ........................................................................ api.create-logs › Api\AuthController@createLog
+  GET|HEAD        api/v1/history .......................................................................... api.history › Api\AuthController@paymentHistory
+  GET|HEAD        api/v1/listLogs .............................................................................. api.list-log › Api\AuthController@listLogs
+  GET|HEAD        api/v1/log ...................................................................................... api.insert-log › Api\AuthController@log
+  GET|HEAD        api/v1/plans ............................................................................... api.plans › Api\SubscriptionController@plans
+  GET|HEAD        api/v1/profiles ............................................................................... api.profiles › Api\AuthController@profile
+  POST            api/v1/profiles ................................................................... api.update-profile › Api\AuthController@updateProfile
+  POST            api/v1/server ........................................................................... api.server.servers › Api\ServerController@index
+  GET|HEAD        api/v1/server/connect/{server} ................................................. api.server.server-connect › Api\ServerController@connect
+  GET|HEAD        api/v1/server/create ....................................................... api.server.server-create › Api\ServerController@createClient
+  GET|HEAD        api/v1/server/random ............................................................. api.server.server-random › Api\ServerController@random
+  POST            api/v1/update-subscription ........................... api.update-subscription › Api\SubscriptionController@validateAndUpdateSubscription
+  DELETE          api/v1/userLogs/{ip} .................................................................... api.delete-logs › Api\AuthController@deleteLogs
+  DELETE          api/v1/users/{id} ........................................................................ api.delete-profile › Api\AuthController@delete
+  POST            api/v1/validate-receipt ............................................................ api. › Api\ValidateReceiptController@validateReceipt
+  GET|HEAD        blog ......................................................................................... blog.index › Frontend\BlogController@index
+  GET|HEAD        blog/articles .................................................................................. blog. › Frontend\BlogController@articles
+  GET|HEAD        blog/articles/{slug} ............................................................................ blog. › Frontend\BlogController@article
+  POST            blog/articles/{slug} ..................................................................... blog.article › Frontend\BlogController@comment
+  GET|HEAD        blog/categories .................................................................... blog.categories › Frontend\BlogController@categories
+  GET|HEAD        blog/categories/{slug} ................................................................. blog.category › Frontend\BlogController@category
+  GET|HEAD        checkpoint/2fa/verify ................................................. 2fa.verify › Frontend\Auth\CheckpointController@show2FaVerifyForm
+  POST            checkpoint/2fa/verify ...................................................................... Frontend\Auth\CheckpointController@verify2fa
+  GET|HEAD        contact-us ............................................................................................ Frontend\GlobalController@contact
+  POST            contact-us .............................................................................. contact › Frontend\GlobalController@contactSend
+  GET|HEAD        cookie/accept ........................................................................................... Frontend\ExtraController@cookie
+  GET|HEAD        docs/asset/{asset} ............................................. l5-swagger.default.asset › L5Swagger\Http › SwaggerAssetController@index
+  GET|HEAD        docs/{jsonFile?} ...................................................... l5-swagger.default.docs › L5Swagger\Http › SwaggerController@docs
+  POST            email/resend .......................................................... verification.resend › Frontend\Auth\VerificationController@resend
+  GET|HEAD        email/verify ............................................................ verification.notice › Frontend\Auth\VerificationController@show
+  POST            email/verify/email/change ............................................... change.email › Frontend\Auth\VerificationController@changeEmail
+  GET|HEAD        email/verify/{id}/{hash} .............................................. verification.verify › Frontend\Auth\VerificationController@verify
+  GET|HEAD        faqs .............................................................................................. faqs › Frontend\GlobalController@faqs
+  GET|HEAD        features .................................................................................. features › Frontend\GlobalController@features
+  GET|HEAD        ipn/mollie .......................................................................... ipn.mollie › Frontend\Gateways\MollieController@ipn
+  GET|HEAD        ipn/paypal_express ................................................... ipn.paypal_express › Frontend\Gateways\PaypalExpressController@ipn
+  POST            ipn/razorpay .................................................................... ipn.razorpay › Frontend\Gateways\RazorpayController@ipn
+  GET|HEAD        ipn/stripe_checkout ................................................ ipn.stripe_checkout › Frontend\Gateways\StripeCheckoutController@ipn
+  POST            liap/notifications .......................................... liap.serverNotifications › Imdhemy\Purchases › ServerNotificationController
+  GET|HEAD        login ............................................................................... login › Frontend\Auth\LoginController@showLoginForm
+  POST            login ............................................................................................... Frontend\Auth\LoginController@login
+  GET|HEAD        login/{provider} ...................................................... provider.login › Frontend\Auth\LoginController@redirectToProvider
+  GET|HEAD        login/{provider}/callback ...................................... provider.callback › Frontend\Auth\LoginController@handleProviderCallback
+  POST            logout .................................................................................... logout › Frontend\Auth\LoginController@logout
+  POST            password/email ............................................... password.email › Frontend\Auth\ForgotPasswordController@sendResetLinkEmail
+  GET|HEAD        password/reset ............................................ password.request › Frontend\Auth\ForgotPasswordController@showLinkRequestForm
+  POST            password/reset ............................................................ password.update › Frontend\Auth\ResetPasswordController@reset
+  GET|HEAD        password/reset/{token} ............................................. password.reset › Frontend\Auth\ResetPasswordController@showResetForm
+  GET|HEAD        popup/close .............................................................................................. Frontend\ExtraController@popup
+  GET|HEAD        pricing ..................................................................................... pricing › Frontend\GlobalController@pricing
+  POST            pricing/{id}/{type} .................................................................. subscribe › Frontend\SubscribeController@subscribe
+  GET|HEAD        register ............................................................... register › Frontend\Auth\RegisterController@showRegistrationForm
+  POST            register ...................................................................................... Frontend\Auth\RegisterController@register
+  GET|HEAD        register/complete/{token} ..................................... complete.registration › Frontend\Auth\RegisterController@showCompleteForm
+  POST            register/complete/{token} ..................................................................... Frontend\Auth\RegisterController@complete
+  GET|HEAD        sanctum/csrf-cookie ......................................................................... Laravel\Sanctum › CsrfCookieController@show
+  GET|HEAD        user .................................................................................................................................... 
+  GET|HEAD        user/checkout/{checkout_id} ..................................................... checkout.index › Frontend\User\CheckoutController@index
+  POST            user/checkout/{checkout_id}/coupon/apply ........................... checkout.coupon.apply › Frontend\User\CheckoutController@applyCoupon
+  POST            user/checkout/{checkout_id}/coupon/remove ........................ checkout.coupon.remove › Frontend\User\CheckoutController@removeCoupon
+  POST            user/checkout/{checkout_id}/proccess ...................................... checkout.proccess › Frontend\User\CheckoutController@proccess
+  GET|HEAD        user/settings .............................................................. user.settings.index › Frontend\User\SettingsController@index
+  GET|HEAD        user/settings/2fa ........................................................ user.settings.2fa › Frontend\User\SettingsController@towFactor
+  POST            user/settings/2fa/disabled ................................ user.settings.2fa.disable › Frontend\User\SettingsController@towFactorDisable
+  POST            user/settings/2fa/enable .................................... user.settings.2fa.enable › Frontend\User\SettingsController@towFactorEnable
+  POST            user/settings/details/update .............................. user.settings.details.update › Frontend\User\SettingsController@detailsUpdate
+  GET|HEAD        user/settings/password ............................................... user.settings.password › Frontend\User\SettingsController@password
+  POST            user/settings/password/update ........................... user.settings.password.update › Frontend\User\SettingsController@passwordUpdate
+  GET|HEAD        user/settings/payment-history ........................... user.settings.payment-history › Frontend\User\SettingsController@paymentHistory
+  GET|HEAD        user/settings/subscription ................................... user.settings.subscription › Frontend\User\SettingsController@subscription
+  GET|HEAD        {lang} .............................................................................. localize › Frontend\LocalizationController@localize
+  GET|HEAD        {slug} ............................................................................................ page › Frontend\GlobalController@page
+
+                                                                                                                                       Showing [270] routes
+
