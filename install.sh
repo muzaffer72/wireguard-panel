@@ -71,7 +71,7 @@ rm composer-setup.php
 # Clone the WireGuard Panel repository
 echo "Cloning WireGuard Panel repository..."
 cd /var/www
-sudo git clone https://github.com/Caqil/wireguard-panel.git wireguard-panel
+sudo git clone https://github.com/muzaffer72/wireguard-panel.git wireguard-panel
 
 # Set permissions for the WireGuard Panel directory
 echo "Setting permissions for WireGuard Panel directory..."
