@@ -153,7 +153,7 @@ php artisan migrate:fresh --seed
 
 # Configure Laravel worker with Supervisor
 echo "Configuring Laravel worker with Supervisor..."
-sudo curl -o /etc/supervisor/conf.d/laravel-worker.conf https://raw.githubusercontent.com/Caqil/wireguard-panel/master/laravel-worker.conf
+sudo curl -o /etc/supervisor/conf.d/laravel-worker.conf https://raw.githubusercontent.com/muzaffer72/wireguard-panel/master/laravel-worker.conf
 sudo chmod 644 /etc/supervisor/conf.d/laravel-worker.conf
 
 # Check contents of laravel-worker.conf
